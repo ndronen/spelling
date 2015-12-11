@@ -4,6 +4,7 @@ import progressbar
 import pandas as pd
 import spelling.features 
 from spelling.dictionary import Enchant, Norvig, EnchantWithLanguageModel
+from spelling.dictionary import NORVIG_DATA_PATH
 
 def load_mitton_words(path):
     with open(path) as f:
@@ -32,7 +33,7 @@ def build_errors_correction_pairs(words):
 
     return pairs
 
-def build_dictionary(constructor, lang='en_US', train_path='big.txt'):
+def build_dictionary(constructor, lang='en_US', train_path=NORVIG_DATA_PATH):
     return constructor(lang, train_path)
 
 def build_progressbar(items):
