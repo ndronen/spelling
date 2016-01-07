@@ -7,6 +7,19 @@ import gzip
 
 NORVIG_DATA_PATH='data/big.txt.gz'
 
+class Enchant(object):
+    def __init__(self, lang='en_US', train_path=None):
+        self.dictionary = enchant.Dict(lang)
+
+    def check(self, word):
+        return self.dictionary.check(word)
+
+    def suggest(self, word):
+        return self.dictionary.suggest(word)
+
+    def correct(self, word):
+        return self.suggest(word)[0]
+
 class Norvig(object):
     """
     Adapted from http://norvig.com/spell-correct.html
@@ -48,18 +61,16 @@ class Norvig(object):
         candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
         return max(candidates, key=self.nwords.get)
 
-class Enchant(object):
-    def __init__(self, lang='en_US', train_path=None):
-        self.dictionary = enchant.Dict(lang)
-
-    def check(self, word):
-        return self.dictionary.check(word)
-
-    def suggest(self, word):
-        return self.dictionary.suggest(word)
-
-    def correct(self, word):
-        return self.suggest(word)[0]
+class NorvigWithoutLanguageModel(Norvig):
+    def train(self, features):
+        """
+        Make the frequency of all words the same, so corrections are
+        sorted only by edit distance.
+        """
+        model = collections.defaultdict(lambda: 1)
+        for f in features:
+            model[f] = 1
+        return model
 
 class EnchantWithLanguageModel(Norvig):
     def __init__(self, lang='en_US', train_path=NORVIG_DATA_PATH):
@@ -76,3 +87,4 @@ class EnchantWithLanguageModel(Norvig):
     def correct(self, word):
         suggestions = self.suggest(word)
         return max(suggestions, key=self.nwords.get)
+
