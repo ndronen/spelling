@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import sys
+import argparse
+import json
+import requests
+import numpy as np
+
+def main(args):
+    text = args.text.read()
+    body = {
+            'sent-split': False, 'sent-start': False,
+            'sent-end': False, 'case-sensitive': True,
+            'text': text
+            }
+    response = requests.post(args.url, data=json.dumps(body))
+
+    def print_http_error(response):
+        print("HTTP error %d %s %s" % (
+            response.status_code,
+            response.reason,
+            response.text), file=sys.stderr)
+
+    def print_service_error(response):
+        print("Service error %s" % (
+            response.text), file=sys.stderr)
+
+    if response.status_code != 200:
+        print_http_error(response)
+    else:
+        response = response.json()
+        if "error" not in response:
+            print_service_error(response)
+        elif response["error"] is True:
+            print_service_error(response)
+        else:
+            probability = np.exp(response['probability'])
+        print(probability)
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+            description="Get the Google N-Gram log probability for a text")
+    aa = parser.add_argument
+    aa("--text", type=argparse.FileType("r"), default=sys.stdin,
+            help="The input file (or stdin)")
+    aa("--url", type=str,
+            default="http://grammar5qa.linguisticanxiety.com/pkt-aggregator/Service/ngram",
+            help="The URL of the Grammar N-gram service")
+    args = parser.parse_args()
+
+    return args
+
+if __name__ == "__main__":
+    sys.exit(main(build_parser()) == True)
