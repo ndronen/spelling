@@ -1,1 +1,4 @@
 pyenchant
+progressbar
+python-Levenshtein
+fuzzy
