@@ -14,7 +14,8 @@ def main(args):
             'sent-end': False, 'case-sensitive': True,
             'text': text
             }
-    response = requests.post(args.url, data=json.dumps(body))
+    url = args.host + args.url
+    response = requests.post(url, data=json.dumps(body))
 
     def print_http_error(response):
         print("HTTP error %d %s %s" % (
@@ -45,8 +46,11 @@ def build_parser():
     aa("--text", type=argparse.FileType("r"), default=sys.stdin,
             help="The input file (or stdin)")
     aa("--url", type=str,
-            default="http://grammar5qa.linguisticanxiety.com/pkt-aggregator/Service/ngram",
-            help="The URL of the Grammar N-gram service")
+            default="/pkt-aggregator/Service/ngram",
+            help="The path component of the URL of the N-gram service")
+    aa("--host", type=str,
+            help="The URL of the N-gram service")
+
     args = parser.parse_args()
 
     return args
