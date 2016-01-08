@@ -48,7 +48,7 @@ def build_parser():
     aa("--url", type=str,
             default="/pkt-aggregator/Service/ngram",
             help="The path component of the URL of the N-gram service")
-    aa("--host", type=str,
+    aa("--host", type=str, 
             help="The URL of the N-gram service")
 
     args = parser.parse_args()

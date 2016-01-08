@@ -1,6 +1,9 @@
+from __future__ import absolute_import
+
 import Levenshtein
 import fuzzy
 import string
+from .typodistance import typo_distance
 
 VOWELS = 'aeiou'
 CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
@@ -10,17 +13,32 @@ Compute levenshtein distance between two words.
 
 Parameters
 ----------
-w1 : str
+word1 : str
     The first of the two words.
-w2 : str
+word2 : str
     The second of the two words.
 
 Returns
 distance : int
-    The Levenshtein distance between `w1` and `w2`.
+    The Levenshtein distance between `word1` and `word2`.
 """
-def levenshtein(word1, word2):
+def levenshtein_distance(word1, word2):
     return Levenshtein.distance(word1, word2)
+
+"""
+Parameters
+----------
+word1 : str
+    The first of the two words.
+word2  : str
+    The second of the two words.
+
+Returns
+distance : float
+    The keyboard distance between `word1` and `word2`.
+"""
+def keyboard_distance(word1, word2):
+    return typo_distance(word1, word1)
 
 """
 Compute SOUNDEX of a word.
