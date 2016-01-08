@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 import collections
 import enchant
 import progressbar
@@ -5,6 +7,8 @@ import pandas as pd
 import spelling.features 
 from spelling.dictionary import Enchant, Norvig, EnchantWithLanguageModel
 from spelling.dictionary import NORVIG_DATA_PATH
+
+from .utils import build_progressbar
 
 def load_mitton_words(path):
     with open(path) as f:
