@@ -17,6 +17,10 @@ class Job(object):
 
 class DistanceToNearestStem(Job):
     """
+    TODO: add post-processing step to compute edit distance to nearest
+    word in dictionary by brute force for those words that get a default
+    edit distance of 100.
+
     >>> import codecs
     >>> from spelling.features import levenshtein_distance as dist
     >>> from spelling.jobs import DistanceToNearestStem
