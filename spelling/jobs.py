@@ -4,7 +4,7 @@ import re
 import pandas as pd
 from nltk.stem import SnowballStemmer
 
-from spelling.dictionary import Enchant
+from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 
 class Job(object):
@@ -17,9 +17,14 @@ class Job(object):
 
 class DistanceToNearestStem(Job):
     """
-    TODO: document.
+    >>> import codecs
+    >>> from spelling.features import levenshtein_distance as dist
+    >>> from spelling.jobs import DistanceToNearestStem
+    >>> df = pd.read_csv('data/aspell-dict.csv.gz', sep='\t')
+    >>> job = DistanceToNearestStem()
+    >>> df = job.run(df.word, dist)
     """
-    def run(self, words=None, distance=None, dictionary=Enchant()):
+    def run(self, words=None, distance=None, dictionary=Aspell()):
         """
         words : list
             The words for which to find 
