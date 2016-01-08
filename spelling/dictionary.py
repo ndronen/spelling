@@ -4,10 +4,12 @@ import operator
 import enchant
 import Levenshtein 
 import gzip
+import pandas as pd
 
 NORVIG_DATA_PATH='data/big.txt.gz'
+ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
 
-class Enchant(object):
+class Aspell(object):
     def __init__(self, lang='en_US', train_path=None):
         self.dictionary = enchant.Dict(lang)
 
@@ -25,7 +27,7 @@ class Norvig(object):
     Adapted from http://norvig.com/spell-correct.html
     """
     def __init__(self, lang=None, train_path=NORVIG_DATA_PATH):
-        self.nwords = self.train(self.words(gzip.open(train_path).read()))
+        self.model = self.train(self.words(gzip.open(train_path).read()))
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
     def words(self, text): return re.findall('[a-z]+', text.lower()) 
@@ -45,23 +47,23 @@ class Norvig(object):
         return set(deletes + transposes + replaces + inserts)
 
     def known_edits2(self, word):
-        return set(e2 for e1 in self.edits1(word) for e2 in self.edits1(e1) if e2 in self.nwords)
+        return set(e2 for e1 in self.edits1(word) for e2 in self.edits1(e1) if e2 in self.model)
 
     def known(self, words):
-        return set(w for w in words if w in self.nwords)
+        return set(w for w in words if w in self.model)
 
     def check(self, word):
-        return word in self.nwords
+        return word in self.model
 
     def suggest(self, word):
         candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-        return sorted(candidates, key=self.nwords.get, reverse=True)
+        return sorted(candidates, key=self.model.get, reverse=True)
 
     def correct(self, word):
         candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-        return max(candidates, key=self.nwords.get)
+        return max(candidates, key=self.model.get)
 
-class NorvigWithoutLanguageModel(Norvig):
+class NorvigWithoutNorvigLanguageModel(Norvig):
     def train(self, features):
         """
         Make the frequency of all words the same, so corrections are
@@ -72,9 +74,15 @@ class NorvigWithoutLanguageModel(Norvig):
             model[f] = 1
         return model
 
-class EnchantWithLanguageModel(Norvig):
+class NorvigWithAspellDictGoogleLanguageModel(Norvig):
+    def __init__(self, lang=None, train_path=ASPELL_DATA_PATH):
+        df = pd.read_csv(train_path, sep='\t')
+        self.model = dict(zip(df.word, df.google_ngram_prob))
+        self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+class AspellWithNorvigLanguageModel(Norvig):
     def __init__(self, lang='en_US', train_path=NORVIG_DATA_PATH):
-        super(EnchantWithLanguageModel, self).__init__(train_path)
+        super(AspellWithNorvigLanguageModel, self).__init__(train_path)
         self.dictionary = enchant.Dict(lang)
 
     def check(self, word):
@@ -82,9 +90,9 @@ class EnchantWithLanguageModel(Norvig):
 
     def suggest(self, word):
         suggestions = self.dictionary.suggest(word)
-        return sorted(suggestions, key=lambda s: (Levenshtein.distance(s, word), -self.nwords[s]))
+        return sorted(suggestions, key=lambda s: (Levenshtein.distance(s, word), -self.model[s]))
 
     def correct(self, word):
         suggestions = self.suggest(word)
-        return max(suggestions, key=self.nwords.get)
+        return max(suggestions, key=self.model.get)
 

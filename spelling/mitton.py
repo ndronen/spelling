@@ -3,7 +3,10 @@ import enchant
 import progressbar
 import pandas as pd
 import spelling.features 
-from spelling.dictionary import Enchant, Norvig, EnchantWithLanguageModel
+from spelling.dictionary import (Enchant, Norvig, 
+        EnchantWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel,
+        NorvigWithAspellDictGoogleLanguageModel)
+
 from spelling.dictionary import NORVIG_DATA_PATH
 
 def load_mitton_words(path):
@@ -33,8 +36,8 @@ def build_errors_correction_pairs(words):
 
     return pairs
 
-def build_dictionary(constructor, lang='en_US', train_path=NORVIG_DATA_PATH):
-    return constructor(lang, train_path)
+def build_dictionary(constructor, lang='en_US'):
+    return constructor(lang)
 
 def build_progressbar(items):
     return progressbar.ProgressBar(term_width=40,
@@ -60,7 +63,8 @@ def build_dataset(pairs, dictionary):
         except ValueError:
             correct_words_dsugs_index = -1
 
-        corwd_dist = spelling.features.levenshtein(error, correct_word)
+        corwd_ldist = spelling.features.levenshtein_distance(error, correct_word)
+        corwd_kdist = spelling.features.keyboard_distance(error, correct_word)
         corwd_se = spelling.features.soundex_equal(error, correct_word)
         corwd_me = spelling.features.metaphone_equal(error, correct_word)
 
@@ -78,11 +82,13 @@ def build_dataset(pairs, dictionary):
                 'correct_word_dsugs_index': correct_words_dsugs_index,
                 'n_dsugs': n_dsugs,
 
-                'corwd_dist': corwd_dist,
+                'corwd_ldist': corwd_ldist,
+                'corwd_kdist': corwd_kdist,
                 'corwd_se': corwd_se,
                 'corwd_me': corwd_me,
 
-                'dsug_dist': spelling.features.levenshtein(error, dsug),
+                'dsug_ldist': spelling.features.levenshtein_distance(error, dsug),
+                'dsug_kdist': spelling.features.keyboard_distance(error, dsug),
                 'dsug_se': spelling.features.soundex_equal(error, dsug),
                 'dsug_me': spelling.features.metaphone_equal(error, dsug),
 
@@ -102,6 +108,8 @@ def build_dataset(pairs, dictionary):
                 'dsug_lm_log_prob': 0.
                 })
 
+    pbar.finish()
+
     df = pd.DataFrame(dataset)
 
     cols = [
@@ -116,11 +124,13 @@ def build_dataset(pairs, dictionary):
             'correct_word_in_dsugs',
             'correct_word_dsugs_index',
 
-            'corwd_dist',
+            'corwd_ldist',
+            'corwd_kdist',
             'corwd_se',
             'corwd_me',
 
-            'dsug_dist',
+            'dsug_ldist',
+            'dsug_kdist',
             'dsug_se',
             'dsug_me',
 
@@ -142,7 +152,7 @@ def build_dataset(pairs, dictionary):
 
     return df[cols]
 
-def run(path, constructors=[Enchant, Norvig, EnchantWithLanguageModel]):
+def run(path, constructors=[Enchant, Norvig, EnchantWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel, NorvigWithAspellDictGoogleLanguageModel]):
     mitton_words = load_mitton_words(path)
     pairs = build_errors_correction_pairs(mitton_words)
     datasets = {}
@@ -152,7 +162,7 @@ def run(path, constructors=[Enchant, Norvig, EnchantWithLanguageModel]):
         datasets[constructor.__name__] = dataset
     return datasets
 
-def evaluate(dfs, verbose=False):
+def evaluate(dfs, ranks=[0, 1, 2, 3, 4, 9, 24, 49], verbose=False):
     dict_names = sorted(dfs.keys())
 
     all_words = set()
@@ -174,7 +184,6 @@ def evaluate(dfs, verbose=False):
         print('words %d' % len(all_words))
         print('common words %d' % len(common_words))
 
-    ranks = [0, 1, 2, 3, 4, 9, 24, 49]
     accuracies = collections.defaultdict(list)
 
     for dict_name in dict_names:
