@@ -1,14 +1,24 @@
 import operator
 import progressbar
-from nltk.stem import PorterStemmer
+import re
+import pandas as pd
+from nltk.stem import SnowballStemmer
+
 from spelling.dictionary import Enchant
 from spelling.utils import build_progressbar
 
 class Job(object):
+    """
+    TODO: change API so constructor takes kwargs and run() takes no
+    arguments.
+    """
     def run(self, **kwargs):
         raise NotImplementedError()
 
 class DistanceToNearestStem(Job):
+    """
+    TODO: document.
+    """
     def run(self, words=None, distance=None, dictionary=Enchant()):
         """
         words : list
@@ -35,7 +45,7 @@ class DistanceToNearestStem(Job):
         return pd.DataFrame(data=nearest,
             columns=['word', 'suggestion', 'distance'])
 
-    def suggest(self, word, dictionary, stemmer=PorterStemmer()):
+    def suggest(self, word, dictionary, stemmer=SnowballStemmer("english")):
         """
         Get suggested replacements for a given word from a dictionary.
         Remove words that have the same stem or are otherwise too similar.
@@ -43,9 +53,15 @@ class DistanceToNearestStem(Job):
         stemmed_word = stemmer.stem(word)
         suggestions = []
         for suggestion in dictionary.suggest(word):
+            if suggestion == word:
+                continue
+
             if stemmer.stem(suggestion) == stemmed_word:
                 continue
-            # Will need to handle some cases here that Porter misses.
+
+            if ' ' in suggestion or '-' in suggestion:
+                # Ignore two-word and hyphenated suggestions.
+                continue
+
             suggestions.append(suggestion)
         return suggestions
-
