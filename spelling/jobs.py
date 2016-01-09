@@ -17,11 +17,25 @@ class Job(object):
 
 class KeyboardDistanceCorpus(Job):
     """
-    >> import codecs
-    >> from spelling.jobs import KeyboardDistanceCorpus
-    >> df = pd.read_csv('data/aspell-dict.csv.gz', sep='\t', encoding='utf8')
-    >> job = KeyboardDistanceCorpus(words=df.word)
-    >> corpus_df = job.run()
+    >>> import codecs
+    >>> import pandas as pd
+    >>> import spelling.mitton
+    >>> from spelling.jobs import KeyboardDistanceCorpus
+    >>> 
+    >>> corpora = [
+    >>>         'data/aspell.dat', 'data/birbeck.dat',
+    >>>         'data/holbrook-missp.dat', 'data/norvig.dat',
+    >>>         'data/wikipedia.dat'
+    >>>     ]
+    >>> vocabulary = []
+    >>> for corpus in corpora:
+    >>>     words = spelling.mitton.load_mitton_words(corpus)
+    >>>     words = [w[1:] for w in words if w.startswith('$')]
+    >>>     vocabulary.extend(words)
+    >>> job = KeyboardDistanceCorpus(words=vocabulary, distances=[1, 2])
+    >>> corpus_df = job.run()
+    >>> corpus_df.to_csv('/tmp/aspell-dict-distances.csv',
+    >>>     index=False, sep='\t', encoding='utf8')
     """
     def __init__(self, words=None, distances=[1]):
         self.__dict__.update(locals())
