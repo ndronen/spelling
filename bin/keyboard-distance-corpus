@@ -2,7 +2,12 @@
 
 from __future__ import print_function
 
+import inspect
+path = inspect.getfile(inspect.currentframe())
+from os.path import dirname, split
 import sys
+sys.path.append(dirname(split(path)[0]))
+
 import argparse
 import codecs
 import pandas as pd
