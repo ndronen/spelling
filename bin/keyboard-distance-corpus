@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import sys
+import argparse
+import codecs
+import pandas as pd
+
+import spelling.mitton
+from spelling.jobs import KeyboardDistanceCorpus
+
+corpora = [
+        'data/aspell.dat', 'data/birbeck.dat',
+        'data/holbrook-missp.dat', 'data/norvig.dat',
+        'data/wikipedia.dat'
+        ]
+
+def main(args):
+    vocabulary = []
+    for corpus in corpora:
+        words = spelling.mitton.load_mitton_words(corpus)
+        words = [w[1:] for w in words if w.startswith('$')]
+        vocabulary.extend(words)
+    job = KeyboardDistanceCorpus(words=vocabulary, distances=args.distances)
+    corpus_df = job.run()
+    corpus_df.to_csv(args.output_csv,
+            index=False, sep='\t',
+            encoding='utf8')
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+        description='build the keyboard distance error corpus')
+    parser.add_argument(
+        'output_csv', metavar='OUTPUT_CSV', type=str,
+        help='CSV file to which to write the corpus')
+    parser.add_argument(
+        '--distances', default=[1,2], type=int, nargs='+',
+        help='the keyboard distances to use when generating corpus')
+    return parser.parse_args()
+
+if __name__ == "__main__":
+    sys.exit(main(build_parser()))

@@ -51,11 +51,11 @@ class KeyboardDistanceCorpus(Job):
                 typos = [t for t in typo_generator(word, d)]
                 n += len(set(typos))
                 for typo in typos:
-                    corpus.append((word,typo))
+                    corpus.append((word,typo,d))
         pbar.finish()
         print("generated %d errors for %d words" %
                 (len(corpus), len(self.words)))
-        return pd.DataFrame(data=corpus, columns=['word', 'typo'])
+        return pd.DataFrame(data=corpus, columns=['word', 'typo', 'distance'])
 
 class DistanceToNearestStem(Job):
     """
