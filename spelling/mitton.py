@@ -5,8 +5,8 @@ import enchant
 import progressbar
 import pandas as pd
 import spelling.features 
-from spelling.dictionary import (Enchant, Norvig, 
-        EnchantWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel,
+from spelling.dictionary import (Aspell, Norvig, 
+        AspellWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel,
         NorvigWithAspellDictGoogleLanguageModel)
 
 from spelling.dictionary import NORVIG_DATA_PATH
@@ -156,7 +156,7 @@ def build_dataset(pairs, dictionary):
 
     return df[cols]
 
-def run(path, constructors=[Enchant, Norvig, EnchantWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel, NorvigWithAspellDictGoogleLanguageModel]):
+def run(path, constructors=[Aspell, Norvig, AspellWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel, NorvigWithAspellDictGoogleLanguageModel]):
     mitton_words = load_mitton_words(path)
     pairs = build_errors_correction_pairs(mitton_words)
     datasets = {}
