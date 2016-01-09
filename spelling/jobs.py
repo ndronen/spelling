@@ -6,25 +6,60 @@ from nltk.stem import SnowballStemmer
 
 from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
+from spelling.typodistance import typo_generator
 
 class Job(object):
-    """
-    TODO: change API so constructor takes kwargs and run() takes no
-    arguments.
-    """
-    def run(self, **kwargs):
+    def __init__(self, **kwargs):
+        pass
+
+    def run(self):
         raise NotImplementedError()
+
+class KeyboardDistanceCorpus(Job):
+    """
+    >> import codecs
+    >> from spelling.jobs import KeyboardDistanceCorpus
+    >> df = pd.read_csv('data/aspell-dict.csv.gz', sep='\t', encoding='utf8')
+    >> job = KeyboardDistanceCorpus(words=df.word)
+    >> corpus_df = job.run()
+    """
+    def __init__(self, words=None, distances=[1]):
+        self.__dict__.update(locals())
+        del self.self
+
+    def run(self):
+        corpus = []
+        pbar = build_progressbar(self.words)
+        n = 0
+        for i,word in enumerate(self.words):
+            pbar.update(i+1)
+            for d in self.distances:
+                typos = [t for t in typo_generator(word, d)]
+                n += len(set(typos))
+                for typo in typos:
+                    corpus.append((word,typo))
+        pbar.finish()
+        print("generated %d errors for %d words" %
+                (len(corpus), len(self.words)))
+        return pd.DataFrame(data=corpus, columns=['word', 'typo'])
 
 class DistanceToNearestStem(Job):
     """
     >>> import codecs
     >>> from spelling.features import levenshtein_distance as dist
     >>> from spelling.jobs import DistanceToNearestStem
-    >>> df = pd.read_csv('data/aspell-dict.csv.gz', sep='\t')
-    >>> job = DistanceToNearestStem()
-    >>> df = job.run(df.word, dist)
+    >>> df = pd.read_csv('data/aspell-dict.csv.gz', sep='\t', encoding='utf8')
+    >>> job = DistanceToNearestStem(df.word, dist)
+    >>> df = job.run()
+    >>> df.to_csv('data/aspell-dict-distances.csv.gz',
+    >>>     index=False, sep='\t', encoding='utf8')
     """
-    def run(self, words=None, distance=None, dictionary=Aspell()):
+    def __init__(self, words=None, distance=None, dictionary=Aspell(),
+            stemmer=SnowballStemmer("english")):
+        self.__dict__.update(locals())
+        del self.self
+
+    def run(self):
         """
         words : list
             The words for which to find 
@@ -34,14 +69,14 @@ class DistanceToNearestStem(Job):
             Instance of a class in spelling.dictionary.
         """
         nearest = []
-        pbar = build_progressbar(words)
-        for i,word in enumerate(words):
+        pbar = build_progressbar(self.words)
+        for i,word in enumerate(self.words):
             pbar.update(i+1)
-            suggestions = self.suggest(word, dictionary)
+            suggestions = self.suggest(word)
             if len(suggestions) == 0:
                 nearest.append((word, "", 100))
             else:
-                distances = [(word, s, distance(word, s))
+                distances = [(word, s, self.distance(word, s))
                     for s in suggestions]
                 sorted_distances = sorted(distances,
                     key=operator.itemgetter(2))
@@ -50,18 +85,18 @@ class DistanceToNearestStem(Job):
         return pd.DataFrame(data=nearest,
             columns=['word', 'suggestion', 'distance'])
 
-    def suggest(self, word, dictionary, stemmer=SnowballStemmer("english")):
+    def suggest(self, word):
         """
         Get suggested replacements for a given word from a dictionary.
         Remove words that have the same stem or are otherwise too similar.
         """
-        stemmed_word = stemmer.stem(word)
+        stemmed_word = self.stemmer.stem(word)
         suggestions = []
-        for suggestion in dictionary.suggest(word):
+        for suggestion in self.dictionary.suggest(word):
             if suggestion == word:
                 continue
 
-            if stemmer.stem(suggestion) == stemmed_word:
+            if self.stemmer.stem(suggestion) == stemmed_word:
                 continue
 
             if ' ' in suggestion or '-' in suggestion:
