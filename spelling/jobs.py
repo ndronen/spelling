@@ -44,12 +44,12 @@ class KeyboardDistanceCorpus(Job):
     def run(self):
         corpus = []
         pbar = build_progressbar(self.words)
-        n = 0
         for i,word in enumerate(self.words):
             pbar.update(i+1)
             for d in self.distances:
-                typos = [t for t in typo_generator(word, d)]
-                n += len(set(typos))
+                # Make this a set, because typo_generator doesn't
+                # guarantee uniqueness.
+                typos = set([t for t in typo_generator(word, d)])
                 for typo in typos:
                     corpus.append((word,typo,d))
         pbar.finish()
