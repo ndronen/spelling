@@ -51,6 +51,8 @@ class KeyboardDistanceCorpus(Job):
                 # guarantee uniqueness.
                 typos = set([t for t in typo_generator(word, d)])
                 for typo in typos:
+                    if typo == word:
+                        continue
                     corpus.append((word,typo,d))
         pbar.finish()
         print("generated %d errors for %d words" %
