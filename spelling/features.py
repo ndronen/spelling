@@ -84,7 +84,7 @@ distance : float
     The keyboard distance between `word1` and `word2`.
 """
 def keyboard_distance(word1, word2):
-    return typo_distance(word1, word1)
+    return typo_distance(word1, word2)
 
 """
 Compute SOUNDEX of a word.
