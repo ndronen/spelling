@@ -4,10 +4,12 @@ import collections
 import enchant
 import progressbar
 import pandas as pd
-import spelling.features 
+from spelling.features import (suggest,
+        compute_unary_features, compute_binary_features)
 from spelling.dictionary import (Aspell, Norvig, 
-        AspellWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel,
-        NorvigWithAspellDictGoogleLanguageModel)
+        AspellWithNorvigLanguageModel, NorvigWithoutLanguageModel,
+        NorvigWithAspellDictWithoutLanguageModel,
+        NorvigWithAspellDictAndGoogleLanguageModel)
 
 from spelling.dictionary import NORVIG_DATA_PATH
 
@@ -18,7 +20,7 @@ def load_mitton_words(path):
         mitton_words = [w.strip() for w in f]
     return mitton_words
 
-def build_errors_correction_pairs(words):
+def build_mitton_pairs(words):
     correct_word = None
     pairs = []
     
@@ -52,114 +54,104 @@ def build_progressbar(items):
 def build_dataset(pairs, dictionary):
     dataset = []
     pbar = build_progressbar(pairs)
+    row = {}
     for i, (error, correct_word) in enumerate(pairs):
         pbar.update(i+1)
 
-        real_word_error = dictionary.check(error)
+        row['error'] = error
+        row['correct_word'] = correct_word
+        row['error_is_real_word'] = dictionary.check(error)
 
-        dsugs = spelling.features.suggestions(dictionary, error)
-        n_dsugs = len(dsugs)
+        # Add unary and binary features for error and the correct word.
+        for k,v in compute_unary_features(error).iteritems():
+            k = 'error_' + k
+            row[k] = v
 
-        correct_word_in_dict = dictionary.check(correct_word)
-        correct_word_in_dsugs = correct_word in dsugs
+        for k,v in compute_binary_features(error, correct_word).iteritems():
+            k = 'correct_word_' + k
+            row[k] = v
+
+        # Get the dictionary suggestions and compute unary and binary features with each suggestion.
+        suggestions = suggest(dictionary, error)
+        row['suggestion_count'] = len(suggestions)
+
+        row['correct_word_in_dict'] = dictionary.check(correct_word)
+        row['correct_word_is_in_suggestions'] = correct_word in suggestions
+
         try:
-            correct_words_dsugs_index = dsugs.index(correct_word)
+            row['correct_words_suggestions_index'] = suggestions.index(correct_word)
         except ValueError:
-            correct_words_dsugs_index = -1
+            row['correct_words_suggestions_index'] = -1
 
-        corwd_ldist = spelling.features.levenshtein_distance(error, correct_word)
-        corwd_kdist = spelling.features.keyboard_distance(error, correct_word)
-        corwd_se = spelling.features.soundex_equal(error, correct_word)
-        corwd_me = spelling.features.metaphone_equal(error, correct_word)
+        for i, suggestion in enumerate(suggestions):
+            for k,v in compute_unary_features(suggestion).iteritems():
+                k = 'suggestion_' + k
+                row[k] = v
 
-        for i, dsug in enumerate(dsugs):
-            dataset.append( {
-                'error': error,
-                'real_word_error': real_word_error,
-                'correct_word': correct_word,
-                'dsug': dsug,
-                'dsug_index': i,
-                'target': 1 if dsug == correct_word else 0,
+            for k,v in compute_binary_features(error, suggestion).iteritems():
+                k = 'suggestion_' + k
+                row[k] = v
 
-                'correct_word_in_dict': correct_word_in_dict,
-                'correct_word_in_dsugs': correct_word_in_dsugs,
-                'correct_word_dsugs_index': correct_words_dsugs_index,
-                'n_dsugs': n_dsugs,
+            row['suggestion'] = suggestion
+            row['suggestion_index'] = i
+            row['target'] = 1 if suggestion == correct_word else 0
+            row['same_first_char_error_suggestion'] = error[0] == suggestion[0]
+            row['suggestion_lm_log_prob'] = 0.
 
-                'corwd_ldist': corwd_ldist,
-                'corwd_kdist': corwd_kdist,
-                'corwd_se': corwd_se,
-                'corwd_me': corwd_me,
-
-                'dsug_ldist': spelling.features.levenshtein_distance(error, dsug),
-                'dsug_kdist': spelling.features.keyboard_distance(error, dsug),
-                'dsug_se': spelling.features.soundex_equal(error, dsug),
-                'dsug_me': spelling.features.metaphone_equal(error, dsug),
-
-                'error_char_count': spelling.features.character_count(error),
-                'error_consonant_count': spelling.features.consonant_count(error),
-                'error_vowel_count': spelling.features.vowel_count(error),
-                'error_capital_count': spelling.features.capital_count(error),
-
-                'dsug_char_count': spelling.features.character_count(dsug),
-                'dsug_consonant_count': spelling.features.consonant_count(dsug),
-                'dsug_vowel_count': spelling.features.vowel_count(dsug),
-                'dsug_capital_count': spelling.features.capital_count(dsug),
-
-                'dsug_contains_space': spelling.features.contains_space(dsug),
-                'same_first_char_error_dsug': error[0] == dsug[0],
-
-                'dsug_lm_log_prob': 0.
-                })
+            # Add defensively-copied row to dataset.
+            dataset.append(dict(row))
 
     pbar.finish()
 
     df = pd.DataFrame(dataset)
+    return df[df.columns.sort_values()]
 
+    """
     cols = [
             'error',
-            'real_word_error',
+            'error_is_real_word',
             'correct_word',
-            'dsug',
-            'dsug_index',
+            'suggestion',
+            'suggestion_index',
             'target',
 
             'correct_word_in_dict',
-            'correct_word_in_dsugs',
-            'correct_word_dsugs_index',
+            'correct_word_is_in_suggestions',
+            'correct_word_suggestions_index',
 
-            'corwd_ldist',
-            'corwd_kdist',
-            'corwd_se',
-            'corwd_me',
+            'correct_word_levenshtein_distance',
+            'correct_word_keyboard_distance',
+            'correct_word_soundex_equal',
+            'correct_word_metaphone_equal',
 
-            'dsug_ldist',
-            'dsug_kdist',
-            'dsug_se',
-            'dsug_me',
+            'suggestion_levenshtein_distance',
+            'suggestion_keyboard_distance',
+            'suggestion_soundex_equal',
+            'suggestion_metaphone_equal',
 
             'error_char_count',
             'error_consonant_count',
             'error_vowel_count',
             'error_capital_count',
 
-            'dsug_char_count',
-            'dsug_consonant_count',
-            'dsug_vowel_count',
-            'dsug_capital_count',
+            'suggestion_char_count',
+            'suggestion_consonant_count',
+            'suggestion_vowel_count',
+            'suggestion_capital_count',
 
-            'dsug_contains_space',
-            'same_first_char_error_dsug',
+            'suggestion_contains_space',
+            'same_first_char_error_suggestion',
 
-            'dsug_lm_log_prob'
+            'suggestion_lm_log_prob'
             ]
-
     return df[cols]
+    """
  
 CONSTRUCTORS = [
         Aspell, Norvig, AspellWithNorvigLanguageModel,
-        NorvigWithoutNorvigLanguageModel,
-        NorvigWithAspellDictGoogleLanguageModel
+        NorvigWithoutLanguageModel,
+        NorvigWithAspellDictWithoutLanguageModel,
+        NorvigWithAspellDictAndGoogleLanguageModel
         ]
 
 def build_datasets(pairs, constructors=CONSTRUCTORS):
@@ -206,7 +198,7 @@ def build_mitton_datasets(path, constructors=CONSTRUCTORS):
       A dictionary of data frames, with one key for each dictionary.
     """
     mitton_words = load_mitton_words(path)
-    pairs = build_errors_correction_pairs(mitton_words)
+    pairs = build_mitton_pairs(mitton_words)
     return build_datasets(pairs, constructors)
 
 def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
@@ -256,9 +248,9 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
     for dict_name in dict_names:
         df = dfs[dict_name]
         df = df[df.correct_word.isin(common_words)]
-        n = float(len(df[df.dsug_index == 0]))
+        n = float(len(df[df.suggestion_index == 0]))
         for rank in ranks:
-            n_correct = len(df[(df.dsug_index < rank) & (df.dsug == df.correct_word)])
+            n_correct = len(df[(df.suggestion_index < rank) & (df.suggestion == df.correct_word)])
             accuracies[dict_name].append(n_correct/n)
 
     evalutation = collections.defaultdict(list)
