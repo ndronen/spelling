@@ -38,6 +38,9 @@ def build_mitton_pairs(words):
         # has MISSPELLING SPACE COUNT.  Remove the COUNT.
         word = word.split(' ')[0]
 
+        if '_' in correct_word:
+            correct_word = correct_word.replace('_', ' ')
+
         pairs.append((word, correct_word))
 
     return pairs
