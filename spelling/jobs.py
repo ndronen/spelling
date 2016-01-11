@@ -7,6 +7,9 @@ from nltk.stem import SnowballStemmer
 from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
+from spelling import errors
+
+from tqdm import tqdm
 
 class Job(object):
     def __init__(self, **kwargs):
@@ -125,3 +128,23 @@ class DistanceToNearestStem(Job):
 
             suggestions.append(suggestion)
         return suggestions
+
+class ErrorExtractionJob(Job):
+
+    def __init__(self, words_to_mutate, dictionary, corpus_fn, whitelist_fns=None):
+        self.__dict__.update(locals())
+        del self.self
+
+    def run(self):
+        whitelist = set()
+        if self.whitelist_fns is not None:
+            for fn in tqdm(self.whitelist_fns):
+                with open(fn,"r") as f:
+                    for line in f:
+                        whitelist.add(line.lower()[:-1])
+
+        injector = errors.ErrorInjector(self.corpus_fn, self.dictionary, whitelist=whitelist)
+        result = []
+        for word in self.words_to_mutate:
+            result.extend(injector.inject_errors(word))
+        return result
