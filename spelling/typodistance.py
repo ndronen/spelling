@@ -95,7 +95,7 @@ def insertion_cost(s, i, c):
         # string, but started holding it down while inserting this character, or
         # vice versa.  Either way, this action should have a higher cost.
         cost += SHIFT_COST
-    cost += euclidean_keyboard_distance(s[i], c)
+    cost *= euclidean_keyboard_distance(s[i], c)
     return cost
 
 # The cost of omitting the character at position i in string s
@@ -112,7 +112,7 @@ def substitution_cost(s, i, c):
         # string, but started holding it down while inserting this character, or
         # vice versa.  Either way, this action should have a higher cost.
         cost += SHIFT_COST
-    cost += euclidean_keyboard_distance(s[i], c)
+    cost *= euclidean_keyboard_distance(s[i], c)
     return cost
 
 # Finds the typo distance (a floating point number) between two strings, based
