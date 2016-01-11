@@ -155,10 +155,31 @@ def build_dataset(pairs, dictionary):
             ]
 
     return df[cols]
+ 
+CONSTRUCTORS = [
+        Aspell, Norvig, AspellWithNorvigLanguageModel,
+        NorvigWithoutNorvigLanguageModel,
+        NorvigWithAspellDictGoogleLanguageModel
+        ]
 
-def run(path, constructors=[Aspell, Norvig, AspellWithNorvigLanguageModel, NorvigWithoutNorvigLanguageModel, NorvigWithAspellDictGoogleLanguageModel]):
-    mitton_words = load_mitton_words(path)
-    pairs = build_errors_correction_pairs(mitton_words)
+def build_datasets(pairs, constructors=CONSTRUCTORS):
+    """
+    From a list consisting of pairs of known words and misspellings,
+    build data frames of features derived from dictionary suggestions
+    for the misspellings.
+
+    Parameters
+    ----------
+    pairs : iterable of tuple
+      An iterable of tuples of (known word, misspelled word) pairs.
+    constructors : iterable of classes
+      An iterable of class names for constructing dictionaries.
+
+    Returns
+    ----------
+    datasets : dict of pandas.DataFrame
+      A dictionary of data frames, with one key for each dictionary.
+    """
     datasets = {}
     for constructor in constructors:
         dictionary = build_dictionary(constructor)
@@ -166,7 +187,49 @@ def run(path, constructors=[Aspell, Norvig, AspellWithNorvigLanguageModel, Norvi
         datasets[constructor.__name__] = dataset
     return datasets
 
-def evaluate(dfs, ranks=[0, 1, 2, 3, 4, 9, 24, 49], verbose=False):
+def build_mitton_datasets(path, constructors=CONSTRUCTORS):
+    """
+    Build data frames of features derived from dictionary suggestions
+    for one of the Roger Mitton spelling error datasets in our
+    data directory.
+
+    Parameters
+    ----------
+    path : str
+      Path to a spelling error dataset in Roger Mitton's format.
+    constructors : iterable of classes
+      An iterable of class names for constructing dictionaries.
+
+    Returns
+    ----------
+    datasets : dict of pandas.DataFrame
+      A dictionary of data frames, with one key for each dictionary.
+    """
+    mitton_words = load_mitton_words(path)
+    pairs = build_errors_correction_pairs(mitton_words)
+    return build_datasets(pairs, constructors)
+
+def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
+    """
+    Evaluate the accuracy of one or more dictionaries using data frames
+    created by `build_datasets` or `build_mitton_datasets`.
+
+    Parameters
+    ----------
+    dfs : dict of pandas.DataFrame
+      A dictionary of data frames, with one key for each dictionary.
+    ranks : list of int
+      The ranks at which to evaluate accuracy.  Top-5 rank, for example,
+      measures accuracy as the correct word being one of a dictionary's 
+      first five suggested corrections.
+    verbose : bool
+      Whether to print some extra information during execution.
+
+    Returns
+    -------
+    df : a pandas.DataFrame
+      The accuracy of each dictionary at a given rank.
+    """
     dict_names = sorted(dfs.keys())
 
     all_words = set()
@@ -195,7 +258,7 @@ def evaluate(dfs, ranks=[0, 1, 2, 3, 4, 9, 24, 49], verbose=False):
         df = df[df.correct_word.isin(common_words)]
         n = float(len(df[df.dsug_index == 0]))
         for rank in ranks:
-            n_correct = len(df[(df.dsug_index <= rank) & (df.dsug == df.correct_word)])
+            n_correct = len(df[(df.dsug_index < rank) & (df.dsug == df.correct_word)])
             accuracies[dict_name].append(n_correct/n)
 
     evalutation = collections.defaultdict(list)
@@ -204,7 +267,7 @@ def evaluate(dfs, ranks=[0, 1, 2, 3, 4, 9, 24, 49], verbose=False):
         for i, rank in enumerate(ranks):
             evalutation['Algorithm'].append(dict_name)
             evalutation['Accuracy'].append(accuracies[dict_name][i])
-            evalutation['Rank'].append(rank+1)
+            evalutation['Rank'].append(rank)
 
     return pd.DataFrame(evalutation)[['Algorithm', 'Rank', 'Accuracy']]
 
