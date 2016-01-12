@@ -4,6 +4,7 @@ import Levenshtein
 import fuzzy
 import string
 from .typodistance import typo_distance
+import numpy as np
 
 VOWELS = 'aeiou'
 CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
@@ -91,28 +92,46 @@ Compute SOUNDEX of a word.
 """
 def soundex(word, size=4):
     f = fuzzy.Soundex(size)
-    return f(word)
+    sx = f(word)
+    if sx is None:
+        sx == ''
+    return sx
 
 """
 Compute Metaphone-2 of a word.
 """
 def metaphone(word):
     f = fuzzy.DMetaphone()
-    return f(word)[0]
+    mph = f(word)[0]
+    if mph is None:
+        mph = ''
+    return mph
 
 """
 Levenshtein distance between SOUNDEX of two words.
 """
 def soundex_levenshtein_distance(word1, word2, size=4):
-    return levenshtein_distance(
-            soundex(word1, size), soundex(word2, size))
+    try:
+        return levenshtein_distance(
+                soundex(word1, size), soundex(word2, size))
+    except IndexError:
+        if len(word1) == 0 and len(word2) == 0:
+            return np.inf
+        else:
+            return max(len(word1), len(word2))
 
 """
 Levenshtein distance between Metaphone-2 of two words.
 """
 def metaphone_levenshtein_distance(word1, word2):
-    return levenshtein_distance(
-            metaphone(word1)[0], metaphone(word2)[0])
+    try:
+        return levenshtein_distance(
+                metaphone(word1)[0], metaphone(word2)[0])
+    except IndexError:
+        if len(word1) == 0 and len(word2) == 0:
+            return np.inf
+        else:
+            return max(len(word1), len(word2))
 
 """
 The dictionary suggestions.
@@ -136,14 +155,13 @@ def character_count(word):
 The number of consonants in a word.
 """
 def consonant_count(word):
-    word = str(word).lower()
+    word = word.lower()
     return len([c for c in word if c in CONSONANTS])
 
 """
 The number of vowels in a word.
 """
 def vowel_count(word):
-    word = str(word)
     return len([c for c in word if c in VOWELS])
 
 """
