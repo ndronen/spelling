@@ -101,9 +101,24 @@ class AspellWithNorvigLanguageModel(Norvig):
 
     def suggest(self, word):
         suggestions = self.dictionary.suggest(word)
-        return sorted(suggestions, key=lambda s: (Levenshtein.distance(s, word), -self.model[s]))
+        return sorted(suggestions, key=lambda s: -self.model[s])
 
     def correct(self, word):
         suggestions = self.suggest(word)
         return max(suggestions, key=self.model.get)
 
+class AspellWithGoogleLanguageModel(NorvigWithAspellDictAndGoogleLanguageModel):
+    def __init__(self, lang='en_US', train_path=ASPELL_DATA_PATH):
+        super(AspellWithGoogleLanguageModel, self).__init__(train_path)
+        self.dictionary = enchant.Dict(lang)
+
+    def check(self, word):
+        return self.dictionary.check(word)
+
+    def suggest(self, word):
+        suggestions = self.dictionary.suggest(word)
+        return sorted(suggestions, key=lambda s: -self.model[s])
+
+    def correct(self, word):
+        suggestions = self.suggest(word)
+        return max(suggestions, key=self.model.get)

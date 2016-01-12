@@ -46,5 +46,11 @@ class TestDictionary(unittest.TestCase):
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
 
+    def test_aspell_with_google_language_model(self):
+        d = spelling.dictionary.AspellWithGoogleLanguageModel()
+        self.assertTrue(d.check("quick"))
+        suggestions = d.suggest("quickq")
+        self.assertTrue("quick" in suggestions)
+
 if __name__ == '__main__':
     unittest.main()
