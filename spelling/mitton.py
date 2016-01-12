@@ -80,7 +80,7 @@ def build_dataset(pairs, dictionary):
             k = 'error_' + k
             row[k] = v
 
-        for k,v in compute_binary_features(error, correct_word).iteritems():
+        for k,v in compute_binary_features(correct_word, error).iteritems():
             k = 'correct_word_' + k
             row[k] = v
 
@@ -113,7 +113,7 @@ def build_dataset(pairs, dictionary):
                 k = 'suggestion_' + k
                 row[k] = v
 
-            for k,v in compute_binary_features(error, suggestion).iteritems():
+            for k,v in compute_binary_features(suggestion, error).iteritems():
                 k = 'suggestion_' + k
                 row[k] = v
 
