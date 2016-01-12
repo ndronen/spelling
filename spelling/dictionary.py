@@ -85,7 +85,9 @@ class NorvigWithAspellDict(Norvig):
 
 class NorvigWithAspellDictAndGoogleLanguageModel(NorvigWithAspellDict):
     def train(self, df):
-        return dict(zip(df.word, df.google_ngram_prob))
+        d = collections.defaultdict(float)
+        d.update(dict(zip(df.word, df.google_ngram_prob)))
+        return d
 
 class NorvigWithAspellDictWithoutLanguageModel(NorvigWithAspellDict):
     def train(self, df):
