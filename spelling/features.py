@@ -29,8 +29,12 @@ def compute_binary_features(word1, word2):
     features = {}
     features['levenshtein_distance'] = levenshtein_distance(word1, word2)
     features['keyboard_distance'] = keyboard_distance(word1, word2)
+    features['set_distance'] = set_distance(word1, word2)
     features['soundex_levenshtein_distance'] = soundex_levenshtein_distance(word1, word2)
     features['metaphone_levenshtein_distance'] = metaphone_levenshtein_distance(word1, word2)
+    features['soundex_set_distance'] = soundex_set_distance(word1, word2)
+    features['metaphone_set_distance'] = metaphone_set_distance(word1, word2)
+
     return features
 
 """
@@ -134,28 +138,27 @@ def metaphone_levenshtein_distance(word1, word2):
             return max(len(word1), len(word2))
 
 """
-Unordered similarity of SOUNDEX of two words.
+Unordered distance of two words.  (This is probably a proper metric.)
 """
-def soundex_set_overlap(word1, word2):
-    s1 = set(soundex(word1))
-    s2 = set(soundex(word2))
-    return len(s1.intersection(s2))/float(len(s1))
-
-"""
-Unordered similarity of Metaphone of two words.
-"""
-def metaphone_set_overlap(word1, word2):
-    s1 = set(metaphone(word1))
-    s2 = set(metaphone(word2))
+def set_distance(word1, word2):
+    s1 = set(word1)
+    s2 = set(word2)
     try:
-        return len(s1.intersection(s2))/float(len(s1))
+        return 1 - len(s1.intersection(s2))/float(len(s1))
     except ZeroDivisionError:
-        # Be consistent with the behavior of soundex_set_overlap.
-        if len(s2) == 0:
-            return 1
-        else: 
-            return 0
+        return len(s2)
 
+"""
+Unordered distance of SOUNDEX of two words.  (This is probably a proper metric.)
+"""
+def soundex_set_distance(word1, word2):
+    return set_distance(soundex(word1), soundex(word2))
+
+"""
+Unordered distance of Metaphone of two words.  (This is probably a proper metric.)
+"""
+def metaphone_set_distance(word1, word2):
+    return set_distance(metaphone(word1), metaphone(word2))
 
 """
 The dictionary suggestions.
