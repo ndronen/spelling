@@ -13,6 +13,8 @@ from spelling.dictionary import (Aspell, Norvig,
 
 from spelling.dictionary import NORVIG_DATA_PATH
 
+PROBS_DATA_PATH = 'data/aspell-dict.csv.gz'
+
 from .utils import build_progressbar
 
 def load_mitton_words(path):
@@ -54,7 +56,13 @@ def build_progressbar(items):
         ' ', progressbar.ETA()],
         maxval=len(items)).start()
 
-def build_dataset(pairs, dictionary):
+def build_probs_dict(probs_data_path=PROBS_DATA_PATH):
+    df = pd.read_csv(probs_data_path, sep='\t', encoding='utf8')
+    probs = collections.defaultdict(float)
+    probs.update(dict(zip(df.word, df.google_ngram_prob)))
+    return probs
+
+def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
     dataset = []
     pbar = build_progressbar(pairs)
     row = {}
@@ -64,15 +72,35 @@ def build_dataset(pairs, dictionary):
         try:
             iter(error)
         except TypeError:
+            if verbose:
+                print('skipping non-iterable misspelling ' + str(error))
+            continue
+
+        try:
+            error.encode('ascii')
+        except UnicodeDecodeError:
+            if verbose:
+                print('skipping non-ASCII misspelling ' + str(error))
             continue
 
         try:
             iter(correct_word)
         except TypeError:
+            if verbose:
+                print('skipping non-iterable correction ' + str(correct_word))
+            continue
+
+        try:
+            correct_word.encode('ascii')
+        except UnicodeDecodeError:
+            if verbose:
+                print('skipping non-ASCII correction ' + str(correct_word))
             continue
 
         row['error'] = error
+        row['error_prob'] = probs[error]
         row['correct_word'] = correct_word
+        row['correct_word_prob'] = probs[error]
         row['error_is_real_word'] = dictionary.check(error)
 
         # Add unary and binary features for error and the correct word.
@@ -103,8 +131,17 @@ def build_dataset(pairs, dictionary):
             # to contain only characters that exist in the QWERTY keyboard.
             ###############################################################
             try:
-                str(suggestion)
-            except UnicodeEncodeError:
+                iter(suggestion)
+            except TypeError:
+                if verbose:
+                    print('skipping non-iterable suggestion ' + str(suggestion))
+                continue
+    
+            try:
+                suggestion.encode('ascii')
+            except UnicodeDecodeError:
+                if verbose:
+                    print('skipping non-ASCII suggestion ' + str(suggestion))
                 continue
 
             i += 1
@@ -121,7 +158,7 @@ def build_dataset(pairs, dictionary):
             row['suggestion_index'] = i
             row['target'] = 1 if suggestion == correct_word else 0
             row['same_first_char_error_suggestion'] = error[0] == suggestion[0]
-            row['suggestion_lm_log_prob'] = 0.
+            row['suggestion_prob'] = probs[suggestion]
 
             # Add defensively-copied row to dataset.
             dataset.append(dict(row))
@@ -131,47 +168,6 @@ def build_dataset(pairs, dictionary):
     df = pd.DataFrame(dataset)
     return df[df.columns.sort_values()]
 
-    """
-    cols = [
-            'error',
-            'error_is_real_word',
-            'correct_word',
-            'suggestion',
-            'suggestion_index',
-            'target',
-
-            'correct_word_in_dict',
-            'correct_word_is_in_suggestions',
-            'correct_word_suggestions_index',
-
-            'correct_word_levenshtein_distance',
-            'correct_word_keyboard_distance',
-            'correct_word_soundex_equal',
-            'correct_word_metaphone_equal',
-
-            'suggestion_levenshtein_distance',
-            'suggestion_keyboard_distance',
-            'suggestion_soundex_equal',
-            'suggestion_metaphone_equal',
-
-            'error_char_count',
-            'error_consonant_count',
-            'error_vowel_count',
-            'error_capital_count',
-
-            'suggestion_char_count',
-            'suggestion_consonant_count',
-            'suggestion_vowel_count',
-            'suggestion_capital_count',
-
-            'suggestion_contains_space',
-            'same_first_char_error_suggestion',
-
-            'suggestion_lm_log_prob'
-            ]
-    return df[cols]
-    """
- 
 CONSTRUCTORS = [
         Aspell, Norvig, AspellWithNorvigLanguageModel,
         NorvigWithoutLanguageModel,
@@ -179,7 +175,7 @@ CONSTRUCTORS = [
         NorvigWithAspellDictAndGoogleLanguageModel
         ]
 
-def build_datasets(pairs, constructors=CONSTRUCTORS):
+def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):
     """
     From a list consisting of pairs of known words and misspellings,
     build data frames of features derived from dictionary suggestions
@@ -200,11 +196,11 @@ def build_datasets(pairs, constructors=CONSTRUCTORS):
     datasets = {}
     for constructor in constructors:
         dictionary = build_dictionary(constructor)
-        dataset = build_dataset(pairs, dictionary)
+        dataset = build_dataset(pairs, dictionary, verbose=verbose)
         datasets[constructor.__name__] = dataset
     return datasets
 
-def build_mitton_datasets(path, constructors=CONSTRUCTORS):
+def build_mitton_datasets(path, constructors=CONSTRUCTORS, verbose=False):
     """
     Build data frames of features derived from dictionary suggestions
     for one of the Roger Mitton spelling error datasets in our
@@ -224,7 +220,7 @@ def build_mitton_datasets(path, constructors=CONSTRUCTORS):
     """
     mitton_words = load_mitton_words(path)
     pairs = build_mitton_pairs(mitton_words)
-    return build_datasets(pairs, constructors)
+    return build_datasets(pairs, constructors, verbose=verbose)
 
 def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
     """
