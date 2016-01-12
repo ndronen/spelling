@@ -67,7 +67,7 @@ class Norvig(object):
         candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
         return max(candidates, key=self.model.get)
 
-class NorvigWithoutNorvigLanguageModel(Norvig):
+class NorvigWithoutLanguageModel(Norvig):
     def train(self, features):
         """
         Make the frequency of all words the same, so corrections are
@@ -78,11 +78,24 @@ class NorvigWithoutNorvigLanguageModel(Norvig):
             model[f] = 1
         return model
 
-class NorvigWithAspellDictGoogleLanguageModel(Norvig):
+class NorvigWithAspellDict(Norvig):
     def __init__(self, lang=None, train_path=ASPELL_DATA_PATH):
         df = pd.read_csv(train_path, sep='\t')
-        self.model = dict(zip(df.word, df.google_ngram_prob))
+        self.model = self.train(df)
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    def train(self, df):
+        raise NotImplementedError()
+
+class NorvigWithAspellDictAndGoogleLanguageModel(NorvigWithAspellDict):
+    def train(self, df):
+        d = collections.defaultdict(float)
+        d.update(dict(zip(df.word, df.google_ngram_prob)))
+        return d
+
+class NorvigWithAspellDictWithoutLanguageModel(NorvigWithAspellDict):
+    def train(self, df):
+        return dict(zip(df.word, [1] * len(df)))
 
 class AspellWithNorvigLanguageModel(Norvig):
     def __init__(self, lang='en_US', train_path=NORVIG_DATA_PATH):
@@ -94,9 +107,24 @@ class AspellWithNorvigLanguageModel(Norvig):
 
     def suggest(self, word):
         suggestions = self.dictionary.suggest(word)
-        return sorted(suggestions, key=lambda s: (Levenshtein.distance(s, word), -self.model[s]))
+        return sorted(suggestions, key=lambda s: -self.model[s])
 
     def correct(self, word):
         suggestions = self.suggest(word)
         return max(suggestions, key=self.model.get)
 
+class AspellWithGoogleLanguageModel(NorvigWithAspellDictAndGoogleLanguageModel):
+    def __init__(self, lang='en_US', train_path=ASPELL_DATA_PATH):
+        super(AspellWithGoogleLanguageModel, self).__init__(train_path)
+        self.dictionary = enchant.Dict(lang)
+
+    def check(self, word):
+        return self.dictionary.check(word)
+
+    def suggest(self, word):
+        suggestions = self.dictionary.suggest(word)
+        return sorted(suggestions, key=lambda s: -self.model[s])
+
+    def correct(self, word):
+        suggestions = self.suggest(word)
+        return max(suggestions, key=self.model.get)

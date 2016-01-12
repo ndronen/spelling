@@ -22,8 +22,8 @@ class TestDictionary(unittest.TestCase):
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
 
-    def test_norvig_without_norvig_language_model(self):
-        d = spelling.dictionary.NorvigWithoutNorvigLanguageModel()
+    def test_norvig_without_language_model(self):
+        d = spelling.dictionary.NorvigWithoutLanguageModel()
         self.assertTrue(d.check("quick"))
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
@@ -34,8 +34,20 @@ class TestDictionary(unittest.TestCase):
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
 
-    def test_norvig_with_aspell_dict_google_language_model(self):
-        d = spelling.dictionary.NorvigWithAspellDictGoogleLanguageModel()
+    def test_norvig_with_aspell_dict_with_google_language_model(self):
+        d = spelling.dictionary.NorvigWithAspellDictAndGoogleLanguageModel()
+        self.assertTrue(d.check("quick"))
+        suggestions = d.suggest("quickq")
+        self.assertTrue("quick" in suggestions)
+
+    def test_norvig_with_aspell_dict_without_language_model(self):
+        d = spelling.dictionary.NorvigWithAspellDictWithoutLanguageModel()
+        self.assertTrue(d.check("quick"))
+        suggestions = d.suggest("quickq")
+        self.assertTrue("quick" in suggestions)
+
+    def test_aspell_with_google_language_model(self):
+        d = spelling.dictionary.AspellWithGoogleLanguageModel()
         self.assertTrue(d.check("quick"))
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
