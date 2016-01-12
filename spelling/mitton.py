@@ -78,7 +78,7 @@ def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
 
         try:
             error.encode('ascii')
-        except UnicodeDecodeError:
+        except (UnicodeDecodeError, UnicodeEncodeError):
             if verbose:
                 print('skipping non-ASCII misspelling ' + str(error))
             continue
@@ -92,7 +92,7 @@ def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
 
         try:
             correct_word.encode('ascii')
-        except UnicodeDecodeError:
+        except (UnicodeDecodeError, UnicodeEncodeError):
             if verbose:
                 print('skipping non-ASCII correction ' + str(correct_word))
             continue
@@ -139,7 +139,7 @@ def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
     
             try:
                 suggestion.encode('ascii')
-            except UnicodeDecodeError:
+            except (UnicodeDecodeError, UnicodeEncodeError):
                 if verbose:
                     print('skipping non-ASCII suggestion ' + str(suggestion))
                 continue
