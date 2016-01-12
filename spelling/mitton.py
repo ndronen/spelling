@@ -61,6 +61,16 @@ def build_dataset(pairs, dictionary):
     for i, (error, correct_word) in enumerate(pairs):
         pbar.update(i+1)
 
+        try:
+            iter(error)
+        except TypeError:
+            continue
+
+        try:
+            iter(correct_word)
+        except TypeError:
+            continue
+
         row['error'] = error
         row['correct_word'] = correct_word
         row['error_is_real_word'] = dictionary.check(error)
@@ -86,7 +96,19 @@ def build_dataset(pairs, dictionary):
         except ValueError:
             row['correct_words_suggestions_index'] = -1
 
-        for i, suggestion in enumerate(suggestions):
+        i = -1
+        for suggestion in suggestions:
+            ###############################################################
+            # We need to compute keyboard distance, so require suggestions
+            # to contain only characters that exist in the QWERTY keyboard.
+            ###############################################################
+            try:
+                str(suggestion)
+            except UnicodeEncodeError:
+                continue
+
+            i += 1
+
             for k,v in compute_unary_features(suggestion).iteritems():
                 k = 'suggestion_' + k
                 row[k] = v
