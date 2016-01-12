@@ -28,17 +28,23 @@ def get_edit_function(from_word, to_word):
             break
     else:
         index = max(len(from_word), len(to_word)) - 1
+    #insertion
     if len(from_word) < len(to_word):
         return HashableInjector(function=lambda x,i : x[:i] + to_word[index] + x[i:],
                 name="--->{}".format(to_word[index])), index
+    #deletion
     if len(from_word) > len(to_word):
         return HashableInjector(function=lambda x,i : x[:i] + x[i+1:],
                 name="{}--->".format(from_word[index])),index
+    #substitution
     if index+1 >= len(from_word) or from_word[index+1] == to_word[index+1]:
         return HashableInjector(function=lambda x,i : x[:i] + to_word[index] + x[i+1:],
                 name="{}-->{}".format(from_word[index], to_word[index])), index
-    return HashableInjector(function=lambda x,i : x[:i] + x[i+1] + x[i] + x[i+2:],
-            name="{}<->{}".format(from_word[index], from_word[index+1])),index
+    #transposition
+    #we want transposition to include both characters in the ngram
+    #so we bump the index up by 1
+    return HashableInjector(function=lambda x,i : x[:i-1] + x[i] + x[i-1] + x[i+1:],
+            name="{}<->{}".format(from_word[index], from_word[index+1])),index+1
 
 def error_iterator(fn, dictionary, whitelist=None):
     #TODO: utf-8 shouldn't be hardcoded
@@ -68,7 +74,14 @@ def error_iterator(fn, dictionary, whitelist=None):
                     continue
                 if word[-1] == "'":
                     word = word[:-1]
-                if word in whitelist or dictionary.check(word):
+                if not word:
+                    continue
+                try:
+                    if word in whitelist or dictionary.check(word):
+                        continue
+                except Exception:
+                    #we don't know how the dictionary can screw up...
+                    print "dictionary failed to check '{}'".format(word)
                     continue
                 try:
                     corrected = dictionary.correct(word).lower()
@@ -93,7 +106,7 @@ class ErrorInjector(object):
         for incorrect, correct in error_iterator(fn, dictionary, whitelist=whitelist):
             if dl_distance(incorrect, correct) == 1:
                 self.global_error_count += 1
-                edit_function, index = get_edit_function(incorrect, correct)
+                edit_function, index = get_edit_function(correct, incorrect)
                 padded = "-"*(self.ngram_size-1) + correct
                 index += self.ngram_size-1
                 trigram = padded[index-2:index+1]
