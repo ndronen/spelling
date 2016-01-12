@@ -100,7 +100,7 @@ def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
         row['error'] = error
         row['error_prob'] = probs[error]
         row['correct_word'] = correct_word
-        row['correct_word_prob'] = probs[error]
+        row['correct_word_prob'] = probs[correct_word]
         row['error_is_real_word'] = dictionary.check(error)
 
         # Add unary and binary features for error and the correct word.
