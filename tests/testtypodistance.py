@@ -15,10 +15,8 @@ class TestTypoDistance(unittest.TestCase):
 
     def test_substitute(self):
         self.assertEqual(0., typo_distance("two", "two"))
-        # 'e' is 1 key away from 'w'
-        self.assertEqual(1., typo_distance("two", "teo"))
-        # 'u' is 2 keys away from 'o'
-        self.assertEqual(3., typo_distance("two", "teu"))
+        self.assertEqual(2., typo_distance("two", "teo"))
+        self.assertEqual(4., typo_distance("two", "teu"))
 
 if __name__ == '__main__':
     unittest.main()
