@@ -1,4 +1,10 @@
 pyenchant
 progressbar
 python-Levenshtein
+pyxDamerauLevenshtein
 fuzzy
+tqdm
+pytest
+pandas
+nltk
+langdetect
