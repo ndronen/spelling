@@ -4,9 +4,11 @@ import re
 import pandas as pd
 from nltk.stem import SnowballStemmer
 
+from spelling.mitton import build_dataset
 from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
+from spelling.utils import build_progressbar
 
 class Job(object):
     def __init__(self, **kwargs):
@@ -125,3 +127,30 @@ class DistanceToNearestStem(Job):
 
             suggestions.append(suggestion)
         return suggestions
+
+
+class SplitCSVDataset(Job):
+    def __init__(self, input_csv, output_csv):
+        self.__dict__.update(locals())
+
+    def run(self):
+        df = pd.read_csv(self.input_csv, sep='\t', encoding='utf8')
+        unique_words = df.word.unique()
+        pbar = build_progressbar(unique_words)
+        for i, word in enumerate(unique_words):
+            pbar.update(i+1)
+            df_tmp = df[df.word == word]
+            df_tmp.to_csv(self.output_csv % i,
+                    sep='\t', index=False, encoding='utf8')
+        pbar.finish()
+
+class BuildDatasetFromCSV(Job):
+    def __init__(self, input_csv, output_csv):
+        self.__dict__.update(locals())
+
+    def run(self):
+        df = pd.read_csv(self.input_csv, sep='\t', encoding='utf8')
+        pairs = zip(df.error, df.word)
+        dataset = build_dataset(pairs, Aspell())
+        dataset.to_csv(self.output_csv, sep='\t', index=False,
+                encoding='utf8')
