@@ -1,6 +1,10 @@
+from __future__ import print_function
+
+import sys
 import operator
 import progressbar
 import re
+import numpy as np
 import pandas as pd
 from nltk.stem import SnowballStemmer
 
@@ -39,9 +43,21 @@ class KeyboardDistanceCorpus(Job):
     >>> corpus_df.to_csv('/tmp/aspell-dict-distances.csv',
     >>>     index=False, sep='\t', encoding='utf8')
     """
-    def __init__(self, words=None, distances=[1]):
+    def __init__(self, words=None, distances=[1], sample='all', seed=17):
         self.__dict__.update(locals())
+        sample = sample.replace('-', '_')
+        self.sample = getattr(self, 'sample_' + sample)
+        self.rng = np.random.RandomState(seed)
         del self.self
+
+    def sample_all(self, word, typo, distance):
+        return True
+
+    def sample_inverse(self, word, typo, distance):
+        return self.rng.uniform() < 1/float(distance)
+
+    def sample_inverse_square(self, word, typo, distance):
+        return self.rng.uniform() < 1/float(distance**2)
 
     def run(self):
         corpus = []
@@ -51,11 +67,13 @@ class KeyboardDistanceCorpus(Job):
             for d in self.distances:
                 # Make this a set, because typo_generator doesn't
                 # guarantee uniqueness.
-                typos = set([t for t in typo_generator(word, d)])
-                for typo in typos:
-                    if typo == word:
-                        continue
-                    corpus.append((word,typo,d))
+                typos = set()
+                for t in typo_generator(word, d):
+                    if t != word:
+                        typos.add(t)
+                for t in typos:
+                    if self.sample(word, t, d):
+                        corpus.append((word,t,d))
         pbar.finish()
         print("generated %d errors for %d words" %
                 (len(corpus), len(self.words)))
