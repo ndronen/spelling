@@ -22,6 +22,10 @@ class Aspell(object):
     def correct(self, word):
         return self.suggest(word)[0]
 
+class AspellUniword(Aspell):
+    def suggest(self, word):
+        return [word for word in self.dictionary.suggest(word) if " " not in word and "-" not in word]
+
 class Norvig(object):
     """
     Adapted from http://norvig.com/spell-correct.html
