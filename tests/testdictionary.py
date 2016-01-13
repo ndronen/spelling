@@ -18,9 +18,12 @@ class TestDictionary(unittest.TestCase):
 
     def test_norvig(self):
         d = spelling.dictionary.Norvig()
-        self.assertTrue(d.check("quick"))
-        suggestions = d.suggest("quickq")
-        self.assertTrue("quick" in suggestions)
+        self.assertTrue(d.check("american"))
+        suggestions = d.suggest("amaricae")
+        known_suggestions = ['american', 'america', 'avarice']
+        self.assertEqual(len(known_suggestions), len(suggestions))
+        for s in known_suggestions:
+            self.assertTrue(s in suggestions)
 
     def test_norvig_without_language_model(self):
         d = spelling.dictionary.NorvigWithoutLanguageModel()
@@ -35,13 +38,13 @@ class TestDictionary(unittest.TestCase):
         self.assertTrue("quick" in suggestions)
 
     def test_norvig_with_aspell_dict_with_google_language_model(self):
-        d = spelling.dictionary.NorvigWithAspellDictAndGoogleLanguageModel()
+        d = spelling.dictionary.NorvigWithAspellVocabAndGoogleLanguageModel()
         self.assertTrue(d.check("quick"))
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
 
     def test_norvig_with_aspell_dict_without_language_model(self):
-        d = spelling.dictionary.NorvigWithAspellDictWithoutLanguageModel()
+        d = spelling.dictionary.NorvigWithAspellVocabWithoutLanguageModel()
         self.assertTrue(d.check("quick"))
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)

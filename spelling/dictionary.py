@@ -78,7 +78,7 @@ class NorvigWithoutLanguageModel(Norvig):
             model[f] = 1
         return model
 
-class NorvigWithAspellDict(Norvig):
+class NorvigWithAspellVocab(Norvig):
     def __init__(self, lang=None, train_path=ASPELL_DATA_PATH):
         df = pd.read_csv(train_path, sep='\t')
         self.model = self.train(df)
@@ -87,13 +87,13 @@ class NorvigWithAspellDict(Norvig):
     def train(self, df):
         raise NotImplementedError()
 
-class NorvigWithAspellDictAndGoogleLanguageModel(NorvigWithAspellDict):
+class NorvigWithAspellVocabAndGoogleLanguageModel(NorvigWithAspellVocab):
     def train(self, df):
         d = collections.defaultdict(float)
         d.update(dict(zip(df.word, df.google_ngram_prob)))
         return d
 
-class NorvigWithAspellDictWithoutLanguageModel(NorvigWithAspellDict):
+class NorvigWithAspellVocabWithoutLanguageModel(NorvigWithAspellVocab):
     def train(self, df):
         return dict(zip(df.word, [1] * len(df)))
 
@@ -113,7 +113,7 @@ class AspellWithNorvigLanguageModel(Norvig):
         suggestions = self.suggest(word)
         return max(suggestions, key=self.model.get)
 
-class AspellWithGoogleLanguageModel(NorvigWithAspellDictAndGoogleLanguageModel):
+class AspellWithGoogleLanguageModel(NorvigWithAspellVocabAndGoogleLanguageModel):
     def __init__(self, lang='en_US', train_path=ASPELL_DATA_PATH):
         super(AspellWithGoogleLanguageModel, self).__init__(train_path)
         self.dictionary = enchant.Dict(lang)
