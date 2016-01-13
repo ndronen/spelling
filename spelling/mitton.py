@@ -9,7 +9,8 @@ from spelling.features import (suggest,
 from spelling.dictionary import (Aspell, Norvig, 
         AspellWithNorvigLanguageModel, NorvigWithoutLanguageModel,
         NorvigWithAspellVocabWithoutLanguageModel,
-        NorvigWithAspellVocabAndGoogleLanguageModel)
+        NorvigWithAspellVocabAndGoogleLanguageModel,
+        NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates)
 
 from spelling.dictionary import NORVIG_DATA_PATH
 
@@ -172,7 +173,8 @@ CONSTRUCTORS = [
         Aspell, Norvig, AspellWithNorvigLanguageModel,
         NorvigWithoutLanguageModel,
         NorvigWithAspellVocabWithoutLanguageModel,
-        NorvigWithAspellVocabAndGoogleLanguageModel
+        NorvigWithAspellVocabAndGoogleLanguageModel,
+        NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates
         ]
 
 def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):

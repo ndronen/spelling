@@ -6,7 +6,7 @@ import Levenshtein
 import gzip
 import pandas as pd
 
-from spelling.features import metaphone
+from spelling.features import metaphone, levenshtein_distance
 
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
@@ -151,13 +151,20 @@ class NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates(NorvigWithAspel
     way yields reasonable candidates without the computational burden
     of the brute force approach in the Norvig class.
     """
-    def __init__(self, hasher=metaphone, **kwargs):
-        super(NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates, self).__init__(**kwargs)
+    def __init__(self, lang=None, train_path=ASPELL_DATA_PATH, hasher=metaphone, max_distance=3):
+        super(NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates, self).__init__(lang, train_path)
         self.phonedict = PhoneticDictionary(self.model.keys(), hasher)
+        self.max_distance = max_distance
 
     def build_candidates(self, word):
         candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-        candidates.update(self.phonedict[word])
+        candidates = set(candidates)
+        # Eliminate any phonetically similar words that are greater than
+        # three edit operations away.
+        phonetic_candidates = self.phonedict[word]
+        for pc in phonetic_candidates:
+            if levenshtein_distance(word, pc) <= self.max_distance:
+                candidates.add(pc)
         return candidates
 
 class PhoneticDictionary(dict):
@@ -165,7 +172,7 @@ class PhoneticDictionary(dict):
         self.hasher = hasher
         self.phone_to_word = collections.defaultdict(list)
         for word in vocab:
-            self.phone_to_word[hasher(word)].append(word)
+            self.phone_to_word[self.hasher(word)].append(word)
 
     def __getitem__(self, name):
         return self.phone_to_word[self.hasher(name)]
