@@ -6,6 +6,8 @@ import Levenshtein
 import gzip
 import pandas as pd
 
+from spelling.features import metaphone
+
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
 
@@ -56,15 +58,20 @@ class Norvig(object):
     def known(self, words):
         return set(w for w in words if w in self.model)
 
+    def build_candidates(self, word):
+        return self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+
     def check(self, word):
         return word in self.model
 
     def suggest(self, word):
-        candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+        #candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+        candidates = self.build_candidates(word)
         return sorted(candidates, key=self.model.get, reverse=True)
 
     def correct(self, word):
-        candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+        #candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+        candidates = self.build_candidates(word)
         return max(candidates, key=self.model.get)
 
 class NorvigWithoutLanguageModel(Norvig):
@@ -128,3 +135,37 @@ class AspellWithGoogleLanguageModel(NorvigWithAspellVocabAndGoogleLanguageModel)
     def correct(self, word):
         suggestions = self.suggest(word)
         return max(suggestions, key=self.model.get)
+
+class NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates(NorvigWithAspellVocabAndGoogleLanguageModel):
+    """
+    The Norvig implementation only considers candidates that are up to
+    two edit operations from the unknown word; the number of strings
+    that are three or more edit operations is quite large.  This limits
+    the dictionary's ability to offer good suggestions, particularly for
+    spelling errors that occur due to lack of knowledge of orthographic
+    conventions.
+
+    This class augments the Norvig implementation with candidate
+    suggestions that are phonetically similar to a given word and possibly
+    more than two edit operations away.  Using phonetic hashes in this
+    way yields reasonable candidates without the computational burden
+    of the brute force approach in the Norvig class.
+    """
+    def __init__(self, hasher=metaphone, **kwargs):
+        super(NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates, self).__init__(**kwargs)
+        self.phonedict = PhoneticDictionary(self.model.keys(), hasher)
+
+    def build_candidates(self, word):
+        candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+        candidates.update(self.phonedict[word])
+        return candidates
+
+class PhoneticDictionary(dict):
+    def __init__(self, vocab, hasher):
+        self.hasher = hasher
+        self.phone_to_word = collections.defaultdict(list)
+        for word in vocab:
+            self.phone_to_word[hasher(word)].append(word)
+
+    def __getitem__(self, name):
+        return self.phone_to_word[self.hasher(name)]

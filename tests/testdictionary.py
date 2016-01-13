@@ -55,5 +55,17 @@ class TestDictionary(unittest.TestCase):
         suggestions = d.suggest("quickq")
         self.assertTrue("quick" in suggestions)
 
+    def test_norvig_with_aspell_dict_google_language_model_phonetic_candidates(self):
+        d = spelling.dictionary.NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates()
+        self.assertTrue(d.check("quick"))
+        suggestions = d.suggest("quickq")
+        self.assertTrue("quick" in suggestions)
+
+        word = "Amarkia" # "America"
+        d_original = spelling.dictionary.Norvig()
+        s_original = d_original.suggest(word)
+        s_this = d.suggest(word)
+        self.assertTrue(len(s_original) < len(s_this))
+
 if __name__ == '__main__':
     unittest.main()
