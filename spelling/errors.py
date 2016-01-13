@@ -112,13 +112,18 @@ class ErrorInjector(object):
                 trigram = padded[index-2:index+1]
                 self.generators[trigram][edit_function] += 1
 
+    def get_trigrams(self):
+        return {trigram:len(funcs) for trigram, funcs in self.generators.iteritems()}
+
     def inject_errors(self, word):
+        word = word.lower() #for now we don't handle case
         results = []
         for i,ngram in enumerate(ngram_generator(word, self.ngram_size)):
-            gens = self.generators[ngram]
-            for gen,weight in gens.iteritems():
-                corrupted = gen.function(word, i)
-                prob = weight/float(self.global_error_count)
-                results.append(Error(correct=word, incorrect=corrupted, 
-                                      error_name=gen.name, probability=prob))
+            if ngram in self.generators:
+                gens = self.generators[ngram]
+                for gen,weight in gens.iteritems():
+                    corrupted = gen.function(word, i)
+                    prob = weight/float(self.global_error_count)
+                    results.append(Error(correct=word, incorrect=corrupted, 
+                                          error_name=gen.name, probability=prob))
         return results

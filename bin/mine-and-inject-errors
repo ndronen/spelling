@@ -13,12 +13,12 @@ import pandas
 from pandas import DataFrame
 import collections
 
-def main(dictionary, words_fn, corpus_fn, out_fn, whitelist_fns):
+def main(dictionary, words_fn, corpus_fn, out_fn, whitelist_fns, trigram_fn=None):
     words_dataframe = pandas.read_csv(words_fn, sep="\t")
     words = words_dataframe["word"].tolist()
 
     job = ErrorExtractionJob(words, dictionary, corpus_fn, whitelist_fns)
-    result = job.run()
+    result, trigrams = job.run()
     result_dict = collections.defaultdict(list)
     for entry in result:
         result_dict["word"].append(entry.correct)
@@ -30,12 +30,22 @@ def main(dictionary, words_fn, corpus_fn, out_fn, whitelist_fns):
     print df.head()
     df.to_csv(out_fn, sep='\t')
 
+    if trigram_fn:
+        tri_data = collections.defaultdict(list)
+        for tri,val in trigrams.iteritems():
+            tri_data["trigram"].append(tri)
+            tri_data["count"].append(val)
+        tridf = DataFrame(data=tri_data)
+        print tridf.head()
+        tridf.to_csv(trigram_fn, sep='\t')
+
 def build_parser():
     parser = argparse.ArgumentParser(
             description="Mine errors from a corpus and then apply those errors to a list of words")
     aa = parser.add_argument
     aa("--corpus", help="Input file containing text to mine for error patterns")
     aa("--out", help="Output file to write incorrected words to")
+    aa("--trigram_out", help="Output file to write trigram frequencies to")
     aa("--words", help="Input file with words to add errors to. Expected to be a csv with a 'word' column")
     #aa("--dictionary", type=str,
     #        default="/pkt-aggregator/Service/ngram",
@@ -49,4 +59,4 @@ def build_parser():
 
 if __name__ == "__main__":
     args = build_parser()
-    sys.exit(main(dictionary.AspellUniword(), args.words, args.corpus, args.out, args.whitelists))
+    sys.exit(main(dictionary.AspellUniword(), args.words, args.corpus, args.out, args.whitelists, args.trigram_out))
