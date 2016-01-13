@@ -167,7 +167,7 @@ class ErrorExtractionJob(Job):
         result = []
         for word in self.words_to_mutate:
             result.extend(injector.inject_errors(word))
-        return result
+        return result, injector.get_trigrams()
 
 class SplitCSVDataset(Job):
     def __init__(self, input_csv, output_csv):
