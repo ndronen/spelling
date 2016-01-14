@@ -18,6 +18,12 @@ PROBS_DATA_PATH = 'data/aspell-dict.csv.gz'
 
 from .utils import build_progressbar
 
+CORPORA = [
+        'data/aspell.dat', 'data/birbeck.dat',
+        'data/holbrook-missp.dat', 'data/norvig.dat',
+        'data/wikipedia.dat'
+        ]
+
 def load_mitton_words(path):
     with open(path) as f:
         mitton_words = [w.strip() for w in f]
