@@ -28,7 +28,8 @@ def main(args):
         words = [w[1:] for w in words if w.startswith('$')]
         vocabulary.extend(words)
     job = KeyboardDistanceCorpus(words=vocabulary,
-            distances=args.distances, sample=args.sample)
+            distances=args.distances, sample=args.sample,
+            max_examples_per_word=args.max_examples_per_word)
     corpus_df = job.run()
     corpus_df.to_csv(args.output_csv,
             index=False, sep='\t',
@@ -46,6 +47,10 @@ def build_parser():
     parser.add_argument(
         '--sample', default='all', choices=['all', 'inverse', 'inverse-square'],
         help='the kind of sampling to use when generating a corpus ("all", "inverse", "inverse-square"); default="all"')
+    parser.add_argument(
+        '--max-examples-per-word', default=None, type=int,
+        help='the limit on the number of examples to generate per word (default=unlimited)')
+
     return parser.parse_args()
 
 if __name__ == "__main__":
