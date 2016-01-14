@@ -113,7 +113,7 @@ class ErrorInjector(object):
                 self.generators[trigram][edit_function] += 1
 
     def get_trigrams(self):
-        return {trigram:len(funcs) for trigram, funcs in self.generators.iteritems()}
+        return {trigram:sum(funcs.values()) for trigram, funcs in self.generators.iteritems()}
 
     def inject_errors(self, word):
         word = word.lower() #for now we don't handle case
