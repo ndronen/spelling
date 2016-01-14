@@ -27,7 +27,8 @@ def main(args):
         words = spelling.mitton.load_mitton_words(corpus)
         words = [w[1:] for w in words if w.startswith('$')]
         vocabulary.extend(words)
-    job = KeyboardDistanceCorpus(words=vocabulary, distances=args.distances)
+    job = KeyboardDistanceCorpus(words=vocabulary,
+            distances=args.distances, sample=args.sample)
     corpus_df = job.run()
     corpus_df.to_csv(args.output_csv,
             index=False, sep='\t',
@@ -41,7 +42,10 @@ def build_parser():
         help='CSV file to which to write the corpus')
     parser.add_argument(
         '--distances', default=[1,2], type=int, nargs='+',
-        help='the keyboard distances to use when generating corpus (default=[1,2])')
+        help='the keyboard distances to use when generating a corpus (default=[1,2])')
+    parser.add_argument(
+        '--sample', default='all', choices=['all', 'inverse', 'inverse-square'],
+        help='the kind of sampling to use when generating a corpus ("all", "inverse", "inverse-square"); default="all"')
     return parser.parse_args()
 
 if __name__ == "__main__":

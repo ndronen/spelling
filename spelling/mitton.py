@@ -8,14 +8,21 @@ from spelling.features import (suggest,
         compute_unary_features, compute_binary_features)
 from spelling.dictionary import (Aspell, Norvig, 
         AspellWithNorvigLanguageModel, NorvigWithoutLanguageModel,
-        NorvigWithAspellDictWithoutLanguageModel,
-        NorvigWithAspellDictAndGoogleLanguageModel)
+        NorvigWithAspellVocabWithoutLanguageModel,
+        NorvigWithAspellVocabAndGoogleLanguageModel,
+        NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates)
 
 from spelling.dictionary import NORVIG_DATA_PATH
 
 PROBS_DATA_PATH = 'data/aspell-dict.csv.gz'
 
 from .utils import build_progressbar
+
+CORPORA = [
+        'data/aspell.dat', 'data/birbeck.dat',
+        'data/holbrook-missp.dat', 'data/norvig.dat',
+        'data/wikipedia.dat'
+        ]
 
 def load_mitton_words(path):
     with open(path) as f:
@@ -171,8 +178,9 @@ def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
 CONSTRUCTORS = [
         Aspell, Norvig, AspellWithNorvigLanguageModel,
         NorvigWithoutLanguageModel,
-        NorvigWithAspellDictWithoutLanguageModel,
-        NorvigWithAspellDictAndGoogleLanguageModel
+        NorvigWithAspellVocabWithoutLanguageModel,
+        NorvigWithAspellVocabAndGoogleLanguageModel,
+        NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates
         ]
 
 def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):
@@ -222,7 +230,7 @@ def build_mitton_datasets(path, constructors=CONSTRUCTORS, verbose=False):
     pairs = build_mitton_pairs(mitton_words)
     return build_datasets(pairs, constructors, verbose=verbose)
 
-def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
+def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, verbose=False):
     """
     Evaluate the accuracy of one or more dictionaries using data frames
     created by `build_datasets` or `build_mitton_datasets`.
@@ -244,6 +252,16 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
       The accuracy of each dictionary at a given rank.
     """
     dict_names = sorted(dfs.keys())
+
+    if ignore_case:
+        for dict_name in dict_names:
+            # Defensively copy before modifying.
+            df = dfs[dict_name]
+            df = df.copy()
+            dfs[dict_name] = df
+
+            df.suggestion = df.suggestion.apply(lambda s: s.lower())
+            df.correct_word = df.correct_word.apply(lambda s: s.lower())
 
     all_words = set()
     common_words = set()
@@ -274,13 +292,13 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], verbose=False):
             n_correct = len(df[(df.suggestion_index < rank) & (df.suggestion == df.correct_word)])
             accuracies[dict_name].append(n_correct/n)
 
-    evalutation = collections.defaultdict(list)
+    evaluation = collections.defaultdict(list)
 
     for dict_name in sorted(dfs.keys()):
         for i, rank in enumerate(ranks):
-            evalutation['Algorithm'].append(dict_name)
-            evalutation['Accuracy'].append(accuracies[dict_name][i])
-            evalutation['Rank'].append(rank)
+            evaluation['Algorithm'].append(dict_name)
+            evaluation['Accuracy'].append(accuracies[dict_name][i])
+            evaluation['Rank'].append(rank)
 
-    return pd.DataFrame(evalutation)[['Algorithm', 'Rank', 'Accuracy']]
+    return pd.DataFrame(evaluation)[['Algorithm', 'Rank', 'Accuracy']]
 
