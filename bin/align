@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+from alignment.sequence import Sequence
+from alignment.vocabulary import Vocabulary
+from alignment.sequencealigner import SimpleScoring, GlobalSequenceAligner
+
+a = Sequence('actually')
+b = Sequence('akgsualie')
+v = Vocabulary()
+
+aEncoded = v.encodeSequence(a)
+bEncoded = v.encodeSequence(b)
+
+scoring = SimpleScoring(2, -1)
+aligner = GlobalSequenceAligner(scoring, -2)
+
+score, encodeds = aligner.align(aEncoded, bEncoded, backtrace=True)
+
+for encoded in encodeds:
+    alignment = v.decodeSequenceAlignment(encoded)
+    print(alignment)
+    print('Alignment score:', alignment.score)
+    print('Percent identity:', alignment.percentIdentity())
+    print()
+print(alignment.first)
+print(alignment.second)
