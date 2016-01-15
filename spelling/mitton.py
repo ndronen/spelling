@@ -230,7 +230,7 @@ def build_mitton_datasets(path, constructors=CONSTRUCTORS, verbose=False):
     pairs = build_mitton_pairs(mitton_words)
     return build_datasets(pairs, constructors, verbose=verbose)
 
-def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, verbose=False):
+def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, correct_word_is_in_suggestions=False, verbose=False):
     """
     Evaluate the accuracy of one or more dictionaries using data frames
     created by `build_datasets` or `build_mitton_datasets`.
@@ -253,30 +253,40 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, ve
     """
     dict_names = sorted(dfs.keys())
 
+    # Defensively copy data frames before modifying them.
+    dfs_copy = {}
     if ignore_case:
         for dict_name in dict_names:
-            # Defensively copy before modifying.
             df = dfs[dict_name]
             df = df.copy()
-            dfs[dict_name] = df
+            dfs_copy[dict_name] = df
 
             df.suggestion = df.suggestion.apply(lambda s: s.lower())
             df.correct_word = df.correct_word.apply(lambda s: s.lower())
+
+    dfs = dfs_copy
 
     all_words = set()
     common_words = set()
 
     df = dfs[dict_names[0]]
+
+    def build_vocab_mask(df):
+        if correct_word_in_suggestions:
+            return df.correct_word_is_in_suggestions & df.correct_word_in_dict
+        else:
+            return df.correct_word_in_dict
+
     common_words.update(
-            df.correct_word[df.correct_word_in_dict])
+            df.correct_word[build_vocab_mask(df)])
     all_words.update(common_words)
 
     for dict_name in dict_names[1:]:
         df = dfs[dict_name]
         common_words.intersection_update(
-            df.correct_word[df.correct_word_in_dict])
+            df.correct_word[build_vocab_mask(df)])
         all_words.update(
-            df.correct_word[df.correct_word_in_dict])
+            df.correct_word[build_vocab_mask(df)])
 
     if verbose:
         print('words %d' % len(all_words))
