@@ -2,27 +2,47 @@
 
 from __future__ import print_function
 
+import sys
+import argparse
 from alignment.sequence import Sequence
 from alignment.vocabulary import Vocabulary
 from alignment.sequencealigner import SimpleScoring, GlobalSequenceAligner
 
-a = Sequence('actually')
-b = Sequence('akgsualie')
-v = Vocabulary()
+def align(word1, word2):
+    a = Sequence(word1)
+    b = Sequence(word2)
+    v = Vocabulary()
 
-aEncoded = v.encodeSequence(a)
-bEncoded = v.encodeSequence(b)
+    aEncoded = v.encodeSequence(a)
+    bEncoded = v.encodeSequence(b)
 
-scoring = SimpleScoring(2, -1)
-aligner = GlobalSequenceAligner(scoring, -2)
+    scoring = SimpleScoring(2, -1)
+    aligner = GlobalSequenceAligner(scoring, -2)
 
-score, encodeds = aligner.align(aEncoded, bEncoded, backtrace=True)
+    score, encodeds = aligner.align(aEncoded, bEncoded, backtrace=True)
 
-for encoded in encodeds:
-    alignment = v.decodeSequenceAlignment(encoded)
-    print(alignment)
-    print('Alignment score:', alignment.score)
-    print('Percent identity:', alignment.percentIdentity())
-    print()
-print(alignment.first)
-print(alignment.second)
+    for encoded in encodeds:
+        alignment = v.decodeSequenceAlignment(encoded)
+        print(alignment)
+        print('Alignment score:', alignment.score)
+        print('Percent identity:', alignment.percentIdentity())
+        print()
+    print(alignment.first)
+    print(alignment.second)
+
+    return alignment
+
+def main(args):
+    align(args.word1, args.word2)
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+            description='align two words')
+    parser.add_argument('word1', metavar='WORD1',
+            help='the first word')
+    parser.add_argument('word2', metavar='WORD2',
+            help='the second word')
+    return parser.parse_args()
+
+if __name__ == '__main__':
+    sys.exit(main(build_parser()))
