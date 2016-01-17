@@ -1,13 +1,18 @@
 from __future__ import absolute_import
 
 import Levenshtein
-import fuzzy
+from jellyfish import soundex, metaphone, jaro_winkler
+from jellyfish import (levenshtein_distance, damerau_levenshtein_distance,
+    hamming_distance, match_rating_comparison)
 import string
 from .typodistance import typo_distance
 import numpy as np
 
 VOWELS = 'aeiou'
 CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
+METRICS = ['levenshtein', 'damerau_levenshtein', 'hamming', 'jaro', 'jaro_winkler', 'typo', 'set']
+ENCODINGS = ['identity', 'soundex', 'metaphone', 'nysiis']
+
 
 """
 Compute binary features between two words.
@@ -21,20 +26,14 @@ error : str
 
 Returns
 features : dict
-    A dictionary with the keys 'levenshtein_distance',
-    'keyboard_distance', 'soundex_levenshtein_distance',
-    and 'metaphone_levenshtein_distance'.
+    A dictionary with each key being a feature.
 """
 def compute_binary_features(known_word, unknown_word):
+    pairs = dict(zip(METRICS, ENCODINGS))
     features = {}
-    features['levenshtein_distance'] = levenshtein_distance(known_word, unknown_word)
-    features['keyboard_distance'] = keyboard_distance(known_word, unknown_word)
-    features['set_distance'] = set_distance(known_word, unknown_word)
-    features['soundex_levenshtein_distance'] = soundex_levenshtein_distance(known_word, unknown_word)
-    features['metaphone_levenshtein_distance'] = metaphone_levenshtein_distance(known_word, unknown_word)
-    features['soundex_set_distance'] = soundex_set_distance(known_word, unknown_word)
-    features['metaphone_set_distance'] = metaphone_set_distance(known_word, unknown_word)
-
+    for metric, encoding in pairs.iteritems():
+        feature_name = '_'.join(encoding, metric)
+        features[feature_name] = distance(known_word, unknown_word, metric)
     return features
 
 """
@@ -60,82 +59,37 @@ def compute_unary_features(word):
     return features
 
 """
-Compute levenshtein distance between two words.
+Compute distance between two words (optionally, after encoding the words).
 
 Parameters
 ----------
 known_word : str
-    The first of the two words.
+    The known word.
 unknown_word : str
-    The second of the two words.
+    The unknown word.
+metric : str or callable
+    The metric.
+encoding : str or callable
+    The encoding (default is identity).
 
 Returns
 distance : int
-    The Levenshtein distance between `known_word` and `unknown_word`.
+    The distance between `known_word` and `unknown_word`.
 """
-def levenshtein_distance(known_word, unknown_word):
-    return Levenshtein.distance(known_word, unknown_word)
-
-"""
-Parameters
-----------
-known_word : str
-    The first of the two words.
-unknown_word  : str
-    The second of the two words.
-
-Returns
-distance : float
-    The keyboard distance between `known_word` and `unknown_word`.
-"""
-def keyboard_distance(known_word, unknown_word):
-    return typo_distance(known_word, unknown_word)
-
-"""
-Compute SOUNDEX of a word.
-"""
-def soundex(word, size=4):
-    f = fuzzy.Soundex(size)
-    sx = f(word)
-    if sx is None:
-        sx == ''
-    return sx
-
-"""
-Compute Metaphone-2 of a word.
-"""
-def metaphone(word):
-    f = fuzzy.DMetaphone()
-    mph = f(word)[0]
-    if mph is None:
-        mph = ''
-    return mph
-
-"""
-Levenshtein distance between SOUNDEX of two words.
-"""
-def soundex_levenshtein_distance(known_word, unknown_word, size=4):
+def distance(known_word, unknown_word, metric, encoding=lambda s: s):
     try:
-        return levenshtein_distance(
-                soundex(known_word, size), soundex(unknown_word, size))
-    except IndexError:
-        if len(known_word) == 0 and len(unknown_word) == 0:
-            return np.inf
-        else:
-            return max(len(known_word), len(unknown_word))
-
-"""
-Levenshtein distance between Metaphone-2 of two words.
-"""
-def metaphone_levenshtein_distance(known_word, unknown_word):
-    try:
-        return levenshtein_distance(
-                metaphone(known_word), metaphone(unknown_word))
-    except IndexError:
-        if len(known_word) == 0 and len(unknown_word) == 0:
-            return np.inf
-        else:
-            return max(len(known_word), len(unknown_word))
+        metric = globals()[metric]
+    except KeyError as e:
+            metric = globals()[metric + '_distance']
+    if isinstance(encoding, str):
+        try:
+            encoding = globals()[encoding]
+        except KeyError:
+            if encoding == 'identity':
+                encoding = lambda s: s
+    return metric(
+            unicode(encoding(known_word)),
+            unicode(encoding(unknown_word)))
 
 """
 Unordered distance of two words.  (This is probably a proper metric.)
@@ -147,18 +101,6 @@ def set_distance(known_word, unknown_word):
         return 1 - len(s_unknown.intersection(s_known))/float(len(s_unknown))
     except ZeroDivisionError:
         return len(s_known)
-
-"""
-Unordered distance of SOUNDEX of two words.  (This is probably a proper metric.)
-"""
-def soundex_set_distance(known_word, unknown_word):
-    return set_distance(soundex(known_word), soundex(unknown_word))
-
-"""
-Unordered distance of Metaphone of two words.  (This is probably a proper metric.)
-"""
-def metaphone_set_distance(known_word, unknown_word):
-    return set_distance(metaphone(known_word), metaphone(unknown_word))
 
 """
 The dictionary suggestions.
