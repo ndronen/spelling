@@ -9,3 +9,4 @@ pandas
 nltk
 langdetect
 alignment
+jellyfish
