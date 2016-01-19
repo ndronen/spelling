@@ -1,5 +1,5 @@
 import unittest
-from spelling.edits import EditFinder, TooManyEditsError
+from spelling.edits import EditFinder
 
 class TestEditFinder(unittest.TestCase):
     def setUp(self):
@@ -25,13 +25,6 @@ class TestEditFinder(unittest.TestCase):
         error = "scax"
         edits = self.finder.find(word, error)
         self.assertEquals([('r', 'x')], edits)
-
-    #@unittest.skip('')
-    def test_too_many_edits(self):
-        word = "car"
-        error = "scarx"
-        self.assertRaises(TooManyEditsError,
-                self.finder.find, word, error)
 
     #@unittest.skip('')
     def test_build_edits_rotation(self):
@@ -133,3 +126,18 @@ class TestEditFinder(unittest.TestCase):
         self.assertEquals(expected, edits)
         edits = self.finder.build_edits(first, second)
         self.assertEquals([expected], edits)
+
+    #@unittest.skip('')
+    def test_no_edits(self):
+        word =  "replacement"
+        error = "replasments"
+        #
+        # The words are aligned like this:
+        #     "replacement-"
+        #     "replas-ments"
+        # This should be a substitution, a deletion, and an insertion.
+        #     ('c','s'), ('ce', 'c'), ('t', 'ts')
+        first, second = self.finder.align(word, error)
+        expected = [('c','s'), ('ce', 'c'), ('t', 'ts')]
+        edits = self.finder.build_edits(first, second)
+        self.assertEquals(expected, edits)

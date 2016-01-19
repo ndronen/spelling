@@ -1,41 +1,10 @@
+import sys
 from alignment.sequence import Sequence
 from alignment.vocabulary import Vocabulary
 from alignment.sequencealigner import SimpleScoring, StrictGlobalSequenceAligner
 
-class TooManyAlignmentsError(Exception):
-    def __init__(self, word1, word2, num_alignments):
-        self.__dict__.update(locals())
-        del self.self
-
-    def __str__(self):
-        return ("Too many alignments (%d) from '%s' to '%s' (max=1)" %
-            (self.num_alignments, self.word1, self.word2))
-
-class TooManyEditsError(Exception):
-    def __init__(self, word1, word2, num_edits, max_edits):
-        self.__dict__.update(locals())
-        del self.self
-
-    def __str__(self):
-        return ("Too many edits (%d) from '%s' to '%s' (max=%d)" %
-            (self.num_edits, self.word1, self.word2, self.max_edits))
-
-class NotAnInsertionError(Exception):
-    def __init__(self, word):
-        self.word = word
-
-    def __str__(self):
-        return ("'%s' is not an insertion " % first[i])
-
-class NotADeletionError(Exception):
-    def __init__(self, word):
-        self.word = word
-
-    def __str__(self):
-        return ("'%s' is not a deletion" % first[i])
-
 class EditFinder(object):
-    def __init__(self, max_edits=1):
+    def __init__(self):
         self.__dict__.update(locals())
         del self.self
         self.scoring = SimpleScoring(2, -1)
@@ -45,16 +14,18 @@ class EditFinder(object):
         vocab = Vocabulary()
         a = vocab.encodeSequence(Sequence(word))
         b = vocab.encodeSequence(Sequence(error))
-        score, encodeds = self.aligner.align(a, b, backtrace=True)
+        score, encodings = self.aligner.align(a, b, backtrace=True)
     
-        if len(encodeds) > 1:
-            raise TooManyAlignmentsError(error, word, len(encodeds))
-    
-        encoded = encodeds[0]
-        alignment = vocab.decodeSequenceAlignment(encoded)
+        # Choose the highest-score alignment.
+        score = -sys.maxsize
+        best_alignment = None
+        for encoding in encodings:
+            alignment = vocab.decodeSequenceAlignment(encoding)
+            if alignment.score > score:
+                best_alignment = alignment
+                score = alignment.score
 
-        return alignment.first, alignment.second
-
+        return best_alignment.first, best_alignment.second
 
     def edit_is_rotation(self, first, second, start, end):
         first_span = first[start:end+1]
@@ -100,8 +71,9 @@ class EditFinder(object):
         return (first_span, second_span)
 
     def edit_is_deletion(self, first, second, start, end):
-        ret = start == end and second[start] == '-'
-        #print('edit_is_insertion', first, second, start, end, start == end, first[start] == '-', ret)
+        #ret = start == end and second[start] == '-'
+        ret = second[start] == '-'
+        #print('edit_is_deletion', first, second, start, end, second[start] == '-', ret)
         return ret
 
     def build_deletion(self, first, second, start, end):
@@ -115,9 +87,9 @@ class EditFinder(object):
         return (first_span, second_span)
 
     def edit_is_substitution(self, first, second, start, end):
-        ret = start == end and '-' not in [first[start], second[start]] and \
+        ret = '-' not in [first[start], second[start]] and \
                 first[start] != second[start]
-        #print('edit_is_substitution', first, second, start, end, start == end, first[start] == '-', ret)
+        #print('edit_is_substitution', first, second, start, end, first[start] == '-', ret)
         return ret
 
     def build_substitution(self, first, second, start, end):
@@ -177,6 +149,4 @@ class EditFinder(object):
     def find(self, word, error):
         first, second = self.align(word, error)
         edits = self.build_edits(first, second)
-        if len(edits) > self.max_edits:
-            raise TooManyEditsError(error, word, len(edits), self.max_edits)
         return edits
