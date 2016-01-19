@@ -20,31 +20,163 @@ class TooManyEditsError(Exception):
         return ("Too many edits (%d) from '%s' to '%s' (max=%d)" %
             (self.num_edits, self.word1, self.word2, self.max_edits))
 
+class NotAnInsertionError(Exception):
+    def __init__(self, word):
+        self.word = word
+
+    def __str__(self):
+        return ("'%s' is not an insertion " % first[i])
+
+class NotADeletionError(Exception):
+    def __init__(self, word):
+        self.word = word
+
+    def __str__(self):
+        return ("'%s' is not a deletion" % first[i])
+
 class EditFinder(object):
     def __init__(self, max_edits=1):
         self.__dict__.update(locals())
         del self.self
+        self.scoring = SimpleScoring(2, -1)
+        self.aligner = StrictGlobalSequenceAligner(self.scoring, -2)
 
-    def find(self, error, word):
-        v = Vocabulary()
-        a = v.encodeSequence(Sequence(error))
-        b = v.encodeSequence(Sequence(word))
-    
-        scoring = SimpleScoring(2, -1)
-        aligner = StrictGlobalSequenceAligner(scoring, -2)
-        score, encodeds = aligner.align(a, b, backtrace=True)
+    def align(self, word, error):
+        vocab = Vocabulary()
+        a = vocab.encodeSequence(Sequence(word))
+        b = vocab.encodeSequence(Sequence(error))
+        score, encodeds = self.aligner.align(a, b, backtrace=True)
     
         if len(encodeds) > 1:
             raise TooManyAlignmentsError(error, word, len(encodeds))
     
         encoded = encodeds[0]
-        alignment = v.decodeSequenceAlignment(encoded)
-        edits = []
-        for i in range(len(alignment.first)):
-            if alignment.first[i] != alignment.second[i]:
-                edits.append((alignment.first[i], alignment.second[i]))
+        alignment = vocab.decodeSequenceAlignment(encoded)
 
+        return alignment.first, alignment.second
+
+
+    def edit_is_rotation(self, first, second, start, end):
+        first_span = first[start:end+1]
+        second_span = [c for c in reversed(second[start:end+1])]
+        return first_span == second_span and \
+            '-' not in first_span and '-' not in second_span
+
+    def build_rotation(self, first, second, start, end):
+        first_span = first[start:end+1]
+        second_span = second[start:end+1]
+        if start == 0:
+            first_span.insert(0, '^')
+            second_span.insert(0, '^')
+        else:
+            first_span.insert(0, first[start-1])
+            second_span.insert(0, first[start-1])
+        return (''.join(first_span), ''.join(second_span))
+
+    def edit_is_transposition(self, first, second, start, end):
+        first_span = first[start:end+1]
+        second_span = [c for c in reversed(second[start:end+1])]
+        return first_span == second_span and \
+            first_span[0] == '-' and second_span[0] == '-'
+
+    def build_transposition(self, first, second, start, end):
+        first_span = first[start+1:end+1]
+        second_span = second[start:end]
+        return (''.join(first_span), ''.join(second_span))
+
+    def edit_is_insertion(self, first, second, start, end):
+        ret = first[start] == '-'
+        #print('edit_is_insertion', first, second, start, end, first[start] == '-', ret)
+        return ret
+
+    def build_insertion(self, first, second, start, end):
+        #print('build_insertion', first, second, start, end)
+        if start == 0:
+            first_span = '^'
+            second_span = '^' + second[start]
+        else:
+            first_span = first[start-1]
+            second_span = ''.join(second[start-1:start+1])
+        return (first_span, second_span)
+
+    def edit_is_deletion(self, first, second, start, end):
+        ret = start == end and second[start] == '-'
+        #print('edit_is_insertion', first, second, start, end, start == end, first[start] == '-', ret)
+        return ret
+
+    def build_deletion(self, first, second, start, end):
+        #print('build_deletion', first, second, start, end, len(first))
+        if start == 0:
+            first_span = '^' + first[start]
+            second_span = '^'
+        else:
+            first_span = ''.join(first[start-1:start+1])
+            second_span = first[start-1]
+        return (first_span, second_span)
+
+    def edit_is_substitution(self, first, second, start, end):
+        ret = start == end and '-' not in [first[start], second[start]] and \
+                first[start] != second[start]
+        #print('edit_is_substitution', first, second, start, end, start == end, first[start] == '-', ret)
+        return ret
+
+    def build_substitution(self, first, second, start, end):
+        #print('build_substitution', first, second, start, end)
+        #return (first[start-1], ''.join(second[start-1:start+1]))
+        return (first[start], second[start])
+
+    def build_edits(self, first, second):
+        positions = []
+
+        for i in range(len(first)):
+            if first[i] != second[i]:
+                positions.append(i)
+
+        edits = []
+
+        #print('positions', positions)
+
+        skip_next = False
+
+        for i in range(len(positions)):
+            start = positions[i]
+            try:
+                end = positions[i+1]
+            except IndexError:
+                end = start
+
+            if skip_next:
+                skip_next = False
+                continue
+
+            #print('i', i, 'start', start, 'end', end, 'edits', edits)
+
+            if self.edit_is_rotation(first, second, start, end):
+                #print('found a rotation in ' + str(first) + ' -> ' + str(second))
+                edits.append(self.build_rotation(first, second, start, end))
+                skip_next = True
+            elif self.edit_is_transposition(first, second, start, end):
+                #print('found a transposition in ' + str(first) + ' -> ' + str(second))
+                edits.append(self.build_transposition(first, second, start, end))
+                skip_next = True
+            elif self.edit_is_insertion(first, second, start, end):
+                #print('found an insertion in ' + str(first) + ' -> ' + str(second))
+                edits.append(self.build_insertion(first, second, start, end))
+            elif self.edit_is_deletion(first, second, start, end):
+                #print('found a deletion in ' + str(first) + ' -> ' + str(second))
+                edits.append(self.build_deletion(first, second, start, end))
+            elif self.edit_is_substitution(first, second, start, end):
+                #print('found a substitution in ' + str(first) + ' -> ' + str(second))
+                edits.append(self.build_substitution(first, second, start, end))
+            else:
+                raise ValueError('did not find any edits in %s => %s' % (
+                    first, second))
+
+        return edits
+
+    def find(self, word, error):
+        first, second = self.align(word, error)
+        edits = self.build_edits(first, second)
         if len(edits) > self.max_edits:
             raise TooManyEditsError(error, word, len(edits), self.max_edits)
-
         return edits
