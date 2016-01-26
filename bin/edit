@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+
+import inspect
+path = inspect.getfile(inspect.currentframe())
+from os.path import dirname, split
+import sys
+sys.path.append(dirname(split(path)[0]))
+
+import sys
+import argparse
+from spelling.edits import EditFinder
+
+def transform(word1, word2):
+    finder = EditFinder()
+    edits,_ = finder.find(word1, word2)
+    print(finder.apply(word1, edits))
+
+def main(args):
+    transform(args.word1, args.word2)
+
+def build_parser():
+    parser = argparse.ArgumentParser(
+            description='align two words')
+    parser.add_argument('word1', metavar='WORD1',
+            help='the first word')
+    parser.add_argument('word2', metavar='WORD2',
+            help='the second word')
+    return parser.parse_args()
+
+if __name__ == '__main__':
+    sys.exit(main(build_parser()))
+    finder = EditFinder()
+    with open("data/wikipedia.dat","r") as f:
+        incorrect = None
+        for line in f:
+            if line[0] == "$":
+                correct = line[1:-1]
+            else:
+                incorrect = line[:-1]
+            if incorrect is not None:
+                edits,_ = finder.find(correct, incorrect)
+                if incorrect != finder.apply(correct, edits):
+                    print(edits)
+                    print(correct, incorrect, finder.apply(correct, edits))
+                    print("-"*20)

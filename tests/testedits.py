@@ -141,3 +141,32 @@ class TestEditFinder(unittest.TestCase):
         expected = [('c','s'), ('ce', 'c'), ('t', 'ts')]
         edits = self.finder.build_edits(first, second)
         self.assertEquals(expected, edits)
+
+    def test_apply_straight(self):
+        word =  "straight"
+        error = "strait"
+        edits,_ = self.finder.find(word, error)
+        self.assertEquals(error, self.finder.apply(word, edits))
+
+    def test_apply_generally(self):
+        word =  "generally"
+        error = "geneology"
+        edits,_ = self.finder.find(word, error)
+        self.assertEquals(error, self.finder.apply(word, edits))
+
+    def test_apply_critics(self):
+        word =  "critics"
+        error = "criticists"
+        edits,_ = self.finder.find(word, error)
+        self.assertEquals(error, self.finder.apply(word, edits))
+
+    @unittest.skip('')
+    def test_apply_on_wiki(self):
+        with open("data/wikipedia.dat","r") as f:
+            for line in f:
+                if line[0] == "$":
+                    correct = line[1:-1]
+                else:
+                    incorrect = line[:-1]
+                edits,_ = self.finder.find(correct, incorrect)
+                self.assertEquals(incorrect, self.finder.apply(correct, edits))
