@@ -163,6 +163,8 @@ class EditFinder(object):
             index = word.find(from_gram)
             if index != -1:
                 planned.append((index, len(from_gram), len(to_gram), to_gram))
+        if len(planned) < len(edits):
+            raise ValueError('could not apply all edits to "%s"' % word)
         planned.sort(reverse=True)
         print planned
         new_word = word
