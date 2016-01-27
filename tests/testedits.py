@@ -160,6 +160,25 @@ class TestEditFinder(unittest.TestCase):
         edits,_ = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    def test_remove_dashes(self):
+        word =  "crit-cs"
+        self.assertEquals("critcs", self.finder.remove_dashes(5, word)[1])
+        self.assertEquals(4, self.finder.remove_dashes(5, word)[0])
+        self.assertEquals(2, self.finder.remove_dashes(2, word)[0])
+        self.assertEquals(4, self.finder.remove_dashes(4, word)[0])
+
+    def test_remove_double_dashes(self):
+        word =  "cr-t-cs"
+        self.assertEquals("crtcs", self.finder.remove_dashes(5, word)[1])
+        self.assertEquals(3, self.finder.remove_dashes(5, word)[0])
+        self.assertEquals(1, self.finder.remove_dashes(1, word)[0])
+        self.assertEquals(3, self.finder.remove_dashes(4, word)[0])
+
+    def test_remove_no_dashes(self):
+        word =  "critics"
+        self.assertEquals("critics", self.finder.remove_dashes(5, word)[1])
+        self.assertEquals(5, self.finder.remove_dashes(5, word)[0])
+
     @unittest.skip('')
     def test_apply_on_wiki(self):
         with open("data/wikipedia.dat","r") as f:

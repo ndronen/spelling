@@ -31,4 +31,24 @@ def build_parser():
     return parser.parse_args()
 
 if __name__ == '__main__':
-    sys.exit(main(build_parser()))
+    finder = EditFinder()
+    wrong = 0
+    total = 0
+    pairs = []
+    with open("data/wikipedia.dat","r") as f:
+        incorrect = None
+        for line in f:
+            if line[0] == "$":
+                correct = line[1:-1]
+            else:
+                incorrect = line[:-1]
+                edits,_ = finder.find(correct, incorrect)
+                total += 1
+                if incorrect != finder.apply(correct, edits):
+                    pairs.append((correct, incorrect, finder.apply(correct, edits)))
+                    wrong += 1
+                    print(edits)
+                    print(correct, incorrect, finder.apply(correct, edits))
+                    print("-"*20)
+    print(pairs)
+    print(wrong, total, float(wrong)/total)

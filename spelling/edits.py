@@ -62,12 +62,21 @@ class EditFinder(object):
 
     def build_insertion(self, first, second, start, end):
         #print('build_insertion', first, second, start, end)
+        #start, first = self.remove_dashes(start, first)
+        #_, second = self.remove_dashes(0, second)
+        print first
+        print second
+        extent = 0
+        for c in first[start:]:
+            if c != '-':
+                break
+            extent += 1
+        first_span = ''.join(first[max(0,start-2):start+1])
         if start == 0:
-            first_span = '^'
-            second_span = '^' + second[start]
-        else:
-            first_span = ''.join(first[start-2:start])
-            second_span = first_span[:-1] + ''.join(second[start-1:start+1])
+            first_span = "^" + ''.join(first[:1])
+        print first_span
+        second_span = first_span[:-2] + ''.join(second[max(0,start-1):start+extent])
+        first_span = first_span.strip("-")
 
         return (first_span, second_span)
 
@@ -94,8 +103,8 @@ class EditFinder(object):
         return ret
 
     def build_substitution(self, first, second, start, end):
-        print('build_substitution', first, second, start, end)
-        return (''.join(first[start-1:start+1]), ''.join(second[start-1:start+1]))
+        #print('build_substitution', first, second, start, end)
+        return (''.join(first[max(0,start-1):start+1]), ''.join(second[max(0,start-1):start+1]))
         #return (first[start], second[start])
 
     def build_edits(self, first, second):
@@ -110,7 +119,7 @@ class EditFinder(object):
 
         #print('positions', positions)
 
-        skip_next = False
+        skip_next = 0
 
         for i in range(len(positions)):
             start = positions[i]
@@ -120,29 +129,30 @@ class EditFinder(object):
                 end = start
 
             if skip_next:
-                skip_next = False
+                skip_next -= 1
                 continue
 
-            print('i', i, 'start', start, 'end', end, 'edits', edits)
+            #print('i', i, 'start', start, 'end', end, 'edits', edits)
 
             edit_indices.append(i)
 
             if self.edit_is_rotation(first, second, start, end):
-                print('found a rotation in ' + str(first) + ' -> ' + str(second))
+                #print('found a rotation in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_rotation(first, second, start, end))
-                skip_next = True
+                skip_next = 1
             elif self.edit_is_transposition(first, second, start, end):
-                print('found a transposition in ' + str(first) + ' -> ' + str(second))
+                #print('found a transposition in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_transposition(first, second, start, end))
-                skip_next = True
+                skip_next = 1
             elif self.edit_is_insertion(first, second, start, end):
-                print('found an insertion in ' + str(first) + ' -> ' + str(second))
+                #print('found an insertion in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_insertion(first, second, start, end))
+                skip_next = len(edits[-1][1])-2
             elif self.edit_is_deletion(first, second, start, end):
-                print('found a deletion in ' + str(first) + ' -> ' + str(second))
+                #print('found a deletion in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_deletion(first, second, start, end))
             elif self.edit_is_substitution(first, second, start, end):
-                print('found a substitution in ' + str(first) + ' -> ' + str(second))
+                #print('found a substitution in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_substitution(first, second, start, end))
             else:
                 raise ValueError('did not find any edits in %s => %s' % (
@@ -157,17 +167,26 @@ class EditFinder(object):
 
     def apply(self, word, edits):
         word = "^" + word
-        print edits
         planned = []
         for from_gram, to_gram in edits:
             index = word.find(from_gram)
             if index != -1:
                 planned.append((index, len(from_gram), len(to_gram), to_gram))
         planned.sort(reverse=True)
-        print planned
         new_word = word
         for index, size, _, to_gram in planned:
             print new_word
             new_word = new_word[:index] + to_gram + new_word[index+size:]
         new_word = new_word.strip("^")
         return new_word
+
+    def remove_dashes(self, index, word):
+        new_word = []
+        new_index = index
+        for i,c in enumerate(word):
+            if c == "-":
+                if i < index:
+                    new_index -= 1
+            else:
+                new_word.append(c)
+        return new_index, ''.join(new_word)
