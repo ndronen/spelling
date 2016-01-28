@@ -1,0 +1,3 @@
+[submodule "modeling"]
+	path = modeling
+	url = https://github.com/ndronen/modeling
