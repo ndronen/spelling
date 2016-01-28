@@ -24,7 +24,8 @@ class TestEditFinder(unittest.TestCase):
         word = "scar"
         error = "scax"
         edits = self.finder.find(word, error)
-        self.assertEquals([('r', 'x')], edits)
+        print word, error, edits
+        self.assertEquals([('ar', 'ax')], edits)
 
     #@unittest.skip('')
     def test_build_edits_rotation(self):
@@ -60,7 +61,7 @@ class TestEditFinder(unittest.TestCase):
                     'word': 'the',
                     'error': 'thre',
                     'start': 2,
-                    'expected': ('h', 'hr')
+                    'expected': ('th', 'thr')
                 },
                 {
                     'word': 'car',
@@ -113,7 +114,7 @@ class TestEditFinder(unittest.TestCase):
     def test_build_edits_substitution(self):
         word = "scar"
         error = "scax"
-        expected = ("r", "x")
+        expected = ("ar", "ax")
         first, second = self.finder.align(word, error)
         # The words are aligned like this:
         #     "scar"
@@ -121,7 +122,6 @@ class TestEditFinder(unittest.TestCase):
         start = 3
         end = start
         self.assertTrue(self.finder.edit_is_substitution(first, second, start, end))
-        expected = ('r', 'x')
         edits = self.finder.build_substitution(first, second, start, end)
         self.assertEquals(expected, edits)
         edits = self.finder.build_edits(first, second)
@@ -138,26 +138,44 @@ class TestEditFinder(unittest.TestCase):
         # This should be a substitution, a deletion, and an insertion.
         #     ('c','s'), ('ce', 'c'), ('t', 'ts')
         first, second = self.finder.align(word, error)
-        expected = [('c','s'), ('ce', 'c'), ('t', 'ts')]
+        expected = [('ac','as'), ('ce', 'c'), ('nt', 'nts')]
         edits = self.finder.build_edits(first, second)
         self.assertEquals(expected, edits)
 
     def test_apply_straight(self):
         word =  "straight"
         error = "strait"
-        edits,_ = self.finder.find(word, error)
+        edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
     def test_apply_generally(self):
         word =  "generally"
         error = "geneology"
-        edits,_ = self.finder.find(word, error)
+        edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
     def test_apply_critics(self):
         word =  "critics"
         error = "criticists"
-        edits,_ = self.finder.find(word, error)
+        edits = self.finder.find(word, error)
+        self.assertEquals(error, self.finder.apply(word, edits))
+
+    def test_apply_professor(self):
+        word =  "professor"
+        error = "proffesor"
+        edits = self.finder.find(word, error)
+        self.assertEquals(error, self.finder.apply(word, edits))
+
+    def test_apply_one(self):
+        word =  "one"
+        error = "noone"
+        edits = self.finder.find(word, error)
+        self.assertEquals(error, self.finder.apply(word, edits))
+
+    def test_apply_throughout(self):
+        word =  "throughout"
+        error = "throught"
+        edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
     def test_remove_dashes(self):

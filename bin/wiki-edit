@@ -14,7 +14,7 @@ from spelling.edits import EditFinder
 
 def transform(word1, word2):
     finder = EditFinder()
-    edits,_ = finder.find(word1, word2)
+    edits = finder.find(word1, word2)
     print(edits)
     print(finder.apply(word1, edits))
 
@@ -42,7 +42,7 @@ if __name__ == '__main__':
                 correct = line[1:-1]
             else:
                 incorrect = line[:-1]
-                edits,_ = finder.find(correct, incorrect)
+                edits = finder.find(correct, incorrect)
                 total += 1
                 if incorrect != finder.apply(correct, edits):
                     pairs.append((correct, incorrect, finder.apply(correct, edits)))
@@ -50,5 +50,5 @@ if __name__ == '__main__':
                     print(edits)
                     print(correct, incorrect, finder.apply(correct, edits))
                     print("-"*20)
-    print(pairs)
+    print('\n'.join(str(p) for p in pairs))
     print(wrong, total, float(wrong)/total)

@@ -14,7 +14,7 @@ from spelling.edits import EditFinder
 
 def transform(word1, word2):
     finder = EditFinder()
-    edits,_ = finder.find(word1, word2)
+    edits = finder.find(word1, word2)
     print(edits)
     print(finder.apply(word1, edits))
 

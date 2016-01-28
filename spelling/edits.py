@@ -61,23 +61,20 @@ class EditFinder(object):
         return ret
 
     def build_insertion(self, first, second, start, end):
-        #print('build_insertion', first, second, start, end)
-        #start, first = self.remove_dashes(start, first)
-        #_, second = self.remove_dashes(0, second)
-        print first
-        print second
         extent = 0
         for c in first[start:]:
             if c != '-':
                 break
             extent += 1
-        first_span = ''.join(first[max(0,start-2):start+1])
         if start == 0:
             first_span = "^" + ''.join(first[:1])
-        print first_span
-        second_span = first_span[:-2] + ''.join(second[max(0,start-1):start+extent])
-        first_span = first_span.strip("-")
+            second_span = first_span[:-1] + ''.join(second[max(0,start-1):start+extent])
+        else:
+            first_span = ''.join(first[max(0,start-2):start+1])
+            second_span = first_span[:-2] + ''.join(second[max(0,start-1):start+extent])
 
+        first_span = ''.join(c for c in first_span if c != "-")
+        second_span = ''.join(c for c in second_span if c != "-")
         return (first_span, second_span)
 
     def edit_is_deletion(self, first, second, start, end):
@@ -88,11 +85,16 @@ class EditFinder(object):
 
     def build_deletion(self, first, second, start, end):
         #print('build_deletion', first, second, start, end, len(first))
+        extent = 0
+        for c in second[start:]:
+            if c != '-':
+                break
+            extent += 1
         if start == 0:
             first_span = '^' + first[start]
             second_span = '^'
         else:
-            first_span = ''.join(first[start-1:start+1])
+            first_span = ''.join(first[start-1:start+extent])
             second_span = first[start-1]
         return (first_span, second_span)
 
@@ -129,8 +131,13 @@ class EditFinder(object):
                 end = start
 
             if skip_next:
-                skip_next -= 1
-                continue
+                skip_next -= positions[i] - positions[i-1]
+                print skip_next
+            if skip_next:
+                if skip_next > 0:
+                    continue
+                else:
+                    skip_next = 0
 
             #print('i', i, 'start', start, 'end', end, 'edits', edits)
 
@@ -139,18 +146,21 @@ class EditFinder(object):
             if self.edit_is_rotation(first, second, start, end):
                 #print('found a rotation in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_rotation(first, second, start, end))
-                skip_next = 1
+                skip_next = len(edits[-1][1])
             elif self.edit_is_transposition(first, second, start, end):
                 #print('found a transposition in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_transposition(first, second, start, end))
-                skip_next = 1
+                skip_next = 3
             elif self.edit_is_insertion(first, second, start, end):
                 #print('found an insertion in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_insertion(first, second, start, end))
-                skip_next = len(edits[-1][1])-2
+                skip_next = len(edits[-1][1])-1
+                #print "for edit",edits[-1]
+                #print "setting skip next to",skip_next
             elif self.edit_is_deletion(first, second, start, end):
                 #print('found a deletion in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_deletion(first, second, start, end))
+                skip_next = len(edits[-1][0])-1
             elif self.edit_is_substitution(first, second, start, end):
                 #print('found a substitution in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_substitution(first, second, start, end))
@@ -158,12 +168,12 @@ class EditFinder(object):
                 raise ValueError('did not find any edits in %s => %s' % (
                     first, second))
 
-        return edits, edit_indices
+        return edits#, edit_indices
 
     def find(self, word, error):
         first, second = self.align(word, error)
-        edits,indices = self.build_edits(first, second)
-        return edits, indices
+        edits= self.build_edits(first, second)
+        return edits
 
     def apply(self, word, edits):
         word = "^" + word
