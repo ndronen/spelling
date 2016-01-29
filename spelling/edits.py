@@ -202,3 +202,46 @@ class EditFinder(object):
             else:
                 new_word.append(c)
         return new_index, ''.join(new_word)
+
+class Editor(object):
+    def __init__(self):
+        self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    def edits(self, word):
+        return set(self.splits(word) +
+                self.deletes(word) +
+                self.transposes(word) + 
+                self.replaces(word) + 
+                self.inserts(word))
+                                                            
+    def splits(self, word):
+        splits = []
+        for i in range(len(word) + 1):
+            splits.append((word[:i] + ' ' + word[i:]))
+        return splits
+
+    def deletes(self, word):
+        deletes = []
+        for i in range(len(word)):
+            deletes.append(word[:i] + word[i+1:])
+        return deletes
+
+    def transposes(self, word):
+        transposes = []
+        for i in range(len(word)-1):
+            transposes.append(word[:i] + word[i+1] + word[i] + word[i+2:])
+        return transposes
+
+    def replaces(self, word):
+        replaces = []
+        for c in self.alphabet:
+            for i in range(0, len(word)):
+                replaces.append(word[:i] + c + word[i+1:])
+        return replaces
+
+    def inserts(self, word):
+        inserts = []
+        for c in self.alphabet:
+            for i in range(0, len(word)):
+                inserts.append(word[:i] + c + word[i:])
+        return inserts
