@@ -1,4 +1,5 @@
 import unittest
+import spelling.mitton
 from spelling.edits import EditFinder
 
 class TestEditFinder(unittest.TestCase):
@@ -142,42 +143,49 @@ class TestEditFinder(unittest.TestCase):
         edits = self.finder.build_edits(first, second)
         self.assertEquals(expected, edits)
 
+    #@unittest.skip('')
     def test_apply_straight(self):
         word =  "straight"
         error = "strait"
         edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    #@unittest.skip('')
     def test_apply_generally(self):
         word =  "generally"
         error = "geneology"
         edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    #@unittest.skip('')
     def test_apply_critics(self):
         word =  "critics"
         error = "criticists"
         edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    #@unittest.skip('')
     def test_apply_professor(self):
         word =  "professor"
         error = "proffesor"
         edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    #@unittest.skip('')
     def test_apply_one(self):
         word =  "one"
         error = "noone"
         edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    #@unittest.skip('')
     def test_apply_throughout(self):
         word =  "throughout"
         error = "throught"
         edits = self.finder.find(word, error)
         self.assertEquals(error, self.finder.apply(word, edits))
 
+    #@unittest.skip('')
     def test_remove_dashes(self):
         word =  "crit-cs"
         self.assertEquals("critcs", self.finder.remove_dashes(5, word)[1])
@@ -185,6 +193,7 @@ class TestEditFinder(unittest.TestCase):
         self.assertEquals(2, self.finder.remove_dashes(2, word)[0])
         self.assertEquals(4, self.finder.remove_dashes(4, word)[0])
 
+    #@unittest.skip('')
     def test_remove_double_dashes(self):
         word =  "cr-t-cs"
         self.assertEquals("crtcs", self.finder.remove_dashes(5, word)[1])
@@ -192,18 +201,26 @@ class TestEditFinder(unittest.TestCase):
         self.assertEquals(1, self.finder.remove_dashes(1, word)[0])
         self.assertEquals(3, self.finder.remove_dashes(4, word)[0])
 
+    #@unittest.skip('')
     def test_remove_no_dashes(self):
         word =  "critics"
         self.assertEquals("critics", self.finder.remove_dashes(5, word)[1])
         self.assertEquals(5, self.finder.remove_dashes(5, word)[0])
 
-    @unittest.skip('')
+    #@unittest.skip('')
     def test_apply_on_wiki(self):
-        with open("data/wikipedia.dat","r") as f:
-            for line in f:
-                if line[0] == "$":
-                    correct = line[1:-1]
-                else:
-                    incorrect = line[:-1]
-                edits,_ = self.finder.find(correct, incorrect)
-                self.assertEquals(incorrect, self.finder.apply(correct, edits))
+        words = spelling.mitton.load_mitton_words('data/wikipedia.dat')
+        pairs = spelling.mitton.build_mitton_pairs(words)
+        #with open("data/wikipedia.dat","r") as f:
+        #    for line in f:
+        #        if line[0] == "$":
+        #            correct = line[1:-1]
+        #        else:
+        #            incorrect = line[:-1]
+        for incorrect,correct in pairs:
+            edits = self.finder.find(correct, incorrect)
+            try:
+                recovered_error = self.finder.apply(correct, edits)
+                self.assertEquals(incorrect, recovered_error)
+            except AssertionError as e:
+                print(incorrect, correct, edits, recovered_error, e)

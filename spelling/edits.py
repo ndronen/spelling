@@ -132,7 +132,7 @@ class EditFinder(object):
 
             if skip_next:
                 skip_next -= positions[i] - positions[i-1]
-                print skip_next
+                #print skip_next
             if skip_next:
                 if skip_next > 0:
                     continue
@@ -168,11 +168,11 @@ class EditFinder(object):
                 raise ValueError('did not find any edits in %s => %s' % (
                     first, second))
 
-        return edits#, edit_indices
+        return edits
 
     def find(self, word, error):
         first, second = self.align(word, error)
-        edits= self.build_edits(first, second)
+        edits = self.build_edits(first, second)
         return edits
 
     def apply(self, word, edits):
@@ -187,7 +187,7 @@ class EditFinder(object):
         planned.sort(reverse=True)
         new_word = word
         for index, size, _, to_gram in planned:
-            print new_word
+            #print new_word
             new_word = new_word[:index] + to_gram + new_word[index+size:]
         new_word = new_word.strip("^")
         return new_word
