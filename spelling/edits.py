@@ -211,7 +211,7 @@ class Editor(object):
         return set(self.split(word) +
                 self.delete(word) +
                 self.tranpose(word) + 
-                self.replace(word) + 
+                self.substitute(word) + 
                 self.insert(word))
 
     def edit(self, word, operation):
@@ -236,12 +236,12 @@ class Editor(object):
             transpose.append(word[:i] + word[i+1] + word[i] + word[i+2:])
         return transpose
 
-    def replace(self, word):
-        replace = []
+    def substitute(self, word):
+        substitute = []
         for c in self.alphabet:
             for i in range(0, len(word)):
-                replace.append(word[:i] + c + word[i+1:])
-        return replace
+                substitute.append(word[:i] + c + word[i+1:])
+        return substitute
 
     def insert(self, word):
         insert = []
