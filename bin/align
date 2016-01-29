@@ -6,7 +6,7 @@ import sys
 import argparse
 from alignment.sequence import Sequence
 from alignment.vocabulary import Vocabulary
-from alignment.sequencealigner import SimpleScoring, GlobalSequenceAligner
+from alignment.sequencealigner import SimpleScoring, StrictGlobalSequenceAligner
 
 def align(word1, word2):
     a = Sequence(word1)
@@ -17,13 +17,13 @@ def align(word1, word2):
     bEncoded = v.encodeSequence(b)
 
     scoring = SimpleScoring(2, -1)
-    aligner = GlobalSequenceAligner(scoring, -2)
+    aligner = StrictGlobalSequenceAligner(scoring, -2)
 
     score, encodeds = aligner.align(aEncoded, bEncoded, backtrace=True)
 
-    for encoded in encodeds:
+    for i,encoded in enumerate(encodeds):
         alignment = v.decodeSequenceAlignment(encoded)
-        print(alignment)
+        print('alignment ' + str(i) + ' ' + str(alignment))
         print('Alignment score:', alignment.score)
         print('Percent identity:', alignment.percentIdentity())
         print()
