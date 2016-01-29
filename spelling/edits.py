@@ -208,40 +208,44 @@ class Editor(object):
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
     def edits(self, word):
-        return set(self.splits(word) +
-                self.deletes(word) +
-                self.transposes(word) + 
-                self.replaces(word) + 
-                self.inserts(word))
+        return set(self.split(word) +
+                self.delete(word) +
+                self.tranpose(word) + 
+                self.replace(word) + 
+                self.insert(word))
+
+    def edit(self, word, operation):
+        f = getattr(self, operation)
+        return f(word)
                                                             
-    def splits(self, word):
-        splits = []
+    def split(self, word):
+        split = []
         for i in range(len(word) + 1):
-            splits.append((word[:i] + ' ' + word[i:]))
-        return splits
+            split.append((word[:i] + ' ' + word[i:]))
+        return split
 
-    def deletes(self, word):
-        deletes = []
+    def delete(self, word):
+        delete = []
         for i in range(len(word)):
-            deletes.append(word[:i] + word[i+1:])
-        return deletes
+            delete.append(word[:i] + word[i+1:])
+        return delete
 
-    def transposes(self, word):
-        transposes = []
+    def transpose(self, word):
+        transpose = []
         for i in range(len(word)-1):
-            transposes.append(word[:i] + word[i+1] + word[i] + word[i+2:])
-        return transposes
+            transpose.append(word[:i] + word[i+1] + word[i] + word[i+2:])
+        return transpose
 
-    def replaces(self, word):
-        replaces = []
+    def replace(self, word):
+        replace = []
         for c in self.alphabet:
             for i in range(0, len(word)):
-                replaces.append(word[:i] + c + word[i+1:])
-        return replaces
+                replace.append(word[:i] + c + word[i+1:])
+        return replace
 
-    def inserts(self, word):
-        inserts = []
+    def insert(self, word):
+        insert = []
         for c in self.alphabet:
             for i in range(0, len(word)):
-                inserts.append(word[:i] + c + word[i:])
-        return inserts
+                insert.append(word[:i] + c + word[i:])
+        return insert
