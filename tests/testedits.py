@@ -9,6 +9,8 @@ class TestEditor(unittest.TestCase):
     def test_inserts(self):
         edits = self.editor.insert("food")
         self.assertTrue('fozod' in edits)
+        edits = self.editor.edit("food", "insert")
+        self.assertTrue('fozod' in edits)
 
     def test_deletes(self):
         edits = self.editor.delete("food")
