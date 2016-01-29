@@ -1,6 +1,30 @@
 import unittest
 import spelling.mitton
-from spelling.edits import EditFinder
+from spelling.edits import EditFinder, Editor
+
+class TestEditor(unittest.TestCase):
+    def setUp(self):
+        self.editor = Editor()
+
+    def test_inserts(self):
+        edits = self.editor.inserts("food")
+        self.assertTrue('fozod' in edits)
+
+    def test_deletes(self):
+        edits = self.editor.deletes("food")
+        self.assertTrue('fod' in edits)
+
+    def test_replaces(self):
+        edits = self.editor.replaces("food")
+        self.assertTrue('zood' in edits)
+
+    def test_transposes(self):
+        edits = self.editor.transposes("food")
+        self.assertTrue('ofod' in edits)
+
+    def test_splits(self):
+        edits = self.editor.splits("food")
+        self.assertTrue('fo od' in edits)
 
 class TestEditFinder(unittest.TestCase):
     def setUp(self):
