@@ -6,25 +6,25 @@ class TestEditor(unittest.TestCase):
     def setUp(self):
         self.editor = Editor()
 
-    def test_inserts(self):
+    def test_insert(self):
         edits = self.editor.insert("food")
         self.assertTrue('fozod' in edits)
         edits = self.editor.edit("food", "insert")
         self.assertTrue('fozod' in edits)
 
-    def test_deletes(self):
+    def test_delete(self):
         edits = self.editor.delete("food")
         self.assertTrue('fod' in edits)
 
-    def test_replaces(self):
-        edits = self.editor.replace("food")
+    def test_substitute(self):
+        edits = self.editor.substitute("food")
         self.assertTrue('zood' in edits)
 
-    def test_transposes(self):
+    def test_transpose(self):
         edits = self.editor.transpose("food")
         self.assertTrue('ofod' in edits)
 
-    def test_splits(self):
+    def test_split(self):
         edits = self.editor.split("food")
         self.assertTrue('fo od' in edits)
 
