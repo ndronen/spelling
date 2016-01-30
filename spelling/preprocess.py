@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import h5py
 from sklearn.cross_validation import train_test_split
@@ -33,16 +34,9 @@ def load_real_words(path):
     pairs = load_pairs(path)
     return [t[1] for t in pairs]
 
-def build_data_target(pairs):
-    max_len = max([max(len(t[0]), len(t[1])) for t in pairs])
-
-    words = {}
-    for pair in pairs:
-        # Nonword.
-        words[pair[0]] = 0
-        # Real word.
-        words[pair[1]] = 1
-
+def build_data_target(words, targets):
+    words = dict(zip(words, targets))
+    max_len = max([len(w) for w in words.iterkeys()])
     char_to_index = build_vocab(words.iterkeys(), ngram_range=(1,1))
 
     data = np.zeros((len(words), max_len))
