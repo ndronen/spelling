@@ -1,9 +1,9 @@
 from __future__ import absolute_import
 
 import Levenshtein
-from jellyfish import soundex, metaphone, jaro_winkler
+from jellyfish import soundex, metaphone, jaro_winkler, nysiis
 from jellyfish import (levenshtein_distance, damerau_levenshtein_distance,
-    hamming_distance, match_rating_comparison)
+    hamming_distance, match_rating_comparison, jaro_distance)
 import string
 from .typodistance import typo_distance
 import numpy as np
@@ -12,7 +12,6 @@ VOWELS = 'aeiou'
 CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
 METRICS = ['levenshtein', 'damerau_levenshtein', 'hamming', 'jaro', 'jaro_winkler', 'typo', 'set']
 ENCODINGS = ['identity', 'soundex', 'metaphone', 'nysiis']
-
 
 """
 Compute binary features between two words.
@@ -29,11 +28,12 @@ features : dict
     A dictionary with each key being a feature.
 """
 def compute_binary_features(known_word, unknown_word):
-    pairs = dict(zip(METRICS, ENCODINGS))
     features = {}
-    for metric, encoding in pairs.iteritems():
-        feature_name = '_'.join(encoding, metric)
-        features[feature_name] = distance(known_word, unknown_word, metric)
+    for metric in METRICS:
+        for encoding in ENCODINGS:
+            feature_name = '_'.join([encoding, metric])
+            features[feature_name] = distance(known_word, unknown_word,
+                    metric, encoding=encoding)
     return features
 
 """
@@ -87,6 +87,8 @@ def distance(known_word, unknown_word, metric, encoding=lambda s: s):
         except KeyError:
             if encoding == 'identity':
                 encoding = lambda s: s
+            else:
+                raise ValueError("unknown encoding function '%s'" % encoding)
     return metric(
             unicode(encoding(known_word)),
             unicode(encoding(unknown_word)))
