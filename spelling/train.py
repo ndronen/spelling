@@ -1,6 +1,8 @@
 import warnings
 warnings.filterwarnings("error")
 
+import os
+from tqdm import tqdm
 import operator
 import cPickle
 
@@ -31,65 +33,86 @@ def remove_non_aspell_vocabulary_dicts(dfs):
         except KeyError:
             pass
 
-def build_features_target(df):
-    feature_names = df.columns.tolist()
-    print('feature_names', feature_names)
-    feature_names = feature_names[13:]
+def build_features_target(df, remove_suggestion_index=True):
+    feature_names = []
+    for feature_name in df.columns:
+        if feature_name.startswith('correct_word'):
+            continue
+        feature_names.append(feature_name)
+    feature_names.remove('error')
     feature_names.remove('suggestion')
-    feature_names = feature_names[0:-1]
+    feature_names.remove('target')
+    if remove_suggestion_index:
+        feature_names.remove('suggestion_index')
     target_name = 'target'
-    print('feature_names', feature_names)
     return feature_names, target_name
 
-def add_count_features(df, vectorizer, column, prefix):
-    count_features = vectorizer.transform(df[column]).todense()
-    rindex = [(v,k) for k,v in vectorizer.vocabulary_]
+def add_features_from_vectorizer(df, vectorizer, column, feature_name_prefix=None):
+    if feature_name_prefix is None:
+        feature_name_prefix = column + '_'
+    count_features = np.array(vectorizer.transform(df[column]).todense())
+    rindex = [(v,k) for k,v in vectorizer.vocabulary_.iteritems()]
     sorted_rindex = sorted(rindex,
             key=operator.itemgetter(0))
-    feature_names = [prefix+t[1] for t in sorted_rindex]
-    for i,feature_name in enumerate(feature_names):
+    feature_names = [feature_name_prefix+t[1] for t in sorted_rindex]
+    for i in tqdm(range(len(feature_names))):
+        feature_name = feature_names[i]
         df.loc[:, feature_name] = count_features[:, i]
+    return feature_names
 
-def fit_cv(estimator, df_train, df_valid=None, train_size=None, dictionary='Aspell', scale=False, correct_word_is_in_suggestions=False, random_state=17, use_ngrams=True, verbose=True):
+def add_ngram_features(df_train, df_valid, column):
+    vectorizer = CountVectorizer(
+            ngram_range=(2, 2), analyzer=u'char',
+            min_df=5, max_features=200)
+    vectorizer.fit(df_train[column])
+    ngram_feature_names = add_features_from_vectorizer(
+            df_train, vectorizer, column)
+    add_features_from_vectorizer(df_valid, vectorizer, column)
+    return ngram_feature_names
 
-    feature_names, target_name = build_features_target(df_train)
+def split_train(df_train, train_size, random_state=17):
+    errors = df_train.error.unique().tolist()
+    train_errors, valid_errors = train_test_split(errors,
+            train_size=0.9, random_state=random_state)
+    if verbose:
+        print('train_errors %d valid_errors %d' %
+            (len(train_errors), len(valid_errors)))
+    df_valid = df_train[df_train.error.isin(valid_errors)].copy()
+    df_train = df_train[df_train.error.isin(train_errors)].copy()
+    return df_train, df_valid
+
+def prepare_data(df_train, df_valid=None, train_size=0.9, use_ngrams=True, remove_suggestion_index=True, random_state=17, verbose=True):
+    feature_names, target_name = build_features_target(df_train,
+            remove_suggestion_index=remove_suggestion_index)
 
     if df_valid is None:
-        errors = df_train.error.unique().tolist()
-        train_errors, valid_errors = train_test_split(errors,
-                train_size=0.9, random_state=random_state)
         if verbose:
-            print('train_errors %d valid_errors %d' %
-                (len(train_errors), len(valid_errors)))
-        df_valid = df_train[df_train.error.isin(valid_errors)].copy()
-        df_train = df_train[df_train.error.isin(train_errors)].copy()
-
-    def build_vocab_mask(df):
-        if correct_word_is_in_suggestions:
-            return df.correct_word_is_in_suggestions
-        else:
-            return df.correct_word_in_dict
+            print('splitting df_train into train and valid')
+        df_train, df_valid = split_train(df_train,
+                train_size=train_size, random_state=random_state)
 
     df_valid = df_valid.copy()
 
     if verbose:
         print('train %d valid %d' % (len(df_train), len(df_valid)))
-    
+
     if use_ngrams:
         # Fit the error and suggestion vectorizers, add features to
         # data frames.
-        err_vec = CountVectorizer(ngram_range=(2, 2), analyzer=u'char')
-        sugg_vec = CountVectorizer(ngram_range=(2, 2), analyzer=u'char')
+        if verbose:
+            print('adding "error_" features')
+            feature_names.extend(add_ngram_features(
+                    df_train, df_valid, 'error'))
+        if verbose:
+            print('adding "suggestion_" features')
+            feature_names.extend(add_ngram_features(
+                    df_train, df_valid, 'suggestion'))
 
-        err_vec.fit(df_train.error)
-        add_count_features(df_train, err_vec, 'error', 'error_')
-        add_count_features(df_valid, err_vec, 'error', 'error_')
+    return df_train, df_valid, feature_names, target_name
 
-        sugg_vec.fit(df_train.suggestion)
-        add_count_features(df_train, sugg_vec, 'suggestion',
-            'suggestion_')
-        add_count_features(df_valid, sugg_vec, 'suggestion',
-            'suggestion_')
+def fit_cv(estimator, df_train, df_valid, feature_names, target_name, scale=False, correct_word_is_in_suggestions=False, random_state=17, verbose=True):
+
+    df_valid = df_valid.copy()
 
     X_train = df_train[feature_names]
     X_valid = df_valid[feature_names]
@@ -109,83 +132,70 @@ def fit_cv(estimator, df_train, df_valid=None, train_size=None, dictionary='Aspe
     if verbose:
         print(estimator)
 
-    correct_top_1 = []
-
     # Some errors might not be unique for a given correct word
     # (i.e. ther -> their, ther -> there), so when getting the
     # validation set predictions, partition the examples by
     # correct word and error.
     correct_words = df_valid.correct_word.unique()
     pbar = build_progressbar(correct_words)
-    y_hat_valid = np.zeros(len(df_valid))
+    y_hat_valid_proba = estimator.predict_proba(X_valid)
     for i,correct_word in enumerate(df_valid.correct_word.unique()):
         cw_mask = df_valid.correct_word == correct_word
         errors = df_valid[cw_mask].error.unique()
         pbar.update(i+1)
-        if verbose:
-            print('  CORRECT WORD %s %d %d' % (
-                    correct_word, cw_mask.sum(), len(errors)))
-            print('  ERRORS ' + str(errors))
         for j,error in enumerate(errors):
-            if verbose:
-                print('  CORRECT WORD %s ERROR %s' % (correct_word, error))
             mask = (cw_mask & (df_valid.error == error)).values
-            df_valid_tmp = df_valid[mask]
-            if verbose:
-                print('df_valid_tmp', df_valid_tmp.shape)
             y_valid_tmp = y_valid[mask].values
-            y_valid_tmp_proba = estimator.predict_proba(X_valid[mask])
-            if verbose:
-                print('mask', type(mask), mask.shape)
-                print('y_hat_valid', type(y_hat_valid), y_hat_valid.shape)
-            y_hat_valid[mask] = estimator.predict(X_valid[mask])
+            y_valid_tmp_proba = y_hat_valid_proba[mask]
 
+            start = len(y_valid_tmp) - 1
+            stop = -1
+            step = -1
+            ranks = np.argsort(y_valid_tmp_proba[:, 1])
+            indices = np.arange(start, stop, step)
             y_valid_tmp_pred = np.zeros_like(y_valid_tmp)
-
-            top_1 = np.argmax(y_valid_tmp_proba[:, 1])
-            y_valid_tmp_pred[top_1] = 1
+            y_valid_tmp_pred[ranks] = np.arange(start, stop, step)
 
             new_suggestion_index = np.ones_like(y_valid_tmp)
-            new_suggestion_index[top_1] = 0
+            new_suggestion_index = y_valid_tmp_pred
             df_valid.loc[mask, 'suggestion_index'] = new_suggestion_index
 
-            if np.all(y_valid_tmp == y_valid_tmp_pred):
-                correct_top_1.append(1)
-            else:
-                correct_top_1.append(0)
     pbar.finish()
 
-    print('top 1 accuracy %d/%d %0.4f' % (
-        sum(correct_top_1),
-        float(len(correct_top_1)),
-        sum(correct_top_1) / float(len(correct_top_1))))
+    return df_valid
 
-    return df_valid, y_hat_valid
+def run_cv_one_dataset(train_size=0.9, k=1, seed=17, n_jobs=5, suggestions_from='Aspell', verbose=False, remove_suggestion_index=True, dfs_paths=['data/aspell.pkl', 'data/birbeck.pkl', 'data/holbrook-missp.pkl', 'data/wikipedia.pkl']):
 
-def run_cv_one_dataset(train_size=0.9, k=1, seed=17, n_jobs=5, suggestions_from='Aspell', verbose=False):
-    dfs_paths = [
-            'data/aspell.pkl', 'data/birbeck.pkl', 
-            'data/holbrook-missp.pkl', 'data/wikipedia.pkl'
-            ]
-
-    rf = RandomForestClassifier(random_state=seed, n_jobs=n_jobs, class_weight='balanced')
+    rf = RandomForestClassifier(n_jobs=n_jobs, random_state=seed,
+            class_weight='balanced')
 
     for dfs_path in dfs_paths:
         dfs = cPickle.load(open(dfs_path))
         remove_non_aspell_vocabulary_dicts(dfs)
         df = dfs[suggestions_from]
         print(dfs_path)
-        fit_cv(rf, df, train_size=train_size, verbose=verbose)
+        fit_cv(rf, df, train_size=train_size, verbose=verbose,
+                remove_suggestion_index=remove_suggestion_index)
         dict_df = spelling.mitton.evaluate_ranks(dfs, ranks=[1], verbose=True)
         print(dict_df.sort_values('Accuracy').tail(k))
 
-def run_leave_out_one_dataset(n_jobs, k=1, seed=17, suggestions_from='Aspell', verbose=False):
-    dfs_paths = [
-            'data/aspell.pkl', 'data/birbeck.pkl', 
-            'data/holbrook-missp.pkl', 'data/wikipedia.pkl'
-            ]
+def run_dataset(estimator, dataset, random_state=17, verbose=False, **kwargs):
+    # fit_cv kwargs:
+    # scale=False
+    # correct_word_is_in_suggestions=False
+    # random_state=17
+    # verbose=True
+    return fit_cv(estimator, dataset['train'], dataset['valid'],
+            dataset['feature_names'], dataset['target_name'], **kwargs)
 
-    rf = RandomForestClassifier(random_state=seed, n_jobs=n_jobs, class_weight='balanced')
+def run_datasets(estimator, datasets, random_state=17, verbose=False, estimator_name=None, **kwargs):
+    if estimator_name is None:
+        estimator_name = estimator.__class__.__name__
+    for ds_name in datasets.keys():
+        print(ds_name)
+        datasets[ds_name]['dicts'][estimator_name] = run_dataset(estimator, datasets[ds_name])
+
+def prepare_leave_out_one_datasets(suggestions_from='Aspell', dfs_paths=['data/aspell.pkl', 'data/birbeck.pkl', 'data/holbrook-missp.pkl', 'data/wikipedia.pkl'], max_train_size=None, verbose=True):
 
     dfs = {}
 
@@ -200,33 +210,49 @@ def run_leave_out_one_dataset(n_jobs, k=1, seed=17, suggestions_from='Aspell', v
         remove_non_aspell_vocabulary_dicts(dfs_tmp)
         dfs[dataset_name] = dfs_tmp
 
-    results = {}
+    datasets = {}
 
     for held_out in dfs.keys():
-        print(held_out)
         if verbose:
-            print('dfs', len(dfs))
+            print(held_out)
         tmp_dfs = dict(dfs)
-        if verbose:
-            print('tmp_dfs (before del)', type(tmp_dfs), len(tmp_dfs))
         del tmp_dfs[held_out]
-        if verbose:
-            print('tmp_dfs (after del)', type(tmp_dfs), len(tmp_dfs))
-
         held_out_dfs = dfs[held_out]
-        if verbose:
-            print('held_out_dfs', held_out_dfs.keys())
         df_valid = held_out_dfs[suggestions_from]
         
         train_dfs = [dfs[dataset][suggestions_from] for dataset in tmp_dfs.keys()]
         df_train = pd.concat(train_dfs)
 
-        if verbose:
-            print(df_train.shape, df_valid.shape)
+        if max_train_size is not None:
+            assert max_train_size > 1
+            df_train = df_train.ix[0:max_train_size, :]
 
-        df_valid_reranked, y_hat = fit_cv(rf, df_train, df_valid, verbose=verbose)
-        held_out_dfs['RandomForest'] = df_valid_reranked
-        results[held_out] = dict(held_out_dfs)
-        dict_df = spelling.mitton.evaluate_ranks(held_out_dfs, ranks=[1], verbose=True)
-        print(dict_df.sort_values('Accuracy'))
-    return results
+        if verbose:
+            print('before pruning training %s %s ' %
+                    (str(df_train.shape), str(df_valid.shape)))
+
+        valid_errors = df_valid.error
+        df_train = df_train[~df_train.error.isin(valid_errors)]
+
+        if verbose:
+            print('after pruning training %s %s ' %
+                    (str(df_train.shape), str(df_valid.shape)))
+            print('calling prepare_data')
+
+        df_train, df_valid, feature_names, target = prepare_data(
+                df_train, df_valid, train_size=0.9, verbose=verbose)
+
+        if verbose:
+            print('done with prepare_data')
+
+        held_out_name = os.path.splitext(held_out)[0]
+        print(held_out_name)
+        datasets[held_out_name] = {
+                    'train': df_train,
+                    'valid': df_valid,
+                    'dicts': held_out_dfs,
+                    'feature_names': feature_names,
+                    'target_name': target
+                }
+
+    return datasets
