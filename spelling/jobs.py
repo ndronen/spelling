@@ -1,6 +1,7 @@
 from __future__ import print_function
 
 import sys
+import collections
 import operator
 import progressbar
 import re
@@ -8,19 +9,18 @@ import numpy as np
 import pandas as pd
 from nltk.stem import SnowballStemmer
 
-from spelling.mitton import build_dataset
+from spelling.mitton import (load_mitton_words,
+        build_dataset, build_mitton_pairs)
 from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
 from spelling import errors
+from spelling.edits import EditFinder
 
 from tqdm import tqdm
 from spelling.utils import build_progressbar
 
 class Job(object):
-    def __init__(self, **kwargs):
-        pass
-
     def run(self):
         raise NotImplementedError()
 
@@ -193,3 +193,41 @@ class BuildDatasetFromCSV(Job):
         dataset = build_dataset(pairs, Aspell())
         dataset.to_csv(self.output_csv, sep='\t', index=False,
                 encoding='utf8')
+
+class BuildAspellDictionaryErrors(Job):
+    def __init__(self, error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz'):
+        self.__dict__.update(locals())
+
+    def run(self):
+        df = pd.read_csv(self.aspell_path, sep='\t', encoding='utf8')
+        
+        words = load_mitton_words(self.error_corpus)
+        pairs = build_mitton_pairs(words)
+        
+        finder = EditFinder()
+        
+        counts = collections.defaultdict(int)
+        for pair in pairs:
+            incorrect, correct = pair
+            for edit in finder.find(correct, incorrect):
+                counts[edit] += 1
+        
+        sorted_counts = [x for x in sorted(counts.iteritems())]
+        total = float(sum([sc[1] for sc in sorted_counts]))
+        probs = [sc[1]/total for sc in sorted_counts]
+        
+        errors = []
+        
+        pbar = build_progressbar(df.word)
+        
+        for i,word in enumerate(df.word):
+            pbar.update(i+1)
+            for i in range(100):
+                j = np.random.choice(len(probs), size=1, replace=False, p=probs)[0]
+                edit, prob = sorted_counts[j]
+                original, error = edit
+                if original in word:
+                    errors.append((word, finder.apply(word, [edit])))
+        pbar.finish()
+    
+        return errors
