@@ -1,3 +1,4 @@
+import numpy as np
 import pandas as pd
 import h5py
 from sklearn.cross_validation import train_test_split
@@ -12,6 +13,12 @@ def build_vocab(words, zero_character='|', lowercase=False, analyzer='char_wb', 
     index_to_char[len(index_to_char)] = index_to_char[0]
     index_to_char[0] = zero_character
     char_to_index = dict([(v,k) for k,v in index_to_char.iteritems()])
+    return char_to_index
+
+def add_to_vocab(char_to_index, chars):
+    char_to_index = dict(char_to_index)
+    for char in chars:
+        char_to_index[char] = len(char_to_index)
     return char_to_index
 
 def load_dictionary_words(path='data/aspell-dict.csv.gz'):
@@ -33,8 +40,52 @@ def load_real_words(path):
     pairs = load_pairs(path)
     return [t[1] for t in pairs]
 
-def build_data_target(pairs):
-    max_len = max([max(len(t[0]), len(t[1])) for t in pairs])
+def build_nonce_chars(nonce_interval, longest_word):
+    nonce_chars = []
+    if nonce_interval > 0:
+        n_nonces = int(np.ceil(longest_word/float(nonce_interval)))
+        nonce_chars = [unichr(int(str(2160+i), 16)).encode('utf8')
+            for i in range(n_nonces)]
+    return nonce_chars
+
+def add_nonces_to_word(word, nonce_chars, nonce_interval):
+    if nonce_interval < 1:
+        return word
+
+    n_nonces = len(nonce_chars)
+    # Split the word into nonce_interval-1 sized subsequences.
+    split = [word[j:j+nonce_interval] for j in range(0, len(word), nonce_interval)]
+    accum = []
+    # Append a unique nonce character to each split.
+    for k,s in enumerate(split):
+        if k < len(split)-1:
+            s = s + nonce_chars[k]
+        accum.append(s)
+    word = ''.join(accum)
+
+    return word
+
+
+def build_data_target(pairs, nonce_interval=0):
+    """
+    Parameters
+    ----------
+    pairs : list of tuple
+        List of (spelling error, correction) pairs.
+    nonce_interval : int 
+        The distance between nonce characters; 0 disables them.
+        Maximum nonce characters is 10, so when using nonces,
+        words longer than 10*nonce_interval are discarded.
+    """
+    longest_word = max([max(len(t[0]), len(t[1])) for t in pairs])
+
+    if nonce_interval > 0:
+        print('longest word is %d' % longest_word)
+        assert longest_word < 10 * nonce_interval
+
+    nonce_chars = []
+    if nonce_interval > 0:
+        nonce_chars = build_nonce_chars(nonce_interval, longest_word)
 
     words = {}
     for pair in pairs:
@@ -44,12 +95,14 @@ def build_data_target(pairs):
         words[pair[1]] = 1
 
     char_to_index = build_vocab(words.iterkeys(), ngram_range=(1,1))
+    char_to_index = add_to_vocab(char_to_index, nonce_chars)
 
-    data = np.zeros((len(words), max_len))
+    data = np.zeros((len(words), longest_word))
     target = np.zeros(len(words))
     for i,word in enumerate(words.keys()):
-        for j,char in enumerate(word):
-            data[i, j] = char_to_index[char]
+        word = add_nonces_to_word(word, nonce_chars, nonce_interval)
+        for k,char in enumerate(word):
+            data[i, k] = char_to_index[char]
         target[i] = words[word]
     return data, target
 

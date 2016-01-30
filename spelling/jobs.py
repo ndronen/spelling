@@ -195,15 +195,13 @@ class BuildDatasetFromCSV(Job):
                 encoding='utf8')
 
 class BuildAspellDictionaryErrors(Job):
-    def run(self):
-        raise NotImplementedError()
     def __init__(self, error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz'):
         self.__dict__.update(locals())
 
     def run(self):
         df = pd.read_csv(self.aspell_path, sep='\t', encoding='utf8')
         
-        words = load_mitton_words(error_corpus)
+        words = load_mitton_words(self.error_corpus)
         pairs = build_mitton_pairs(words)
         
         finder = EditFinder()
