@@ -1,4 +1,5 @@
 import re
+import codecs
 import collections
 import operator
 import enchant
@@ -33,7 +34,10 @@ class Norvig(object):
     Adapted from http://norvig.com/spell-correct.html
     """
     def __init__(self, lang=None, train_path=NORVIG_DATA_PATH):
-        self.model = self.train(self.words(gzip.open(train_path).read()))
+        train_file = gzip.open(train_path)
+        train_file = codecs.EncodedFile(train_file, 'utf8')
+        #data = gzip.open(train_path).read()
+        self.model = self.train(self.words(train_file.read()))
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
     def words(self, text): return re.findall('[a-z]+', text.lower()) 
@@ -87,7 +91,7 @@ class NorvigWithoutLanguageModel(Norvig):
 
 class NorvigWithAspellVocab(Norvig):
     def __init__(self, lang=None, train_path=ASPELL_DATA_PATH):
-        df = pd.read_csv(train_path, sep='\t')
+        df = pd.read_csv(train_path, sep='\t', encoding='utf8')
         self.model = self.train(df)
         self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
