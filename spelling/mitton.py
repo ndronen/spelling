@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 
+import codecs
 import collections
 import enchant
 import progressbar
@@ -25,7 +26,7 @@ CORPORA = [
         ]
 
 def load_mitton_words(path):
-    with open(path) as f:
+    with codecs.open(path, 'r', encoding='utf8') as f:
         mitton_words = [w.strip() for w in f]
     return mitton_words
 
@@ -268,7 +269,6 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
     all_words = set()
     common_words = set()
 
-    df = dfs[dict_names[0]]
 
     def build_vocab_mask(df):
         if correct_word_is_in_suggestions:
@@ -276,6 +276,15 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
         else:
             return df.correct_word_in_dict
 
+    # Find the set of common words with which to evaluate the performance
+    # of the dictionaries.  Start with the words in the first data frame
+    # for which the correct word is either in the suggestions or in
+    # the dictionary, depending on the value of the parameter
+    # correct_word_is_in_suggestions.  From there, repeatedly take the
+    # intersection of the set of common words so far and the words 
+    # in the next data frame that are either in the suggestions or
+    # in the dictionary.
+    df = dfs[dict_names[0]]
     common_words.update(
             df.correct_word[build_vocab_mask(df)])
     all_words.update(common_words)
@@ -298,6 +307,12 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
         df = df[df.correct_word.isin(common_words)]
         n = float(len(df[df.suggestion_index == 0]))
         for rank in ranks:
+            # If the dictionary's suggestion is the correct word and
+            # the position of the suggestion in the dictionary's
+            # suggestion list is less than the given rank, then
+            # the dictionary is said to have gotten the correction
+            # right at that rank.  The number correct at this rank
+            # is cumulative.
             n_correct = len(df[(df.suggestion_index < rank) & (df.suggestion == df.correct_word)])
             accuracies[dict_name].append(n_correct/n)
 
