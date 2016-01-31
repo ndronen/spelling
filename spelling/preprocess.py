@@ -40,12 +40,11 @@ def load_real_words(path):
     pairs = load_pairs(path)
     return [t[1] for t in pairs]
 
-
 def build_nonce_chars(nonce_interval, longest_word):
     nonce_chars = []
     if nonce_interval > 0:
         n_nonces = int(np.ceil(longest_word/float(nonce_interval)))
-        nonce_chars = [unichr(int(str(2160+i), 16)).encode('utf8')
+        nonce_chars = [unichr(int(str(2160+i), 16))
             for i in range(n_nonces)]
     return nonce_chars
 
@@ -66,7 +65,6 @@ def add_nonces_to_word(word, nonce_chars, nonce_interval):
 
     return word
 
-
 def build_data_target(words, targets, nonce_interval=0):
     """
     Parameters
@@ -79,10 +77,12 @@ def build_data_target(words, targets, nonce_interval=0):
         words longer than 10*nonce_interval are discarded.
     """
     words = dict(zip(words, targets))
-    longest_word = max([len(w) for w in words.iterkeys()])
+    try:
+        longest_word = max([len(w) for w in words.iterkeys()])
+    except ValueError as e:
+        print(e, words)
 
     if nonce_interval > 0:
-        print('longest word is %d' % longest_word)
         assert longest_word < 10 * nonce_interval
 
     nonce_chars = []
@@ -92,13 +92,14 @@ def build_data_target(words, targets, nonce_interval=0):
     char_to_index = build_vocab(words.iterkeys(), ngram_range=(1,1))
     char_to_index = add_to_vocab(char_to_index, nonce_chars)
 
-    data = np.zeros((len(words), longest_word))
+    widest_row = longest_word + len(nonce_chars)
+    data = np.zeros((len(words), widest_row))
     target = np.zeros(len(words))
     for i,word in enumerate(words.keys()):
+        target[i] = words[word]
         word = add_nonces_to_word(word, nonce_chars, nonce_interval)
         for k,char in enumerate(word):
             data[i, k] = char_to_index[char]
-        target[i] = words[word]
     return data, target
 
 def build_data_target_split(pairs):
