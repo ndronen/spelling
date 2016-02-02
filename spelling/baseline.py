@@ -64,15 +64,17 @@ class CharacterLanguageModel(object):
         else:
             with NamedTemporaryFile() as f:
                 train_path = f.name
-                if os.path.exists(X):
+                if isinstance(X, str):
                     train_path = X
                 else:
-                    if isinstance(X, str):
-                        raise ValueError('X argument to fit can be data or path, not str')
                     self.write_data(f, X)
                 # Run command and raise exception if error.
                 fit_cmd = self.build_fit_cmd(train_path, self.model_path)
-                subprocess.check_call(fit_cmd)
+                try:
+                    subprocess.check_call(fit_cmd)
+                except OSError as e:
+                    raise ValueError("command %s failed: %s",
+                            (' '.join(fit_cmd), str(e)))
 
     def predict(self, X, y=None):
         self.check_X(X, "predict")
@@ -107,13 +109,14 @@ class CharacterLanguageModel(object):
         else:
             with NamedTemporaryFile() as test_file:
                 test_path = test_file.name
-                if os.path.exists(X):
+                if isinstance(X, str):
                     test_path = X
                 else:
                     # Write X to test_path
                     self.write_data(test_file, X)
                 predict_cmd = self.build_predict_cmd(
                         test_path, self.model_path)
+                print('predict_cmd', predict_cmd)
                 output = subprocess.check_output(predict_cmd)
 
         return output
