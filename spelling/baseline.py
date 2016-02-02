@@ -5,17 +5,28 @@ import argparse
 import subprocess
 from tempfile import NamedTemporaryFile
 
+DISCOUNTS = {
+        'witten-bell': 'wbdiscount',
+        'kneser-ney': 'kndiscount'
+        }
+
 class CharacterLanguageModel(object):
     """
     Defaults to Witten-Bell discounting for character language models.
     """
-    def __init__(self, order, model_path=None):
+    def __init__(self, model_path=None, order=None, discount='witten-bell'):
+        if discount != 'witten-bell':
+            if order is None:
+                raise ValueError('"order" is required with %s discounting' % discount)
+
+        self.__dict__.update(locals())
+        del self.self
+
         self.ngram_count = 'ngram-count'
         self.ngram = 'ngram'
-        self.order = order
-        self.model_path = model_path
         # For caching training data across fit/predict calls.
         self.Xtrain = None 
+
 
     def build_fit_cmd(self, data_path, model_path):
         cmd = [
