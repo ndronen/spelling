@@ -14,10 +14,14 @@ class CharacterLanguageModel(object):
     """
     Defaults to Witten-Bell discounting for character language models.
     """
-    def __init__(self, model_path=None, order=None, discount='witten-bell'):
+    def __init__(self, discount, order=None, model_path=None):
         if discount != 'witten-bell':
             if order is None:
                 raise ValueError('"order" is required with %s discounting' % discount)
+
+        if discount not in DISCOUNTS:
+            raise ValueError('invalid discount "%s"; valid discunts are %s' %
+                    (discount, ','.join(DISCOUNTS.keys())))
 
         self.__dict__.update(locals())
         del self.self
@@ -27,12 +31,11 @@ class CharacterLanguageModel(object):
         # For caching training data across fit/predict calls.
         self.Xtrain = None 
 
-
     def build_fit_cmd(self, data_path, model_path):
         cmd = [
                 self.ngram_count,
                 '-lm', model_path,
-                '-wbdiscount',
+                '-%s' % DISCOUNTS[self.discount],
                 '-text', data_path,
                 '-debug', '1'
             ]
@@ -130,9 +133,9 @@ class CharacterLanguageModel(object):
                 print('predict_cmd', predict_cmd)
                 output = subprocess.check_output(predict_cmd)
 
-        return output
+        return self.get_scores(output)
 
-    def get_scores(self, output, score, column):
+    def get_fields(self, output, score, column):
         for line in output.split('\n'):
             fields = line.split(' ')
             if score in fields:
@@ -140,21 +143,36 @@ class CharacterLanguageModel(object):
 
     def get_log_probs(self, output):
         log_probs = []
-        for log_prob in self.get_scores(output, "logprob=", 3):
+        for log_prob in self.get_fields(output, "logprob=", 3):
             log_probs.append(log_prob)
         return log_probs[:-1]
 
     def get_ppls(self, output):
         ppls = []
-        for ppl in self.get_scores(output, "ppl=", 4):
+        for ppl in self.get_fields(output, "ppl=", 4):
             ppls.append(ppl)
         return ppls[:-1]
 
     def get_ppl1s(self, output):
         ppl1s = []
-        for ppl1 in self.get_scores(output, "ppl1=", 4):
+        for ppl1 in self.get_fields(output, "ppl1=", 4):
             ppl1s.append(ppl1)
         return ppl1s[:-1]
+
+    def get_scores(self, output):
+        log_probs = self.get_log_probs(output)
+        ppls = self.get_ppls(output)
+        ppl1s = self.get_ppl1s(output)
+        return {
+                'log_probs': log_probs,
+                'ppls': ppls,
+                'ppl1s': ppl1s
+                }
+
+    def generate(self, order, n):
+        generate_cmd = ['ngram', '-order', str(order), '-lm', 'char.lm', '-gen', str(n)]
+        output = subprocess.check_output(generate_cmd, stderr=subprocess.STDOUT)
+        return output.split('\n')
             
 def main(args):
     lm = CharacterLanguageModel(args.order, args.model_path)
