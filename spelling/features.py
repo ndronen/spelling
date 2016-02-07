@@ -76,7 +76,7 @@ Returns
 distance : int
     The distance between `known_word` and `unknown_word`.
 """
-def distance(known_word, unknown_word, metric, encoding=lambda s: s):
+def distance(known_word, unknown_word, metric, encoding=lambda s: s, verbose=False):
     try:
         metric = globals()[metric]
     except KeyError as e:
@@ -89,9 +89,11 @@ def distance(known_word, unknown_word, metric, encoding=lambda s: s):
                 encoding = lambda s: s
             else:
                 raise ValueError("unknown encoding function '%s'" % encoding)
-    return metric(
-            unicode(encoding(known_word)),
-            unicode(encoding(unknown_word)))
+    e_known_word = unicode(encoding(known_word))
+    e_unknown_word = unicode(encoding(unknown_word))
+    if verbose:
+        print(metric, e_known_word, e_unknown_word)
+    return metric(e_known_word, e_unknown_word)
 
 """
 Unordered distance of two words.  (This is probably a proper metric.)
