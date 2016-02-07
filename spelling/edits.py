@@ -3,6 +3,14 @@ from alignment.sequence import Sequence
 from alignment.vocabulary import Vocabulary
 from alignment.sequencealigner import SimpleScoring, StrictGlobalSequenceAligner
 
+def subsequences(word):
+    """
+    Returns a list of all subsequences of a word.
+    """
+    for i in range(0, len(word)):
+        for j in range(i+1, len(word[i:])+1):
+            yield word[i:j]
+
 class EditFinder(object):
     def __init__(self):
         self.__dict__.update(locals())
@@ -210,7 +218,7 @@ class Editor(object):
     def edits(self, word):
         return set(self.split(word) +
                 self.delete(word) +
-                self.tranpose(word) + 
+                self.transpose(word) + 
                 self.substitute(word) + 
                 self.insert(word))
 
