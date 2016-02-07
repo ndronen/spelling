@@ -15,7 +15,7 @@ from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
 from spelling import errors
-from spelling.edits import EditFinder
+from spelling.edits import EditFinder, subsequences
 
 from tqdm import tqdm
 from spelling.utils import build_progressbar
@@ -195,11 +195,20 @@ class BuildDatasetFromCSV(Job):
                 encoding='utf8')
 
 class BuildAspellDictionaryErrors(Job):
-    def __init__(self, error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz'):
+    def __init__(self, max_errors_per_word, total_corpus_words=None, constraints=[], error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz'):
         self.__dict__.update(locals())
+
+    # TODO: put constraints elsewhere.
+    def is_single_character_edits_at_start_of_word(self, word, edit):
+        # Don't apply single-character edits at the start of a word.
+        if len(edit[0]) == 1 and word[0] == edit[0]:
+            return True
+        return False
 
     def run(self):
         df = pd.read_csv(self.aspell_path, sep='\t', encoding='utf8')
+        if self.total_corpus_words is None:
+            self.total_corpus_words = len(df)
         
         words = load_mitton_words(self.error_corpus)
         pairs = build_mitton_pairs(words)
@@ -207,27 +216,75 @@ class BuildAspellDictionaryErrors(Job):
         finder = EditFinder()
         
         counts = collections.defaultdict(int)
+        index = collections.defaultdict(set)
+
         for pair in pairs:
             incorrect, correct = pair
             for edit in finder.find(correct, incorrect):
                 counts[edit] += 1
+                index[edit[0]].update(edit)
         
+        lens = [len(e[0]) for e in counts.keys()]
         sorted_counts = [x for x in sorted(counts.iteritems())]
         total = float(sum([sc[1] for sc in sorted_counts]))
         probs = [sc[1]/total for sc in sorted_counts]
         
         errors = []
         
-        pbar = build_progressbar(df.word)
+        pbar = build_progressbar(df.word.head(self.total_corpus_words))
         
-        for i,word in enumerate(df.word):
+        for i,word in enumerate(df.word.head(self.total_corpus_words)):
             pbar.update(i+1)
-            for i in range(100):
-                j = np.random.choice(len(probs), size=1, replace=False, p=probs)[0]
-                edit, prob = sorted_counts[j]
-                original, error = edit
-                if original in word:
-                    errors.append((word, finder.apply(word, [edit])))
+
+            # Find all the edits we can make to this word.
+            possible_edits = list()
+            probs = list()
+            for subseq in subsequences(word):
+                # Probably delete this if statement as redundant.
+                if subseq in index:
+                    for e in index[subseq]:
+                        possible_edit = (subseq, e)
+                        if counts[possible_edit] > 0:
+                            possible_edits.append(possible_edit)
+                            probs.append(counts[possible_edit])
+
+            if len(possible_edits) == 0:
+                continue
+
+            probs = np.array(probs)
+            for i,pe in enumerate(possible_edits):
+                probs[i] = counts[pe]
+            probs = probs / float(probs.sum())
+
+            seen_edits = set()
+            errors_for_word = []
+            attempts = 0
+
+            while True:
+                if attempts > self.max_errors_per_word:
+                    # Not finding many errors to apply.  Break out.
+                    break
+                attempts += 1
+
+                i = np.random.choice(len(probs), size=1, replace=False, p=probs)[0]
+                edit = possible_edits[i]
+                if edit in seen_edits:
+                    continue
+                else:
+                    seen_edits.add(edit)
+
+                # Use constraints to avoid applying edits that result in wildly
+                # unlikely real errors.
+                for constraint in self.constraints:
+                    if constraint(word, edit):
+                        continue
+                errors_for_word.append((word, edit, finder.apply(word, [edit])))
+                if len(errors_for_word) > self.max_errors_per_word:
+                    break
+
+
+            errors.extend(errors_for_word)
+
         pbar.finish()
     
         return errors
