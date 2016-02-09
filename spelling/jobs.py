@@ -198,13 +198,6 @@ class BuildAspellDictionaryErrors(Job):
     def __init__(self, max_errors_per_word, total_corpus_words=None, constraints=[], error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz'):
         self.__dict__.update(locals())
 
-    # TODO: put constraints elsewhere.
-    def is_single_character_edits_at_start_of_word(self, word, edit):
-        # Don't apply single-character edits at the start of a word.
-        if len(edit[0]) == 1 and word[0] == edit[0]:
-            return True
-        return False
-
     def run(self):
         df = pd.read_csv(self.aspell_path, sep='\t', encoding='utf8')
         if self.total_corpus_words is None:
@@ -231,9 +224,10 @@ class BuildAspellDictionaryErrors(Job):
         
         errors = []
         
-        pbar = build_progressbar(df.word.head(self.total_corpus_words))
-        
-        for i,word in enumerate(df.word.head(self.total_corpus_words)):
+        words = df.word.head(self.total_corpus_words)
+        pbar = build_progressbar(words)
+
+        for i,word in enumerate(words):
             pbar.update(i+1)
 
             # Find all the edits we can make to this word.
@@ -278,7 +272,8 @@ class BuildAspellDictionaryErrors(Job):
                 for constraint in self.constraints:
                     if constraint(word, edit):
                         continue
-                errors_for_word.append((word, edit, finder.apply(word, [edit])))
+
+                errors_for_word.append((word, len(possible_edits), edit, finder.apply(word, [edit])))
                 if len(errors_for_word) > self.max_errors_per_word:
                     break
 
