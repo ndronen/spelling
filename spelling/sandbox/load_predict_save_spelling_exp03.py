@@ -26,45 +26,52 @@ def build_model_cfg_path(model_op, model_n_ops, model_n_errors_per_op, data_op, 
             model_op, model_n_ops, model_n_errors_per_op)
 
 def load_models_save_predictions(force=False):
-    os.chdir(BASE_DIR)
+    old_cwd = os.getcwd()
 
-    model_data_pairs = [
-            #[['delete', 1, 3], ['delete', 1, 3]],
-            #[['delete', 2, 3], ['delete', 2, 3]],
-            #[['insert', 1, 3], ['insert', 1, 3]],
-            #[['insert', 2, 3], ['insert', 2, 3]],
-            [['substitute', 1, 3], ['substitute', 1, 3]],
-            [['substitute', 2, 3], ['substitute', 2, 3]]
-            ]
+    try:
+        os.chdir(BASE_DIR)
     
-    for md_pair in model_data_pairs:
-        model_op, model_n_ops, model_n_errors = md_pair[0]
-        data_op, data_n_ops, data_n_errors = md_pair[1]
-
-        model_path = MODEL_DIR + (MODEL_TEMPLATE % (model_op, model_n_ops, model_n_errors))
-        data_path = DATA_DIR + (DATA_TEMPLATE % (data_op, data_n_ops, data_n_errors)) + '.h5'
-        print(model_path, data_path)
-
-        model_cfg_path = build_model_cfg_path(model_op, model_n_ops, model_n_errors,
-                data_op, data_n_ops, data_n_errors)
-        print("Checking for existence of %s" % model_cfg_path)
-        if os.path.exists(model_cfg_path):
-            print("%s exists" % model_cfg_path)
-            if not force:
-                print("Skipping job with model %s data %s because %s exists" % \
-                        (model_path, data_path, model_cfg_path))
-                continue
-        else:
-            print("%s doesn't exist" % model_cfg_path)
-
-        model_name = 'model-' + '-'.join([str(x) for x in md_pair[0]])
-        try:
-            modeling.utils.load_predict_save(model_path, data_path,
-                    model_name=model_name,
-                    output_dir='/tmp/exp03/',
-                    model_weights=True)
-        except Exception as e:
-            print(e)
+        model_data_pairs = [
+                #[['delete', 1, 3], ['delete', 1, 3]],
+                #[['delete', 2, 3], ['delete', 2, 3]],
+                #[['insert', 1, 3], ['insert', 1, 3]],
+                #[['insert', 2, 3], ['insert', 2, 3]],
+                [['substitute', 1, 3], ['substitute', 1, 3]],
+                [['substitute', 2, 3], ['substitute', 2, 3]],
+                [['transpose', 1, 3], ['transpose', 1, 3]],
+                [['transpose', 2, 3], ['transpose', 2, 3]]
+                ]
+        
+        for md_pair in model_data_pairs:
+            model_op, model_n_ops, model_n_errors = md_pair[0]
+            data_op, data_n_ops, data_n_errors = md_pair[1]
+    
+            model_path = MODEL_DIR + (MODEL_TEMPLATE % (model_op, model_n_ops, model_n_errors))
+            data_path = DATA_DIR + (DATA_TEMPLATE % (data_op, data_n_ops, data_n_errors)) + '.h5'
+            print(model_path, data_path)
+    
+            model_cfg_path = build_model_cfg_path(model_op, model_n_ops, model_n_errors,
+                    data_op, data_n_ops, data_n_errors)
+            print("Checking for existence of %s" % model_cfg_path)
+            if os.path.exists(model_cfg_path):
+                print("%s exists" % model_cfg_path)
+                if not force:
+                    print("Skipping job with model %s data %s because %s exists" % \
+                            (model_path, data_path, model_cfg_path))
+                    continue
+            else:
+                print("%s doesn't exist" % model_cfg_path)
+    
+            model_name = 'model-' + '-'.join([str(x) for x in md_pair[0]])
+            try:
+                modeling.utils.load_predict_save(model_path, data_path,
+                        model_name=model_name,
+                        output_dir='/tmp/exp03/',
+                        model_weights=True)
+            except Exception as e:
+                print(e)
+    finally:
+        os.chdir(old_cwd)
 
 
 def load_data(op, n_ops, n_errors_per_op):
