@@ -15,7 +15,7 @@ from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
 from spelling import errors
-from spelling.edits import EditFinder, subsequences
+from spelling.edits import EditFinder, subsequences, EditConstraintError
 
 from tqdm import tqdm
 from spelling.utils import build_progressbar
@@ -195,11 +195,13 @@ class BuildDatasetFromCSV(Job):
                 encoding='utf8')
 
 class BuildAspellDictionaryErrors(Job):
-    def __init__(self, max_errors_per_word, total_corpus_words=None, constraints=[], error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz'):
+    def __init__(self, max_errors_per_word, total_corpus_words=None, use_only=None, constraints=[], error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz', verbose=0):
         self.__dict__.update(locals())
 
     def run(self):
         df = pd.read_csv(self.aspell_path, sep='\t', encoding='utf8')
+        if self.use_only:
+            df = df[df.word.isin(self.use_only)]
         if self.total_corpus_words is None:
             self.total_corpus_words = len(df)
         
@@ -255,28 +257,33 @@ class BuildAspellDictionaryErrors(Job):
             attempts = 0
 
             while True:
-                if attempts > self.max_errors_per_word:
-                    # Not finding many errors to apply.  Break out.
-                    break
-                attempts += 1
-
-                i = np.random.choice(len(probs), size=1, replace=False, p=probs)[0]
-                edit = possible_edits[i]
-                if edit in seen_edits:
-                    continue
-                else:
-                    seen_edits.add(edit)
-
-                # Use constraints to avoid applying edits that result in wildly
-                # unlikely real errors.
-                for constraint in self.constraints:
-                    if constraint(word, edit):
+                try:
+                    if attempts > self.max_errors_per_word:
+                        # Not finding many errors to apply.  Break out.
+                        break
+                    attempts += 1
+    
+                    i = np.random.choice(len(probs), size=1, replace=False, p=probs)[0]
+                    edit = possible_edits[i]
+                    if edit in seen_edits:
                         continue
-
-                errors_for_word.append((word, len(possible_edits), edit, finder.apply(word, [edit])))
-                if len(errors_for_word) > self.max_errors_per_word:
-                    break
-
+                    else:
+                        seen_edits.add(edit)
+    
+                    # Use constraints to avoid applying edits that result in wildly
+                    # unlikely real errors.
+                    for constraint in self.constraints:
+                        if constraint(word, edit):
+                            raise EditConstraintError("can't apply edit %s=>%s to word '%s'" % \
+                                    (edit[0], edit[1], word))
+    
+                    errors_for_word.append((word, len(possible_edits), edit, finder.apply(word, [edit])))
+                    if len(errors_for_word) > self.max_errors_per_word:
+                        break
+                except EditConstraintError as e:
+                    if self.verbose:
+                        print(e)
+                    pass
 
             errors.extend(errors_for_word)
 

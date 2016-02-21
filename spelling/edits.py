@@ -258,6 +258,9 @@ class Editor(object):
                 insert.append(word[:i] + c + word[i:])
         return insert
 
+class EditConstraintError(Exception):
+    pass
+
 class EditConstraints(object):
     """
     Return true if the edit changes the first character, unless
@@ -265,15 +268,6 @@ class EditConstraints(object):
     """
     @staticmethod
     def edit_changes_first_character(word, edit):
-        if word.startswith('ps'):
-            if edit[0].startswith('ps'):
-                if edit[1].startswith('s'):
-                    # Allow ps -> s 
-                    return False
-                else:
-                    return True
-            else:
-                return True
         result = word.startswith(edit[0][0]) and \
                 not word.startswith(edit[1][0])
         return result
