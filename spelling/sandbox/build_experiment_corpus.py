@@ -15,15 +15,18 @@ from spelling.utils import build_progressbar
 
 OPERATIONS = ['delete', 'insert', 'substitute', 'transpose']
 
-def save_corpus_as_hdf5(df, path, nonce_interval):
-    char_matrix = build_char_matrix(df.word, nonce_interval)
-    marked_char_matrix = build_char_matrix(df.marked_word, nonce_interval)
+def save_corpus_as_hdf5(df, path, nonce_interval, width=25):
+    char_matrix, char_mask = build_char_matrix(df.word, width=width, nonce_interval=nonce_interval)
+    marked_char_matrix, marked_char_mask = build_char_matrix(df.marked_word, width=width+2, nonce_interval=nonce_interval)
+    # Only keep the examples that are in both char_matrix and marked_char_matrix.
+    mask = char_mask & marked_char_mask
+
     f = h5py.File(path, 'w')
-    f.create_dataset('chars', data=char_matrix, dtype=np.int32)
-    f.create_dataset('marked_chars', data=marked_char_matrix, dtype=np.int32)
-    f.create_dataset('binary_target', data=df.binary_target.values, dtype=np.int32)
-    f.create_dataset('multiclass_target', data=df.multiclass_target.values, dtype=np.int32)
-    f.create_dataset('distance', data=df.distance.values, dtype=np.int32)
+    f.create_dataset('chars', data=char_matrix[mask], dtype=np.int32)
+    f.create_dataset('marked_chars', data=marked_char_matrix[mask], dtype=np.int32)
+    f.create_dataset('binary_target', data=df.binary_target.values[mask], dtype=np.int32)
+    f.create_dataset('multiclass_target', data=df.multiclass_target.values[mask], dtype=np.int32)
+    f.create_dataset('distance', data=df.distance.values[mask], dtype=np.int32)
     f.close()
 
 def save_corpus_as_csv(df, path):
@@ -75,7 +78,7 @@ def save_corpus(df, prefix, nonce_interval):
     save_target_data(df, prefix)
 
 def build_and_save_corpora(distance, n, nonce_interval=0, operations=OPERATIONS, random_state=17):
-    df = build_experiment_corpora(distance, n=n, operations=operations)
+    df = build_operation_corpora(distance, n=n, operations=operations)
     df = df.sample(frac=1., random_state=random_state)
     for operation in operations:
         save_corpus(
@@ -83,32 +86,54 @@ def build_and_save_corpora(distance, n, nonce_interval=0, operations=OPERATIONS,
                 'op-%s-distance-%d-errors-per-word-%d' % (operation, distance, n),
                 nonce_interval)
 
-def build_experiment_corpora(distance, dict_path='data/aspell-dict.csv.gz', operations=OPERATIONS, n=3, random_state=17):
+def build_word_corpus(words):
+    corpus = {}
+    corpus['word'] = []
+    corpus['marked_word'] = []
+    corpus['real_word'] = []
+    corpus['binary_target'] = []
+    corpus['multiclass_target'] = []
+    corpus['orig_pattern'] = []
+    corpus['changed_pattern'] = []
+
+    for i,word in enumerate(words):
+        corpus['word'].append(word)
+        corpus['marked_word'].append('^' + word + '$')
+        corpus['real_word'].append(word)
+        corpus['binary_target'].append(1)
+        corpus['multiclass_target'].append(i+1)
+        corpus['orig_pattern'].append('')
+        corpus['changed_pattern'].append('')
+        corpus['distance'] = 0
+        corpus['operation'] = ''
+
+    return corpus
+
+def build_operation_corpora(distance, words=None, dict_path='data/aspell-dict.csv.gz', operations=OPERATIONS, n=3, random_state=17):
     corpora = collections.defaultdict(list)
+
+    if words is None:
+        df = pd.read_csv(dict_path, sep='\t', encoding='utf8')
+        words = df.word.tolist()
 
     for operation in operations:
         print(operation)
 
-        corpus = build_experiment_corpus(distance, operation,
-                dict_path=dict_path, n=n, random_state=random_state)
+        corpus = build_operation_corpus(distance, operation,
+                words, n=n, random_state=random_state)
 
         for k,v in corpus.iteritems():
             corpora[k].extend(v)
 
     return pd.DataFrame(corpora)
 
-def build_experiment_corpus(distance, operation, real_words=None, dict_path='data/aspell-dict.csv.gz', n=3, random_state=17):
-    if real_words is None:
-        df = pd.read_csv(dict_path, sep='\t', encoding='utf8')
-        real_words = df.word.apply(unicode)
-    real_words_set = set(real_words)
-
+def build_operation_corpus(distance, operation, words, n=3, random_state=17):
     if isinstance(random_state, int):
         random_state = np.random.RandomState(seed=random_state)
 
     editor = Editor()
     edit_finder = EditFinder()
-    pbar = build_progressbar(real_words)
+    pbar = build_progressbar(words)
 
     corpus = {}
     corpus['word'] = []
@@ -119,7 +144,9 @@ def build_experiment_corpus(distance, operation, real_words=None, dict_path='dat
     corpus['orig_pattern'] = []
     corpus['changed_pattern'] = []
 
-    for i,w in enumerate(real_words):
+    words_set = set(words)
+
+    for i,w in enumerate(words):
         pbar.update(i+1)
         edits = set([w])
         #print('initial edits', edits)
@@ -140,7 +167,7 @@ def build_experiment_corpus(distance, operation, real_words=None, dict_path='dat
 
             # Remove real words from the edits.
             for edit in new_edits.copy():
-                if edit in real_words_set:
+                if edit in words_set:
                     new_edits.remove(edit)
 
             # Break out if we can't make any new edits.
@@ -183,18 +210,8 @@ def build_experiment_corpus(distance, operation, real_words=None, dict_path='dat
 
     pbar.finish()
 
-    words.extend(real_words)
-
-    for i,real_word in enumerate(real_words):
-        corpus['word'].append(real_word)
-        corpus['marked_word'].append('^' + real_word + '$')
-        corpus['real_word'].append(real_word)
-        corpus['binary_target'].append(1)
-        corpus['multiclass_target'].append(i+1)
-        corpus['orig_pattern'].append('')
-        corpus['changed_pattern'].append('')
-
     corpus['distance'] = [distance for w in corpus['word']]
     corpus['operation'] = [operation for w in corpus['word']]
 
     return corpus
+
