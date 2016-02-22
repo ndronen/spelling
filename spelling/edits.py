@@ -1,4 +1,6 @@
+import string
 import sys
+import collections
 from alignment.sequence import Sequence
 from alignment.vocabulary import Vocabulary
 from alignment.sequencealigner import SimpleScoring, StrictGlobalSequenceAligner
@@ -268,6 +270,57 @@ class EditConstraints(object):
     """
     @staticmethod
     def edit_changes_first_character(word, edit):
-        result = word.startswith(edit[0][0]) and \
-                not word.startswith(edit[1][0])
-        return result
+        real_subseq = edit[0]
+        error_subseq = edit[1]
+        return word.startswith(real_subseq[0]) and \
+                not word.startswith(error_subseq[0])
+
+    """
+    Return true if the edit merely changes the case of a character.
+    """
+    @staticmethod
+    def edit_changes_case(word, edit):
+        real_subseq = edit[0]
+        error_subseq = edit[1]
+        return real_subseq.lower() != real_subseq or \
+                error_subseq.lower() != error_subseq
+
+class EditDatabase(object):
+    """
+    Make a database of edits from real words and errors.
+    """
+    def __init__(self, real_words, errors, allowed_error_chars=string.ascii_letters):
+        assert not isinstance(real_words, basestring)
+        assert not isinstance(errors, basestring)
+        assert len(real_words) == len(errors)
+
+        finder = EditFinder()
+
+        self.index = collections.defaultdict(
+            lambda: collections.defaultdict(int))
+
+        for i,real_word in enumerate(real_words):
+            error = errors[i]
+            for edit in finder.find(real_word, error):
+                real_subseq, error_subseq = edit
+                for char in error_subseq:
+                    if char not in allowed_error_chars:
+                        continue
+                self.index[real_subseq][error_subseq] += 1
+
+    def edits(self, real_subseq):
+        """
+        Returns the edits that can be applied to the given subsequence
+        of characters.
+        """
+        assert isinstance(real_subseq, (str, unicode))
+
+        error_subseqs = self.index.get(real_subseq)
+        if error_subseqs is None:
+            return []
+
+        e = []
+        for error_subseq in error_subseqs:
+            count = self.index[real_subseq][error_subseq]
+            e.append((real_subseq, error_subseq, count))
+        return e

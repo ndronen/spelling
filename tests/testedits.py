@@ -1,6 +1,6 @@
 import unittest
 import spelling.mitton
-from spelling.edits import EditFinder, Editor
+from spelling.edits import EditFinder, Editor, EditDatabase
 
 class TestEditor(unittest.TestCase):
     def setUp(self):
@@ -250,3 +250,20 @@ class TestEditFinder(unittest.TestCase):
                 self.assertEquals(incorrect, recovered_error)
             except AssertionError as e:
                 print(incorrect, correct, edits, recovered_error, e)
+
+class TestEditDatabase(unittest.TestCase):
+    def test_edit_database(self):
+        real_words = ["this", "that"]
+        errors = ["ths", "thate"]
+        edit_db = EditDatabase(real_words, errors)
+
+        #self.assertEquals(2, len(edit_db.counts))
+        self.assertEquals(2, len(edit_db.index))
+
+        self.assertEquals(0, len(edit_db.edits("asdas")))
+        self.assertTrue(("hi", "h", 1) in edit_db.edits("hi"))
+        self.assertTrue(("at", "ate", 1) in edit_db.edits("at"))
+
+        #self.assertFalse(edit_db.has_edit(("is", "ish")))
+        #self.assertTrue(edit_db.has_edit(("hi", "h")))
+        #self.assertTrue(edit_db.has_edit(("at", "ate")))

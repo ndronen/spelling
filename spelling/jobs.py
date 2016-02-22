@@ -194,42 +194,22 @@ class BuildDatasetFromCSV(Job):
         dataset.to_csv(self.output_csv, sep='\t', index=False,
                 encoding='utf8')
 
-class BuildAspellDictionaryErrors(Job):
-    def __init__(self, max_errors_per_word, total_corpus_words=None, use_only=None, constraints=[], error_corpus='data/wikipedia.dat', aspell_path='data/aspell-dict.csv.gz', verbose=0):
+class BuildLearnedErrorCorpus(Job):
+    def __init__(self, real_words, edit_db, enough_errors_for_word, blacklist=set(), max_edits_per_error=1, constraints=[], random_state=17, verbose=0):
         self.__dict__.update(locals())
+        del self.self
+
+        if isinstance(random_state, int):
+            self.random_state = np.random.RandomState(random_state)
+        assert callable(self.enough_errors_for_word)
 
     def run(self):
-        df = pd.read_csv(self.aspell_path, sep='\t', encoding='utf8')
-        if self.use_only:
-            df = df[df.word.isin(self.use_only)]
-        if self.total_corpus_words is None:
-            self.total_corpus_words = len(df)
-        
-        words = load_mitton_words(self.error_corpus)
-        pairs = build_mitton_pairs(words)
-        
-        finder = EditFinder()
-        
-        counts = collections.defaultdict(int)
-        index = collections.defaultdict(set)
-
-        for pair in pairs:
-            incorrect, correct = pair
-            for edit in finder.find(correct, incorrect):
-                counts[edit] += 1
-                index[edit[0]].update(edit)
-        
-        lens = [len(e[0]) for e in counts.keys()]
-        sorted_counts = [x for x in sorted(counts.iteritems())]
-        total = float(sum([sc[1] for sc in sorted_counts]))
-        probs = [sc[1]/total for sc in sorted_counts]
-        
         errors = []
-        
-        words = df.word.head(self.total_corpus_words)
-        pbar = build_progressbar(words)
+        pbar = build_progressbar(self.real_words)
 
-        for i,word in enumerate(words):
+        finder = EditFinder()
+
+        for i,word in enumerate(self.real_words):
             pbar.update(i+1)
 
             # Find all the edits we can make to this word.
@@ -237,53 +217,74 @@ class BuildAspellDictionaryErrors(Job):
             probs = list()
             for subseq in subsequences(word):
                 # Probably delete this if statement as redundant.
-                if subseq in index:
-                    for e in index[subseq]:
-                        possible_edit = (subseq, e)
-                        if counts[possible_edit] > 0:
-                            possible_edits.append(possible_edit)
-                            probs.append(counts[possible_edit])
+                for e in self.edit_db.edits(subseq):
+                    _, error_subseq, count = e
+                    possible_edit = (subseq, error_subseq)
+                    if count > 0:
+                        possible_edits.append(possible_edit)
+                        probs.append(count)
 
             if len(possible_edits) == 0:
                 continue
 
             probs = np.array(probs)
-            for i,pe in enumerate(possible_edits):
-                probs[i] = counts[pe]
             probs = probs / float(probs.sum())
 
             seen_edits = set()
             errors_for_word = []
-            attempts = 0
+            attempts = 0.
 
+            # Try to generate up to the requested number of errors per word.
             while True:
                 try:
-                    if attempts > self.max_errors_per_word:
+                    attempts += 1.
+
+                    if self.enough_errors_for_word(word, errors_for_word):
+                        # Generated enough errors for this word.
+                        break
+                    elif attempts > 10 and len(errors_for_word) / attempts < 0.1:
                         # Not finding many errors to apply.  Break out.
                         break
-                    attempts += 1
-    
-                    i = np.random.choice(len(probs), size=1, replace=False, p=probs)[0]
-                    edit = possible_edits[i]
-                    if edit in seen_edits:
+
+                    # Sample the number of edits.
+                    edit_sizes = np.arange(1, self.max_edits_per_error+1)
+                    edit_size_probs = 1. / edit_sizes
+                    edit_size_probs /= edit_size_probs.sum()
+                    size = self.random_state.choice(edit_sizes, size=1, replace=False,
+                            p=edit_size_probs)[0]
+
+                    # Sample edits with probability proportional to the edit's frequency.
+                    edit_idx = self.random_state.choice(len(probs), size=size, replace=False, p=probs)
+
+                    edit = []
+                    for i in edit_idx:
+                        pe = possible_edits[i]
+                        if pe in seen_edits:
+                            continue
+                        seen_edits.add(pe)
+                        edit.append(pe)
+
+                    if len(edit) == 0:
                         continue
-                    else:
-                        seen_edits.add(edit)
     
-                    # Use constraints to avoid applying edits that result in wildly
-                    # unlikely real errors.
+                    # Avoid applying edits that result in unlikely errors.
                     for constraint in self.constraints:
-                        if constraint(word, edit):
-                            raise EditConstraintError("can't apply edit %s=>%s to word '%s'" % \
-                                    (edit[0], edit[1], word))
-    
-                    errors_for_word.append((word, len(possible_edits), edit, finder.apply(word, [edit])))
-                    if len(errors_for_word) > self.max_errors_per_word:
-                        break
+                        for e in edit:
+                            if constraint(word, e):
+                                raise EditConstraintError("can't apply edit %s=>%s to word '%s'" % \
+                                        (e[0], e[1], word))
+
+                    error = finder.apply(word, edit)
+                    if error in self.blacklist:
+                        # Skip blacklisted words (i.e. non-words in a corpus used to generate the
+                        # edit patterns in the edit database).
+                        continue
+
+                    errors_for_word.append((word, len(possible_edits), edit, error))
+
                 except EditConstraintError as e:
-                    if self.verbose:
-                        print(e)
-                    pass
+                    #if self.verbose:
+                    print(e)
 
             errors.extend(errors_for_word)
 

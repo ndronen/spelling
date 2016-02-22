@@ -30,7 +30,7 @@ def load_mitton_words(path):
         mitton_words = [w.strip() for w in f]
     return mitton_words
 
-def build_mitton_pairs(words):
+def build_mitton_pairs(words, error_first=True):
     correct_word = None
     pairs = []
     
@@ -51,7 +51,12 @@ def build_mitton_pairs(words):
         if '_' in correct_word:
             correct_word = correct_word.replace('_', ' ')
 
-        pairs.append((word, correct_word))
+        if error_first:
+            pair = (word, correct_word)
+        else:
+            pair = (correct_word, word)
+
+        pairs.append(pair)
 
     return pairs
 
