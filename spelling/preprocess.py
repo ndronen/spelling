@@ -15,11 +15,18 @@ def build_vocab(words, zero_character='|', lowercase=False, analyzer='char_wb', 
     char_to_index = dict([(v,k) for k,v in index_to_char.iteritems()])
     return char_to_index
 
+def build_ascii_vocab(**kwargs):
+    chars = [chr(_) for _ in range(255)]
+    idx = range(255)
+    return dict(zip(chars, idx))
+
+"""
 def add_to_vocab(char_to_index, chars):
     char_to_index = dict(char_to_index)
     for char in chars:
         char_to_index[char] = len(char_to_index)
     return char_to_index
+"""
 
 def load_dictionary_words(path='data/aspell-dict.csv.gz'):
     df = pd.read_csv(path, sep='\t', encoding='utf8')
@@ -44,8 +51,7 @@ def build_nonce_chars(nonce_interval, longest_word):
     nonce_chars = []
     if nonce_interval > 0:
         n_nonces = int(np.ceil(longest_word/float(nonce_interval)))
-        nonce_chars = [unichr(int(str(2160+i), 16))
-            for i in range(n_nonces)]
+        nonce_chars = [chr(_) for _ in range(n_nonces)]
     return nonce_chars
 
 def add_nonces_to_word(word, nonce_chars, nonce_interval):
@@ -65,20 +71,21 @@ def add_nonces_to_word(word, nonce_chars, nonce_interval):
 
     return word
 
-def build_data_target(words, targets, nonce_interval=0):
+def build_char_matrix(words, width=25, nonce_interval=0):
     """
     Parameters
     ----------
-    pairs : list of tuple
+    words : list of str or unicode
         List of (spelling error, correction) pairs.
+    width : int
+        The width of the matrix.  Words longer than
     nonce_interval : int 
         The distance between nonce characters; 0 disables them.
         Maximum nonce characters is 10, so when using nonces,
         words longer than 10*nonce_interval are discarded.
     """
-    words = dict(zip(words, targets))
     try:
-        longest_word = max([len(w) for w in words.iterkeys()])
+        longest_word = max([len(w) for w in words])
     except ValueError as e:
         print(e, words)
 
@@ -89,21 +96,32 @@ def build_data_target(words, targets, nonce_interval=0):
     if nonce_interval > 0:
         nonce_chars = build_nonce_chars(nonce_interval, longest_word)
 
-    char_to_index = build_vocab(words.iterkeys(), ngram_range=(1,1))
-    char_to_index = add_to_vocab(char_to_index, nonce_chars)
+    char_to_index = build_ascii_vocab()
 
-    widest_row = longest_word + len(nonce_chars)
-    data = np.zeros((len(words), widest_row))
-    target = np.zeros(len(words))
-    for i,word in enumerate(words.keys()):
-        target[i] = words[word]
-        word = add_nonces_to_word(word, nonce_chars, nonce_interval)
-        for k,char in enumerate(word):
-            data[i, k] = char_to_index[char]
-    return data, target
+    # Exclude words that are too long.
+    mask = np.zeros(len(words)).astype(bool)
+    for i,word in enumerate(words):
+        word_nonce = add_nonces_to_word(word, nonce_chars, nonce_interval)
+        if len(word_nonce) > width:
+            print('word (%s) does not fit in the matrix (width %d)' % (word, width))
+            continue
+        mask[i] = True
 
-def build_data_target_split(pairs):
-    data, target = build_data_target(pairs)
+    # Build the matrix.
+    char_matrix = np.zeros((len(words), width))
+    for i,word in enumerate(words):
+        word_nonce = add_nonces_to_word(word, nonce_chars, nonce_interval)
+        for k,char in enumerate(word_nonce):
+            try:
+                char_matrix[i, k] = char_to_index[char]
+            except IndexError:
+                pass
+
+    return char_matrix, mask
+
+def build_char_matrix_split(pairs):
+    raise NotImplementedError()
+    data, target = build_char_matrix(pairs)
     return train_test_split(data, target, train_size=0.9)
 
 def build_hdf5_file(path, data_name, data, target_name, target):
