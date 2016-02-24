@@ -116,7 +116,12 @@ class EditFinder(object):
 
     def build_substitution(self, first, second, start, end):
         #print('build_substitution', first, second, start, end)
-        return (''.join(first[max(0,start-1):start+1]), ''.join(second[max(0,start-1):start+1]))
+        extent = 0
+        for f,s in zip(first[start:],second[start:]):
+            if f==s or f == "-" or s == "-":
+                break
+            extent += 1
+        return (''.join(first[max(0,start-1):start+extent]), ''.join(second[max(0,start-1):start+extent]))
         #return (first[start], second[start])
 
     def build_edits(self, first, second):
@@ -174,6 +179,7 @@ class EditFinder(object):
             elif self.edit_is_substitution(first, second, start, end):
                 #print('found a substitution in ' + str(first) + ' -> ' + str(second))
                 edits.append(self.build_substitution(first, second, start, end))
+                skip_next = len(edits[-1][0])-1
             else:
                 raise ValueError('did not find any edits in %s => %s' % (
                     first, second))
