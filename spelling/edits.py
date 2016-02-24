@@ -263,6 +263,9 @@ class Editor(object):
 class EditConstraintError(Exception):
     pass
 
+class ForbiddenCharacterError(Exception):
+    pass
+
 class EditConstraints(object):
     """
     Return true if the edit changes the first character, unless
@@ -303,10 +306,13 @@ class EditDatabase(object):
             error = errors[i]
             for edit in finder.find(real_word, error):
                 real_subseq, error_subseq = edit
-                for char in error_subseq:
-                    if char not in allowed_error_chars:
-                        continue
-                self.index[real_subseq][error_subseq] += 1
+                try:
+                    for char in error_subseq:
+                        if char not in allowed_error_chars:
+                            raise ForbiddenCharacterError()
+                    self.index[real_subseq][error_subseq] += 1
+                except ForbiddenCharacterError:
+                    pass
 
     def edits(self, real_subseq):
         """
