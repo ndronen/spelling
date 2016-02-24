@@ -283,8 +283,8 @@ class BuildLearnedErrorCorpus(Job):
                     errors_for_word.append((word, len(possible_edits), edit, error))
 
                 except EditConstraintError as e:
-                    #if self.verbose:
-                    print(e)
+                    if self.verbose:
+                        print(e)
 
             errors.extend(errors_for_word)
 
