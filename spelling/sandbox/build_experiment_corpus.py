@@ -86,17 +86,11 @@ def build_and_save_corpora(distance, n, nonce_interval=0, operations=OPERATIONS,
                 'op-%s-distance-%d-errors-per-word-%d' % (operation, distance, n),
                 nonce_interval)
 
-def build_word_corpus(words):
-    corpus = {}
-    corpus['word'] = []
-    corpus['marked_word'] = []
-    corpus['real_word'] = []
-    corpus['binary_target'] = []
-    corpus['multiclass_target'] = []
-    corpus['orig_pattern'] = []
-    corpus['changed_pattern'] = []
+def build_real_word_corpus(real_words):
+    corpus = init_corpus()
 
-    for i,word in enumerate(words):
+    # Multiclass target starts at 1; 0 is assumed to be the negative class.
+    for i,word in enumerate(real_words):
         corpus['word'].append(word)
         corpus['marked_word'].append('^' + word + '$')
         corpus['real_word'].append(word)
@@ -108,6 +102,28 @@ def build_word_corpus(words):
         corpus['operation'] = ''
 
     return corpus
+
+def init_corpus():
+    corpus = {}
+    corpus['word'] = []
+    corpus['marked_word'] = []
+    corpus['real_word'] = []
+    corpus['binary_target'] = []
+    corpus['multiclass_target'] = []
+    corpus['orig_pattern'] = []
+    corpus['changed_pattern'] = []
+    return corpus
+
+def add_non_word_to_corpus(corpus, real_word, non_word, orig_pattern='', changed_pattern='', operation='', distance=0):
+    corpus['word'].append(non_word)
+    corpus['marked_word'].append('^' + non_word + '$')
+    corpus['real_word'].append(real_word)
+    corpus['binary_target'].append(0)
+    corpus['multiclass_target'].append(0)
+    corpus['orig_pattern'].append(orig_pattern)
+    corpus['changed_pattern'].append(changed_pattern)
+    corpus['distance'] = distance
+    corpus['operation'] = operation
 
 def build_operation_corpora(distance, words=None, dict_path='data/aspell-dict.csv.gz', operations=OPERATIONS, n=3, random_state=17):
     corpora = collections.defaultdict(list)
@@ -135,14 +151,7 @@ def build_operation_corpus(distance, operation, words, n=3, random_state=17):
     edit_finder = EditFinder()
     pbar = build_progressbar(words)
 
-    corpus = {}
-    corpus['word'] = []
-    corpus['marked_word'] = []
-    corpus['real_word'] = []
-    corpus['binary_target'] = []
-    corpus['multiclass_target'] = []
-    corpus['orig_pattern'] = []
-    corpus['changed_pattern'] = []
+    corpus = init_corpus()
 
     words_set = set(words)
 
