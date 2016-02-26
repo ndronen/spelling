@@ -8,12 +8,12 @@ class TestCharacterLanguageModel(unittest.TestCase):
         self.words = df.word.tolist()
 
     def test_train_test_are_files(self):
-        lm = CharacterLanguageModel(3)
+        lm = CharacterLanguageModel('witten-bell', order=3)
         lm.fit(self.words)
         output = lm.predict(self.words)
-        log_probs = lm.get_log_probs(output)
-        ppls = lm.get_ppls(output)
-        ppl1s = lm.get_ppl1s(output)
+        log_probs = output['log_probs']
+        ppls = output['ppls']
+        ppl1s = output['ppl1s']
 
         self.assertEquals(len(self.words), len(log_probs))
         self.assertEquals(len(self.words), len(ppls))

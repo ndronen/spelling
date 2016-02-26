@@ -7,11 +7,14 @@ import progressbar
 import pandas as pd
 from spelling.features import (suggest,
         compute_unary_features, compute_binary_features)
-from spelling.dictionary import (Aspell, Norvig, 
-        AspellWithNorvigLanguageModel, NorvigWithoutLanguageModel,
-        NorvigWithAspellVocabWithoutLanguageModel,
-        NorvigWithAspellVocabAndGoogleLanguageModel,
-        NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates)
+from spelling.dictionary import (
+        build_norvig, build_aspell,
+        build_norvig_without_language_model,
+        build_norvig_with_aspell_vocab_without_language_model,
+        build_norvig_with_aspell_vocab_with_language_model_sorter,
+        build_aspell_with_language_model_sorter,
+        build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter,
+        build_aspell_vocab_with_nn_retriever_and_language_model_sorter)
 
 from spelling.dictionary import NORVIG_DATA_PATH
 
@@ -59,9 +62,6 @@ def build_mitton_pairs(words, error_first=True):
         pairs.append(pair)
 
     return pairs
-
-def build_dictionary(constructor, lang='en_US'):
-    return constructor(lang)
 
 def build_progressbar(items):
     return progressbar.ProgressBar(term_width=40,
@@ -182,11 +182,14 @@ def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
     return df[df.columns.sort_values()]
 
 CONSTRUCTORS = [
-        Aspell, Norvig, AspellWithNorvigLanguageModel,
-        NorvigWithoutLanguageModel,
-        NorvigWithAspellVocabWithoutLanguageModel,
-        NorvigWithAspellVocabAndGoogleLanguageModel,
-        NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates
+        build_norvig,
+        build_aspell,
+        build_norvig_without_language_model,
+        build_norvig_with_aspell_vocab_without_language_model,
+        build_norvig_with_aspell_vocab_with_language_model_sorter,
+        build_aspell_with_language_model_sorter,
+        build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter,
+        build_aspell_vocab_with_nn_retriever_and_language_model_sorter
         ]
 
 def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):
@@ -209,7 +212,7 @@ def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):
     """
     datasets = {}
     for constructor in constructors:
-        dictionary = build_dictionary(constructor)
+
         dataset = build_dataset(pairs, dictionary, verbose=verbose)
         datasets[constructor.__name__] = dataset
     return datasets
