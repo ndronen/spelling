@@ -1,3 +1,4 @@
+import string
 import re
 import codecs
 import collections
@@ -5,14 +6,189 @@ import operator
 import enchant
 import Levenshtein 
 import gzip
+import numpy as np
 import pandas as pd
 
-from spelling.features import metaphone, levenshtein_distance
+import jellyfish
+import spelling.preprocess
+
+from sklearn.neighbors import NearestNeighbors, LSHForest
+from sklearn.feature_extraction.text import CountVectorizer
 
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
 
-class Aspell(object):
+class Word(object):
+    def __init__(self, token, indexer=lambda word: word):
+        assert isinstance(token, unicode)
+        self.__dict__.update(locals())
+        del self.self
+
+    @property
+    def key(self):
+        return self.indexer(self.token)
+
+    @staticmethod
+    def build(x):
+        if isinstance(x, Word):
+            return x
+        else:
+            return Word(x)
+
+
+###########################################################################
+# Classes for retrieving candidates.
+###########################################################################
+
+
+class HashBucketRetriever(dict):
+    def __init__(self, vocabulary, hasher):
+        self.hasher = hasher
+        self.phone_to_word = collections.defaultdict(list)
+        for word in vocabulary:
+            word = unicode(word)
+            self.phone_to_word[self.hasher(word)].append(word)
+
+    def __getitem__(self, word):
+        assert isinstance(word, unicode)
+        return self.phone_to_word[self.hasher(word)]
+
+
+class EditDistanceRetriever(dict):
+    def __init__(self, vocabulary, alphabet=string.ascii_lowercase):
+        self.vocabulary = set(vocabulary)
+        self.alphabet = alphabet
+
+    def edits1(self, word):
+        splits     = [(word[:i], word[i:]) for i in range(len(word) + 1)]
+        deletes    = [a + b[1:] for a, b in splits if b]
+        transposes = [a + b[1] + b[0] + b[2:] for a, b in splits if len(b)>1]
+        replaces   = [a + c + b[1:] for a, b in splits for c in self.alphabet if b]
+        inserts    = [a + c + b     for a, b in splits for c in self.alphabet]
+        return set(deletes + transposes + replaces + inserts)
+
+    def known_edits2(self, word):
+        return set(e2 for e1 in self.edits1(word) for e2 in self.edits1(e1) if e2 in self.vocabulary)
+
+    def known(self, vocabulary):
+        return set(w for w in vocabulary if w in self.vocabulary)
+
+    def __getitem__(self, word):
+        return self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+
+
+class NearestNeighborsRetriever(dict):
+    def __init__(self, vocabulary, estimator, ngram_range=(1,1)):
+        self.__dict__.update(locals())
+        del self.self
+        self.vocabulary = np.array(vocabulary)
+
+        if ngram_range[0] == 1 and ngram_range[1] == 1:
+            x, _ = spelling.preprocess.build_char_matrix(vocabulary)
+        else:
+            self.cv = CountVectorizer(ngram_range=ngram_range, analyzer='char_wb')
+            x = self.cv.fit_transform(vocabulary).todense()
+
+        self.estimator.fit(x)
+
+    def retrieve(self, word, n_neighbors=None):
+        assert isinstance(word, unicode)
+
+        if n_neighbors is None:
+            n_candidates = self.estimator.n_neighbors
+
+        if hasattr(self, 'cv'):
+            wordx = self.cv.transform([word]).todense()
+        else:
+            wordx, _ = spelling.preprocess.build_char_matrix([word])
+
+        idx = self.estimator.kneighbors(wordx, n_neighbors=n_candidates, return_distance=False)
+        candidates = self.vocabulary[idx[0]]
+        return candidates
+
+    def __getitem__(self, word):
+        return self.retrieve(word)
+
+
+class AspellRetriever(dict):
+    def __init__(self, lang='en_US'):
+        self.dictionary = enchant.Dict(lang)
+
+    def __getitem__(self, word):
+        return self.dictionary.suggest(word)
+
+
+
+###########################################################################
+# Classes for sorting candidates.
+###########################################################################
+
+
+class DistanceSorter(object):
+    def __init__(self, distance, reverse=None):
+        if callable(distance):
+            self.distance = distance
+        else:
+            self.distance = {
+                    'damerau_levenshtein_distance': jellyfish.damerau_levenshtein_distance,
+                    'levenshtein_distance': jellyfish.levenshtein_distance,
+                    'hamming_distance': jellyfish.hamming_distance,
+                    'jaro_winkler': jellyfish.jaro_winkler,
+                    'jaro_distance': jellyfish.jaro_distance
+                    }[distance]
+
+        if reverse is not None:
+            assert isinstance(reverse, bool)
+            self.reverse = reverse
+        else:
+            try:
+                self.reverse = {
+                        'damerau_levenshtein_distance': False,
+                        'levenshtein_distance': False,
+                        'hamming_distance': False,
+                        'jaro_winkler': True,
+                        'jaro_distance': True
+                        }[self.distance.__name__]
+            except KeyError:
+                raise ValueError("'reverse' parameter is required when passing your own distance function")
+        
+    def sort(self, word, candidates):
+        return sorted(candidates,
+            key=lambda c: self.distance(c, word),
+            reverse=self.reverse)
+
+
+class LanguageModelSorter(object):
+    def __init__(self, words, probs):
+        self.model = collections.defaultdict(int)
+        for i, word in enumerate(words):
+            self.model[word] = probs[i]
+
+    def sort(self, word, candidates):
+    	return sorted(candidates, key=self.model.get, reverse=True)
+
+class NonSortingSorter(object):
+    def sort(self, word, candidates):
+        return candidates
+
+
+###########################################################################
+# Dictionary implementations.
+###########################################################################
+
+
+class Dictionary(object):
+    def check(self, word):
+        raise NotImplementedError()
+
+    def suggest(self, word):
+        raise NotImplementedError()
+
+    def correct(self, word):
+        raise NotImplementedError()
+
+
+class Aspell(Dictionary):
     def __init__(self, lang='en_US', train_path=None):
         self.dictionary = enchant.Dict(lang)
 
@@ -25,158 +201,164 @@ class Aspell(object):
     def correct(self, word):
         return self.suggest(word)[0]
 
+
 class AspellUniword(Aspell):
     def suggest(self, word):
-        return [word for word in self.dictionary.suggest(word) if " " not in word and "-" not in word]
+        suggestions = []
+        for s in self.dictionary.suggest(word):
+            if " " in s or "-" in s:
+                continue
+            suggestions.append(s)
+        return suggestions
 
-class Norvig(object):
-    """
-    Adapted from http://norvig.com/spell-correct.html
-    """
-    def __init__(self, lang=None, train_path=NORVIG_DATA_PATH):
-        train_file = gzip.open(train_path)
-        train_file = codecs.EncodedFile(train_file, 'utf8')
-        #data = gzip.open(train_path).read()
-        self.model = self.train(self.words(train_file.read()))
-        self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
-    def words(self, text): return re.findall('[a-z]+', text.lower()) 
-
-    def train(self, features):
-        model = collections.defaultdict(lambda: 1)
-        for f in features:
-            model[f] += 1
-        return model
-
-    def edits1(self, word):
-        splits     = [(word[:i], word[i:]) for i in range(len(word) + 1)]
-        deletes    = [a + b[1:] for a, b in splits if b]
-        transposes = [a + b[1] + b[0] + b[2:] for a, b in splits if len(b)>1]
-        replaces   = [a + c + b[1:] for a, b in splits for c in self.alphabet if b]
-        inserts    = [a + c + b     for a, b in splits for c in self.alphabet]
-        return set(deletes + transposes + replaces + inserts)
-
-    def known_edits2(self, word):
-        return set(e2 for e1 in self.edits1(word) for e2 in self.edits1(e1) if e2 in self.model)
-
-    def known(self, words):
-        return set(w for w in words if w in self.model)
-
-    def build_candidates(self, word):
-        return self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
+class ModularDictionary(Dictionary):
+    def __init__(self, vocabulary, retrievers, sorter, filters=[]):
+        self.__dict__.update(locals())
+        del self.self
 
     def check(self, word):
-        return word in self.model
+        return word in self.vocabulary
 
     def suggest(self, word):
-        #candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-        candidates = self.build_candidates(word)
-        return sorted(candidates, key=self.model.get, reverse=True)
+        candidates = set()
+        for r in self.retrievers:
+            for candidate in r[word]:
+                if all([f(candidate) for f in self.filters]):
+                    candidates.add(candidate)
+        return self.sorter.sort(word, candidates)
 
     def correct(self, word):
-        #candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-        candidates = self.build_candidates(word)
-        return max(candidates, key=self.model.get)
+        return self.suggest(word)[0]
 
-class NorvigWithoutLanguageModel(Norvig):
-    def train(self, features):
-        """
-        Make the frequency of all words the same, so corrections are
-        sorted only by edit distance.
-        """
-        model = collections.defaultdict(lambda: 1)
-        for f in features:
-            model[f] = 1
-        return model
 
-class NorvigWithAspellVocab(Norvig):
-    def __init__(self, lang=None, train_path=ASPELL_DATA_PATH):
-        df = pd.read_csv(train_path, sep='\t', encoding='utf8')
-        self.model = self.train(df)
-        self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
+###########################################################################
+# Dictionary builders
+###########################################################################
 
-    def train(self, df):
+
+class DictionaryBuilder(object):
+    def build(**kwargs):
         raise NotImplementedError()
 
-class NorvigWithAspellVocabAndGoogleLanguageModel(NorvigWithAspellVocab):
-    def train(self, df):
-        d = collections.defaultdict(float)
-        d.update(dict(zip(df.word, df.google_ngram_prob)))
-        return d
 
-class NorvigWithAspellVocabWithoutLanguageModel(NorvigWithAspellVocab):
-    def train(self, df):
-        return dict(zip(df.word, [1] * len(df)))
+class ModularDictionaryBuilder(DictionaryBuilder):
+    def __init__(self):
+        self.vocabulary = []
+        self.retrievers = []
+        self.sorter = NonSortingSorter()
+        self.filters = []
+        self.probs = []
 
-class AspellWithNorvigLanguageModel(Norvig):
-    def __init__(self, lang='en_US', train_path=NORVIG_DATA_PATH):
-        super(AspellWithNorvigLanguageModel, self).__init__(train_path)
-        self.dictionary = enchant.Dict(lang)
+    def with_vocabulary(self, vocab_type, data_path):
+        self.vocabulary = []
+        self.probs = []
 
-    def check(self, word):
-        return self.dictionary.check(word)
+        if vocab_type == 'norvig':
+            # Load norvig vocabulary and frequencies.
+            train_file = gzip.open(data_path)
+            train_file = codecs.EncodedFile(train_file, 'utf8')
 
-    def suggest(self, word):
-        suggestions = self.dictionary.suggest(word)
-        return sorted(suggestions, key=lambda s: -self.model[s])
+            text = train_file.read()
+            words = re.findall('[a-z]+', text.lower())
 
-    def correct(self, word):
-        suggestions = self.suggest(word)
-        return max(suggestions, key=self.model.get)
+            model = collections.defaultdict(lambda: 1)
+            for w in words:
+                model[w] += 1
 
-class AspellWithGoogleLanguageModel(NorvigWithAspellVocabAndGoogleLanguageModel):
-    def __init__(self, lang='en_US', train_path=ASPELL_DATA_PATH):
-        super(AspellWithGoogleLanguageModel, self).__init__(train_path)
-        self.dictionary = enchant.Dict(lang)
+            for k,v in model.iteritems():
+                self.vocabulary.append(k)
+                self.probs.append(v)
+        elif vocab_type == 'aspell':
+            # Load aspell vocabulary and frequencies.
+            df = pd.read_csv(data_path, sep='\t', encoding='utf8')
+            self.vocabulary = df.word.tolist()
+            self.probs = df.google_ngram_prob
+        else:
+            raise ValueError('unknown vocabulary type %s; use "norvig" or "aspell"')
 
-    def check(self, word):
-        return self.dictionary.check(word)
+    def with_sorter(self, sorter_type, **kwargs):
+        if sorter_type == 'lm':
+            try:
+                self.sorter = LanguageModelSorter(self.vocabulary, self.probs)
+            except AttributeError:
+                raise RuntimeError("call with_language_model(type) before calling with_language_model_sorter")
+        elif sorter_type == 'distance':
+            self.sorter = DistanceSorter(kwargs['distance'])
+        else:
+            raise ValueError('unknown sorter type %s; use "lm" or "distance"')
 
-    def suggest(self, word):
-        suggestions = self.dictionary.suggest(word)
-        return sorted(suggestions, key=lambda s: -self.model[s])
+    def add_retriever(self, retriever_type, **kwargs):
+        if retriever_type == 'editdistance':
+            self.retrievers.append(EditDistanceRetriever(self.vocabulary))
+        elif retriever_type == 'hashbucket':
+            self.retrievers.append(HashBucketRetriever(**kwargs))
+        elif retriever_type == 'aspell':
+            self.retrievers.append(AspellRetriever())
+        elif retriever_type == 'neighbor':
+            self.retrievers.append(NearestNeighborsRetriever(**kwargs))
+        else:
+            raise ValueError('unknown retriever type %s; use "editdistance", "hashbucket", "aspell", or "neighbor"')
 
-    def correct(self, word):
-        suggestions = self.suggest(word)
-        return max(suggestions, key=self.model.get)
+    def add_filter(self, f):
+        self.filters.append(f)
 
-class NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates(NorvigWithAspellVocabAndGoogleLanguageModel):
-    """
-    The Norvig implementation only considers candidates that are up to
-    two edit operations from the unknown word; the number of strings
-    that are three or more edit operations is quite large.  This limits
-    the dictionary's ability to offer good suggestions, particularly for
-    spelling errors that occur due to lack of knowledge of orthographic
-    conventions.
+    def build(self):
+    	return ModularDictionary(self.vocabulary, self.retrievers,
+            self.sorter, filters=self.filters)
 
-    This class augments the Norvig implementation with candidate
-    suggestions that are phonetically similar to a given word and possibly
-    more than two edit operations away.  Using phonetic hashes in this
-    way yields reasonable candidates without the computational burden
-    of the brute force approach in the Norvig class.
-    """
-    def __init__(self, lang=None, train_path=ASPELL_DATA_PATH, hasher=metaphone, max_distance=3):
-        super(NorvigWithAspellVocabGoogleLanguageModelPhoneticCandidates, self).__init__(lang, train_path)
-        self.phonedict = PhoneticDictionary(self.model.keys(), hasher)
-        self.max_distance = max_distance
+def build_norvig():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('norvig', data_path=NORVIG_DATA_PATH)
+    builder.with_sorter('lm')
+    builder.add_retriever('editdistance')
+    return builder.build()
 
-    def build_candidates(self, word):
-        candidates = self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-        candidates = set(candidates)
-        # Eliminate any phonetically similar words that are greater than
-        # three edit operations away.
-        phonetic_candidates = self.phonedict[word]
-        for pc in phonetic_candidates:
-            if levenshtein_distance(word, pc) <= self.max_distance:
-                candidates.add(pc)
-        return candidates
+def build_norvig_without_language_model():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('norvig', data_path=NORVIG_DATA_PATH)
+    builder.add_retriever('editdistance')
+    return builder.build()
 
-class PhoneticDictionary(dict):
-    def __init__(self, vocab, hasher):
-        self.hasher = hasher
-        self.phone_to_word = collections.defaultdict(list)
-        for word in vocab:
-            self.phone_to_word[self.hasher(word)].append(word)
+def build_norvig_with_aspell_vocab_without_language_model():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('editdistance')
+    return builder.build()
 
-    def __getitem__(self, name):
-        return self.phone_to_word[self.hasher(name)]
+def build_norvig_with_aspell_vocab_with_language_model_sorter():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('editdistance')
+    builder.with_sorter('lm')
+    return builder.build()
+
+def build_aspell():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('aspell')
+    return builder.build()
+
+def build_aspell_with_language_model_sorter():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('aspell')
+    return builder.build()
+
+def build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('hashbucket',
+            vocabulary=builder.vocabulary, hasher=jellyfish.metaphone)
+    builder.with_sorter('lm')
+    return builder.build()
+
+def build_aspell_vocab_with_nn_retriever_and_language_model_sorter():
+    estimator = NearestNeighbors(n_neighbors=20, metric='hamming', algorithm='auto')
+
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('neighbor', 
+            vocabulary=builder.vocabulary, estimator=estimator)
+    builder.with_sorter('lm')
+    return builder.build()
