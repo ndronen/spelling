@@ -300,16 +300,16 @@ class LanguageModelBaseline(Job):
     >>> import spelling.jobs
     >>> data_dir = "~/proj/modeling/data/spelling/experimental/"
     >>> csv_path = data_dir + "non-word-error-detection-experiment-04-generated-negative-examples.csv"
-    >>> job = LanguageModelBaseline(csv_path)
+    >>> job = spelling.jobs.LanguageModelBaseline(csv_path)
     >>> df = job.run()
     >>> print(confusion_matrix(df.binary_target, df.pred))
     """
     def __init__(self, csv_path):
-        df = pd.read_csv(csv_path, sep='\t', encoding='utf8')
+        self.df = pd.read_csv(csv_path, sep='\t', encoding='utf8')
 
     def run(self):
-        non_words = self.df[df.binary_target == 0].word.tolist()
-        real_words = self.df[df.binary_target == 1].word.tolist()
+        non_words = self.df[self.df.binary_target == 0].word.tolist()
+        real_words = self.df[self.df.binary_target == 1].word.tolist()
 
         non_word_lm = spelling.baseline.CharacterLanguageModel('witten-bell', 3)
         real_word_lm = spelling.baseline.CharacterLanguageModel('witten-bell', 3)
