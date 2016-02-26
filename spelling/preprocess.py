@@ -3,7 +3,6 @@ import pandas as pd
 import h5py
 from sklearn.cross_validation import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
-import spelling.mitton
 
 def build_vocab(words, zero_character='|', lowercase=False, analyzer='char_wb', **kwargs):
     vocab = CountVectorizer(analyzer=analyzer, lowercase=lowercase, **kwargs)
@@ -31,21 +30,6 @@ def add_to_vocab(char_to_index, chars):
 def load_dictionary_words(path='data/aspell-dict.csv.gz'):
     df = pd.read_csv(path, sep='\t', encoding='utf8')
     return df.word
-
-def load_pairs(path):
-    words = spelling.mitton.load_mitton_words(path)
-    pairs = spelling.mitton.build_mitton_pairs(words)
-    return pairs
-
-def load_non_words(path):
-    # Non-words are in the first position.
-    pairs = load_pairs(path)
-    return [t[0] for t in pairs]
-
-def load_real_words(path):
-    # Real words are in the second position.
-    pairs = load_pairs(path)
-    return [t[1] for t in pairs]
 
 def build_nonce_chars(nonce_interval, longest_word):
     nonce_chars = []
@@ -129,28 +113,3 @@ def build_hdf5_file(path, data_name, data, target_name, target):
     f.create_dataset(data_name, data=data, dtype=np.int32)
     f.create_dataset(target_name, data=target, dtype=np.int32)
     f.close()
-
-def count_vocabulary(words, **kwargs):
-    return(len(build_vocab(words, **kwargs)))
-
-def run_corpus(path, max_ngram_range=6):
-    sizes = {}
-    sizes['realword'] = {}
-    sizes['nonword'] = {}
-
-    real_words = load_real_words(path)
-    for k in range(1, max_ngram_range):
-        sizes['realword'][k] = count_vocabulary(real_words, ngram_range=(k,k))
-
-    non_words = load_non_words(path)
-    for k in range(1, 6):
-        sizes['nonword'][k] = count_vocabulary(non_words, ngram_range=(k,k))
-
-    print(sizes)
-
-def run_dictionary(path='data/aspell-dict.csv.gz', max_ngram_range=6):
-    sizes = {}
-    words = load_dictionary_words(path)
-    for k in range(1, max_ngram_range):
-        sizes[k] = count_vocabulary(words, ngram_range=(k,k))
-    print(sizes)
