@@ -3,7 +3,7 @@ from langdetect import detect
 from collections import defaultdict, Counter, namedtuple
 import re
 from tqdm import tqdm
-from pyxdameraulevenshtein import damerau_levenshtein_distance as dl_distance
+from jellyfish import damerau_levenshtein_distance as dl_distance
 
 Error = namedtuple("Error", ["correct","incorrect","error_name","probability"])
 Injector = namedtuple("Injector", ["function","name"])
