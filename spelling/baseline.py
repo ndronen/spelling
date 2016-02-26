@@ -14,11 +14,19 @@ class LanguageModelClassifier(object):
     def __init__(self, estimators):
         self.estimators = estimators
 
-    def predict(self, X, y=None):
-        pred = np.zeros((len(X), len(self.estimators)))
+    def predict_proba(self, X, y=None):
+        proba = np.zeros((len(X), len(self.estimators)))
         for i,estimator in enumerate(self.estimators):
-            pred[:, i] = estimator.predict(X)['log_probs']
-        return np.argmax(pred, axis=1)
+            proba[:, i] = estimator.predict(X)['log_probs']
+        return np.exp(proba)
+
+    def predict(self, X, y=None, return_proba=False):
+        proba = self.predict_proba(X, y)
+        pred = np.argmax(proba, axis=1)
+        if return_proba:
+            return pred, proba
+        else:
+            return pred
 
 class CharacterLanguageModel(object):
     """
@@ -96,10 +104,13 @@ class CharacterLanguageModel(object):
                 # Run command and raise exception if error.
                 fit_cmd = self.build_fit_cmd(train_path, self.model_path)
                 try:
-                    subprocess.check_call(fit_cmd)
-                except OSError as e:
-                    raise ValueError("command %s failed: %s",
-                            (' '.join(fit_cmd), str(e)))
+                    output = subprocess.check_output(fit_cmd,
+                            stderr=subprocess.STDOUT)
+                    if self.debug:
+                        print(output)
+                except subprocess.CalledProcessError as cp:
+                    raise RuntimeError("command %s failed: %s",
+                            (' '.join(fit_cmd), str(cp.output)))
 
     def predict(self, X, y=None):
         self.check_X(X, "predict")
@@ -130,7 +141,8 @@ class CharacterLanguageModel(object):
                         if self.debug:
                             print('FIT')
                             print(fit_cmd)
-                        fit_output = subprocess.check_output(fit_cmd)
+                        fit_output = subprocess.check_output(fit_cmd,
+                                stderr=subprocess.STDOUT)
                         if self.debug:
                             print(fit_output)
                         predict_cmd = self.build_predict_cmd(
@@ -138,7 +150,8 @@ class CharacterLanguageModel(object):
                         if self.debug:
                             print('PREDICT')
                             print(predict_cmd)
-                        predict_output = subprocess.check_output(predict_cmd)
+                        predict_output = subprocess.check_output(predict_cmd,
+                                    stderr=subprocess.STDOUT)
                         if self.debug:
                             print(predict_output)
         else:
@@ -154,7 +167,8 @@ class CharacterLanguageModel(object):
                 if self.debug:
                     print('PREDICT')
                     print(predict_cmd)
-                predict_output = subprocess.check_output(predict_cmd)
+                predict_output = subprocess.check_output(predict_cmd,
+                        stderr=subprocess.STDOUT)
                 if self.debug:
                     print(predict_output)
 
@@ -201,7 +215,8 @@ class CharacterLanguageModel(object):
     		# that all generated examples will be non-empty.
             m = max(10, int(0.5 * n))
             generate_cmd = ['ngram', '-order', str(order), '-lm', 'char.lm', '-gen', str(n+m)]
-            output = subprocess.check_output(generate_cmd, stderr=subprocess.STDOUT)
+            output = subprocess.check_output(generate_cmd,
+                    stderr=subprocess.STDOUT)
 
             words = output.split('\n')
             words = [w.replace(' ', '') for w in words]
