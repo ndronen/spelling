@@ -10,11 +10,21 @@ DISCOUNTS = {
         'kneser-ney': 'kndiscount'
         }
 
+class LanguageModelClassifier(object):
+    def __init__(self, estimators):
+        self.estimators = estimators
+
+    def predict(self, X, y=None):
+        pred = np.zeros((len(X), len(self.estimators)))
+        for i,estimator in enumerate(self.estimators):
+            pred[:, i] = estimator.predict(X)['log_probs']
+        return np.argmax(pred, axis=1)
+
 class CharacterLanguageModel(object):
     """
     Defaults to Witten-Bell discounting for character language models.
     """
-    def __init__(self, discount, order=None, model_path=None):
+    def __init__(self, discount, order=None, model_path=None, debug=False):
         if discount != 'witten-bell':
             if order is None:
                 raise ValueError('"order" is required with %s discounting' % discount)
@@ -57,6 +67,7 @@ class CharacterLanguageModel(object):
                 f.write(char)
                 f.write(u' ')
             f.write(u' </s>\n')
+        f.flush()
 
     def check_X(self, X, caller):
         try:
@@ -76,7 +87,7 @@ class CharacterLanguageModel(object):
             # we're given a test set.
             self.Xtrain = X
         else:
-            with NamedTemporaryFile() as f:
+            with NamedTemporaryFile(delete=not self.debug) as f:
                 train_path = f.name
                 if isinstance(X, str):
                     train_path = X
@@ -97,16 +108,16 @@ class CharacterLanguageModel(object):
             if self.Xtrain is None:
                 raise ValueError("call fit before calling predict")
 
-            with NamedTemporaryFile() as model_file:
+            with NamedTemporaryFile(delete=not self.debug) as model_file:
                 model_path = model_file.name
-                with NamedTemporaryFile() as train_file:
+                with NamedTemporaryFile(delete=not self.debug) as train_file:
                     train_path = train_file.name
                     if isinstance(self.Xtrain, str):
                         train_path = self.Xtrain
                     else:
                         # Write self.Xtrain to train_path
                         self.write_data(train_file, self.Xtrain)
-                    with NamedTemporaryFile() as test_file:
+                    with NamedTemporaryFile(delete=not self.debug) as test_file:
                         test_path = test_file.name
                         if isinstance(X, str):
                             test_path = X
@@ -116,12 +127,22 @@ class CharacterLanguageModel(object):
 
                         fit_cmd = self.build_fit_cmd(
                                 train_path, model_path)
-                        subprocess.check_call(fit_cmd)
+                        if self.debug:
+                            print('FIT')
+                            print(fit_cmd)
+                        fit_output = subprocess.check_output(fit_cmd)
+                        if self.debug:
+                            print(fit_output)
                         predict_cmd = self.build_predict_cmd(
                                 test_path, model_path)
-                        output = subprocess.check_output(predict_cmd)
+                        if self.debug:
+                            print('PREDICT')
+                            print(predict_cmd)
+                        predict_output = subprocess.check_output(predict_cmd)
+                        if self.debug:
+                            print(predict_output)
         else:
-            with NamedTemporaryFile() as test_file:
+            with NamedTemporaryFile(delete=not self.debug) as test_file:
                 test_path = test_file.name
                 if isinstance(X, str):
                     test_path = X
@@ -130,10 +151,14 @@ class CharacterLanguageModel(object):
                     self.write_data(test_file, X)
                 predict_cmd = self.build_predict_cmd(
                         test_path, self.model_path)
-                print('predict_cmd', predict_cmd)
-                output = subprocess.check_output(predict_cmd)
+                if self.debug:
+                    print('PREDICT')
+                    print(predict_cmd)
+                predict_output = subprocess.check_output(predict_cmd)
+                if self.debug:
+                    print(predict_output)
 
-        return self.get_scores(output)
+        return self.get_scores(predict_output)
 
     def get_fields(self, output, score, column):
         for line in output.split('\n'):
@@ -149,13 +174,13 @@ class CharacterLanguageModel(object):
 
     def get_ppls(self, output):
         ppls = []
-        for ppl in self.get_fields(output, "ppl=", 4):
+        for ppl in self.get_fields(output, "ppl=", 5):
             ppls.append(ppl)
         return ppls[:-1]
 
     def get_ppl1s(self, output):
         ppl1s = []
-        for ppl1 in self.get_fields(output, "ppl1=", 4):
+        for ppl1 in self.get_fields(output, "ppl1=", 7):
             ppl1s.append(ppl1)
         return ppl1s[:-1]
 
@@ -170,9 +195,24 @@ class CharacterLanguageModel(object):
                 }
 
     def generate(self, order, n):
-        generate_cmd = ['ngram', '-order', str(order), '-lm', 'char.lm', '-gen', str(n)]
-        output = subprocess.check_output(generate_cmd, stderr=subprocess.STDOUT)
-        return output.split('\n')
+        def run():
+    		# Generate more examples than requested, as some
+    		# of them will be the empty string, and we guarantee
+    		# that all generated examples will be non-empty.
+            m = max(10, int(0.5 * n))
+            generate_cmd = ['ngram', '-order', str(order), '-lm', 'char.lm', '-gen', str(n+m)]
+            output = subprocess.check_output(generate_cmd, stderr=subprocess.STDOUT)
+
+            words = output.split('\n')
+            words = [w.replace(' ', '') for w in words]
+            words = [w for w in words if len(w) > 0]
+            return words
+
+        generated = []
+        while len(generated) < n:
+            generated.extend(run())
+        assert len(generated) >= n
+        return generated[0:n]
             
 def main(args):
     lm = CharacterLanguageModel(args.order, args.model_path)
