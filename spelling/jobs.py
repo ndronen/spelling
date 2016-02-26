@@ -16,6 +16,7 @@ from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
 from spelling import errors
 from spelling.edits import EditFinder, subsequences, EditConstraintError
+import spelling.baseline
 
 from tqdm import tqdm
 from spelling.utils import build_progressbar
@@ -291,3 +292,38 @@ class BuildLearnedErrorCorpus(Job):
         pbar.finish()
     
         return errors
+
+
+class LanguageModelBaseline(Job):
+    """
+    >>> import sklearn.metrics
+    >>> import spelling.jobs
+    >>> data_dir = "~/proj/modeling/data/spelling/experimental/"
+    >>> csv_path = data_dir + "non-word-error-detection-experiment-04-generated-negative-examples.csv"
+    >>> job = LanguageModelBaseline(csv_path)
+    >>> df = job.run()
+    >>> print(confusion_matrix(df.binary_target, df.pred))
+    """
+    def __init__(self, csv_path):
+        df = pd.read_csv(csv_path, sep='\t', encoding='utf8')
+
+    def run(self):
+        non_words = self.df[df.binary_target == 0].word.tolist()
+        real_words = self.df[df.binary_target == 1].word.tolist()
+
+        non_word_lm = spelling.baseline.CharacterLanguageModel('witten-bell', 3)
+        real_word_lm = spelling.baseline.CharacterLanguageModel('witten-bell', 3)
+        non_word_lm.fit(non_words)
+        real_word_lm.fit(real_words)
+
+        clf = spelling.baseline.LanguageModelClassifier([non_word_lm, real_word_lm])
+
+        words = non_words + real_words
+        binary_target = [0] * len(non_words) + [1] * len(real_words)
+
+        pred, prob = clf.predict(words, return_proba=True)
+
+        return pd.DataFrame({
+            'word': words, 'binary_target': binary_target,
+            'pred': pred, 'prob0': prob[:, 0], 'prob1': prob[:, 1]
+            })
