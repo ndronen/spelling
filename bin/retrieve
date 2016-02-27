@@ -2,6 +2,7 @@
 
 import sys
 import argparse
+import cPickle
 import pandas as pd
 
 from sklearn.neighbors import NearestNeighbors
@@ -16,60 +17,79 @@ from spelling.utils import build_progressbar
 def build_retriever(name, vocabulary):
     # The nearest-neighbors and Aspell retrievers are quite slow compared
     # to their edit distance and hash bucket counterparts.
-    if retriever == 'aspell':
+    if name == 'aspell':
         return dictionary.AspellRetriever(vocabulary)
-    elif retriever == 'editdistance':
+    elif name == 'editdistance':
         return dictionary.EditDistanceRetriver(vocabulary)
-    elif retriever == 'hashbucket':
+    elif name == 'hashbucket':
         return dictionary.HashBucketRetriever(
             vocabulary, spelling.features.metaphone)
-    elif retriever == 'neighbor':
+    elif name == 'neighbor':
         estimator = NearestNeighbors(n_neighbors=10, metric='hamming',
                 algorithm='auto')
         return dictionary.NearestNeighborsRetriever(vocabulary, estimator)
     else:
-        raise ValueError('unknown retriever %s' % retriever)
+        raise ValueError('unknown retriever %s' % name)
 
 def main(args):
     error_df = pd.read_csv(args.csv_path, sep='\t', encoding='utf8')
     vocab_df = pd.read_csv(args.vocabulary_path, sep='\t', encoding='utf8')
 
-    start = args.start
-    end = len(error_df) if args.end == -1 else args.end
-    non_words = error_df.word.tolist()[start:end]
+    if args.start < 1:
+        raise ValueError('--start must not be less than 1')
+
+    start = args.start - 1
+    if args.n == -1:
+        n = len(error_df) - start
+        end = start + n
+    else:
+        n = args.n
+        end = start + n
+
+    dump_path = '%s-%08d-%08d.pkl' % (args.retriever, args.start, n)
+    print('start', start, 'end', end, 'n', n, 'dump_path', dump_path)
+
+    non_words = error_df[args.error_colname].tolist()[start:end]
+    real_words = error_df[args.real_word_colname].tolist()[start:end]
+
+    words = error_df.word.tolist()[start:end]
 
     vocabulary = vocab_df[args.vocab_colname].unique()
     retriever = build_retriever(args.retriever, vocabulary)
 
-    suggestions = {}
+    suggestions = []
     pbar = build_progressbar(non_words)
     for i,non_word in enumerate(non_words):
         pbar.update(i+1)
-        suggestions[non_word] = retriever[non_word]
+        suggestions.append((non_word, real_words[i], retriever[non_word]))
+    cPickle.dump(suggestions, open(dump_path, 'w'))
 
 def build_parser():
     parser = argparse.ArgumentParser(
         description='retrieve a list of candidate replacements for a spelling error')
+    retrievers = ['aspell', 'editdistance', 'hashbucket', 'neighbors']
     parser.add_argument(
-        'retriever', metavar='RETRIEVER',
-        choices=['aspell', 'editdistance', 'hashbucket', 'neighbors'],
-        help='the name of the retriever')
+        'retriever', metavar='RETRIEVER', choices=retrievers,
+        help='the name of the retriever (%s)' % ', '.join(retrievers))
     parser.add_argument(
         'csv_path', metavar='CSV_PATH', type=str,
-        help='path to CSV file with a column containing errors')
+        help='path to CSV file with a column containing errors and their corrections')
     parser.add_argument(
         'vocabulary_path', metavar='VOCABULARY_PATH', type=str,
         help='path to a CSV file with a column containing the vocabulary')
     parser.add_argument(
+        '--start', type=int, default=0, help='ignore spelling errors before this position (default=1)')
+    parser.add_argument(
+        '--n', type=int, default=-1, help='process this many spelling errors (default=all)')
+    parser.add_argument(
         '--error-colname', type=str, default="word",
         help='name of the error column in the error CSV (default="word")')
     parser.add_argument(
+        '--real-word-colname', type=str, default="real_word",
+        help='name of the real_word column in the error CSV (default="real_word")')
+    parser.add_argument(
         '--vocab-colname', type=str, default="word",
         help='name of the word column in the vocabulary CSV (default="word")')
-    parser.add_argument(
-        '--start-index', type=int, default=0, help='ignore errors before this index (default=0)')
-    parser.add_argument(
-        '--end-index', type=int, default=-1, help='ignore errors after this index (default=-1)')
 
     return parser.parse_args()
 
