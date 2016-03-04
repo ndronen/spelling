@@ -2,9 +2,8 @@ import warnings
 warnings.filterwarnings("error")
 
 import os
-from tqdm import tqdm
 import operator
-import cPickle
+import pickle
 
 import numpy as np
 import pandas as pd
@@ -55,9 +54,12 @@ def add_features_from_vectorizer(df, vectorizer, column, feature_name_prefix=Non
     sorted_rindex = sorted(rindex,
             key=operator.itemgetter(0))
     feature_names = [feature_name_prefix+t[1] for t in sorted_rindex]
-    for i in tqdm(range(len(feature_names))):
-        feature_name = feature_names[i]
+
+    pbar = build_progressbar(feature_names)
+    for i,feature_name in enumerate(feature_names):
+        pbar.update(i+1)
         df.loc[:, feature_name] = count_features[:, i]
+    pbar.finish()
     return feature_names
 
 def add_ngram_features(df_train, df_valid, column):
