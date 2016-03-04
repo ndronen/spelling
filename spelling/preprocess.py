@@ -55,7 +55,7 @@ def add_nonces_to_word(word, nonce_chars, nonce_interval):
 
     return word
 
-def build_char_matrix(words, width=25, nonce_interval=0):
+def build_char_matrix(words, width=25, nonce_interval=0, return_mask=True):
     """
     Parameters
     ----------
