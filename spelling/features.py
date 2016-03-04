@@ -1,6 +1,5 @@
 from __future__ import absolute_import
 
-import Levenshtein
 from jellyfish import soundex, metaphone, jaro_winkler, nysiis
 from jellyfish import (levenshtein_distance, damerau_levenshtein_distance,
     hamming_distance, match_rating_comparison, jaro_distance)
@@ -12,6 +11,10 @@ VOWELS = 'aeiou'
 CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
 METRICS = ['levenshtein', 'damerau_levenshtein', 'hamming', 'jaro', 'jaro_winkler', 'typo', 'set']
 ENCODINGS = ['identity', 'soundex', 'metaphone', 'nysiis']
+
+# Python 2-3 compatibility.
+# http://www.diveintopython3.net/porting-code-to-python-3-with-2to3.html
+unicode = unicode if 'unicode' in globals() else str
 
 """
 Compute binary features between two words.
