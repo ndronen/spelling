@@ -4,10 +4,10 @@ import codecs
 import collections
 import operator
 import enchant
-import Levenshtein 
 import gzip
 import numpy as np
 import pandas as pd
+import threading
 
 import jellyfish
 import spelling.preprocess
@@ -17,6 +17,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
+
+# A hack for Python 2-3 compatibility.
+# http://www.diveintopython3.net/porting-code-to-python-3-with-2to3.html
+unicode = unicode if 'unicode' in globals() else str
 
 class Word(object):
     def __init__(self, token, indexer=lambda word: word):
@@ -55,9 +59,10 @@ class HashBucketRetriever(dict):
 
 
 class EditDistanceRetriever(dict):
-    def __init__(self, vocabulary, alphabet=string.ascii_lowercase):
+    def __init__(self, vocabulary, alphabet=string.ascii_lowercase, stop_retrieving_when_found=True):
         self.vocabulary = set(vocabulary)
         self.alphabet = alphabet
+        self.stop_retrieving_when_found = stop_retrieving_when_found
 
     def edits1(self, word):
         splits     = [(word[:i], word[i:]) for i in range(len(word) + 1)]
@@ -70,12 +75,21 @@ class EditDistanceRetriever(dict):
     def known_edits2(self, word):
         return set(e2 for e1 in self.edits1(word) for e2 in self.edits1(e1) if e2 in self.vocabulary)
 
-    def known(self, vocabulary):
-        return set(w for w in vocabulary if w in self.vocabulary)
+    def known(self, words):
+        return set(w for w in words if w in self.vocabulary)
 
     def __getitem__(self, word):
-        return self.known([word]) or self.known(self.edits1(word)) or self.known_edits2(word) or [word]
-
+        if self.stop_retrieving_when_found:
+            candidates = self.known([word]) or \
+                    self.known(self.edits1(word)) or \
+                    self.known_edits2(word) or \
+                    [word]
+        else:
+            candidates = []
+            candidates.extend(self.known([word]))
+            candidates.extend(self.known(self.edits1(word)))
+            candidates.extend(self.known_edits2(word))
+        return list(candidates)
 
 class NearestNeighborsRetriever(dict):
     def __init__(self, vocabulary, estimator, ngram_range=(1,1)):
@@ -111,13 +125,29 @@ class NearestNeighborsRetriever(dict):
 
 
 class AspellRetriever(dict):
-    def __init__(self, lang='en_US'):
+    def __init__(self, lang='en_US', reentrant=False):
         self.dictionary = enchant.Dict(lang)
+        self.reentrant = reentrant
+        if reentrant:
+            self.lock = threading.Lock()
 
     def __getitem__(self, word):
-        return self.dictionary.suggest(word)
+        if self.reentrant:
+            with self.lock:
+                return self.dictionary.suggest(word)
+        else:
+            return self.dictionary.suggest(word)
 
 
+class RetrieverCollection(dict):
+    def __init__(self, retrievers):
+        self.retrievers = retrievers
+
+    def __getitem__(self, word):
+        words = set()
+        for r in self.retrievers:
+            words.update(r[word])
+        return list(words)
 
 ###########################################################################
 # Classes for sorting candidates.
