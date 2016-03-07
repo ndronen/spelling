@@ -14,9 +14,10 @@ CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
 METRICS = ['levenshtein', 'damerau_levenshtein', 'hamming', 'jaro', 'jaro_winkler', 'typo', 'set']
 ENCODINGS = ['identity', 'soundex', 'metaphone', 'nysiis']
 
-if sys.version_info == 3:
-    print('aliasing unicode to str')
-    unicode = str
+print(sys.version_info)
+if sys.version_info[0] == 3:
+    print('aliasing unicode to identity')
+    unicode = lambda s: s
 else:
     print('using python 2, leaving unicode function alone')
 #unicode = unicode if 'unicode' in globals() else str
