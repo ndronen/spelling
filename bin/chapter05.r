@@ -29,9 +29,9 @@ colnames(df) <- str_replace(colnames(df), "_", " ")
 colnames(df) <- capitalize(colnames(df))
 
 pdf("freq-dist-non-word-length.pdf")
-histogram(~Length | Corpus, data=df, xlab="Non-word length")
+print(histogram(~Length | Corpus, data=df, xlab="Non-word length"))
 dev.off()
 
 pdf("freq-dist-levenshtein-distance.pdf")
-histogram(~`Levenshtein distance` | Corpus, data=df)
+print(histogram(~`Levenshtein distance` | Corpus, data=df))
 dev.off()
