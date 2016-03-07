@@ -201,6 +201,15 @@ class NonSortingSorter(object):
     def sort(self, word, candidates):
         return candidates
 
+class SortingRetriever(dict):
+    def __init__(self, retriever, sorter):
+        self.__dict__.update(locals())
+        del self.self
+
+    def __getitem__(self, word):
+        candidates = self.retriever[word]
+        return self.sorter.sort(word, candidates)
+
 
 ###########################################################################
 # Dictionary implementations.
