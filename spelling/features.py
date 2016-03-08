@@ -14,13 +14,10 @@ CONSONANTS = [l for l in string.ascii_letters if l not in VOWELS]
 METRICS = ['levenshtein', 'damerau_levenshtein', 'hamming', 'jaro', 'jaro_winkler', 'typo', 'set']
 ENCODINGS = ['identity', 'soundex', 'metaphone', 'nysiis']
 
-print(sys.version_info)
-if sys.version_info[0] == 3:
-    print('aliasing unicode to identity')
+if sys.version_info.major == 3:
+    # Alias `unicode` to the identity function, so we can keep calling `unicode`
+    # for Python 2 compatibility.
     unicode = lambda s: s
-else:
-    print('using python 2, leaving unicode function alone')
-#unicode = unicode if 'unicode' in globals() else str
 
 """
 Compute binary features between two words.
