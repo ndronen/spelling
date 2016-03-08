@@ -22,6 +22,8 @@ for (f in files[-1]) {
 # Rename corpora and add length column.
 df$corpus <- capitalize(df$corpus)
 df$corpus <- str_replace(df$corpus, 'Holbrook-missp', 'Holbrook')
+df$corpus <- factor(df$corpus,
+  levels=c("Holbrook", "Wikipedia", "Aspell", "Birbeck"))
 df$length <- str_length(df$non_word)
 
 # Massage the column names for presentation.
