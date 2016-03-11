@@ -1,3 +1,4 @@
+import os
 import string
 import re
 import codecs
@@ -8,6 +9,7 @@ import gzip
 import numpy as np
 import pandas as pd
 import threading
+import pickle
 
 import jellyfish
 import spelling.preprocess
@@ -148,6 +150,43 @@ class RetrieverCollection(dict):
         for r in self.retrievers:
             words.update(r[word])
         return list(words)
+
+class CachingRetriever(dict):
+    def __init__(self, retriever, cache_dir='/tmp/dictcache/'):
+        self.retriever = retriever
+        self.cache_dir = cache_dir
+        self.cache = {}
+
+        try:
+            os.mkdir(cache_dir)
+        except FileExistsError:
+            pass
+
+    def __getitem__(self, word):
+        if word in self.cache:
+            return self.cache[word]
+
+        cache_file = self.cache_dir + '/' + word
+        if os.path.exists(cache_file):
+            try:
+                words = pickle.load(open(cache_file, 'rb'))
+            except (EOFError,IOError) as load_exception:
+                words = retriever[word]
+
+                print('Caught an opening cache file %s.  Will remove %s' % (
+                    cache_file, cache_file))
+                try:
+                   os.remove(cache_file) 
+                except Exception as remove_exception:
+                    pass
+            self.cache[word] = words
+        else:
+            words = self.retriever[word]
+            pickle.dump(words, open(cache_file, 'wb'))
+            self.cache[word] = words
+
+        return self.cache[word]
+
 
 ###########################################################################
 # Classes for sorting candidates.
