@@ -75,7 +75,10 @@ def build_probs_dict(probs_data_path=PROBS_DATA_PATH):
     probs.update(dict(zip(df.word, df.google_ngram_prob)))
     return probs
 
-def build_dataset(pairs, dictionary, probs=build_probs_dict(), verbose=False):
+def build_dataset(pairs, dictionary, probs=None, verbose=False):
+    if probs is None:
+        probs = build_probs_dict()
+
     dataset = []
     pbar = build_progressbar(pairs)
     row = {}
@@ -280,9 +283,9 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
 
     def build_vocab_mask(df):
         if correct_word_is_in_suggestions:
-            return df.correct_word_is_in_suggestions
+            return df.correct_word_is_in_suggestions == 1
         else:
-            return df.correct_word_in_dict
+            return df.correct_word_in_dict == 1
 
     # Find the set of common words with which to evaluate the performance
     # of the dictionaries.  Start with the words in the first data frame
