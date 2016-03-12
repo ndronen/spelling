@@ -30,13 +30,20 @@ def add_edit_distances_from_error_to_correction(df, distances=['jaro_winkler', '
         df[d] = df.apply(func, axis=1)
 
 def run():
+    """
+    Analyze traditional dictionary approaches by computing:
+        * Levenshtein distance from non-words to their corrections.
+        * The length of the candidate list for each non-word.
+        * The rank of the true correction in each candidate list
+          (rank is -1 if the true correction is not a retrieved
+          candidate).
+    """
     vocab_df = pd.read_csv('data/aspell-dict.csv.gz', sep='\t', encoding='utf8')
     dicts = build_dictionaries(vocab_df.word.tolist())
     
     files = [
         'data/aspell.dat', 
         'data/holbrook-missp.dat',
-        'data/norvig.dat',
         'data/wikipedia.dat',
         'data/birbeck.dat']
 
@@ -56,16 +63,21 @@ def run():
             pbar = progressbar(pairs)
             rtr = dicts[d]
             ranks = []
+            n_candidates = []
             for i,pair in enumerate(pairs):
                 pbar.update(i+1)
                 error, correction = pair
                 try:
-                    ranks.append(rtr[error].index(correction))
+                    candidates = rtr[error]
+                    n_candidates.append(len(candidates))
+                    ranks.append(candidates.index(correction))
                 except ValueError:
                     ranks.append(-1)
             pbar.finish()
             colname = d + '_rank'
             df[colname] = ranks
+            colname = d + '_n_candidates'
+            df[colname] = n_candidates
 
         yield df
 
