@@ -18,13 +18,13 @@ def build_retriever(name, vocabulary):
     # The nearest-neighbors and Aspell retrievers are quite slow compared
     # to their edit distance and hash bucket counterparts.
     if name == 'aspell':
-        return dictionary.AspellRetriever(vocabulary)
+        return dictionary.AspellRetriever()
     elif name == 'editdistance':
-        return dictionary.EditDistanceRetriver(vocabulary)
+        return dictionary.EditDistanceRetriever(vocabulary)
     elif name == 'hashbucket':
         return dictionary.HashBucketRetriever(
             vocabulary, spelling.features.metaphone)
-    elif name == 'neighbor':
+    elif name == 'neighbors':
         estimator = NearestNeighbors(n_neighbors=10, metric='hamming',
                 algorithm='auto')
         return dictionary.NearestNeighborsRetriever(vocabulary, estimator)
@@ -78,7 +78,7 @@ def build_parser():
         'vocabulary_path', metavar='VOCABULARY_PATH', type=str,
         help='path to a CSV file with a column containing the vocabulary')
     parser.add_argument(
-        '--start', type=int, default=0, help='ignore spelling errors before this position (default=1)')
+        '--start', type=int, default=1, help='ignore spelling errors before this position (default=1)')
     parser.add_argument(
         '--n', type=int, default=-1, help='process this many spelling errors (default=all)')
     parser.add_argument(
