@@ -24,7 +24,7 @@ from .utils import build_progressbar
 
 CORPORA = [
         'data/aspell.dat', 'data/birbeck.dat',
-        'data/holbrook-missp.dat', 'data/norvig.dat',
+        'data/holbrook-missp.dat',
         'data/wikipedia.dat'
         ]
 
@@ -333,4 +333,3 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
             evaluation['Rank'].append(rank)
 
     return pd.DataFrame(evaluation)[['Algorithm', 'Rank', 'Accuracy']]
-
