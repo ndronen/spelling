@@ -15,7 +15,7 @@ from spelling.dictionary import Aspell
 from spelling.utils import build_progressbar
 from spelling.typodistance import typo_generator
 from spelling import errors
-from spelling.edits import EditFinder, subsequences, EditConstraintError
+from spelling.edits import EditFinder, subsequences, EditConstraintError, EditDatabase
 import spelling.baseline
 
 from tqdm import tqdm
@@ -194,6 +194,23 @@ class BuildDatasetFromCSV(Job):
         dataset = build_dataset(pairs, Aspell())
         dataset.to_csv(self.output_csv, sep='\t', index=False,
                 encoding='utf8')
+
+class BuildEditDatabaseFromMittonCorpora(Job):
+    def __init__(self, corpora=spelling.mitton.CORPORA):
+        self.corpora = corpora
+
+    def run(self):
+        real_words = []
+        errors = []
+
+        for corpus in self.corpora:
+            words = spelling.mitton.load_mitton_words(corpus)
+            pairs = spelling.mitton.build_mitton_pairs(words)
+            for p in pairs:
+                real_words.append(p[1])
+                errors.append(p[0])
+
+        return EditDatabase(real_words, errors)
 
 class BuildLearnedErrorCorpus(Job):
     def __init__(self, real_words, edit_db, enough_errors_for_word, blacklist=set(), max_edits_per_error=1, constraints=[], random_state=17, verbose=0):
