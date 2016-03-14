@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import codecs
 from langdetect import detect
 from collections import defaultdict, Counter, namedtuple
@@ -81,7 +83,7 @@ def error_iterator(fn, dictionary, whitelist=None):
                         continue
                 except Exception:
                     #we don't know how the dictionary can screw up...
-                    print "dictionary failed to check '{}'".format(word)
+                    print("dictionary failed to check '{0}'".format(word))
                     continue
                 try:
                     corrected = dictionary.correct(word).lower()

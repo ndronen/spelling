@@ -1,6 +1,6 @@
 import unittest
 import spelling.mitton
-from spelling.edits import EditFinder, Editor, EditDatabase
+from spelling.edits import EditFinder, Editor, EditDatabase, subsequences
 
 class TestEditor(unittest.TestCase):
     def setUp(self):
@@ -51,7 +51,7 @@ class TestEditFinder(unittest.TestCase):
         word = "scar"
         error = "scax"
         edits = self.finder.find(word, error)
-        print word, error, edits
+        print(word, error, edits)
         self.assertEquals([('ar', 'ax')], edits)
 
     #@unittest.skip('')
@@ -267,3 +267,17 @@ class TestEditDatabase(unittest.TestCase):
         #self.assertFalse(edit_db.has_edit(("is", "ish")))
         #self.assertTrue(edit_db.has_edit(("hi", "h")))
         #self.assertTrue(edit_db.has_edit(("at", "ate")))
+
+class TestSubsequences(unittest.TestCase):
+    def test_subsequences(self):
+        real_word = "which"
+        expected = [
+            'w', 'wh', 'whi', 'whic', 'which',
+            'h', 'hi', 'hic', 'hich',
+            'i', 'ic', 'ich',
+            'c', 'ch', 
+            'h'
+            ]
+        actual = [s for s in subsequences(real_word)]
+        self.assertEqual(len(expected), len(actual))
+        self.assertEqual(expected, actual)

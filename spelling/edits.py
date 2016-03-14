@@ -1,5 +1,8 @@
-import string
 import sys
+if sys.version_info.major == 3:
+    basestring = str
+    unicode = str
+import string
 import collections
 from alignment.sequence import Sequence
 from alignment.vocabulary import Vocabulary
@@ -10,7 +13,7 @@ def subsequences(word):
     Returns a list of all subsequences of a word.
     """
     for i in range(0, len(word)):
-        for j in range(i+1, len(word[i:])+1):
+        for j in range(i+1, len(word)+1):
             yield word[i:j]
 
 class EditFinder(object):
