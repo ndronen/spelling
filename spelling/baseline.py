@@ -82,7 +82,7 @@ class CharacterLanguageModel(object):
             if os.path.exists(X):
                 pass
             else:
-                raise ValueError(("'X' argument of %s must be on-disc file or data. " +
+                raise ValueError(("'X' argument of %s must be on-disc file or list. " +
                     "%s is string but path does not exist") % (caller, X))
         except TypeError:
             pass
