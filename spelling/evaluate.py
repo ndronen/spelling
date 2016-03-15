@@ -1,6 +1,10 @@
 import spelling.mitton
 import codecs
-import cPickle
+import sys
+if sys.version_info.major == 2:
+    import cPickle as pickle
+else:
+    import pickle
 
 def corpus_name(corpus_file):
     name = corpus_file.replace('data/', '')
@@ -10,11 +14,11 @@ def corpus_name(corpus_file):
 
 def datasets_file(corpus_file):
     name = corpus_name(corpus_file)
-    return codecs.open('data/' + name + '.csv', 'w', encoding='utf8')
+    return codecs.open('data/' + name + '.pkl', 'w', encoding='utf8')
 
 def evaluation_file(corpus_file):
     name = corpus_name(corpus_file)
-    return codecs.open('data/' + name + '-evaluation.csv', 'w', encoding='utf8')
+    return codecs.open('data/' + name + '-evaluation.pkl', 'w', encoding='utf8')
 
 def build_datasets(corpus_file):
     return spelling.mitton.build_mitton_datasets(corpus_file)
@@ -27,7 +31,9 @@ def run_evaluations():
         print(corpus)
         dfs = build_datasets(corpus)
         name = corpus_name(corpus)
-        cPickle.dump(dfs, datasets_file(corpus))
+        #pickle.dump(dfs, datasets_file(corpus), encoding='utf8')
         evaluation = evaluate(dfs)
-        evaluation['Corpus'] = name
-        cPickle.dump(evaluation, evaluation_file(corpus))
+        yield name, dfs, evaluation
+        print(evaluation)
+        #evaluation['Corpus'] = name
+        #pickle.dump(evaluation, evaluation_file(corpus), encoding='utf8')
