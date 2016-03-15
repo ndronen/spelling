@@ -7,14 +7,7 @@ import progressbar
 import pandas as pd
 from spelling.features import (suggest,
         compute_unary_features, compute_binary_features)
-from spelling.dictionary import (
-        build_norvig, build_aspell,
-        build_norvig_without_language_model,
-        build_norvig_with_aspell_vocab_without_language_model,
-        build_norvig_with_aspell_vocab_with_language_model_sorter,
-        build_aspell_with_language_model_sorter,
-        build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter,
-        build_aspell_vocab_with_nn_retriever_and_language_model_sorter)
+import spelling.dictionary as spelldict
 
 from spelling.dictionary import NORVIG_DATA_PATH
 
@@ -185,14 +178,15 @@ def build_dataset(pairs, dictionary, probs=None, verbose=False):
     return df[df.columns.sort_values()]
 
 CONSTRUCTORS = [
-        build_norvig,
-        build_aspell,
-        build_norvig_without_language_model,
-        build_norvig_with_aspell_vocab_without_language_model,
-        build_norvig_with_aspell_vocab_with_language_model_sorter,
-        build_aspell_with_language_model_sorter,
-        build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter,
-        build_aspell_vocab_with_nn_retriever_and_language_model_sorter
+        #spelldict.build_norvig,
+        spelldict.build_aspell,
+        spelldict.build_aspell_with_jaro_winkler_sorter,
+        #spelldict.build_norvig_without_language_model,
+        #spelldict.build_norvig_with_aspell_vocab_without_language_model,
+        #spelldict.build_norvig_with_aspell_vocab_with_language_model_sorter,
+        #spelldict.build_aspell_with_language_model_sorter,
+        #spelldict.build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter,
+        #spelldict.build_aspell_vocab_with_nn_retriever_and_language_model_sorter
         ]
 
 def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):
@@ -215,7 +209,7 @@ def build_datasets(pairs, constructors=CONSTRUCTORS, verbose=False):
     """
     datasets = {}
     for constructor in constructors:
-
+        dictionary = constructor()
         dataset = build_dataset(pairs, dictionary, verbose=verbose)
         datasets[constructor.__name__] = dataset
     return datasets
@@ -325,6 +319,7 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
             # right at that rank.  The number correct at this rank
             # is cumulative.
             n_correct = len(df[(df.suggestion_index < rank) & (df.suggestion == df.correct_word)])
+            print(dict_name)
             accuracies[dict_name].append(n_correct/n)
 
     evaluation = collections.defaultdict(list)
