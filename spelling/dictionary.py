@@ -1,3 +1,6 @@
+import sys
+if sys.version_info.major == 3:
+    unicode = str
 import os
 import string
 import re
@@ -19,10 +22,6 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
-
-# A hack for Python 2-3 compatibility.
-# http://www.diveintopython3.net/porting-code-to-python-3-with-2to3.html
-unicode = unicode if 'unicode' in globals() else str
 
 class Word(object):
     def __init__(self, token, indexer=lambda word: word):
@@ -238,7 +237,7 @@ class LanguageModelSorter(object):
 
 class NonSortingSorter(object):
     def sort(self, word, candidates):
-        return candidates
+        return list(candidates)
 
 class SortingRetriever(dict):
     def __init__(self, retriever, sorter):
@@ -299,11 +298,14 @@ class ModularDictionary(Dictionary):
         return word in self.vocabulary
 
     def suggest(self, word):
-        candidates = set()
+        candidates = list()
+        seen = set()
         for r in self.retrievers:
             for candidate in r[word]:
                 if all([f(candidate) for f in self.filters]):
-                    candidates.add(candidate)
+                    if candidate not in seen:
+                        candidates.append(candidate)
+                        seen.add(candidate)
         return self.sorter.sort(word, candidates)
 
     def correct(self, word):
@@ -421,6 +423,14 @@ def build_aspell_with_language_model_sorter():
     builder = ModularDictionaryBuilder()
     builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
     builder.add_retriever('aspell')
+    builder.with_sorter('lm')
+    return builder.build()
+
+def build_aspell_with_jaro_winkler_sorter():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('aspell')
+    builder.with_sorter('distance', distance='jaro_winkler')
     return builder.build()
 
 def build_aspell_vocab_with_metaphone_retriever_and_language_model_sorter():
