@@ -32,7 +32,7 @@ class CharacterLanguageModel(object):
     """
     Defaults to Witten-Bell discounting for character language models.
     """
-    def __init__(self, discount, order=None, model_path=None, debug=False):
+    def __init__(self, discount, order=None, model_path=None, keep_model=True, debug=False):
         if discount != 'witten-bell':
             if order is None:
                 raise ValueError('"order" is required with %s discounting' % discount)
@@ -67,6 +67,16 @@ class CharacterLanguageModel(object):
                 '-debug', '1'
                 ]
         return cmd
+
+    def build_generate_cmd(self, model_path, order, n):
+        cmd = [
+                self.ngram,
+                '-lm', model_path,
+                '-order', str(order),
+                '-gen', str(n)
+                ]
+        return cmd
+
 
     def write_data(self, f, data):
         for line in data:
@@ -119,8 +129,8 @@ class CharacterLanguageModel(object):
             if self.Xtrain is None:
                 raise ValueError("call fit before calling predict")
 
-            with NamedTemporaryFile(delete=not self.debug) as model_file:
-                model_path = model_file.name
+            with NamedTemporaryFile(delete=not self.keep_model) as model_file:
+                self.model_path = model_file.name
                 with NamedTemporaryFile(delete=not self.debug) as train_file:
                     train_path = train_file.name
                     if isinstance(self.Xtrain, str):
@@ -137,7 +147,7 @@ class CharacterLanguageModel(object):
                             self.write_data(test_file, X)
 
                         fit_cmd = self.build_fit_cmd(
-                                train_path, model_path)
+                                train_path, self.model_path)
                         if self.debug:
                             print('FIT')
                             print(fit_cmd)
@@ -146,7 +156,7 @@ class CharacterLanguageModel(object):
                         if self.debug:
                             print(fit_output)
                         predict_cmd = self.build_predict_cmd(
-                                test_path, model_path)
+                                test_path, self.model_path)
                         if self.debug:
                             print('PREDICT')
                             print(predict_cmd)
@@ -209,19 +219,28 @@ class CharacterLanguageModel(object):
                 }
 
     def generate(self, order, n):
+        if self.model_path is None:
+            self.predict([""])
+
         def run():
     		# Generate more examples than requested, as some
     		# of them will be the empty string, and we guarantee
     		# that all generated examples will be non-empty.
             m = max(10, int(0.5 * n))
-            generate_cmd = ['ngram', '-order', str(order), '-lm', 'char.lm', '-gen', str(n+m)]
-            output = subprocess.check_output(generate_cmd,
+            generate_cmd = self.build_generate_cmd(self.model_path, order, m)
+            if self.debug:
+                print(generate_cmd)
+                print([type(arg) for arg in generate_cmd])
+            try:
+                output = subprocess.check_output(generate_cmd,
                     stderr=subprocess.STDOUT)
-
-            words = output.split('\n')
-            words = [w.replace(' ', '') for w in words]
-            words = [w for w in words if len(w) > 0]
-            return words
+                words = output.split('\n')
+                words = [w.replace(' ', '') for w in words]
+                words = [w for w in words if len(w) > 0]
+                return words
+            except subprocess.CalledProcessError as e:
+                raise RuntimeError("Error calling command (%s): %s" %
+                        (' '.join(generate_cmd), e.output))
 
         generated = []
         while len(generated) < n:
