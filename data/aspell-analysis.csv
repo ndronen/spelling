@@ -1,532 +1,532 @@
-non_word	real_word	jaro_winkler	levenshtein_distance	corpus	aspell_rank	edit_distance_rank
-nevade	Nevada	0.7777777777777777	2	aspell	15	-1
-presbyterian	Presbyterian	0.9444444444444443	1	aspell	0	-1
-rsx	RSX	0.0	3	aspell	-1	-1
-Steffen	Stephen	0.8666666666666668	2	aspell	3	3
-susan	Susan	0.8666666666666667	1	aspell	1	-1
-abilitey	ability	0.975	1	aspell	0	0
-abouy	about	0.92	1	aspell	0	0
-absorbtion	absorption	0.96	1	aspell	0	0
-accidently	accidentally	0.9666666666666667	2	aspell	0	0
-accomodate	accommodate	0.9818181818181818	1	aspell	0	0
-acommadate	accommodate	0.8952188552188552	2	aspell	0	0
-acord	accord	0.9555555555555556	1	aspell	0	0
-aquantance	acquaintance	0.9500000000000001	2	aspell	0	0
-equire	acquire	0.8492063492063492	2	aspell	9	-1
-adultry	adultery	0.975	1	aspell	0	0
-aggresive	aggressive	0.98	1	aspell	0	0
-alchohol	alcohol	0.9375	1	aspell	0	0
-alchoholic	alcoholic	0.9507407407407407	1	aspell	0	0
-allieve	alive	0.8704761904761905	2	aspell	4	4
-alright	all right	0.9407407407407408	2	aspell	-1	-1
-amature	amateur	0.9714285714285714	2	aspell	0	-1
-ambivilant	ambivalent	0.9377777777777778	2	aspell	0	0
-amourfous	amorphous	0.8962962962962963	3	aspell	3	-1
-amification	amplification	0.958974358974359	2	aspell	-1	-1
-anonomy	anatomy	0.8476190476190477	2	aspell	4	1
-anotomy	anatomy	0.8793650793650793	1	aspell	1	0
-annuncio	announce	0.8833333333333334	3	aspell	3	-1
-annonsment	announcement	0.9077777777777777	3	aspell	0	-1
-annoint	anoint	0.9174603174603175	1	aspell	0	0
-anynomous	anonymous	0.9703703703703703	2	aspell	0	0
-appresteate	appreciate	0.8804545454545455	3	aspell	-1	-1
-appreceiated	appreciated	0.946969696969697	1	aspell	0	0
-archeype	archetype	0.9777777777777777	1	aspell	0	0
-aratictature	architecture	0.7777777777777778	5	aspell	0	-1
-aricticure	architecture	0.8177777777777777	5	aspell	-1	-1
-artic	arctic	0.9022222222222223	1	aspell	2	1
-asterick	asterisk	0.95	1	aspell	0	0
-asymetric	asymmetric	0.98	1	aspell	0	0
-asentote	asymptote	0.8444444444444443	3	aspell	-1	-1
-ast	at	0.611111111111111	1	aspell	26	24
-atentively	attentively	0.9490909090909091	1	aspell	0	0
-autoamlly	automatically	0.9162393162393162	5	aspell	-1	-1
-bankrot	bankrupt	0.9214285714285715	2	aspell	2	0
-basicly	basically	0.9555555555555556	2	aspell	0	0
-batallion	battalion	0.9481481481481482	2	aspell	0	0
-beggining	beginning	0.9189814814814814	2	aspell	1	1
-beging	beginning	0.9333333333333333	3	aspell	-1	-1
-bigginging	beginning	0.7576190476190476	3	aspell	5	-1
-behaviour	behavior	0.9777777777777777	1	aspell	0	-1
-behavior	behaviour	0.9777777777777777	1	aspell	-1	-1
-beleive	believe	0.9666666666666667	2	aspell	0	0
-belive	believe	0.9380952380952381	1	aspell	3	1
-benidifs	benefits	0.8444444444444444	3	aspell	3	-1
-metter	better	0.888888888888889	1	aspell	7	6
-blait	bleat	0.8933333333333333	2	aspell	5	-1
-boygot	boycott	0.8944444444444445	2	aspell	3	1
-brocolli	broccoli	0.95	2	aspell	0	0
-bbrose	browse	0.9	2	aspell	0	0
-bouyant	buoyant	0.9571428571428572	2	aspell	0	0
-beauro	bureau	0.78	4	aspell	24	-1
-beaurocracy	bureaucracy	0.8854545454545454	4	aspell	0	-1
-buracracy	bureaucracy	0.9575757575757576	2	aspell	0	0
-burracracy	bureaucracy	0.9083164983164983	2	aspell	0	0
-buch	bush	0.8666666666666667	1	aspell	5	3
-buder	butter	0.8577777777777779	2	aspell	16	-1
-budr	butter	0.8	3	aspell	-1	-1
-budter	butter	0.9111111111111112	1	aspell	1	0
-buton	button	0.9611111111111111	1	aspell	2	0
-byby	by by	0.9466666666666665	1	aspell	0	-1
-cauler	caller	0.9111111111111112	1	aspell	2	2
-gamne	came	0.7833333333333333	2	aspell	29	-1
-cravets	caveats	0.9142857142857143	2	aspell	8	-1
-cemetary	cemetery	0.95	1	aspell	0	0
-changeing	changing	0.9777777777777777	1	aspell	1	1
-cheet	cheat	0.9066666666666667	1	aspell	5	5
-cicle	circle	0.9555555555555556	1	aspell	0	0
-circue	circle	0.9333333333333333	1	aspell	2	1
-circumstaces	circumstances	0.9846153846153847	1	aspell	0	0
-clob	club	0.8666666666666667	1	aspell	9	7
-cocamena	cockamamie	0.8674999999999999	5	aspell	-1	-1
-colleaque	colleague	0.9555555555555556	1	aspell	0	0
-colloquilism	colloquialism	0.9846153846153847	1	aspell	0	0
-coaln	colon	0.8933333333333333	2	aspell	4	-1
-columne	column	0.9714285714285714	1	aspell	1	1
-cumba	combo	0.76	2	aspell	17	-1
-commerciasl	commercials	0.9818181818181818	2	aspell	0	0
-comitmment	commitment	0.9766666666666667	2	aspell	0	0
-comittmen	commitment	0.9248148148148148	3	aspell	0	-1
-comittmend	commitment	0.9014814814814816	3	aspell	0	-1
-commited	committed	0.9777777777777777	1	aspell	2	0
-comitte	committee	0.9481481481481482	2	aspell	0	1
-commitee	committee	0.9777777777777777	1	aspell	0	0
-companys	companies	0.9305555555555555	2	aspell	2	-1
-comiler	compiler	0.9708333333333333	1	aspell	0	0
-compicated	complicated	0.9818181818181818	1	aspell	0	0
-comupter	computer	0.9708333333333333	2	aspell	0	0
-congradulations	congratulations	0.9447619047619048	1	aspell	0	0
-concensus	consensus	0.8898148148148148	1	aspell	5	0
-consident	consistent	0.9127777777777778	2	aspell	2	-1
-consident	consonant	0.8666666666666666	3	aspell	-1	-1
-contast	constant	0.9375	2	aspell	-1	-1
-contastant	constant	0.895	2	aspell	3	-1
-contunie	continue	0.975	2	aspell	0	0
-conibation	contribution	0.8924074074074073	3	aspell	-1	-1
-cooly	coolly	0.9666666666666667	1	aspell	0	0
-copping	coping	0.9666666666666667	1	aspell	3	-1
-cosmoplyton	cosmopolitan	0.9284848484848485	3	aspell	0	-1
-courst	court	0.9666666666666667	1	aspell	1	1
-crasy	crazy	0.9066666666666667	1	aspell	4	4
-credetability	credibility	0.9156643356643357	3	aspell	1	-1
-criqitue	critique	0.9708333333333333	2	aspell	0	0
-ctitique	critique	0.8821428571428571	1	aspell	0	0
-croke	croak	0.9066666666666667	2	aspell	5	-1
-crusifed	crucified	0.9189814814814814	2	aspell	2	3
-crucifiction	crucifixion	0.9484848484848484	2	aspell	0	0
-custamisation	customization	0.9202797202797203	2	aspell	0	0
-daly	daily	0.9466666666666665	1	aspell	1	1
-danguages	dangerous	0.8825396825396825	4	aspell	-1	-1
-dongle	dangle	0.9	1	aspell	5	-1
-disition	decision	0.8500000000000001	3	aspell	6	-1
-defense	defence	0.9428571428571428	1	aspell	-1	-1
-defence	defense	0.9428571428571428	1	aspell	0	-1
-defenly	defiantly	0.888888888888889	3	aspell	2	-1
-definate	definite	0.95	1	aspell	0	0
-definately	definitely	0.96	1	aspell	0	0
-dieties	deities	0.9571428571428572	2	aspell	2	0
-dependeble	dependable	0.9377777777777778	1	aspell	0	0
-descrption	description	0.9618181818181818	1	aspell	0	0
-descrptn	description	0.9454545454545455	3	aspell	0	-1
-dessicate	desiccate	0.9481481481481482	2	aspell	0	0
-dispair	despair	0.9142857142857143	1	aspell	2	0
-desparate	desperate	0.9305555555555555	1	aspell	1	1
-distroy	destroy	0.9142857142857143	1	aspell	2	0
-developement	development	0.9651515151515152	1	aspell	0	0
-develpond	development	0.8982323232323232	4	aspell	2	-1
-develepment	developments	0.9284848484848485	2	aspell	1	-1
-ductioneery	dictionary	0.8206818181818182	3	aspell	0	-1
-dinasaur	dinosaur	0.9083333333333333	1	aspell	2	0
-dinasour	dinosaur	0.9708333333333333	2	aspell	0	0
-direcyly	directly	0.9214285714285715	1	aspell	0	0
-diagree	disagree	0.9666666666666667	1	aspell	0	0
-discuess	discuss	0.975	1	aspell	0	0
-disssicion	discussion	0.9274074074074075	4	aspell	-1	-1
-disect	dissect	0.9666666666666667	1	aspell	0	0
-disippate	dissipate	0.9481481481481482	2	aspell	0	0
-destint	distant	0.8285714285714287	2	aspell	8	-1
-distart	distort	0.9428571428571428	1	aspell	5	0
-distarct	distract	0.975	2	aspell	0	0
-devulge	divulge	0.9142857142857143	1	aspell	1	0
-documtations	documentation	0.8980186480186481	3	aspell	-1	-1
-dag	dog	0.7777777777777777	1	aspell	9	-1
-doog	dog	0.9166666666666666	1	aspell	0	0
-doenload	download	0.9333333333333333	1	aspell	0	0
-deaft	draft	0.88	1	aspell	8	5
-dramaticly	dramatically	0.9666666666666667	2	aspell	0	0
-drunkeness	drunkenness	0.9818181818181818	1	aspell	0	0
-dur	due	0.7777777777777777	1	aspell	1	8
-duren	during	0.8755555555555556	2	aspell	1	1
-dymatic	dynamic	0.8793650793650793	2	aspell	-1	3
-dynaic	dynamic	0.9714285714285714	1	aspell	0	0
-ecstacy	ecstasy	0.9428571428571428	1	aspell	0	0
-efficity	efficacy	0.9	2	aspell	-1	0
-efficat	efficient	0.9047619047619048	3	aspell	-1	-1
-effots	efforts	0.9714285714285714	1	aspell	0	0
-elagent	elegant	0.9619047619047619	2	aspell	0	0
-elligit	elegant	0.7714285714285715	4	aspell	-1	-1
-embarass	embarrass	0.9777777777777777	1	aspell	0	0
-embaress	embarrass	0.9305555555555555	2	aspell	0	0
-embarassment	embarrassment	0.9846153846153847	1	aspell	0	0
-imbed	embed	0.8666666666666667	1	aspell	1	1
-encapsualtion	encapsulation	0.9846153846153847	2	aspell	0	0
-encyclapidia	encyclopedia	0.9133333333333333	2	aspell	0	0
-encyclopia	encyclopedia	0.9666666666666667	2	aspell	0	0
-engins	engine	0.9333333333333333	1	aspell	4	1
-enhence	enhance	0.9333333333333333	1	aspell	2	0
-enligtment	enlightenment	0.9338461538461538	3	aspell	2	-1
-ennuui	ennui	0.9666666666666667	1	aspell	0	0
-enought	enough	0.9714285714285714	1	aspell	0	0
-enviroment	environment	0.9618181818181818	1	aspell	0	0
-envireminakl	environmental	0.9005128205128206	5	aspell	0	-1
-invermeantial	environmental	0.8065268065268065	6	aspell	-1	-1
-epitomy	epitome	0.9428571428571428	1	aspell	0	0
-errara	error	0.8755555555555556	2	aspell	1	-1
-erro	error	0.96	1	aspell	0	0
-expresso	espresso	0.9249999999999999	1	aspell	5	1
-eitiology	etiology	0.9291666666666667	1	aspell	0	0
-evaualtion	evaluation	0.9766666666666667	2	aspell	0	0
-evtually	eventually	0.9466666666666665	2	aspell	0	0
-evething	everything	0.9533333333333333	2	aspell	2	0
-excede	exceed	0.9666666666666667	2	aspell	0	0
-excpt	except	0.9611111111111111	1	aspell	0	0
-excution	execution	0.9703703703703703	1	aspell	0	0
-excercise	exercise	0.937037037037037	1	aspell	0	0
-exhileration	exhilaration	0.9484848484848484	1	aspell	0	0
-egsistence	existence	0.8691666666666668	2	aspell	0	1
-existance	existence	0.9305555555555555	1	aspell	0	0
-exspidient	expedient	0.8837037037037038	2	aspell	0	0
-expleyly	explicitly	0.8366666666666667	4	aspell	-1	-1
-explity	explicitly	0.9400000000000001	3	aspell	-1	-1
-extions	extensions	0.8633333333333333	3	aspell	-1	-1
-factontion	factorization	0.8962393162393162	4	aspell	1	-1
-failer	failure	0.9380952380952381	2	aspell	4	-1
-phantasia	fantasia	0.8842592592592592	2	aspell	0	3
-famdasy	fantasy	0.8476190476190477	2	aspell	2	0
-faver	favor	0.9066666666666667	1	aspell	3	3
-faver	favour	0.8755555555555556	2	aspell	-1	-1
-faxe	fax	0.9166666666666666	1	aspell	2	2
-fistival	festival	0.8821428571428571	1	aspell	1	0
-firey	fiery	0.9466666666666665	2	aspell	1	1
-flatterring	flattering	0.9818181818181818	1	aspell	2	0
-fluk	flux	0.8833333333333334	1	aspell	5	6
-flukse	flux	0.825	3	aspell	20	-1
-forsee	foresee	0.9277777777777778	1	aspell	2	0
-frustartaion	frustrating	0.9284848484848485	5	aspell	0	-1
-fuction	function	0.9666666666666667	1	aspell	0	0
-generly	generally	0.9555555555555556	2	aspell	0	0
-gotton	gotten	0.9333333333333333	1	aspell	2	0
-goberment	government	0.8837037037037038	2	aspell	-1	0
-gobernement	government	0.8952188552188552	2	aspell	0	0
-gobernment	government	0.9466666666666665	1	aspell	0	0
-gracefull	graceful	0.9777777777777777	1	aspell	3	1
-gradualy	gradually	0.9777777777777777	1	aspell	0	0
-grammer	grammar	0.9428571428571428	1	aspell	0	0
-gaurd	guard	0.94	2	aspell	0	0
-futs	guts	0.8333333333333334	1	aspell	7	13
-hapily	happily	0.9666666666666667	1	aspell	0	0
-harrass	harass	0.9666666666666667	1	aspell	0	0
-havne	have	0.9533333333333333	1	aspell	1	1
-heighth	height	0.9714285714285714	1	aspell	0	0
-hallo	hello	0.88	1	aspell	6	5
-helo	hello	0.9533333333333333	1	aspell	1	1
-herlo	hello	0.8933333333333333	1	aspell	3	1
-heellp	help	0.9111111111111111	2	aspell	1	1
-hellp	help	0.9533333333333333	1	aspell	1	1
-hlp	help	0.9166666666666666	1	aspell	0	0
-higer	higher	0.9611111111111111	1	aspell	0	0
-hippopotamous	hippopotamus	0.9846153846153847	1	aspell	0	0
-hourse	horse	0.9555555555555556	1	aspell	2	2
-houssing	housing	0.975	1	aspell	0	0
-howaver	however	0.8944444444444445	1	aspell	6	0
-howver	however	0.9277777777777778	1	aspell	1	1
-humaniti	humanity	0.95	1	aspell	1	0
-hifin	hyphen	0.5777777777777778	4	aspell	-1	-1
-hifine	hyphen	0.5555555555555555	5	aspell	32	-1
-hiphine	hyphen	0.8042857142857143	3	aspell	2	-1
-hyfin	hyphen	0.76	3	aspell	12	-1
-hypotathes	hypothesis	0.92	4	aspell	1	-1
-hypotathese	hypothesis	0.9054545454545454	4	aspell	3	-1
-hystrical	hysterical	0.98	1	aspell	0	0
-illegitament	illegitimate	0.9303030303030303	4	aspell	0	-1
-immenant	immanent	0.9708333333333333	2	aspell	0	0
-imediaetly	immediately	0.9490909090909091	3	aspell	0	0
-implemtes	implements	0.9577777777777777	3	aspell	0	0
-incase	in case	0.9619047619047619	1	aspell	0	-1
-indepth	in depth	0.9666666666666667	1	aspell	0	-1
-infact	in fact	0.9619047619047619	1	aspell	3	-1
-inadvertant	inadvertent	0.9636363636363636	1	aspell	0	0
-incompleet	incomplete	0.98	2	aspell	0	0
-incomplot	incomplete	0.9377777777777778	2	aspell	0	0
-inconvience	inconvenience	0.932867132867133	2	aspell	0	0
-inconvenant	inconvenient	0.9484848484848484	2	aspell	0	0
-ident	indent	0.8900000000000001	1	aspell	1	1
-independant	independent	0.9636363636363636	1	aspell	0	0
-independenent	independent	0.9692307692307692	2	aspell	0	0
-indepnends	independent	0.8991919191919192	4	aspell	2	-1
-indispensible	indispensable	0.9692307692307692	1	aspell	0	0
-inefficite	inefficient	0.9618181818181818	3	aspell	0	0
-imfamy	infamy	0.9	1	aspell	1	0
-influencial	influential	0.9636363636363636	1	aspell	0	0
-inital	initial	0.9714285714285714	1	aspell	0	0
-initinized	initialized	0.9436363636363637	2	aspell	-1	0
-initized	initialized	0.9454545454545455	3	aspell	-1	-1
-innoculate	inoculate	0.9733333333333334	1	aspell	0	0
-incedious	insidious	0.8433862433862434	2	aspell	7	3
-insistant	insistent	0.9555555555555556	1	aspell	2	0
-insistenet	insistent	0.98	1	aspell	0	0
-instulation	installation	0.9284848484848485	2	aspell	1	-1
-intealignt	intelligent	0.9436363636363637	2	aspell	0	0
-intejilent	intelligent	0.9214141414141415	3	aspell	0	-1
-intelegent	intelligent	0.9214141414141415	2	aspell	0	0
-intelegnent	intelligent	0.905050505050505	3	aspell	0	-1
-intelejent	intelligent	0.9054545454545454	3	aspell	0	-1
-inteligent	intelligent	0.9818181818181818	1	aspell	0	0
-intelignt	intelligent	0.9636363636363636	2	aspell	0	0
-intellagant	intelligent	0.9272727272727274	2	aspell	0	0
-intellegent	intelligent	0.9436363636363637	1	aspell	0	0
-intellegint	intelligent	0.9818181818181818	2	aspell	0	0
-intellgnt	intelligent	0.9636363636363636	2	aspell	0	0
-intertes	interested	0.9349999999999999	3	aspell	-1	-1
-intertesd	interested	0.9577777777777777	3	aspell	-1	-1
-inerface	interface	0.9703703703703703	1	aspell	0	0
-internation	international	0.9692307692307692	2	aspell	2	0
-interpretate	interpret	0.95	3	aspell	3	-1
-interpretter	interpreter	0.9833333333333333	1	aspell	0	0
-enventions	inventions	0.8962962962962964	1	aspell	0	0
-irresistable	irresistible	0.9666666666666666	1	aspell	0	0
-irritible	irritable	0.9555555555555556	1	aspell	0	0
-isotrop	isotope	0.9428571428571428	2	aspell	1	1
-interate	iterate	0.9625	1	aspell	3	1
-johhn	john	0.9533333333333333	1	aspell	0	0
-judgment	judgement	0.9527777777777777	1	aspell	-1	-1
-judgement	judgment	0.9527777777777777	1	aspell	0	0
-lilometer	kilometer	0.8842592592592592	1	aspell	2	1
-lilometer	kilometre	0.8425925925925926	3	aspell	-1	-1
-kippur	kipper	0.9333333333333333	1	aspell	0	0
-knawing	knowing	0.9238095238095239	1	aspell	2	0
-luser	laser	0.88	1	aspell	5	4
-latext	latest	0.9333333333333333	1	aspell	5	2
-lloyer	layer	0.8400000000000001	2	aspell	1	6
-leasve	leave	0.9611111111111111	1	aspell	1	1
-lesure	leisure	0.9619047619047619	1	aspell	0	0
-liasion	lesion	0.8042857142857143	2	aspell	13	-1
-liason	liaison	0.9666666666666667	1	aspell	0	0
-libary	library	0.9277777777777778	1	aspell	0	0
-likly	likely	0.9611111111111111	1	aspell	0	0
-liquify	liquefy	0.9428571428571428	1	aspell	0	0
-lossing	losing	0.9666666666666667	1	aspell	0	0
-maddness	madness	0.9708333333333333	1	aspell	0	0
-maintanence	maintenance	0.9818181818181818	2	aspell	0	0
-majaerly	majority	0.825	4	aspell	-1	-1
-majoraly	majority	0.9	2	aspell	1	-1
-marshall	marshal	0.975	1	aspell	4	0
-maks	masks	0.88	1	aspell	10	6
-maxium	maximum	0.9380952380952381	1	aspell	3	1
-midia	media	0.88	1	aspell	4	2
-momento	memento	0.8642857142857143	1	aspell	4	3
-meory	memory	0.9555555555555556	1	aspell	0	0
-pataphysical	metaphysical	0.8555555555555556	2	aspell	0	0
-mic	mike	0.7222222222222222	2	aspell	-1	-1
-millenium	millennium	0.98	1	aspell	0	0
-minum	minimum	0.8866666666666667	2	aspell	6	-1
-miniscule	minuscule	0.9189814814814814	1	aspell	0	0
-misilous	miscellaneous	0.8631410256410256	6	aspell	-1	-1
-mischievious	mischievous	0.9833333333333333	1	aspell	0	0
-minkay	monkey	0.7999999999999999	2	aspell	11	14
-monkay	monkey	0.9333333333333333	1	aspell	0	0
-mroe	more	0.9249999999999999	2	aspell	0	0
-mosaik	mosaic	0.9333333333333333	1	aspell	0	0
-mostlikely	most likely	0.9818181818181818	1	aspell	0	-1
-mousr	mouser	0.9666666666666667	1	aspell	0	0
-oving	moving	0.9444444444444445	1	aspell	1	0
-nieve	naive	0.88	2	aspell	2	-1
-neccessary	necessary	0.9766666666666667	1	aspell	0	0
-necesary	necessary	0.9777777777777777	1	aspell	0	0
-necesser	necessary	0.9305555555555555	2	aspell	0	0
-neighbour	neighbor	0.9777777777777777	1	aspell	0	-1
-neighbor	neighbour	0.9777777777777777	1	aspell	-1	-1
-nickleodeon	nickelodeon	0.9818181818181818	2	aspell	0	0
-neice	niece	0.94	2	aspell	0	0
-noone	no one	0.9555555555555556	1	aspell	1	-1
-notin	not in	0.9611111111111111	1	aspell	2	-1
-noticably	noticeably	0.98	1	aspell	0	0
-nozled	nuzzled	0.8642857142857143	2	aspell	4	3
-obsfuscate	obfuscate	0.9437037037037037	1	aspell	0	0
-objectsion	objects	0.9400000000000001	3	aspell	5	-1
-ocassion	occasion	0.9333333333333333	2	aspell	0	0
-accosinly	occasionally	0.8796296296296297	5	aspell	-1	-1
-occusionaly	occasionally	0.8932323232323233	2	aspell	1	1
-occuppied	occupied	0.9777777777777777	1	aspell	0	0
-occurence	occurrence	0.98	1	aspell	0	0
-octagenarian	octogenarian	0.8974747474747474	1	aspell	0	0
-olf	old	0.7777777777777777	1	aspell	3	3
-opposim	opossum	0.8476190476190477	3	aspell	5	-1
-organise	organize	0.95	1	aspell	3	1
-organiz	organize	0.975	1	aspell	0	0
-orientate	orient	0.9333333333333333	3	aspell	-1	-1
-oscilascope	oscilloscope	0.9284848484848485	2	aspell	0	0
-parametic	parameter	0.9111111111111111	2	aspell	-1	-1
-paramers	parameters	0.96	2	aspell	0	-1
-paranets	parameters	0.915	3	aspell	-1	-1
-partrucal	particular	0.8877777777777778	4	aspell	0	-1
-patten	pattern	0.9714285714285714	1	aspell	0	0
-preemptory	peremptory	0.97	2	aspell	0	0
-permissable	permissible	0.9636363636363636	1	aspell	0	0
-permition	permission	0.9377777777777778	2	aspell	3	-1
-permmasivie	permissive	0.8991919191919192	3	aspell	1	-1
-phenominal	phenomenal	0.96	1	aspell	0	0
-fone	phone	0.7833333333333333	2	aspell	-1	-1
-funetik	phonetic	0.6904761904761904	4	aspell	18	-1
-picaresque	picturesque	0.8823905723905724	2	aspell	1	-1
-playwrite	playwright	0.9377777777777778	3	aspell	2	-1
-pollice	police	0.9666666666666667	1	aspell	4	0
-politict	politic	0.975	1	aspell	0	0
-polation	politician	0.8094444444444445	4	aspell	-1	-1
-poligamy	polygamy	0.9416666666666667	1	aspell	0	0
-polypropalene	polypropylene	0.9692307692307692	1	aspell	0	0
-protray	portray	0.9571428571428572	2	aspell	2	0
-possable	possible	0.95	1	aspell	2	0
-practicle	practical	0.9555555555555556	2	aspell	2	-1
-pragmaticism	pragmatism	0.9666666666666667	2	aspell	2	1
-preceeding	preceding	0.98	1	aspell	0	0
-precion	precision	0.9555555555555556	2	aspell	0	0
-precios	precision	0.9269841269841269	3	aspell	-1	-1
-prefixt	prefixed	0.9214285714285715	2	aspell	1	-1
-prefices	prefixes	0.95	1	aspell	3	0
-perogative	prerogative	0.9427272727272727	1	aspell	0	0
-privielage	privilege	0.9577777777777777	2	aspell	0	0
-priviledge	privilege	0.98	1	aspell	0	0
-proplematic	problematic	0.9575757575757576	1	aspell	0	0
-proceedures	procedures	0.9418181818181818	1	aspell	1	0
-pronensiation	pronunciation	0.9384615384615385	2	aspell	0	0
-pronisation	pronunciation	0.8756643356643358	4	aspell	-1	-1
-pronounciation	pronunciation	0.9857142857142858	1	aspell	0	0
-properally	properly	0.96	2	aspell	2	0
-pscolgst	psychologist	0.9111111111111111	4	aspell	0	-1
-psicolagest	psychologist	0.8383838383838385	4	aspell	1	-1
-psycolagest	psychologist	0.9136363636363637	3	aspell	0	-1
-sicolagest	psychologist	0.7611111111111111	5	aspell	-1	-1
-persue	pursue	0.9	1	aspell	4	1
-presue	pursue	0.9	2	aspell	10	-1
-presued	pursued	0.9142857142857143	2	aspell	6	-1
-quoz	quiz	0.8666666666666667	1	aspell	1	1
-reccona	raccoon	0.8285714285714287	3	aspell	9	-1
-radious	radius	0.9714285714285714	1	aspell	3	0
-ramplily	rampantly	0.8833333333333333	3	aspell	2	-1
-wrank	rank	0.9333333333333332	1	aspell	1	1
-recieve	receive	0.9666666666666667	2	aspell	0	0
-reconise	recognize	0.9305555555555555	2	aspell	2	3
-reccomend	recommend	0.9481481481481482	2	aspell	0	0
-rectangeles	rectangle	0.9414141414141414	2	aspell	2	-1
-reoccurring	recurring	0.9515151515151515	2	aspell	5	-1
-redign	redesign	0.9416666666666667	2	aspell	1	-1
-irregardless	regardless	0.8777777777777779	2	aspell	1	-1
-repitition	repetition	0.9014814814814816	1	aspell	0	0
-replasments	replacement	0.905050505050505	3	aspell	4	-1
-reseblence	resemblance	0.9214141414141415	2	aspell	0	0
-respct	respect	0.9714285714285714	1	aspell	2	0
-respecally	respectfully	0.9299999999999999	3	aspell	-1	-1
-reposable	responsible	0.8643097643097643	3	aspell	-1	-1
-roon	room	0.8833333333333334	1	aspell	1	2
-rought	roughly	0.9095238095238095	2	aspell	10	-1
-rudemtry	rudimentary	0.9071969696969698	4	aspell	0	-1
-runnung	running	0.9428571428571428	1	aspell	0	0
-sacreligious	sacrilegious	0.9833333333333333	2	aspell	0	0
-saftly	safely	0.9222222222222223	1	aspell	0	0
-salut	salute	0.9666666666666667	1	aspell	0	0
-satifly	satisfy	0.9428571428571428	2	aspell	-1	0
-scrabdle	scrabble	0.95	1	aspell	1	0
-secion	section	0.9666666666666667	1	aspell	2	0
-segements	segments	0.9449074074074074	1	aspell	0	0
-sieze	seize	0.94	2	aspell	0	0
-sence	sense	0.9066666666666667	1	aspell	1	1
-seperate	separate	0.9083333333333333	1	aspell	1	0
-seferal	several	0.9238095238095239	1	aspell	0	0
-sherbert	sherbet	0.975	1	aspell	0	0
-singal	signal	0.9555555555555556	2	aspell	2	0
-cimplicity	simplicity	0.9333333333333332	1	aspell	0	0
-simpfilty	simplicity	0.9127777777777778	3	aspell	2	-1
-simplye	simply	0.9714285714285714	1	aspell	1	0
-sitte	site	0.9533333333333333	1	aspell	1	1
-situration	situation	0.98	1	aspell	0	0
-smil	smile	0.96	1	aspell	0	0
-snuck	sneaked	0.6761904761904761	4	aspell	-1	-1
-sometmes	sometimes	0.9777777777777777	1	aspell	0	0
-soonec	sonic	0.8577777777777779	2	aspell	2	-1
-specificialy	specifically	0.9666666666666666	2	aspell	0	0
-spel	spell	0.96	1	aspell	0	0
-spoak	spoke	0.9066666666666667	2	aspell	2	-1
-sponsered	sponsored	0.9305555555555555	1	aspell	0	0
-stering	steering	0.9708333333333333	1	aspell	1	1
-stumach	stomach	0.9238095238095239	1	aspell	0	0
-straightjacket	straitjacket	0.9714285714285714	2	aspell	2	0
-stutent	student	0.9333333333333333	1	aspell	0	0
-styleguide	style guide	0.9818181818181818	1	aspell	0	-1
-subpena	subpoena	0.975	1	aspell	0	0
-subjecribed	subscribed	0.8823905723905724	2	aspell	1	0
-subisitions	substitutions	0.9016083916083916	4	aspell	-1	-1
-substations	substitutions	0.9156643356643357	3	aspell	-1	-1
-suger	sugar	0.9066666666666667	1	aspell	3	0
-superfulous	superfluous	0.9818181818181818	2	aspell	0	0
-supercede	supersede	0.9555555555555556	1	aspell	2	0
-swim_wear	swimwear	0.9777777777777777	1	aspell	0	0
-slyph	sylph	0.94	2	aspell	0	0
-syncorization	synchronization	0.9117948717948717	3	aspell	1	-1
-tattos	tattoos	0.9714285714285714	1	aspell	0	0
-tem	team	0.9166666666666666	1	aspell	0	3
-techniquely	technically	0.890909090909091	3	aspell	3	-1
-tesst	test	0.9533333333333333	1	aspell	0	0
-ttest	test	0.94	1	aspell	1	1
-tets	tests	0.88	1	aspell	8	5
-thanot	than or	0.9095238095238095	2	aspell	-1	-1
-taht	that	0.9249999999999999	2	aspell	2	0
-teh	the	0.5555555555555555	2	aspell	7	6
-thw	the	0.7777777777777777	1	aspell	2	5
-theirselves	themselves	0.9342424242424243	2	aspell	4	0
-teridical	theoretical	0.8242424242424243	4	aspell	-1	-1
-theridically	theoretical	0.8585858585858586	5	aspell	3	-1
-thredically	theoretically	0.8875524475524476	3	aspell	0	-1
-ths	this	0.9166666666666666	1	aspell	0	1
-thruout	throughout	0.8966666666666666	3	aspell	1	-1
-titalate	titillate	0.8856481481481482	2	aspell	2	0
-tommorrow	tomorrow	0.9740740740740741	1	aspell	2	0
-tomorow	tomorrow	0.975	1	aspell	0	0
-taff	tough	0.48333333333333334	4	aspell	-1	-1
-tradegy	tragedy	0.9666666666666667	2	aspell	0	0
-trubbel	trouble	0.8793650793650793	3	aspell	1	-1
-tunnellike	tunnel like	0.9818181818181818	1	aspell	0	-1
-tured	turned	0.9611111111111111	1	aspell	1	0
-teo	two	0.7777777777777777	1	aspell	0	7
-tyrrany	tyranny	0.9333333333333333	2	aspell	0	0
-unconscience	unconscious	0.8787878787878788	4	aspell	2	-1
-unconisitional	unconstitutional	0.9328296703296703	4	aspell	1	-1
-underladder	under ladder	0.9833333333333333	1	aspell	0	-1
-unformanlly	unfortunately	0.8798756798756798	5	aspell	-1	-1
-unfortally	unfortunately	0.9184615384615384	4	aspell	-1	-1
-unfortunently	unfortunately	0.9525641025641025	3	aspell	0	-1
-unentelegible	unintelligible	0.8291042291042291	3	aspell	0	-1
-unatourral	unnatural	0.9170370370370371	3	aspell	0	-1
-unaturral	unnatural	0.9407407407407408	2	aspell	0	0
-unnaturral	unnatural	0.98	1	aspell	0	0
-upcast	up cast	0.9619047619047619	1	aspell	0	-1
-uranisium	uranium	0.9555555555555556	2	aspell	0	0
-upmost	utmost	0.9	1	aspell	3	0
-verison	version	0.9666666666666667	2	aspell	0	0
-vinagarette	vinaigrette	0.9636363636363636	2	aspell	0	0
-volye	volley	0.9144444444444445	2	aspell	3	-1
-volunteerism	voluntarism	0.9484848484848484	2	aspell	4	-1
-volumptuous	voluptuous	0.9818181818181818	1	aspell	0	0
-waite	wait	0.96	1	aspell	2	2
-mant	want	0.8333333333333334	1	aspell	18	15
-whard	ward	0.94	1	aspell	0	0
-warloord	warlord	0.975	1	aspell	0	0
-wadting	wasting	0.9238095238095239	1	aspell	5	4
-wicken	weaken	0.7999999999999999	2	aspell	20	-1
-wierd	weird	0.94	2	aspell	1	1
-whaaat	what	0.9222222222222222	2	aspell	0	0
-whimp	wimp	0.94	1	aspell	3	2
-wan't	won't	0.88	1	aspell	4	2
-writting	writing	0.975	1	aspell	2	0
-yeild	yield	0.94	2	aspell	0	0
-youe	your	0.8833333333333334	1	aspell	3	1
+non_word	real_word	jaro_winkler	levenshtein_distance	corpus	aspell_rank	aspell_n_candidates	edit_distance_rank	edit_distance_n_candidates
+nevade	Nevada	0.7777777777777777	2	aspell	15	26	-1	1
+presbyterian	Presbyterian	0.9444444444444443	1	aspell	0	6	-1	1
+rsx	RSX	0.0	3	aspell	-1	6	-1	1
+Steffen	Stephen	0.8666666666666668	2	aspell	3	11	2	5
+susan	Susan	0.8666666666666667	1	aspell	1	22	-1	17
+abilitey	ability	0.975	1	aspell	0	16	0	1
+abouy	about	0.92	1	aspell	0	25	0	1
+absorbtion	absorption	0.96	1	aspell	0	3	0	1
+accidently	accidentally	0.9666666666666667	2	aspell	0	10	0	6
+accomodate	accommodate	0.9818181818181818	1	aspell	0	3	0	1
+acommadate	accommodate	0.8952188552188552	2	aspell	0	3	0	1
+acord	accord	0.9555555555555556	1	aspell	0	17	0	3
+aquantance	acquaintance	0.9500000000000001	2	aspell	0	7	0	1
+equire	acquire	0.8492063492063492	2	aspell	9	15	-1	5
+adultry	adultery	0.975	1	aspell	0	12	0	1
+aggresive	aggressive	0.98	1	aspell	0	8	0	1
+alchohol	alcohol	0.9375	1	aspell	0	5	0	1
+alchoholic	alcoholic	0.9507407407407407	1	aspell	0	4	0	1
+allieve	alive	0.8704761904761905	2	aspell	4	29	4	8
+alright	all right	0.9407407407407408	2	aspell	-1	3	-1	1
+amature	amateur	0.9714285714285714	2	aspell	0	10	-1	2
+ambivilant	ambivalent	0.9377777777777778	2	aspell	0	6	0	1
+amourfous	amorphous	0.8962962962962963	3	aspell	3	4	-1	1
+amification	amplification	0.958974358974359	2	aspell	-1	5	-1	1
+anonomy	anatomy	0.8476190476190477	2	aspell	4	9	1	6
+anotomy	anatomy	0.8793650793650793	1	aspell	1	12	0	1
+annuncio	announce	0.8833333333333334	3	aspell	3	8	-1	1
+annonsment	announcement	0.9077777777777777	3	aspell	0	5	-1	1
+annoint	anoint	0.9174603174603175	1	aspell	0	28	0	1
+anynomous	anonymous	0.9703703703703703	2	aspell	0	8	0	1
+appresteate	appreciate	0.8804545454545455	3	aspell	-1	7	-1	1
+appreceiated	appreciated	0.946969696969697	1	aspell	0	6	0	1
+archeype	archetype	0.9777777777777777	1	aspell	0	28	0	1
+aratictature	architecture	0.7777777777777778	5	aspell	0	7	-1	1
+aricticure	architecture	0.8177777777777777	5	aspell	-1	8	-1	1
+artic	arctic	0.9022222222222223	1	aspell	2	27	1	4
+asterick	asterisk	0.95	1	aspell	0	22	0	1
+asymetric	asymmetric	0.98	1	aspell	0	5	0	1
+asentote	asymptote	0.8444444444444443	3	aspell	-1	17	-1	1
+ast	at	0.611111111111111	1	aspell	26	49	24	27
+atentively	attentively	0.9490909090909091	1	aspell	0	5	0	1
+autoamlly	automatically	0.9162393162393162	5	aspell	-1	24	-1	1
+bankrot	bankrupt	0.9214285714285715	2	aspell	2	8	2	3
+basicly	basically	0.9555555555555556	2	aspell	0	20	0	8
+batallion	battalion	0.9481481481481482	2	aspell	0	13	0	3
+beggining	beginning	0.9189814814814814	2	aspell	1	22	1	6
+beging	beginning	0.9333333333333333	3	aspell	-1	17	-1	4
+bigginging	beginning	0.7576190476190476	3	aspell	5	16	-1	1
+behaviour	behavior	0.9777777777777777	1	aspell	0	10	-1	1
+behavior	behaviour	0.9777777777777777	1	aspell	-1	4	-1	1
+beleive	believe	0.9666666666666667	2	aspell	0	16	0	1
+belive	believe	0.9380952380952381	1	aspell	3	16	1	3
+benidifs	benefits	0.8444444444444444	3	aspell	3	34	-1	1
+metter	better	0.888888888888889	1	aspell	7	17	6	10
+blait	bleat	0.8933333333333333	2	aspell	5	39	-1	4
+boygot	boycott	0.8944444444444445	2	aspell	3	12	1	9
+brocolli	broccoli	0.95	2	aspell	0	15	0	1
+bbrose	browse	0.9	2	aspell	0	45	0	7
+bouyant	buoyant	0.9571428571428572	2	aspell	0	17	0	1
+beauro	bureau	0.78	4	aspell	24	50	-1	9
+beaurocracy	bureaucracy	0.8854545454545454	4	aspell	0	9	-1	1
+buracracy	bureaucracy	0.9575757575757576	2	aspell	0	15	0	1
+burracracy	bureaucracy	0.9083164983164983	2	aspell	0	11	0	1
+buch	bush	0.8666666666666667	1	aspell	5	14	3	7
+buder	butter	0.8577777777777779	2	aspell	16	96	-1	3
+budr	butter	0.8	3	aspell	-1	8	-1	4
+budter	butter	0.9111111111111112	1	aspell	1	39	0	2
+buton	button	0.9611111111111111	1	aspell	2	11	0	3
+byby	by by	0.9466666666666665	1	aspell	0	54	-1	1
+cauler	caller	0.9111111111111112	1	aspell	2	44	2	5
+gamne	came	0.7833333333333333	2	aspell	29	38	-1	2
+cravets	caveats	0.9142857142857143	2	aspell	8	39	-1	3
+cemetary	cemetery	0.95	1	aspell	0	14	0	1
+changeing	changing	0.9777777777777777	1	aspell	1	4	1	2
+cheet	cheat	0.9066666666666667	1	aspell	5	13	5	7
+cicle	circle	0.9555555555555556	1	aspell	0	16	0	4
+circue	circle	0.9333333333333333	1	aspell	2	12	1	3
+circumstaces	circumstances	0.9846153846153847	1	aspell	0	5	0	1
+clob	club	0.8666666666666667	1	aspell	9	13	7	11
+cocamena	cockamamie	0.8674999999999999	5	aspell	-1	15	-1	1
+colleaque	colleague	0.9555555555555556	1	aspell	0	10	0	1
+colloquilism	colloquialism	0.9846153846153847	1	aspell	0	3	0	1
+coaln	colon	0.8933333333333333	2	aspell	4	55	-1	2
+columne	column	0.9714285714285714	1	aspell	1	12	1	3
+cumba	combo	0.76	2	aspell	17	33	-1	1
+commerciasl	commercials	0.9818181818181818	2	aspell	0	4	1	2
+comitmment	commitment	0.9766666666666667	2	aspell	0	5	0	1
+comittmen	commitment	0.9248148148148148	3	aspell	0	5	-1	1
+comittmend	commitment	0.9014814814814816	3	aspell	0	9	-1	1
+commited	committed	0.9777777777777777	1	aspell	2	25	0	2
+comitte	committee	0.9481481481481482	2	aspell	0	12	0	9
+commitee	committee	0.9777777777777777	1	aspell	0	17	0	1
+companys	companies	0.9305555555555555	2	aspell	2	6	-1	1
+comiler	compiler	0.9708333333333333	1	aspell	0	13	0	1
+compicated	complicated	0.9818181818181818	1	aspell	0	2	0	1
+comupter	computer	0.9708333333333333	2	aspell	0	17	0	1
+congradulations	congratulations	0.9447619047619048	1	aspell	0	3	0	1
+concensus	consensus	0.8898148148148148	1	aspell	5	18	0	1
+consident	consistent	0.9127777777777778	2	aspell	2	6	-1	1
+consident	consonant	0.8666666666666666	3	aspell	-1	6	-1	1
+contast	constant	0.9375	2	aspell	-1	12	-1	3
+contastant	constant	0.895	2	aspell	3	4	-1	1
+contunie	continue	0.975	2	aspell	0	12	0	2
+conibation	contribution	0.8924074074074073	3	aspell	-1	11	-1	4
+cooly	coolly	0.9666666666666667	1	aspell	0	28	0	4
+copping	coping	0.9666666666666667	1	aspell	3	22	-1	1
+cosmoplyton	cosmopolitan	0.9284848484848485	3	aspell	0	7	-1	1
+courst	court	0.9666666666666667	1	aspell	1	25	0	3
+crasy	crazy	0.9066666666666667	1	aspell	4	27	4	5
+credetability	credibility	0.9156643356643357	3	aspell	1	8	-1	1
+criqitue	critique	0.9708333333333333	2	aspell	0	18	0	1
+ctitique	critique	0.8821428571428571	1	aspell	0	22	0	1
+croke	croak	0.9066666666666667	2	aspell	5	47	-1	4
+crusifed	crucified	0.9189814814814814	2	aspell	2	12	3	5
+crucifiction	crucifixion	0.9484848484848484	2	aspell	0	18	0	1
+custamisation	customization	0.9202797202797203	2	aspell	0	6	0	1
+daly	daily	0.9466666666666665	1	aspell	1	10	1	5
+danguages	dangerous	0.8825396825396825	4	aspell	-1	23	-1	1
+dongle	dangle	0.9	1	aspell	5	11	-1	1
+disition	decision	0.8500000000000001	3	aspell	6	29	-1	6
+defense	defence	0.9428571428571428	1	aspell	-1	13	-1	1
+defence	defense	0.9428571428571428	1	aspell	0	32	-1	1
+defenly	defiantly	0.888888888888889	3	aspell	2	15	-1	10
+definate	definite	0.95	1	aspell	0	25	0	1
+definately	definitely	0.96	1	aspell	0	11	0	1
+dieties	deities	0.9571428571428572	2	aspell	2	11	0	3
+dependeble	dependable	0.9377777777777778	1	aspell	0	3	0	1
+descrption	description	0.9618181818181818	1	aspell	0	7	0	1
+descrptn	description	0.9454545454545455	3	aspell	0	7	-1	1
+dessicate	desiccate	0.9481481481481482	2	aspell	0	17	0	4
+dispair	despair	0.9142857142857143	1	aspell	2	21	0	1
+desparate	desperate	0.9305555555555555	1	aspell	1	2	1	2
+distroy	destroy	0.9142857142857143	1	aspell	2	19	0	1
+developement	development	0.9651515151515152	1	aspell	0	5	0	1
+develpond	development	0.8982323232323232	4	aspell	2	4	-1	1
+develepment	developments	0.9284848484848485	2	aspell	1	7	-1	1
+ductioneery	dictionary	0.8206818181818182	3	aspell	0	6	-1	2
+dinasaur	dinosaur	0.9083333333333333	1	aspell	2	21	0	1
+dinasour	dinosaur	0.9708333333333333	2	aspell	0	34	0	1
+direcyly	directly	0.9214285714285715	1	aspell	0	9	0	1
+diagree	disagree	0.9666666666666667	1	aspell	0	26	0	1
+discuess	discuss	0.975	1	aspell	0	11	1	2
+disssicion	discussion	0.9274074074074075	4	aspell	-1	11	-1	1
+disect	dissect	0.9666666666666667	1	aspell	0	21	0	3
+disippate	dissipate	0.9481481481481482	2	aspell	0	15	0	1
+destint	distant	0.8285714285714287	2	aspell	8	13	-1	2
+distart	distort	0.9428571428571428	1	aspell	5	20	1	2
+distarct	distract	0.975	2	aspell	0	12	0	1
+devulge	divulge	0.9142857142857143	1	aspell	1	9	0	1
+documtations	documentation	0.8980186480186481	3	aspell	-1	6	-1	1
+dag	dog	0.7777777777777777	1	aspell	9	32	-1	1
+doog	dog	0.9166666666666666	1	aspell	0	6	0	4
+doenload	download	0.9333333333333333	1	aspell	0	6	0	1
+deaft	draft	0.88	1	aspell	8	24	5	6
+dramaticly	dramatically	0.9666666666666667	2	aspell	0	5	0	3
+drunkeness	drunkenness	0.9818181818181818	1	aspell	0	12	0	1
+dur	due	0.7777777777777777	1	aspell	1	19	2	12
+duren	during	0.8755555555555556	2	aspell	1	46	1	56
+dymatic	dynamic	0.8793650793650793	2	aspell	-1	7	2	7
+dynaic	dynamic	0.9714285714285714	1	aspell	0	49	0	1
+ecstacy	ecstasy	0.9428571428571428	1	aspell	0	21	0	1
+efficity	efficacy	0.9	2	aspell	-1	18	0	3
+efficat	efficient	0.9047619047619048	3	aspell	-1	11	-1	2
+effots	efforts	0.9714285714285714	1	aspell	0	35	0	1
+elagent	elegant	0.9619047619047619	2	aspell	0	11	0	8
+elligit	elegant	0.7714285714285715	4	aspell	-1	11	-1	2
+embarass	embarrass	0.9777777777777777	1	aspell	0	19	0	1
+embaress	embarrass	0.9305555555555555	2	aspell	0	25	0	3
+embarassment	embarrassment	0.9846153846153847	1	aspell	0	3	0	1
+imbed	embed	0.8666666666666667	1	aspell	1	2	1	2
+encapsualtion	encapsulation	0.9846153846153847	2	aspell	0	4	0	1
+encyclapidia	encyclopedia	0.9133333333333333	2	aspell	0	4	0	1
+encyclopia	encyclopedia	0.9666666666666667	2	aspell	0	10	0	1
+engins	engine	0.9333333333333333	1	aspell	4	22	1	2
+enhence	enhance	0.9333333333333333	1	aspell	2	7	0	1
+enligtment	enlightenment	0.9338461538461538	3	aspell	2	9	-1	1
+ennuui	ennui	0.9666666666666667	1	aspell	0	52	0	1
+enought	enough	0.9714285714285714	1	aspell	0	7	0	2
+enviroment	environment	0.9618181818181818	1	aspell	0	5	0	1
+envireminakl	environmental	0.9005128205128206	5	aspell	0	5	-1	1
+invermeantial	environmental	0.8065268065268065	6	aspell	-1	6	-1	1
+epitomy	epitome	0.9428571428571428	1	aspell	0	6	0	1
+errara	error	0.8755555555555556	2	aspell	1	33	-1	1
+erro	error	0.96	1	aspell	0	7	0	5
+expresso	espresso	0.9249999999999999	1	aspell	5	7	1	2
+eitiology	etiology	0.9291666666666667	1	aspell	0	6	0	1
+evaualtion	evaluation	0.9766666666666667	2	aspell	0	9	0	2
+evtually	eventually	0.9466666666666665	2	aspell	0	9	0	6
+evething	everything	0.9533333333333333	2	aspell	2	9	0	8
+excede	exceed	0.9666666666666667	2	aspell	0	20	0	1
+excpt	except	0.9611111111111111	1	aspell	0	10	0	1
+excution	execution	0.9703703703703703	1	aspell	0	9	0	1
+excercise	exercise	0.937037037037037	1	aspell	0	9	0	1
+exhileration	exhilaration	0.9484848484848484	1	aspell	0	6	0	1
+egsistence	existence	0.8691666666666668	2	aspell	0	6	1	3
+existance	existence	0.9305555555555555	1	aspell	0	6	0	1
+exspidient	expedient	0.8837037037037038	2	aspell	0	9	0	1
+expleyly	explicitly	0.8366666666666667	4	aspell	-1	4	-1	1
+explity	explicitly	0.9400000000000001	3	aspell	-1	16	-1	3
+extions	extensions	0.8633333333333333	3	aspell	-1	30	-1	17
+factontion	factorization	0.8962393162393162	4	aspell	1	20	-1	1
+failer	failure	0.9380952380952381	2	aspell	4	49	-1	8
+phantasia	fantasia	0.8842592592592592	2	aspell	0	7	3	4
+famdasy	fantasy	0.8476190476190477	2	aspell	2	77	0	1
+faver	favor	0.9066666666666667	1	aspell	3	14	3	12
+faver	favour	0.8755555555555556	2	aspell	-1	14	-1	12
+faxe	fax	0.9166666666666666	1	aspell	2	13	2	12
+fistival	festival	0.8821428571428571	1	aspell	1	8	0	1
+firey	fiery	0.9466666666666665	2	aspell	1	19	1	5
+flatterring	flattering	0.9818181818181818	1	aspell	2	10	0	1
+fluk	flux	0.8833333333333334	1	aspell	5	9	6	8
+flukse	flux	0.825	3	aspell	20	33	-1	2
+forsee	foresee	0.9277777777777778	1	aspell	2	41	0	1
+frustartaion	frustrating	0.9284848484848485	5	aspell	0	4	-1	1
+fuction	function	0.9666666666666667	1	aspell	0	12	0	5
+generly	generally	0.9555555555555556	2	aspell	0	28	0	11
+gotton	gotten	0.9333333333333333	1	aspell	2	19	0	2
+goberment	government	0.8837037037037038	2	aspell	-1	10	0	1
+gobernement	government	0.8952188552188552	2	aspell	0	18	0	1
+gobernment	government	0.9466666666666665	1	aspell	0	4	0	1
+gracefull	graceful	0.9777777777777777	1	aspell	3	4	1	2
+gradualy	gradually	0.9777777777777777	1	aspell	0	2	0	2
+grammer	grammar	0.9428571428571428	1	aspell	0	7	0	3
+gaurd	guard	0.94	2	aspell	0	32	0	2
+futs	guts	0.8333333333333334	1	aspell	7	33	9	17
+hapily	happily	0.9666666666666667	1	aspell	0	13	0	3
+harrass	harass	0.9666666666666667	1	aspell	0	26	0	1
+havne	have	0.9533333333333333	1	aspell	1	22	1	2
+heighth	height	0.9714285714285714	1	aspell	0	13	0	3
+hallo	hello	0.88	1	aspell	6	29	5	6
+helo	hello	0.9533333333333333	1	aspell	1	11	1	8
+herlo	hello	0.8933333333333333	1	aspell	3	58	1	2
+heellp	help	0.9111111111111111	2	aspell	1	25	1	6
+hellp	help	0.9533333333333333	1	aspell	1	31	1	3
+hlp	help	0.9166666666666666	1	aspell	0	9	0	7
+higer	higher	0.9611111111111111	1	aspell	0	9	0	5
+hippopotamous	hippopotamus	0.9846153846153847	1	aspell	0	3	0	1
+hourse	horse	0.9555555555555556	1	aspell	2	13	2	5
+houssing	housing	0.975	1	aspell	0	25	0	2
+howaver	however	0.8944444444444445	1	aspell	6	25	0	1
+howver	however	0.9277777777777778	1	aspell	1	19	1	4
+humaniti	humanity	0.95	1	aspell	1	10	0	1
+hifin	hyphen	0.5777777777777778	4	aspell	-1	64	-1	8
+hifine	hyphen	0.5555555555555555	5	aspell	32	33	-1	9
+hiphine	hyphen	0.8042857142857143	3	aspell	2	26	-1	3
+hyfin	hyphen	0.76	3	aspell	12	50	-1	7
+hypotathes	hypothesis	0.92	4	aspell	1	16	-1	1
+hypotathese	hypothesis	0.9054545454545454	4	aspell	3	9	-1	1
+hystrical	hysterical	0.98	1	aspell	0	5	0	1
+illegitament	illegitimate	0.9303030303030303	4	aspell	0	9	-1	1
+immenant	immanent	0.9708333333333333	2	aspell	0	12	0	2
+imediaetly	immediately	0.9490909090909091	3	aspell	0	8	0	1
+implemtes	implements	0.9577777777777777	3	aspell	0	7	0	1
+incase	in case	0.9619047619047619	1	aspell	0	18	-1	2
+indepth	in depth	0.9666666666666667	1	aspell	0	17	-1	4
+infact	in fact	0.9619047619047619	1	aspell	3	19	-1	4
+inadvertant	inadvertent	0.9636363636363636	1	aspell	0	3	0	1
+incompleet	incomplete	0.98	2	aspell	0	3	0	1
+incomplot	incomplete	0.9377777777777778	2	aspell	0	5	0	1
+inconvience	inconvenience	0.932867132867133	2	aspell	0	4	0	2
+inconvenant	inconvenient	0.9484848484848484	2	aspell	0	5	0	1
+ident	indent	0.8900000000000001	1	aspell	1	19	1	2
+independant	independent	0.9636363636363636	1	aspell	0	4	0	1
+independenent	independent	0.9692307692307692	2	aspell	0	8	0	1
+indepnends	independent	0.8991919191919192	4	aspell	2	29	-1	1
+indispensible	indispensable	0.9692307692307692	1	aspell	0	4	0	1
+inefficite	inefficient	0.9618181818181818	3	aspell	0	5	0	1
+imfamy	infamy	0.9	1	aspell	1	6	0	1
+influencial	influential	0.9636363636363636	1	aspell	0	11	0	1
+inital	initial	0.9714285714285714	1	aspell	0	12	0	1
+initinized	initialized	0.9436363636363637	2	aspell	-1	13	0	1
+initized	initialized	0.9454545454545455	3	aspell	-1	21	-1	1
+innoculate	inoculate	0.9733333333333334	1	aspell	0	6	0	1
+incedious	insidious	0.8433862433862434	2	aspell	7	25	3	4
+insistant	insistent	0.9555555555555556	1	aspell	2	13	0	1
+insistenet	insistent	0.98	1	aspell	0	7	0	1
+instulation	installation	0.9284848484848485	2	aspell	1	3	-1	1
+intealignt	intelligent	0.9436363636363637	2	aspell	0	13	0	1
+intejilent	intelligent	0.9214141414141415	3	aspell	0	6	-1	1
+intelegent	intelligent	0.9214141414141415	2	aspell	0	4	0	2
+intelegnent	intelligent	0.905050505050505	3	aspell	0	6	-1	1
+intelejent	intelligent	0.9054545454545454	3	aspell	0	6	-1	1
+inteligent	intelligent	0.9818181818181818	1	aspell	0	10	0	1
+intelignt	intelligent	0.9636363636363636	2	aspell	0	13	0	1
+intellagant	intelligent	0.9272727272727274	2	aspell	0	9	0	1
+intellegent	intelligent	0.9436363636363637	1	aspell	0	8	0	1
+intellegint	intelligent	0.9818181818181818	2	aspell	0	7	0	1
+intellgnt	intelligent	0.9636363636363636	2	aspell	0	8	0	2
+intertes	interested	0.9349999999999999	3	aspell	-1	50	-1	19
+intertesd	interested	0.9577777777777777	3	aspell	-1	17	-1	5
+inerface	interface	0.9703703703703703	1	aspell	0	15	0	1
+internation	international	0.9692307692307692	2	aspell	2	16	0	9
+interpretate	interpret	0.95	3	aspell	3	11	-1	3
+interpretter	interpreter	0.9833333333333333	1	aspell	0	8	0	1
+enventions	inventions	0.8962962962962964	1	aspell	0	11	0	1
+irresistable	irresistible	0.9666666666666666	1	aspell	0	4	0	1
+irritible	irritable	0.9555555555555556	1	aspell	0	9	0	1
+isotrop	isotope	0.9428571428571428	2	aspell	1	7	1	3
+interate	iterate	0.9625	1	aspell	3	12	1	2
+johhn	john	0.9533333333333333	1	aspell	0	14	0	1
+judgment	judgement	0.9527777777777777	1	aspell	-1	4	-1	1
+judgement	judgment	0.9527777777777777	1	aspell	0	17	0	1
+lilometer	kilometer	0.8842592592592592	1	aspell	2	4	1	2
+lilometer	kilometre	0.8425925925925926	3	aspell	-1	4	-1	2
+kippur	kipper	0.9333333333333333	1	aspell	0	36	0	1
+knawing	knowing	0.9238095238095239	1	aspell	2	4	0	2
+luser	laser	0.88	1	aspell	5	60	4	5
+latext	latest	0.9333333333333333	1	aspell	5	9	2	3
+lloyer	layer	0.8400000000000001	2	aspell	1	28	3	25
+leasve	leave	0.9611111111111111	1	aspell	1	38	1	2
+lesure	leisure	0.9619047619047619	1	aspell	0	41	0	1
+liasion	lesion	0.8042857142857143	2	aspell	13	24	-1	1
+liason	liaison	0.9666666666666667	1	aspell	0	15	0	1
+libary	library	0.9277777777777778	1	aspell	0	7	0	1
+likly	likely	0.9611111111111111	1	aspell	0	21	0	2
+liquify	liquefy	0.9428571428571428	1	aspell	0	20	0	1
+lossing	losing	0.9666666666666667	1	aspell	0	11	0	8
+maddness	madness	0.9708333333333333	1	aspell	0	12	0	1
+maintanence	maintenance	0.9818181818181818	2	aspell	0	9	0	1
+majaerly	majority	0.825	4	aspell	-1	10	-1	3
+majoraly	majority	0.9	2	aspell	1	12	-1	1
+marshall	marshal	0.975	1	aspell	4	13	0	2
+maks	masks	0.88	1	aspell	10	51	6	19
+maxium	maximum	0.9380952380952381	1	aspell	3	19	1	2
+midia	media	0.88	1	aspell	4	19	2	3
+momento	memento	0.8642857142857143	1	aspell	4	5	3	4
+meory	memory	0.9555555555555556	1	aspell	0	28	0	2
+pataphysical	metaphysical	0.8555555555555556	2	aspell	0	9	0	1
+mic	mike	0.7222222222222222	2	aspell	-1	31	-1	1
+millenium	millennium	0.98	1	aspell	0	3	0	1
+minum	minimum	0.8866666666666667	2	aspell	6	68	-1	2
+miniscule	minuscule	0.9189814814814814	1	aspell	0	3	0	1
+misilous	miscellaneous	0.8631410256410256	6	aspell	-1	38	-1	1
+mischievious	mischievous	0.9833333333333333	1	aspell	0	4	0	1
+minkay	monkey	0.7999999999999999	2	aspell	11	24	14	15
+monkay	monkey	0.9333333333333333	1	aspell	0	23	0	1
+mroe	more	0.9249999999999999	2	aspell	0	4	0	2
+mosaik	mosaic	0.9333333333333333	1	aspell	0	50	0	1
+mostlikely	most likely	0.9818181818181818	1	aspell	0	18	-1	1
+mousr	mouser	0.9666666666666667	1	aspell	0	41	0	3
+oving	moving	0.9444444444444445	1	aspell	1	47	1	5
+nieve	naive	0.88	2	aspell	2	25	-1	2
+neccessary	necessary	0.9766666666666667	1	aspell	0	9	0	1
+necesary	necessary	0.9777777777777777	1	aspell	0	10	0	1
+necesser	necessary	0.9305555555555555	2	aspell	0	33	0	3
+neighbour	neighbor	0.9777777777777777	1	aspell	0	4	-1	1
+neighbor	neighbour	0.9777777777777777	1	aspell	-1	5	-1	1
+nickleodeon	nickelodeon	0.9818181818181818	2	aspell	0	5	0	1
+neice	niece	0.94	2	aspell	0	24	1	3
+noone	no one	0.9555555555555556	1	aspell	1	19	-1	3
+notin	not in	0.9611111111111111	1	aspell	2	33	-1	2
+noticably	noticeably	0.98	1	aspell	0	6	0	1
+nozled	nuzzled	0.8642857142857143	2	aspell	4	25	3	46
+obsfuscate	obfuscate	0.9437037037037037	1	aspell	0	3	0	1
+objectsion	objects	0.9400000000000001	3	aspell	5	12	-1	1
+ocassion	occasion	0.9333333333333333	2	aspell	0	22	0	5
+accosinly	occasionally	0.8796296296296297	5	aspell	-1	4	-1	1
+occusionaly	occasionally	0.8932323232323233	2	aspell	1	9	1	2
+occuppied	occupied	0.9777777777777777	1	aspell	0	9	0	1
+occurence	occurrence	0.98	1	aspell	0	3	0	1
+octagenarian	octogenarian	0.8974747474747474	1	aspell	0	3	0	1
+olf	old	0.7777777777777777	1	aspell	3	13	5	8
+opposim	opossum	0.8476190476190477	3	aspell	5	11	-1	5
+organise	organize	0.95	1	aspell	3	14	0	3
+organiz	organize	0.975	1	aspell	0	13	0	2
+orientate	orient	0.9333333333333333	3	aspell	-1	6	-1	1
+oscilascope	oscilloscope	0.9284848484848485	2	aspell	0	3	0	1
+parametic	parameter	0.9111111111111111	2	aspell	-1	4	-1	2
+paramers	parameters	0.96	2	aspell	0	25	-1	1
+paranets	parameters	0.915	3	aspell	-1	21	-1	1
+partrucal	particular	0.8877777777777778	4	aspell	0	14	-1	1
+patten	pattern	0.9714285714285714	1	aspell	0	26	0	5
+preemptory	peremptory	0.97	2	aspell	0	7	0	1
+permissable	permissible	0.9636363636363636	1	aspell	0	5	0	1
+permition	permission	0.9377777777777778	2	aspell	3	7	-1	1
+permmasivie	permissive	0.8991919191919192	3	aspell	1	4	-1	1
+phenominal	phenomenal	0.96	1	aspell	0	4	0	1
+fone	phone	0.7833333333333333	2	aspell	-1	16	-1	16
+funetik	phonetic	0.6904761904761904	4	aspell	18	24	-1	1
+picaresque	picturesque	0.8823905723905724	2	aspell	1	6	-1	1
+playwrite	playwright	0.9377777777777778	3	aspell	2	12	-1	1
+pollice	police	0.9666666666666667	1	aspell	4	19	0	1
+politict	politic	0.975	1	aspell	0	8	0	3
+polation	politician	0.8094444444444445	4	aspell	-1	27	-1	27
+poligamy	polygamy	0.9416666666666667	1	aspell	0	34	0	1
+polypropalene	polypropylene	0.9692307692307692	1	aspell	0	2	0	1
+protray	portray	0.9571428571428572	2	aspell	2	26	0	1
+possable	possible	0.95	1	aspell	2	11	0	2
+practicle	practical	0.9555555555555556	2	aspell	2	8	-1	1
+pragmaticism	pragmatism	0.9666666666666667	2	aspell	2	9	1	2
+preceeding	preceding	0.98	1	aspell	0	2	0	2
+precion	precision	0.9555555555555556	2	aspell	0	21	0	10
+precios	precision	0.9269841269841269	3	aspell	-1	4	-1	2
+prefixt	prefixed	0.9214285714285715	2	aspell	1	6	-1	1
+prefices	prefixes	0.95	1	aspell	3	10	0	2
+perogative	prerogative	0.9427272727272727	1	aspell	0	4	0	1
+privielage	privilege	0.9577777777777777	2	aspell	0	4	0	1
+priviledge	privilege	0.98	1	aspell	0	4	0	1
+proplematic	problematic	0.9575757575757576	1	aspell	0	12	0	1
+proceedures	procedures	0.9418181818181818	1	aspell	1	9	0	1
+pronensiation	pronunciation	0.9384615384615385	2	aspell	0	6	0	1
+pronisation	pronunciation	0.8756643356643358	4	aspell	-1	7	-1	1
+pronounciation	pronunciation	0.9857142857142858	1	aspell	0	4	0	1
+properally	properly	0.96	2	aspell	2	10	0	1
+pscolgst	psychologist	0.9111111111111111	4	aspell	0	27	-1	1
+psicolagest	psychologist	0.8383838383838385	4	aspell	1	10	-1	1
+psycolagest	psychologist	0.9136363636363637	3	aspell	0	13	-1	1
+sicolagest	psychologist	0.7611111111111111	5	aspell	-1	14	-1	1
+persue	pursue	0.9	1	aspell	4	44	1	2
+presue	pursue	0.9	2	aspell	10	37	-1	1
+presued	pursued	0.9142857142857143	2	aspell	6	15	-1	2
+quoz	quiz	0.8666666666666667	1	aspell	1	30	1	2
+reccona	raccoon	0.8285714285714287	3	aspell	9	22	-1	4
+radious	radius	0.9714285714285714	1	aspell	3	22	0	2
+ramplily	rampantly	0.8833333333333333	3	aspell	2	23	-1	1
+wrank	rank	0.9333333333333332	1	aspell	1	49	1	7
+recieve	receive	0.9666666666666667	2	aspell	0	15	0	2
+reconise	recognize	0.9305555555555555	2	aspell	2	22	1	6
+reccomend	recommend	0.9481481481481482	2	aspell	0	12	0	1
+rectangeles	rectangle	0.9414141414141414	2	aspell	2	5	-1	1
+reoccurring	recurring	0.9515151515151515	2	aspell	5	9	-1	1
+redign	redesign	0.9416666666666667	2	aspell	1	19	-1	2
+irregardless	regardless	0.8777777777777779	2	aspell	1	6	-1	1
+repitition	repetition	0.9014814814814816	1	aspell	0	11	0	1
+replasments	replacement	0.905050505050505	3	aspell	4	9	-1	2
+reseblence	resemblance	0.9214141414141415	2	aspell	0	3	0	1
+respct	respect	0.9714285714285714	1	aspell	2	12	0	1
+respecally	respectfully	0.9299999999999999	3	aspell	-1	6	-1	2
+reposable	responsible	0.8643097643097643	3	aspell	-1	8	-1	6
+roon	room	0.8833333333333334	1	aspell	1	17	2	14
+rought	roughly	0.9095238095238095	2	aspell	10	21	-1	10
+rudemtry	rudimentary	0.9071969696969698	4	aspell	0	11	-1	1
+runnung	running	0.9428571428571428	1	aspell	0	11	0	1
+sacreligious	sacrilegious	0.9833333333333333	2	aspell	0	8	0	1
+saftly	safely	0.9222222222222223	1	aspell	0	12	0	3
+salut	salute	0.9666666666666667	1	aspell	0	12	0	3
+satifly	satisfy	0.9428571428571428	2	aspell	-1	17	0	8
+scrabdle	scrabble	0.95	1	aspell	1	8	0	1
+secion	section	0.9666666666666667	1	aspell	2	20	0	2
+segements	segments	0.9449074074074074	1	aspell	0	25	0	1
+sieze	seize	0.94	2	aspell	0	26	0	4
+sence	sense	0.9066666666666667	1	aspell	1	9	1	6
+seperate	separate	0.9083333333333333	1	aspell	1	25	0	1
+seferal	several	0.9238095238095239	1	aspell	0	11	0	1
+sherbert	sherbet	0.975	1	aspell	0	6	0	1
+singal	signal	0.9555555555555556	2	aspell	2	14	0	1
+cimplicity	simplicity	0.9333333333333332	1	aspell	0	5	0	2
+simpfilty	simplicity	0.9127777777777778	3	aspell	2	8	-1	1
+simplye	simply	0.9714285714285714	1	aspell	1	4	0	2
+sitte	site	0.9533333333333333	1	aspell	1	56	1	2
+situration	situation	0.98	1	aspell	0	4	0	2
+smil	smile	0.96	1	aspell	0	5	0	4
+snuck	sneaked	0.6761904761904761	4	aspell	-1	14	-1	5
+sometmes	sometimes	0.9777777777777777	1	aspell	0	24	0	1
+soonec	sonic	0.8577777777777779	2	aspell	2	33	-1	1
+specificialy	specifically	0.9666666666666666	2	aspell	0	7	0	2
+spel	spell	0.96	1	aspell	0	6	0	5
+spoak	spoke	0.9066666666666667	2	aspell	2	10	-1	3
+sponsered	sponsored	0.9305555555555555	1	aspell	0	8	0	1
+stering	steering	0.9708333333333333	1	aspell	1	11	1	6
+stumach	stomach	0.9238095238095239	1	aspell	0	14	0	1
+straightjacket	straitjacket	0.9714285714285714	2	aspell	2	7	0	1
+stutent	student	0.9333333333333333	1	aspell	0	14	0	1
+styleguide	style guide	0.9818181818181818	1	aspell	0	17	-1	1
+subpena	subpoena	0.975	1	aspell	0	4	0	1
+subjecribed	subscribed	0.8823905723905724	2	aspell	1	7	0	1
+subisitions	substitutions	0.9016083916083916	4	aspell	-1	13	-1	1
+substations	substitutions	0.9156643356643357	3	aspell	-1	5	-1	1
+suger	sugar	0.9066666666666667	1	aspell	3	44	0	6
+superfulous	superfluous	0.9818181818181818	2	aspell	0	6	0	1
+supercede	supersede	0.9555555555555556	1	aspell	2	9	0	1
+swim_wear	swimwear	0.9777777777777777	1	aspell	0	9	0	1
+slyph	sylph	0.94	2	aspell	0	20	0	2
+syncorization	synchronization	0.9117948717948717	3	aspell	1	8	-1	1
+tattos	tattoos	0.9714285714285714	1	aspell	0	87	0	2
+tem	team	0.9166666666666666	1	aspell	0	34	4	20
+techniquely	technically	0.890909090909091	3	aspell	3	5	-1	2
+tesst	test	0.9533333333333333	1	aspell	0	35	0	2
+ttest	test	0.94	1	aspell	1	43	1	2
+tets	tests	0.88	1	aspell	8	51	5	23
+thanot	than or	0.9095238095238095	2	aspell	-1	24	-1	11
+taht	that	0.9249999999999999	2	aspell	2	9	0	6
+teh	the	0.5555555555555555	2	aspell	7	16	6	8
+thw	the	0.7777777777777777	1	aspell	2	10	3	6
+theirselves	themselves	0.9342424242424243	2	aspell	4	12	0	1
+teridical	theoretical	0.8242424242424243	4	aspell	-1	9	-1	2
+theridically	theoretical	0.8585858585858586	5	aspell	3	9	-1	1
+thredically	theoretically	0.8875524475524476	3	aspell	0	12	-1	1
+ths	this	0.9166666666666666	1	aspell	0	32	0	8
+thruout	throughout	0.8966666666666666	3	aspell	1	20	-1	5
+titalate	titillate	0.8856481481481482	2	aspell	2	16	0	3
+tommorrow	tomorrow	0.9740740740740741	1	aspell	2	7	0	1
+tomorow	tomorrow	0.975	1	aspell	0	9	0	1
+taff	tough	0.48333333333333334	4	aspell	-1	11	-1	8
+tradegy	tragedy	0.9666666666666667	2	aspell	0	20	0	8
+trubbel	trouble	0.8793650793650793	3	aspell	1	18	-1	7
+tunnellike	tunnel like	0.9818181818181818	1	aspell	0	15	-1	1
+tured	turned	0.9611111111111111	1	aspell	1	21	0	11
+teo	two	0.7777777777777777	1	aspell	0	22	5	10
+tyrrany	tyranny	0.9333333333333333	2	aspell	0	23	0	2
+unconscience	unconscious	0.8787878787878788	4	aspell	2	7	-1	1
+unconisitional	unconstitutional	0.9328296703296703	4	aspell	1	5	-1	1
+underladder	under ladder	0.9833333333333333	1	aspell	0	25	-1	1
+unformanlly	unfortunately	0.8798756798756798	5	aspell	-1	7	-1	1
+unfortally	unfortunately	0.9184615384615384	4	aspell	-1	13	-1	1
+unfortunently	unfortunately	0.9525641025641025	3	aspell	0	5	-1	1
+unentelegible	unintelligible	0.8291042291042291	3	aspell	0	5	-1	1
+unatourral	unnatural	0.9170370370370371	3	aspell	0	12	-1	1
+unaturral	unnatural	0.9407407407407408	2	aspell	0	9	0	2
+unnaturral	unnatural	0.98	1	aspell	0	3	0	1
+upcast	up cast	0.9619047619047619	1	aspell	0	19	-1	4
+uranisium	uranium	0.9555555555555556	2	aspell	0	9	0	1
+upmost	utmost	0.9	1	aspell	3	9	0	1
+verison	version	0.9666666666666667	2	aspell	0	13	0	2
+vinagarette	vinaigrette	0.9636363636363636	2	aspell	0	6	0	1
+volye	volley	0.9144444444444445	2	aspell	3	39	-1	1
+volunteerism	voluntarism	0.9484848484848484	2	aspell	4	5	-1	1
+volumptuous	voluptuous	0.9818181818181818	1	aspell	0	5	0	1
+waite	wait	0.96	1	aspell	2	25	2	8
+mant	want	0.8333333333333334	1	aspell	18	28	12	16
+whard	ward	0.94	1	aspell	0	72	0	5
+warloord	warlord	0.975	1	aspell	0	48	0	1
+wadting	wasting	0.9238095238095239	1	aspell	5	20	4	6
+wicken	weaken	0.7999999999999999	2	aspell	20	22	-1	4
+wierd	weird	0.94	2	aspell	1	26	1	3
+whaaat	what	0.9222222222222222	2	aspell	0	45	0	2
+whimp	wimp	0.94	1	aspell	3	15	2	5
+wan't	won't	0.88	1	aspell	4	31	2	4
+writting	writing	0.975	1	aspell	2	31	0	4
+yeild	yield	0.94	2	aspell	0	32	0	1
+youe	your	0.8833333333333334	1	aspell	3	11	2	7

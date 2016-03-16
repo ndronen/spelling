@@ -1,1772 +1,1772 @@
-non_word	real_word	jaro_winkler	levenshtein_distance	corpus	aspell_rank	edit_distance_rank
-Adam	Adam's	0.9333333333333333	2	holbrook-missp	4	-1
-Artair	After	0.7300000000000001	3	holbrook-missp	-1	-1
-American	America	0.975	1	holbrook-missp	3	-1
-Ane	And	0.7777777777777777	1	holbrook-missp	10	-1
-Apprentiship	Apprenticeship	0.9714285714285714	2	holbrook-missp	0	-1
-Apirl	April	0.9466666666666665	2	holbrook-missp	0	0
-audre	Audrey	0.8222222222222223	2	holbrook-missp	6	-1
-Autin	Austin	0.9555555555555556	1	holbrook-missp	2	0
-Babys	Babies	0.8755555555555556	2	holbrook-missp	12	-1
-Bankg	Bang	0.9533333333333333	1	holbrook-missp	3	-1
-Beryil	Beryl	0.9666666666666667	1	holbrook-missp	0	0
-Bicyle	Bicycle	0.9714285714285714	1	holbrook-missp	0	-1
-Bos	Boss	0.9166666666666666	1	holbrook-missp	4	-1
-Boy	Boys	0.9166666666666666	1	holbrook-missp	5	-1
-Barham	Brabham	0.9071428571428571	2	holbrook-missp	-1	-1
-barham	Brabham	0.7825396825396825	3	holbrook-missp	-1	-1
-butlins	Butlins	0.9047619047619048	1	holbrook-missp	-1	-1
-castels	Castle's	0.8134920634920636	3	holbrook-missp	-1	-1
-Chartors	Characters	0.915	3	holbrook-missp	-1	-1
-Cheere_ho	Cheerio	0.9047619047619048	3	holbrook-missp	1	-1
-Cheter	Cheetah	0.8477777777777777	3	holbrook-missp	20	-1
-Comatalevous	Comment allez-vous	0.8686026936026936	7	holbrook-missp	-1	-1
-Comentary	Commentary	0.9766666666666667	1	holbrook-missp	0	-1
-Copper	Cooper	0.9111111111111112	1	holbrook-missp	12	1
-Cynthia	Cynthia's	0.9555555555555556	2	holbrook-missp	1	-1
-Dearth	Death	0.9611111111111111	1	holbrook-missp	2	-1
-Docter	Doctor	0.9333333333333333	1	holbrook-missp	1	0
-Dog	Dog's	0.8666666666666667	2	holbrook-missp	6	-1
-Durxer	Durex	0.9144444444444445	2	holbrook-missp	1	-1
-And	End	0.7777777777777777	1	holbrook-missp	6	-1
-Edh	End	0.5555555555555555	2	holbrook-missp	-1	-1
-Hed	End	0.5555555555555555	2	holbrook-missp	-1	-1
-Evey	Every	0.9533333333333333	1	holbrook-missp	0	-1
-Facttoer	Factory	0.9214285714285715	3	holbrook-missp	3	-1
-Frameman	Farmer	0.7775000000000001	5	holbrook-missp	-1	-1
-Farther	Father	0.9619047619047619	1	holbrook-missp	3	0
-Farrari	Ferrari	0.9142857142857143	1	holbrook-missp	0	0
-Fiyer	Fire	0.8266666666666667	2	holbrook-missp	20	-1
-Fance	France	0.9500000000000001	1	holbrook-missp	1	0
-Frgmens	Frogmen's	0.9407407407407408	2	holbrook-missp	-1	-1
-Gardon	Garden	0.9333333333333333	1	holbrook-missp	2	-1
-Goef	Geoff	0.865	2	holbrook-missp	-1	-1
-Good_by	Goodbye	0.9428571428571428	2	holbrook-missp	0	-1
-Here	Her	0.9166666666666666	1	holbrook-missp	4	-1
-Im	Him	0.0	2	holbrook-missp	38	-1
-He	His	0.611111111111111	2	holbrook-missp	-1	-1
-He's	His	0.7222222222222222	2	holbrook-missp	-1	-1
-Holliday	Holiday	0.9708333333333333	1	holbrook-missp	0	0
-Hondor	Honda	0.8933333333333334	2	holbrook-missp	3	-1
-Honk_Kong	Hong Kong	0.8962962962962963	2	holbrook-missp	-1	-1
-Id	I'd	0.611111111111111	1	holbrook-missp	21	-1
-I	I'll	0.75	3	holbrook-missp	-1	-1
-Ill	I'll	0.9166666666666666	1	holbrook-missp	1	-1
-ile	I'll	0.5277777777777778	3	holbrook-missp	24	-1
-ill	I'll	0.7222222222222222	2	holbrook-missp	26	-1
-I	I'm	0.7777777777777777	2	holbrook-missp	-1	-1
-Im	I'm	0.611111111111111	1	holbrook-missp	23	-1
-Ive	I've	0.9166666666666666	1	holbrook-missp	0	-1
-I	It	0.8333333333333334	1	holbrook-missp	-1	-1
-Itlay	Italy	0.9466666666666665	2	holbrook-missp	2	0
-Jame	James	0.96	1	holbrook-missp	2	-1
-Janes	Jane's	0.9666666666666667	1	holbrook-missp	-1	-1
-Japannese	Japanese	0.9777777777777777	1	holbrook-missp	0	0
-Jeans	Jean's	0.9666666666666667	1	holbrook-missp	1	-1
-jeans	Jean's	0.8222222222222223	2	holbrook-missp	10	-1
-Jone	Joan	0.8666666666666667	2	holbrook-missp	-1	-1
-John	John's	0.9333333333333333	2	holbrook-missp	2	-1
-johns	John's	0.8222222222222223	2	holbrook-missp	7	-1
-Johnes	Jones	0.9555555555555556	1	holbrook-missp	3	1
-Joneses	Jones's	0.9428571428571428	1	holbrook-missp	-1	-1
-Joyce	Joyce's	0.9428571428571428	2	holbrook-missp	-1	-1
-Jluy	July	0.9249999999999999	2	holbrook-missp	0	0
-Kidney	Kidneys	0.9714285714285714	1	holbrook-missp	1	-1
-Led	Lead	0.9166666666666666	1	holbrook-missp	2	-1
-Lets	Let's	0.9533333333333333	1	holbrook-missp	1	-1
-Londen	London	0.9333333333333333	1	holbrook-missp	2	0
-Londod	London	0.9333333333333333	1	holbrook-missp	0	0
-Long	Lone	0.8833333333333334	1	holbrook-missp	5	-1
-Luckily	Lucky	0.9428571428571428	2	holbrook-missp	1	-1
-macwillaims	Macwilliams	0.9060606060606061	3	holbrook-missp	-1	-1
-Marrid	Married	0.9714285714285714	1	holbrook-missp	0	-1
-Marry	Mary	0.9533333333333333	1	holbrook-missp	1	0
-Mean_while	Meanwhile	0.98	1	holbrook-missp	0	-1
-Munces	Monkeys	0.7714285714285715	3	holbrook-missp	-1	-1
-Motor-bikes	Motorbike	0.9636363636363636	2	holbrook-missp	2	-1
-By	My	0.6666666666666666	1	holbrook-missp	25	-1
-Nexe	Next	0.8833333333333334	1	holbrook-missp	1	-1
-Nickals	Nicholls	0.8458333333333333	3	holbrook-missp	-1	-1
-Nos	Nose	0.9166666666666666	1	holbrook-missp	3	-1
-Noet	Note	0.9333333333333333	2	holbrook-missp	0	-1
-Ow	Oh	0.6666666666666666	1	holbrook-missp	9	-1
-Ones	Once	0.8666666666666667	2	holbrook-missp	-1	-1
-Won	One	0.0	3	holbrook-missp	-1	-1
-Out_side	Outside	0.9708333333333333	1	holbrook-missp	0	-1
-Phillhill	Phil Hill	0.8825396825396825	2	holbrook-missp	-1	-1
-Please	Pleased	0.9714285714285714	1	holbrook-missp	1	-1
-Pome	Poem	0.9333333333333333	2	holbrook-missp	2	-1
-Pollce	Police	0.9222222222222223	1	holbrook-missp	3	-1
-Paulkey	Porky	0.6761904761904761	4	holbrook-missp	-1	-1
-Prisern	Prison	0.9095238095238095	2	holbrook-missp	5	-1
-Rango	Ranger	0.8933333333333334	2	holbrook-missp	5	-1
-Roys	Roy	0.9166666666666666	1	holbrook-missp	2	0
-Royl	Royal	0.9533333333333333	1	holbrook-missp	0	0
-She	She's	0.8666666666666667	2	holbrook-missp	8	-1
-Slaughthouse	Slaughterhouse	0.9380952380952381	2	holbrook-missp	-1	-1
-Smocking	Smoking	0.9708333333333333	1	holbrook-missp	1	-1
-Show	So	0.8333333333333334	2	holbrook-missp	-1	-1
-Some_one	Someone	0.975	1	holbrook-missp	0	-1
-Suothwode	Southwold	0.8958333333333333	4	holbrook-missp	-1	-1
-Stanlay	Stanley	0.9428571428571428	1	holbrook-missp	2	0
-Stranden	Stranded	0.95	1	holbrook-missp	2	-1
-Sturt	Stuart	0.9611111111111111	1	holbrook-missp	2	0
-Swizaland	Switzerland	0.8812710437710437	3	holbrook-missp	3	-1
-Sylver	Sylvia	0.8666666666666666	2	holbrook-missp	6	1
-sylver	Sylvia	0.6666666666666666	3	holbrook-missp	8	-1
-tv	TV	0.0	2	holbrook-missp	11	-1
-Teddoy	Teddy boy	0.9	3	holbrook-missp	-1	-1
-Tedeboy	Teddy boy	0.85	3	holbrook-missp	-1	-1
-Taddyboys	Teddy boys	0.9066666666666667	2	holbrook-missp	-1	-1
-Thats	That's	0.9666666666666667	1	holbrook-missp	0	-1
-There	Their	0.9066666666666667	2	holbrook-missp	-1	-1
-They	Their	0.8483333333333334	2	holbrook-missp	-1	-1
-Their	There	0.9066666666666667	2	holbrook-missp	3	-1
-Ther	There	0.96	1	holbrook-missp	0	-1
-They	There	0.8483333333333334	2	holbrook-missp	-1	-1
-There	There's	0.9428571428571428	2	holbrook-missp	7	-1
-Thinkng	Thinking	0.975	1	holbrook-missp	0	-1
-Tobe	Toby	0.8833333333333334	1	holbrook-missp	3	0
-Toms	Tom's	0.9533333333333333	1	holbrook-missp	2	-1
-Tomy	Tommy	0.9533333333333333	1	holbrook-missp	0	0
-Toner	Tonner	0.9611111111111111	1	holbrook-missp	-1	-1
-Triumh	Triumph	0.9714285714285714	1	holbrook-missp	0	-1
-trumh	Triumph	0.7904761904761904	3	holbrook-missp	-1	-1
-Toy	Troy	0.9166666666666666	1	holbrook-missp	4	0
-Tow	Two	0.5555555555555555	2	holbrook-missp	30	-1
-watston	Watson	0.8492063492063492	2	holbrook-missp	1	-1
-Wh't	What	0.8666666666666667	1	holbrook-missp	0	-1
-What	What's	0.9333333333333333	2	holbrook-missp	3	-1
-Wiich	Which	0.88	1	holbrook-missp	4	-1
-Will	While	0.8049999999999999	2	holbrook-missp	-1	-1
-Whos_evers	Whoever's	0.9274074074074075	3	holbrook-missp	-1	-1
-Wing	Wings	0.96	1	holbrook-missp	1	-1
-Ysid	Yard	0.6666666666666666	2	holbrook-missp	22	-1
-Your	You're	0.9222222222222222	2	holbrook-missp	2	-1
-an	a	0.8333333333333334	1	holbrook-missp	5	-1
-abit	a bit	0.94	1	holbrook-missp	-1	-1
-awill	a while	0.8114285714285714	3	holbrook-missp	-1	-1
-abroard	aboard	0.9174603174603175	1	holbrook-missp	1	1
-a_Bat	about	0.6	3	holbrook-missp	7	-1
-a_bout	about	0.9500000000000001	1	holbrook-missp	0	0
-absolutly	absolutely	0.98	1	holbrook-missp	0	0
-ack	ache	0.7222222222222222	2	holbrook-missp	-1	-1
-half	after	0.48333333333333334	5	holbrook-missp	-1	-1
-afterawhile	after a while	0.9692307692307692	2	holbrook-missp	-1	-1
-a_gain	again	0.9500000000000001	1	holbrook-missp	0	0
-agan	again	0.9533333333333333	1	holbrook-missp	0	0
-agian	again	0.9466666666666665	2	holbrook-missp	0	0
-a_go	ago	0.9166666666666666	1	holbrook-missp	0	0
-hare	air	0.7222222222222222	3	holbrook-missp	-1	-1
-alife	alive	0.9066666666666667	1	holbrook-missp	1	1
-ally	alley	0.9533333333333333	1	holbrook-missp	2	-1
-alloud	allowed	0.9095238095238095	2	holbrook-missp	3	-1
-almity	almighty	0.95	2	holbrook-missp	1	-1
-a_lone	alone	0.9500000000000001	1	holbrook-missp	0	0
-a_long	along	0.9500000000000001	1	holbrook-missp	0	0
-allright	alright	0.9666666666666667	1	holbrook-missp	2	0
-arigh	alright	0.9142857142857143	2	holbrook-missp	-1	-1
-aright	alright	0.9571428571428572	1	holbrook-missp	1	-1
-arigth	alright	0.9071428571428571	3	holbrook-missp	-1	-1
-or_rit	alright	0.6428571428571429	5	holbrook-missp	-1	-1
-orrigh	alright	0.746031746031746	3	holbrook-missp	-1	-1
-orright	alright	0.8095238095238096	2	holbrook-missp	17	6
-allso	also	0.9466666666666665	1	holbrook-missp	2	0
-als	also	0.9166666666666666	1	holbrook-missp	3	9
-alter	altar	0.9066666666666667	1	holbrook-missp	9	-1
-all_ways	always	0.9333333333333333	2	holbrook-missp	1	1
-allways	always	0.9619047619047619	1	holbrook-missp	3	1
-amberless	ambulance	0.7925925925925926	6	holbrook-missp	-1	-1
-amblance	ambulance	0.9740740740740741	1	holbrook-missp	0	0
-amerless	ambulance	0.6481481481481481	6	holbrook-missp	-1	-1
-amusments	amusements	0.9577777777777777	1	holbrook-missp	0	0
-a	an	0.8333333333333334	1	holbrook-missp	7	-1
-and	an	0.8888888888888888	1	holbrook-missp	10	-1
-a	and	0.7777777777777777	2	holbrook-missp	-1	-1
-an	and	0.8888888888888888	1	holbrook-missp	2	-1
-aud	and	0.7777777777777777	1	holbrook-missp	6	4
-hand	and	0.9166666666666666	1	holbrook-missp	5	-1
-animl	animals	0.9428571428571428	2	holbrook-missp	1	-1
-a_nother	another	0.9625	1	holbrook-missp	0	0
-a_nouther	another	0.9333333333333333	2	holbrook-missp	0	0
-aner	another	0.5952380952380952	3	holbrook-missp	-1	-1
-anwerd	answered	0.9333333333333333	2	holbrook-missp	-1	0
-eney	any	0.7222222222222222	2	holbrook-missp	-1	-1
-any_on	anyone	0.9222222222222223	2	holbrook-missp	0	0
-any_one	anyone	0.9666666666666667	1	holbrook-missp	0	0
-any_own	anyone	0.8944444444444445	3	holbrook-missp	0	-1
-any_thing	anything	0.9740740740740741	1	holbrook-missp	0	0
-anythink	anything	0.95	1	holbrook-missp	2	0
-anyting	anything	0.975	1	holbrook-missp	0	0
-enthing	anything	0.8690476190476191	2	holbrook-missp	6	15
-apply	apple	0.92	1	holbrook-missp	1	-1
-apple	apples	0.9666666666666667	1	holbrook-missp	1	-1
-apprentiship	apprenticeship	0.9714285714285714	2	holbrook-missp	0	0
-and	are	0.5555555555555555	2	holbrook-missp	-1	-1
-airaear	area	0.7964285714285714	3	holbrook-missp	10	-1
-arent	aren't	0.9666666666666667	1	holbrook-missp	0	-1
-hrmehn	army	0.611111111111111	4	holbrook-missp	-1	-1
-hrmehr	army	0.611111111111111	4	holbrook-missp	-1	-1
-a_round	around	0.9571428571428572	1	holbrook-missp	0	0
-arived	arrived	0.9619047619047619	1	holbrook-missp	0	0
-ass	as	0.8888888888888888	1	holbrook-missp	12	-1
-has	as	0.0	1	holbrook-missp	46	-1
-arsed	asked	0.88	2	holbrook-missp	5	-1
-ask	asked	0.8666666666666667	2	holbrook-missp	-1	-1
-arsking	asking	0.9571428571428572	1	holbrook-missp	1	1
-ask	asks	0.9166666666666666	1	holbrook-missp	1	-1
-a_seph	asleep	0.7999999999999999	4	holbrook-missp	-1	-1
-a_sleep	asleep	0.9571428571428572	1	holbrook-missp	0	0
-a	at	0.8333333333333334	1	holbrook-missp	9	-1
-are	at	0.611111111111111	2	holbrook-missp	-1	-1
-a_tall	at all	0.9	2	holbrook-missp	-1	-1
-a_tool	at all	0.6666666666666666	4	holbrook-missp	-1	-1
-eat	ate	0.0	2	holbrook-missp	-1	-1
-et	ate	0.611111111111111	2	holbrook-missp	-1	-1
-ete	ate	0.7777777777777777	1	holbrook-missp	8	4
-atack	attack	0.9555555555555556	1	holbrook-missp	0	0
-atened	attend	0.9111111111111112	2	holbrook-missp	2	-1
-audre	audrey	0.9666666666666667	1	holbrook-missp	-1	-1
-others	author's	0.7222222222222222	4	holbrook-missp	-1	-1
-Aount	autumn	0.5888888888888889	5	holbrook-missp	-1	-1
-autunm	autumn	0.9666666666666667	2	holbrook-missp	0	0
-a_way	away	0.94	1	holbrook-missp	0	0
-alfull	awful	0.8400000000000001	2	holbrook-missp	5	2
-babyes	babies	0.9222222222222223	1	holbrook-missp	4	1
-babyis	babies	0.9222222222222223	2	holbrook-missp	4	-1
-babys	babies	0.8755555555555556	2	holbrook-missp	12	-1
-babby	baby	0.9533333333333333	1	holbrook-missp	0	0
-babys	baby	0.96	1	holbrook-missp	1	0
-bake	back	0.8666666666666667	2	holbrook-missp	-1	-1
-bakh	back	0.8666666666666667	2	holbrook-missp	-1	-1
-doc	back	0.5277777777777778	3	holbrook-missp	-1	-1
-barb	barbed	0.9333333333333333	2	holbrook-missp	-1	-1
-bear	bare	0.8500000000000001	2	holbrook-missp	-1	-1
-bran	barn	0.9249999999999999	2	holbrook-missp	5	-1
-barscket	basket	0.9333333333333333	2	holbrook-missp	0	0
-basckek	basket	0.8944444444444445	2	holbrook-missp	2	0
-baskek	basket	0.9333333333333333	1	holbrook-missp	1	0
-bath	baths	0.96	1	holbrook-missp	2	-1
-by	be	0.6666666666666666	1	holbrook-missp	5	-1
-me	be	0.6666666666666666	1	holbrook-missp	-1	-1
-we	be	0.6666666666666666	1	holbrook-missp	19	-1
-became	be coming	0.762962962962963	5	holbrook-missp	-1	-1
-pit	beat	0.5277777777777778	3	holbrook-missp	-1	-1
-beting	beating	0.9619047619047619	1	holbrook-missp	3	1
-beaufiful	beautiful	0.9305555555555555	1	holbrook-missp	0	0
-bacam	became	0.765	2	holbrook-missp	11	13
-becaues	because	0.9714285714285714	2	holbrook-missp	0	0
-becouse	because	0.9333333333333333	1	holbrook-missp	0	0
-bed_room	bedrooms	0.9416666666666667	2	holbrook-missp	1	-1
-bf	beef	0.5833333333333334	2	holbrook-missp	-1	-1
-bean	been	0.8666666666666667	1	holbrook-missp	13	-1
-bine	been	0.75	3	holbrook-missp	-1	-1
-be_for	before	0.9111111111111112	2	holbrook-missp	0	0
-befor	before	0.9666666666666667	1	holbrook-missp	0	0
-behed	behind	0.8755555555555556	2	holbrook-missp	9	-1
-behism	behind	0.8666666666666666	2	holbrook-missp	-1	0
-been	being	0.8266666666666667	2	holbrook-missp	-1	-1
-bell_ringing	bellringing	0.9833333333333333	1	holbrook-missp	-1	-1
-belong	belongs	0.9714285714285714	1	holbrook-missp	1	-1
-bend_in	bending	0.9428571428571428	2	holbrook-missp	0	0
-beets	best	0.8266666666666667	2	holbrook-missp	-1	-1
-bet	better	0.8333333333333334	3	holbrook-missp	-1	-1
-beter	better	0.9611111111111111	1	holbrook-missp	2	0
-beththe	better	0.8944444444444445	3	holbrook-missp	-1	-1
-beverly	beverley	0.975	1	holbrook-missp	-1	-1
-bewere	beware	0.8755555555555556	1	holbrook-missp	4	0
-bciyle	bicycles	0.875	4	holbrook-missp	-1	-1
-bing	big	0.9166666666666666	1	holbrook-missp	5	5
-Big_haded	big-headed	0.7783068783068784	3	holbrook-missp	-1	-1
-biger	bigger	0.9611111111111111	1	holbrook-missp	2	0
-bigest	biggest	0.9666666666666667	1	holbrook-missp	2	0
-build	billed	0.8400000000000001	3	holbrook-missp	14	-1
-brid	bird	0.9249999999999999	2	holbrook-missp	2	2
-biccuits	biscuits	0.9333333333333333	1	holbrook-missp	0	0
-biten	bitten	0.9611111111111111	1	holbrook-missp	2	0
-blow	blew	0.8666666666666667	1	holbrook-missp	14	-1
-bludy	bloody	0.8577777777777779	2	holbrook-missp	6	6
-blossm	blossom	0.9714285714285714	1	holbrook-missp	0	0
-bosting	boasting	0.9666666666666667	1	holbrook-missp	0	1
-bodys	bodies	0.8755555555555556	2	holbrook-missp	7	-1
-bod	body	0.9166666666666666	1	holbrook-missp	2	-1
-bouse	booze	0.7866666666666667	2	holbrook-missp	51	-1
-borrowd	borrowed	0.975	1	holbrook-missp	0	0
-bos	boss	0.9166666666666666	1	holbrook-missp	3	10
-botton	bottom	0.9333333333333333	1	holbrook-missp	2	0
-buy	boy	0.7777777777777777	1	holbrook-missp	10	-1
-boy	boy's	0.8666666666666667	2	holbrook-missp	6	-1
-boys	boy's	0.9533333333333333	1	holbrook-missp	1	-1
-boy_friend	boyfriend	0.9766666666666667	1	holbrook-missp	0	0
-boyfreind	boyfriend	0.9777777777777777	2	holbrook-missp	0	0
-boyfrend	boyfriend	0.9777777777777777	1	holbrook-missp	0	0
-boyfrends	boyfriend's	0.9636363636363636	2	holbrook-missp	1	-1
-boy	boys	0.9166666666666666	1	holbrook-missp	4	-1
-boy's	boys	0.9533333333333333	1	holbrook-missp	2	-1
-breaks	brakes	0.9555555555555556	2	holbrook-missp	3	-1
-brain	bran	0.9533333333333333	1	holbrook-missp	5	-1
-bravist	bravest	0.9428571428571428	1	holbrook-missp	0	0
-bred_crumes	breadcrumbs	0.9151515151515153	3	holbrook-missp	0	-1
-brack	break	0.8933333333333333	2	holbrook-missp	8	-1
-brick	break	0.7866666666666667	2	holbrook-missp	22	-1
-brecfast	breakfast	0.8856481481481482	2	holbrook-missp	0	2
-brakes	breaks	0.9555555555555556	2	holbrook-missp	4	-1
-breez	breeze	0.9666666666666667	1	holbrook-missp	0	0
-brocken	broken	0.9666666666666667	1	holbrook-missp	0	0
-borther	brother	0.9571428571428572	2	holbrook-missp	1	1
-brother	brothers	0.975	1	holbrook-missp	3	-1
-broug	brought	0.9428571428571428	2	holbrook-missp	0	0
-brough	brought	0.9714285714285714	1	holbrook-missp	0	0
-brus	brussels	0.9	4	holbrook-missp	-1	-1
-brusels	brussels	0.9464285714285714	1	holbrook-missp	-1	-1
-brusls	brussels	0.9166666666666667	2	holbrook-missp	-1	-1
-brust	brussels	0.86	4	holbrook-missp	-1	-1
-bubbals	bubbles	0.9428571428571428	2	holbrook-missp	0	0
-billd	build	0.88	2	holbrook-missp	8	-1
-billed	build	0.8400000000000001	3	holbrook-missp	-1	-1
-buld	build	0.9466666666666665	1	holbrook-missp	0	0
-billding	building	0.9249999999999999	2	holbrook-missp	6	-1
-bilt	built	0.94	1	holbrook-missp	0	0
-buit	built	0.9533333333333333	1	holbrook-missp	0	0
-bolot	bullet	0.7300000000000001	3	holbrook-missp	-1	-1
-bulet	bullet	0.9611111111111111	1	holbrook-missp	0	0
-bulete	bullet	0.9222222222222223	2	holbrook-missp	0	0
-bered	buried	0.8400000000000001	2	holbrook-missp	10	-1
-brun	burn	0.9249999999999999	2	holbrook-missp	2	2
-bihr	by	0.5833333333333334	3	holbrook-missp	-1	-1
-kiffe	cafe	0.6333333333333333	3	holbrook-missp	33	-1
-cald	called	0.9222222222222222	2	holbrook-missp	-1	-1
-call	called	0.9333333333333333	2	holbrook-missp	-1	-1
-calld	called	0.9666666666666667	1	holbrook-missp	0	0
-could	called	0.7300000000000001	3	holbrook-missp	-1	-1
-carmd	calmed	0.8577777777777779	2	holbrook-missp	10	-1
-comer	calmer	0.8400000000000001	2	holbrook-missp	29	-1
-cam	came	0.9166666666666666	1	holbrook-missp	1	-1
-come	came	0.8500000000000001	1	holbrook-missp	19	-1
-kom	came	0.5277777777777778	3	holbrook-missp	-1	-1
-kum	came	0.5277777777777778	3	holbrook-missp	-1	-1
-came	can	0.7222222222222222	2	holbrook-missp	-1	-1
-cane	can	0.9166666666666666	1	holbrook-missp	8	-1
-cant	can't	0.9533333333333333	1	holbrook-missp	3	-1
-canth	can't	0.9066666666666667	2	holbrook-missp	5	-1
-carn't	can't	0.9555555555555556	1	holbrook-missp	0	0
-carnt	can't	0.8933333333333333	2	holbrook-missp	5	-1
-candle_stick	candlestick	0.9833333333333333	1	holbrook-missp	0	0
-cain	cane	0.8666666666666667	2	holbrook-missp	-1	-1
-can_not	cannot	0.9666666666666667	1	holbrook-missp	0	0
-connot	cannot	0.9	1	holbrook-missp	8	1
-captian	captain	0.9714285714285714	2	holbrook-missp	0	0
-captman	captain	0.9428571428571428	2	holbrook-missp	2	0
-catptman	captain	0.8507936507936509	3	holbrook-missp	2	-1
-cpn	captain	0.6507936507936508	4	holbrook-missp	-1	-1
-Star	car	0.7222222222222222	2	holbrook-missp	-1	-1
-carrer	career	0.8755555555555556	1	holbrook-missp	5	6
-carefull	careful	0.975	1	holbrook-missp	3	1
-carful	careful	0.9666666666666667	1	holbrook-missp	0	0
-carfull	careful	0.9333333333333333	2	holbrook-missp	3	1
-caresll	carefully	0.9047619047619048	3	holbrook-missp	6	-1
-cared	carried	0.9333333333333333	2	holbrook-missp	12	-1
-carred	carried	0.9714285714285714	1	holbrook-missp	0	0
-carrid	carried	0.9714285714285714	1	holbrook-missp	0	0
-carring	carrying	0.975	1	holbrook-missp	0	0
-carlsat	castle	0.6626984126984127	5	holbrook-missp	-1	-1
-carsal	castle	0.8222222222222222	3	holbrook-missp	-1	-1
-carsell	castle	0.826031746031746	3	holbrook-missp	23	-1
-cartal	castle	0.8222222222222222	3	holbrook-missp	-1	-1
-cartill	castle	0.7968253968253969	3	holbrook-missp	27	-1
-cartsel	castle	0.873015873015873	3	holbrook-missp	10	-1
-catal	castle	0.8577777777777779	3	holbrook-missp	-1	-1
-catsal	castle	0.8577777777777779	3	holbrook-missp	9	-1
-cats	cat's	0.9533333333333333	1	holbrook-missp	1	-1
-cash	catch	0.8266666666666667	2	holbrook-missp	-1	-1
-chach	catch	0.88	2	holbrook-missp	2	-1
-caugh	caught	0.9666666666666667	1	holbrook-missp	0	0
-cort	caught	0.611111111111111	4	holbrook-missp	-1	-1
-cought	caught	0.9	1	holbrook-missp	5	3
-celebrate	celebrated	0.98	1	holbrook-missp	3	-1
-choin	chain	0.8933333333333333	1	holbrook-missp	6	3
-chere	chair	0.7866666666666667	3	holbrook-missp	-1	-1
-cage	changed	0.8714285714285714	3	holbrook-missp	-1	-1
-characte	character	0.9777777777777777	1	holbrook-missp	0	0
-charickter	character	0.9377777777777778	2	holbrook-missp	0	0
-change	charged	0.8944444444444445	2	holbrook-missp	-1	-1
-cheeroh	cheerio	0.9428571428571428	2	holbrook-missp	2	0
-cheter	cheetah	0.8477777777777777	3	holbrook-missp	21	-1
-chow	chew	0.8666666666666667	1	holbrook-missp	9	-1
-chidren	children	0.9708333333333333	1	holbrook-missp	0	0
-childrenes	children's	0.96	1	holbrook-missp	-1	-1
-cimbenr	chimney	0.7685714285714286	4	holbrook-missp	-1	-1
-cherped	chirped	0.9238095238095239	1	holbrook-missp	0	0
-ching	choosing	0.9	3	holbrook-missp	-1	-1
-choosen	chosen	0.9666666666666667	1	holbrook-missp	1	1
-christman	christmas	0.9555555555555556	1	holbrook-missp	-1	-1
-cinama	cinema	0.8755555555555556	1	holbrook-missp	0	0
-cinma	cinema	0.9611111111111111	1	holbrook-missp	0	0
-sercus	circus	0.7777777777777777	2	holbrook-missp	18	-1
-classis	classes	0.9428571428571428	1	holbrook-missp	5	2
-clater	clatter	0.9714285714285714	1	holbrook-missp	0	0
-clors	claws	0.7866666666666667	2	holbrook-missp	31	-1
-clearn	clean	0.9666666666666667	1	holbrook-missp	0	1
-glean	clean	0.8666666666666667	1	holbrook-missp	7	-1
-clean	cleaned	0.9428571428571428	2	holbrook-missp	-1	-1
-cleand	cleaned	0.9714285714285714	1	holbrook-missp	0	0
-clim	climb	0.96	1	holbrook-missp	0	0
-clime	climb	0.92	1	holbrook-missp	8	-1
-cimed	climbed	0.9142857142857143	2	holbrook-missp	-1	-1
-climb	climbed	0.9428571428571428	2	holbrook-missp	-1	-1
-closd	closed	0.9666666666666667	1	holbrook-missp	0	0
-clous	closed	0.8755555555555556	3	holbrook-missp	-1	-1
-cloths	clothes	0.9714285714285714	1	holbrook-missp	2	-1
-clous	clothes	0.8533333333333333	3	holbrook-missp	-1	-1
-colhes	clothes	0.9071428571428571	2	holbrook-missp	7	-1
-couldes	clouds	0.9071428571428571	3	holbrook-missp	10	-1
-coulds	clouds	0.9500000000000001	2	holbrook-missp	2	-1
-clob	club	0.8666666666666667	1	holbrook-missp	9	7
-colbe	club	0.8049999999999999	3	holbrook-missp	17	-1
-cote	coat	0.8666666666666667	2	holbrook-missp	-1	-1
-cofens	coffins	0.8944444444444445	2	holbrook-missp	8	-1
-colur	colour	0.9611111111111111	1	holbrook-missp	-1	0
-com	come	0.9166666666666666	1	holbrook-missp	3	-1
-comr	come	0.8833333333333334	1	holbrook-missp	4	4
-coum	come	0.8666666666666667	2	holbrook-missp	-1	-1
-kumh	come	0.5	3	holbrook-missp	-1	-1
-come	comes	0.96	1	holbrook-missp	2	-1
-comvatable	comfortable	0.8605303030303031	3	holbrook-missp	2	-1
-come	coming	0.825	3	holbrook-missp	-1	-1
-comeing	coming	0.9666666666666667	1	holbrook-missp	0	0
-comon	common	0.9611111111111111	1	holbrook-missp	2	0
-coperney	company	0.8238095238095238	4	holbrook-missp	20	-1
-consantrate	concentrate	0.8632996632996633	2	holbrook-missp	0	0
-cornfield	confide	0.9026455026455026	4	holbrook-missp	-1	-1
-caps	cops	0.8500000000000001	1	holbrook-missp	29	-1
-corral	coral	0.9611111111111111	1	holbrook-missp	2	-1
-corres	cores	0.9611111111111111	1	holbrook-missp	6	2
-corer	corner	0.9611111111111111	1	holbrook-missp	5	-1
-croner	corner	0.9500000000000001	2	holbrook-missp	2	2
-call	could	0.6333333333333333	3	holbrook-missp	-1	-1
-cod	could	0.6888888888888888	2	holbrook-missp	-1	-1
-couldnt	couldn't	0.975	1	holbrook-missp	0	-1
-count	couldn't	0.9125	3	holbrook-missp	-1	-1
-counsall	council	0.8678571428571429	3	holbrook-missp	6	-1
-counsel	council	0.8857142857142858	2	holbrook-missp	6	-1
-cousall	council	0.8	3	holbrook-missp	-1	-1
-coverd	covered	0.9714285714285714	1	holbrook-missp	2	0
-cow_Boys	cowboys	0.9083333333333333	2	holbrook-missp	0	0
-crept	crapped	0.6761904761904761	4	holbrook-missp	-1	-1
-crush	crash	0.8933333333333333	1	holbrook-missp	7	-1
-crowling	crawling	0.9333333333333333	1	holbrook-missp	5	3
-creek	creak	0.9066666666666667	1	holbrook-missp	7	-1
-creaps	creeps	0.9222222222222223	1	holbrook-missp	7	4
-creps	creeps	0.9611111111111111	1	holbrook-missp	1	1
-crepy	creepy	0.9611111111111111	1	holbrook-missp	0	0
-creeped	crept	0.8533333333333333	3	holbrook-missp	20	-1
-cryed	cried	0.8933333333333333	1	holbrook-missp	4	2
-crys	cries	0.8266666666666667	2	holbrook-missp	-1	-1
-crigckey	crikey	0.9416666666666667	2	holbrook-missp	0	0
-cresp	crisp	0.8933333333333333	1	holbrook-missp	7	4
-croud	crowd	0.9066666666666667	1	holbrook-missp	2	2
-corller	cruel	0.7364285714285714	4	holbrook-missp	-1	-1
-cuddly	cuddling	0.8916666666666667	3	holbrook-missp	-1	-1
-cobard	cupboard	0.875	3	holbrook-missp	-1	-1
-cerled	curled	0.9	1	holbrook-missp	1	1
-silinders	cylinders	0.8042328042328042	2	holbrook-missp	10	6
-bad	dad	0.7777777777777777	1	holbrook-missp	24	-1
-dads	dad's	0.9533333333333333	1	holbrook-missp	1	-1
-dadies	daddy's	0.8222222222222222	3	holbrook-missp	38	-1
-daffodill	daffodils	0.9555555555555556	1	holbrook-missp	1	1
-dane	dance	0.9533333333333333	1	holbrook-missp	0	0
-pncing	dancing	0.8492063492063492	2	holbrook-missp	4	-1
-dangers	dangerous	0.9555555555555556	2	holbrook-missp	5	-1
-dangerus	dangerous	0.9777777777777777	1	holbrook-missp	2	0
-dere	dared	0.8049999999999999	2	holbrook-missp	-1	-1
-darnt	daren't	0.9333333333333333	2	holbrook-missp	-1	-1
-darck	dark	0.9533333333333333	1	holbrook-missp	0	0
-dork	dark	0.8500000000000001	1	holbrook-missp	8	-1
-dauter	daughter	0.9416666666666667	2	holbrook-missp	1	-1
-day's	days'	0.9533333333333333	2	holbrook-missp	-1	-1
-dead	dear	0.8833333333333334	1	holbrook-missp	5	-1
-deat	death	0.96	1	holbrook-missp	0	0
-decider	decided	0.9428571428571428	1	holbrook-missp	3	-1
-desided	decided	0.9238095238095239	1	holbrook-missp	0	1
-dicide	decided	0.8042857142857143	2	holbrook-missp	12	-1
-dicided	decided	0.8642857142857143	1	holbrook-missp	2	1
-dicider	decided	0.7685714285714286	2	holbrook-missp	9	-1
-disided	decided	0.8285714285714287	2	holbrook-missp	3	-1
-disson	decision	0.8375000000000001	3	holbrook-missp	-1	-1
-dellitent	delicate	0.8638888888888888	5	holbrook-missp	-1	-1
-dener	den	0.8666666666666667	2	holbrook-missp	16	-1
-dence	dense	0.9066666666666667	1	holbrook-missp	0	0
-departent	department	0.98	1	holbrook-missp	0	0
-depatment	department	0.98	1	holbrook-missp	0	0
-distrod	destroyed	0.8571428571428572	3	holbrook-missp	13	-1
-ded	did	0.7777777777777777	1	holbrook-missp	10	6
-dednt	didn't	0.8400000000000001	2	holbrook-missp	1	-1
-denat	didn't	0.7300000000000001	3	holbrook-missp	-1	-1
-didden	didn't	0.8444444444444443	3	holbrook-missp	-1	-1
-dident	didn't	0.9222222222222223	2	holbrook-missp	0	-1
-dind	didn't	0.8444444444444443	3	holbrook-missp	-1	-1
-diy	die	0.7777777777777777	1	holbrook-missp	1	9
-ded	died	0.9166666666666666	1	holbrook-missp	2	0
-diad	died	0.8666666666666667	1	holbrook-missp	4	4
-disel	diesel	0.9022222222222223	1	holbrook-missp	1	1
-diffrent	different	0.9527777777777777	1	holbrook-missp	2	0
-difrent	different	0.9148148148148147	2	holbrook-missp	0	0
-differcult	difficult	0.9377777777777778	2	holbrook-missp	2	0
-driy	dirty	0.865	2	holbrook-missp	-1	-1
-disapeared	disappeared	0.9818181818181818	1	holbrook-missp	0	0
-disaperd	disappeared	0.9454545454545455	3	holbrook-missp	0	-1
-dicuverd	discovered	0.8866666666666667	3	holbrook-missp	-1	-1
-dispiaying	displaying	0.9377777777777778	1	holbrook-missp	0	0
-disposol	disposal	0.95	1	holbrook-missp	0	0
-distrebe	disturb	0.9214285714285715	3	holbrook-missp	0	-1
-dich	ditch	0.9466666666666665	1	holbrook-missp	0	0
-don	do	0.8888888888888888	1	holbrook-missp	6	-1
-done	do	0.8333333333333334	2	holbrook-missp	-1	-1
-go	do	0.6666666666666666	1	holbrook-missp	-1	-1
-to	do	0.6666666666666666	1	holbrook-missp	14	-1
-donot	do not	0.9555555555555556	1	holbrook-missp	0	-1
-dus	does	0.7222222222222222	2	holbrook-missp	-1	-1
-does'nt	doesn't	0.9714285714285714	2	holbrook-missp	0	0
-does_on	doesn't	0.8857142857142858	3	holbrook-missp	2	-1
-doesnet	doesn't	0.9428571428571428	1	holbrook-missp	2	-1
-donsent	doesn't	0.8793650793650793	3	holbrook-missp	3	-1
-dosnt	doesn't	0.9238095238095239	2	holbrook-missp	1	-1
-dowing	doing	0.9555555555555556	1	holbrook-missp	3	1
-don	don't	0.8666666666666667	2	holbrook-missp	-1	-1
-dont	don't	0.9533333333333333	1	holbrook-missp	0	-1
-want	don't	0.6333333333333333	3	holbrook-missp	-1	-1
-don	done	0.9166666666666666	1	holbrook-missp	2	-1
-dun	done	0.7222222222222222	2	holbrook-missp	-1	-1
-boor	door	0.8333333333333334	1	holbrook-missp	13	-1
-dor	door	0.9166666666666666	1	holbrook-missp	1	0
-down	door	0.6666666666666666	2	holbrook-missp	-1	-1
-doudle	double	0.9222222222222223	1	holbrook-missp	0	0
-back	douche	0.47222222222222215	5	holbrook-missp	-1	-1
-done	down	0.8666666666666667	2	holbrook-missp	-1	-1
-donw	down	0.9333333333333333	2	holbrook-missp	0	0
-dus	down	0.5277777777777778	3	holbrook-missp	-1	-1
-dau_sosys	downstairs	0.5314814814814816	7	holbrook-missp	-1	-1
-down_stairs	downstairs	0.9818181818181818	1	holbrook-missp	0	0
-drian	drain	0.9466666666666665	2	holbrook-missp	0	0
-drew	draw	0.8666666666666667	1	holbrook-missp	2	-1
-drem	dream	0.9533333333333333	1	holbrook-missp	0	0
-dreming	dreaming	0.9708333333333333	1	holbrook-missp	0	0
-drivern	driven	0.9714285714285714	1	holbrook-missp	0	1
-divers	drivers	0.9571428571428572	1	holbrook-missp	8	-1
-drive	drives	0.9666666666666667	1	holbrook-missp	4	-1
-dround	drowned	0.8944444444444445	2	holbrook-missp	2	-1
-druck	drunk	0.9066666666666667	1	holbrook-missp	2	2
-drye	dry	0.9166666666666666	1	holbrook-missp	1	2
-doum	dumb	0.8500000000000001	2	holbrook-missp	-1	-1
-pump	dump	0.8333333333333334	1	holbrook-missp	11	-1
-dieing	dying	0.8400000000000001	2	holbrook-missp	24	-1
-eyewigs	earwigs	0.8285714285714287	2	holbrook-missp	3	1
-eate	eat	0.9166666666666666	1	holbrook-missp	4	4
-elecenician	electrician	0.9272727272727274	2	holbrook-missp	-1	0
-als	else	0.7222222222222222	2	holbrook-missp	-1	-1
-eles	else	0.9333333333333333	2	holbrook-missp	1	1
-els	else	0.9166666666666666	1	holbrook-missp	1	1
-imployment	employment	0.9333333333333332	1	holbrook-missp	0	0
-emty	empty	0.9466666666666665	1	holbrook-missp	0	0
-enaged	engaged	0.9174603174603175	1	holbrook-missp	4	1
-ingaged	engaged	0.9047619047619048	1	holbrook-missp	0	0
-enagement	engagement	0.9437037037037037	1	holbrook-missp	1	0
-egreers	engines	0.7428571428571429	4	holbrook-missp	-1	-1
-injoid	enjoyed	0.746031746031746	3	holbrook-missp	15	-1
-enyays	enjoys	0.8222222222222222	2	holbrook-missp	2	3
-a_nougth	enough	0.8194444444444445	3	holbrook-missp	-1	-1
-a_nuff	enough	0.5555555555555555	5	holbrook-missp	-1	-1
-engouh	enough	0.9555555555555556	2	holbrook-missp	0	0
-nuff	enough	0.611111111111111	4	holbrook-missp	-1	-1
-enterd	entered	0.9714285714285714	1	holbrook-missp	0	0
-aquitment	equipment	0.8518518518518517	2	holbrook-missp	2	1
-a_specally	especially	0.8250000000000001	3	holbrook-missp	2	-1
-evining	evening	0.8793650793650793	1	holbrook-missp	3	2
-evning	evening	0.9619047619047619	1	holbrook-missp	0	0
-evey	every	0.9533333333333333	1	holbrook-missp	0	0
-evry	every	0.9466666666666665	1	holbrook-missp	0	0
-every_one	everyone	0.9777777777777777	1	holbrook-missp	0	0
-evry_on	everyone	0.8952380952380953	3	holbrook-missp	0	-1
-every_were	everywhere	0.96	2	holbrook-missp	0	0
-evry_were	everywhere	0.8170370370370371	3	holbrook-missp	0	-1
-exited	excited	0.9619047619047619	1	holbrook-missp	4	-1
-expore	explore	0.9666666666666667	1	holbrook-missp	4	0
-expord	explored	0.9416666666666667	2	holbrook-missp	-1	-1
-eye	eyes	0.9166666666666666	1	holbrook-missp	2	-1
-eyey	eyes	0.8833333333333334	1	holbrook-missp	2	2
-iyes	eyes	0.8333333333333334	1	holbrook-missp	4	6
-factoy	factory	0.9714285714285714	1	holbrook-missp	0	0
-fanded	fainted	0.8793650793650793	2	holbrook-missp	7	-1
-forls	falls	0.76	2	holbrook-missp	29	-1
-familys	families	0.9214285714285715	2	holbrook-missp	3	-1
-fare	far	0.9166666666666666	1	holbrook-missp	8	-1
-frm	farm	0.9166666666666666	1	holbrook-missp	1	2
-farm	farmer	0.9333333333333333	2	holbrook-missp	-1	-1
-framh	farmer	0.765	4	holbrook-missp	-1	-1
-frm	farmer	0.8333333333333334	3	holbrook-missp	-1	-1
-frmh	farmer	0.775	3	holbrook-missp	-1	-1
-farmers	farmer's	0.975	1	holbrook-missp	1	-1
-frmh	farmer's	0.7375	5	holbrook-missp	-1	-1
-fashion	fashioned	0.9555555555555556	2	holbrook-missp	4	-1
-farst	fast	0.9466666666666665	1	holbrook-missp	4	2
-farther	father	0.9619047619047619	1	holbrook-missp	3	-1
-farther's	father's	0.9037037037037037	1	holbrook-missp	5	0
-fating	fattening	0.8833333333333334	3	holbrook-missp	-1	-1
-falt	fault	0.9466666666666665	1	holbrook-missp	0	0
-feal	feel	0.8666666666666667	1	holbrook-missp	5	5
-feling	feeling	0.9619047619047619	1	holbrook-missp	2	2
-fee	feet	0.9166666666666666	1	holbrook-missp	4	-1
-fet	feet	0.9166666666666666	1	holbrook-missp	1	1
-fall	fell	0.8500000000000001	1	holbrook-missp	7	-1
-feemale	female	0.9619047619047619	1	holbrook-missp	2	0
-ferrary	ferrari	0.9428571428571428	1	holbrook-missp	-1	-1
-faw	few	0.7777777777777777	1	holbrook-missp	5	11
-fed	field	0.6888888888888888	2	holbrook-missp	-1	-1
-feild	field	0.94	2	holbrook-missp	0	0
-fild	field	0.9466666666666665	1	holbrook-missp	1	1
-figth	fight	0.9533333333333333	2	holbrook-missp	0	0
-figthing	fighting	0.9708333333333333	2	holbrook-missp	2	0
-fianl	final	0.9466666666666665	2	holbrook-missp	0	0
-find	fine	0.8833333333333334	1	holbrook-missp	8	-1
-finse	fins	0.96	1	holbrook-missp	0	0
-fiar	fire	0.8666666666666667	2	holbrook-missp	-1	-1
-fre	fire	0.9166666666666666	1	holbrook-missp	1	4
-fiyed	fired	0.8933333333333333	1	holbrook-missp	2	0
-ferman	firms	0.7300000000000001	3	holbrook-missp	-1	-1
-fast	first	0.8049999999999999	2	holbrook-missp	-1	-1
-fsh	fish	0.9166666666666666	1	holbrook-missp	0	0
-fishey	fishy	0.9666666666666667	1	holbrook-missp	1	1
-fanit	fit	0.5111111111111111	2	holbrook-missp	52	-1
-flass	flash	0.92	1	holbrook-missp	5	2
-fick	flick	0.94	1	holbrook-missp	0	0
-fies	flies	0.94	1	holbrook-missp	7	8
-flor	floor	0.9533333333333333	1	holbrook-missp	1	1
-foor	floor	0.94	1	holbrook-missp	0	0
-flower	flowers	0.9714285714285714	1	holbrook-missp	3	-1
-fie	fly	0.5555555555555555	2	holbrook-missp	-1	-1
-fellowed	followed	0.8821428571428571	1	holbrook-missp	9	4
-full	fool	0.6666666666666666	2	holbrook-missp	-1	-1
-footandmouth	foot-and-mouth	0.9714285714285714	2	holbrook-missp	-1	-1
-footanmouth	foot-and-mouth	0.9571428571428571	3	holbrook-missp	-1	-1
-foodprints	footprints	0.9533333333333333	1	holbrook-missp	2	0
-fo	for	0.8888888888888888	1	holbrook-missp	2	3
-fore	for	0.9166666666666666	1	holbrook-missp	7	-1
-four	for	0.9166666666666666	1	holbrook-missp	4	-1
-fro	for	0.5555555555555555	2	holbrook-missp	12	-1
-fur	for	0.7777777777777777	1	holbrook-missp	11	-1
-of	for	0.0	2	holbrook-missp	-1	-1
-fort	for the	0.9	3	holbrook-missp	-1	-1
-falk	fork	0.6666666666666666	2	holbrook-missp	-1	-1
-frame	form	0.8049999999999999	3	holbrook-missp	-1	-1
-forword	forward	0.9428571428571428	1	holbrook-missp	3	1
-fowd	forward	0.7809523809523811	3	holbrook-missp	-1	-1
-fed	found	0.5111111111111111	3	holbrook-missp	-1	-1
-feod	found	0.8049999999999999	3	holbrook-missp	-1	-1
-find	found	0.8049999999999999	2	holbrook-missp	-1	-1
-fond	found	0.9466666666666665	1	holbrook-missp	1	-1
-for	four	0.9166666666666666	1	holbrook-missp	1	-1
-fore	four	0.8666666666666667	2	holbrook-missp	-1	-1
-frizing	freezing	0.8507936507936509	2	holbrook-missp	12	-1
-fenird	friend	0.8400000000000001	4	holbrook-missp	-1	-1
-frend	friend	0.9555555555555556	1	holbrook-missp	2	0
-frendly	friendly	0.9666666666666667	1	holbrook-missp	0	0
-freinds	friends	0.9619047619047619	2	holbrook-missp	0	0
-frend	friends	0.9238095238095239	2	holbrook-missp	5	-1
-frends	friends	0.9619047619047619	1	holbrook-missp	2	0
-frens	friends	0.9238095238095239	2	holbrook-missp	5	-1
-frightend	frightened	0.98	1	holbrook-missp	2	0
-frigtend	frightened	0.96	2	holbrook-missp	2	0
-frog	frogs	0.96	1	holbrook-missp	1	-1
-rogs	frogs	0.9333333333333332	1	holbrook-missp	0	0
-frogsporn	frogspawn	0.9111111111111111	2	holbrook-missp	2	0
-fom	from	0.9166666666666666	1	holbrook-missp	2	1
-for	from	0.8055555555555555	2	holbrook-missp	-1	-1
-form	from	0.9249999999999999	2	holbrook-missp	4	-1
-frount	front	0.9611111111111111	1	holbrook-missp	0	0
-frunt	front	0.8933333333333333	1	holbrook-missp	2	2
-frit	fruit	0.9466666666666665	1	holbrook-missp	3	1
-fall	full	0.8500000000000001	1	holbrook-missp	10	-1
-ful	full	0.9166666666666666	1	holbrook-missp	2	1
-funerl	funeral	0.9714285714285714	1	holbrook-missp	0	0
-funrel	funeral	0.9277777777777778	2	holbrook-missp	2	-1
-funney	funny	0.9666666666666667	1	holbrook-missp	0	0
-gamekeeps	gamekeeper	0.9377777777777778	2	holbrook-missp	4	1
-ganer	gang	0.8483333333333334	2	holbrook-missp	-1	-1
-carage	garage	0.888888888888889	1	holbrook-missp	11	3
-gass	gas	0.9166666666666666	1	holbrook-missp	8	6
-gait	gate	0.8666666666666667	2	holbrook-missp	-1	-1
-cave	gave	0.8333333333333334	1	holbrook-missp	18	-1
-jay	gay	0.7777777777777777	1	holbrook-missp	9	-1
-gere	gear	0.8666666666666667	2	holbrook-missp	-1	-1
-gird	geared	0.775	3	holbrook-missp	-1	-1
-girse	gears	0.76	3	holbrook-missp	45	-1
-ge	get	0.8888888888888888	1	holbrook-missp	4	1
-gett	get	0.9166666666666666	1	holbrook-missp	0	0
-get	gets	0.9166666666666666	1	holbrook-missp	2	-1
-get	getting	0.8095238095238096	4	holbrook-missp	-1	-1
-geting	getting	0.9666666666666667	1	holbrook-missp	0	0
-gell	girl	0.6666666666666666	2	holbrook-missp	-1	-1
-girls	girl's	0.9666666666666667	1	holbrook-missp	1	-1
-girl_friend	girlfriend's	0.9484848484848484	3	holbrook-missp	2	-1
-girlfriend	girlfriends	0.9818181818181818	1	holbrook-missp	3	-1
-gerls	girls	0.88	1	holbrook-missp	7	2
-girl	girls	0.96	1	holbrook-missp	2	-1
-give	given	0.96	1	holbrook-missp	2	-1
-give	gives	0.96	1	holbrook-missp	3	-1
-do	go	0.6666666666666666	1	holbrook-missp	-1	-1
-got	go	0.8888888888888888	1	holbrook-missp	5	-1
-go	goes	0.8333333333333334	2	holbrook-missp	-1	-1
-go	going	0.7999999999999999	3	holbrook-missp	-1	-1
-gying	going	0.88	1	holbrook-missp	4	3
-go	gone	0.8333333333333334	2	holbrook-missp	-1	-1
-gon	gone	0.9166666666666666	1	holbrook-missp	0	0
-good-by	goodbye	0.9428571428571428	2	holbrook-missp	0	1
-goodby	goodbye	0.9714285714285714	1	holbrook-missp	2	0
-get	got	0.7777777777777777	1	holbrook-missp	5	-1
-gnt	got	0.7777777777777777	1	holbrook-missp	8	6
-go	got	0.8888888888888888	1	holbrook-missp	4	-1
-grab	grabbed	0.9142857142857143	3	holbrook-missp	-1	-1
-grabed	grabbed	0.9714285714285714	1	holbrook-missp	2	0
-grandpas	grandpa's	0.9777777777777777	1	holbrook-missp	3	-1
-grete	grated	0.7911111111111111	2	holbrook-missp	-1	-1
-crave	grave	0.8666666666666667	1	holbrook-missp	14	-1
-grait	great	0.8933333333333333	2	holbrook-missp	12	-1
-gnenhouen	greenhouse	0.7576190476190476	4	holbrook-missp	-1	-1
-greive	grieve	0.9555555555555556	2	holbrook-missp	0	0
-grouser	grocer	0.8944444444444445	2	holbrook-missp	10	-1
-gound	ground	0.9500000000000001	1	holbrook-missp	0	0
-grouned	ground	0.9714285714285714	1	holbrook-missp	0	0
-grows	grow	0.96	1	holbrook-missp	2	-1
-groon	grown	0.9066666666666667	1	holbrook-missp	4	3
-guard	guided	0.76	3	holbrook-missp	-1	-1
-guilt	guilty	0.9666666666666667	1	holbrook-missp	1	-1
-gon	gun	0.7777777777777777	1	holbrook-missp	13	9
-guter	gutter	0.9611111111111111	1	holbrook-missp	2	0
-hab	had	0.7777777777777777	1	holbrook-missp	12	9
-hade	had	0.9166666666666666	1	holbrook-missp	1	1
-has	had	0.7777777777777777	1	holbrook-missp	11	-1
-have	had	0.7222222222222222	2	holbrook-missp	-1	-1
-hadnt	hadn't	0.9666666666666667	1	holbrook-missp	0	-1
-hire	hair	0.8500000000000001	2	holbrook-missp	-1	-1
-hair_dreser	hairdresser	0.9636363636363636	2	holbrook-missp	0	0
-harfparst	half past	0.8814814814814814	3	holbrook-missp	-1	-1
-alloe	hallo	0.8666666666666667	2	holbrook-missp	-1	-1
-halloe	hallo	0.9666666666666667	1	holbrook-missp	-1	-1
-hemmsering	hammering	0.8691666666666668	2	holbrook-missp	0	0
-hang	handed	0.825	3	holbrook-missp	-1	-1
-hand	hands	0.96	1	holbrook-missp	2	-1
-hung	hang	0.8500000000000001	1	holbrook-missp	6	-1
-haing	hanging	0.8704761904761905	2	holbrook-missp	-1	-1
-hapend	happened	0.9416666666666667	2	holbrook-missp	4	0
-hapends	happened	0.9083333333333333	3	holbrook-missp	6	-1
-happen	happened	0.95	2	holbrook-missp	4	-1
-happend	happened	0.975	1	holbrook-missp	0	0
-happon	happened	0.8916666666666667	3	holbrook-missp	3	-1
-heap	happened	0.775	6	holbrook-missp	-1	-1
-happing	happening	0.9269841269841269	2	holbrook-missp	-1	-1
-happends	happens	0.975	1	holbrook-missp	0	0
-happly	happily	0.9714285714285714	1	holbrook-missp	0	0
-had	hard	0.9166666666666666	1	holbrook-missp	1	-1
-as	has	0.0	1	holbrook-missp	35	-1
-hase	has	0.9166666666666666	1	holbrook-missp	4	3
-hate	hates	0.96	1	holbrook-missp	3	-1
-has	have	0.7222222222222222	2	holbrook-missp	-1	-1
-hav	have	0.9166666666666666	1	holbrook-missp	0	0
-of	have	0.0	4	holbrook-missp	-1	-1
-haveto	have to	0.9714285714285714	1	holbrook-missp	0	-1
-haven's	haven't	0.9428571428571428	1	holbrook-missp	3	-1
-havn't	haven't	0.9666666666666667	1	holbrook-missp	0	0
-haveing	having	0.9666666666666667	1	holbrook-missp	0	0
-his	he	0.611111111111111	2	holbrook-missp	-1	-1
-the	he	0.0	1	holbrook-missp	20	-1
-ther	he	0.8333333333333334	2	holbrook-missp	-1	-1
-his	he's	0.7222222222222222	2	holbrook-missp	29	-1
-hed	head	0.9166666666666666	1	holbrook-missp	1	3
-hethy	healthy	0.9238095238095239	2	holbrook-missp	2	0
-heep	heap	0.8666666666666667	1	holbrook-missp	5	7
-haer	hear	0.9249999999999999	2	holbrook-missp	6	4
-her	hear	0.9166666666666666	1	holbrook-missp	1	-1
-here	hear	0.8666666666666667	2	holbrook-missp	-1	-1
-heared	heard	0.9666666666666667	1	holbrook-missp	2	0
-her	heard	0.8666666666666667	2	holbrook-missp	-1	-1
-herd	heard	0.9466666666666665	1	holbrook-missp	4	-1
-hered	heard	0.8933333333333333	2	holbrook-missp	-1	-1
-hart	heart	0.94	1	holbrook-missp	4	-1
-hertbreake	heartbreak	0.9466666666666665	2	holbrook-missp	0	0
-heart	heat	0.9533333333333333	1	holbrook-missp	7	-1
-hevey	heavy	0.8933333333333333	2	holbrook-missp	1	2
-heg	hedge	0.8666666666666667	2	holbrook-missp	-1	-1
-effer	heifer	0.8222222222222223	2	holbrook-missp	-1	-1
-hasld	held	0.8049999999999999	2	holbrook-missp	20	25
-held	help	0.8833333333333334	1	holbrook-missp	3	-1
-She	her	0.0	2	holbrook-missp	-1	-1
-he	her	0.8888888888888888	1	holbrook-missp	1	-1
-here	her	0.9166666666666666	1	holbrook-missp	6	-1
-there	her	0.8666666666666667	2	holbrook-missp	-1	-1
-hear	here	0.8666666666666667	2	holbrook-missp	-1	-1
-he_slef	herself	0.8793650793650793	3	holbrook-missp	0	0
-hidon	hidden	0.8755555555555556	2	holbrook-missp	5	1
-hm	him	0.611111111111111	1	holbrook-missp	17	20
-im	him	0.0	1	holbrook-missp	32	22
-him_self	himself	0.9708333333333333	1	holbrook-missp	0	0
-his_self	himself	0.8952380952380953	2	holbrook-missp	0	0
-he	his	0.611111111111111	2	holbrook-missp	-1	-1
-he's	his	0.7222222222222222	2	holbrook-missp	-1	-1
-is	his	0.0	1	holbrook-missp	37	-1
-hiter	hit	0.8666666666666667	2	holbrook-missp	9	-1
-holler	hole	0.9222222222222222	2	holbrook-missp	5	-1
-hime	home	0.8500000000000001	1	holbrook-missp	10	8
-hom	home	0.9166666666666666	1	holbrook-missp	0	2
-homse	home	0.9533333333333333	1	holbrook-missp	1	0
-honymoon	honeymoon	0.9740740740740741	1	holbrook-missp	0	0
-hunemoon	honeymoon	0.8958333333333333	2	holbrook-missp	0	0
-hock	hook	0.8666666666666667	1	holbrook-missp	8	-1
-hop	hope	0.9166666666666666	1	holbrook-missp	2	-1
-hop	hopped	0.8333333333333334	3	holbrook-missp	-1	-1
-horn	horns	0.96	1	holbrook-missp	2	-1
-horid	horrid	0.9611111111111111	1	holbrook-missp	0	0
-horrieyfide	horrified	0.9414141414141414	4	holbrook-missp	0	-1
-houes	house	0.9533333333333333	2	holbrook-missp	0	0
-house_boat	houseboat	0.98	1	holbrook-missp	0	0
-house_braking	housebreaking	0.9692307692307692	2	holbrook-missp	0	0
-houes	houses	0.9144444444444445	1	holbrook-missp	3	3
-housee_work	housework	0.9636363636363636	2	holbrook-missp	0	0
-hungrey	hungry	0.9714285714285714	1	holbrook-missp	0	0
-heart	hurt	0.8049999999999999	2	holbrook-missp	17	-1
-hearte	hurt	0.775	3	holbrook-missp	-1	-1
-hert	hurt	0.8500000000000001	1	holbrook-missp	14	11
-husbon	husband	0.9095238095238095	2	holbrook-missp	0	0
-hudge	hutch	0.6	3	holbrook-missp	-1	-1
-high_drollit	hydraulic	0.6574074074074074	7	holbrook-missp	1	-1
-ida	idea	0.9166666666666666	1	holbrook-missp	0	0
-inded	indian	0.79	3	holbrook-missp	-1	-1
-indiscrest	indiscreet	0.96	1	holbrook-missp	0	0
-injeck	inject	0.9333333333333333	1	holbrook-missp	0	0
-injurys	injuries	0.9214285714285715	2	holbrook-missp	4	-1
-insexs	insects	0.9095238095238095	2	holbrook-missp	1	-1
-in_side	inside	0.9619047619047619	1	holbrook-missp	0	0
-instace	instance	0.975	1	holbrook-missp	2	0
-instead	instance	0.8880952380952382	4	holbrook-missp	-1	-1
-intercors	intercourse	0.9636363636363636	2	holbrook-missp	0	-1
-intended	interned	0.9214285714285715	2	holbrook-missp	11	-1
-interdust	introduced	0.8288888888888889	5	holbrook-missp	-1	-1
-introducted	introduced	0.9818181818181818	1	holbrook-missp	0	0
-us	is	0.6666666666666666	1	holbrook-missp	4	-1
-in'sen't	isn't	0.8274999999999999	3	holbrook-missp	7	-1
-isant	isn't	0.8933333333333333	2	holbrook-missp	2	-1
-isten	isn't	0.6	3	holbrook-missp	-1	-1
-isinted	isn't it	0.6904761904761904	5	holbrook-missp	-1	-1
-hit	it	0.0	1	holbrook-missp	37	-1
-is	it	0.6666666666666666	1	holbrook-missp	-1	-1
-she	it	0.0	3	holbrook-missp	-1	-1
-it	it's	0.8333333333333334	2	holbrook-missp	-1	-1
-its	it's	0.9166666666666666	1	holbrook-missp	1	-1
-is	its	0.611111111111111	1	holbrook-missp	16	-1
-it	its	0.8888888888888888	1	holbrook-missp	1	-1
-it's	its	0.9166666666666666	1	holbrook-missp	11	-1
-jaell	jail	0.8266666666666667	2	holbrook-missp	4	-1
-gare	jar	0.7222222222222222	2	holbrook-missp	-1	-1
-joged	jogged	0.9611111111111111	1	holbrook-missp	2	0
-goin	join	0.8333333333333334	1	holbrook-missp	10	7
-joine	join	0.96	1	holbrook-missp	2	2
-juiciy	juicy	0.9666666666666667	1	holbrook-missp	1	1
-jump	jumped	0.9333333333333333	2	holbrook-missp	-1	-1
-jumth	jumped	0.79	3	holbrook-missp	-1	-1
-jungel	jungle	0.9666666666666667	2	holbrook-missp	0	0
-gust	just	0.8333333333333334	1	holbrook-missp	10	-1
-geep	keep	0.8333333333333334	1	holbrook-missp	8	7
-keep	keeps	0.96	1	holbrook-missp	1	-1
-keept	kept	0.9466666666666665	1	holbrook-missp	1	1
-kep	kept	0.9166666666666666	1	holbrook-missp	3	0
-kees	keys	0.8666666666666667	1	holbrook-missp	12	10
-kiging	kicking	0.8793650793650793	2	holbrook-missp	2	-1
-kidney	kidneys	0.9714285714285714	1	holbrook-missp	1	-1
-kid	killed	0.6666666666666666	3	holbrook-missp	-1	-1
-kild	killed	0.9222222222222222	2	holbrook-missp	-1	-1
-kill	killed	0.9333333333333333	2	holbrook-missp	-1	-1
-killd	killed	0.9666666666666667	1	holbrook-missp	0	0
-kiss	kissed	0.9333333333333333	2	holbrook-missp	-1	-1
-kichen	kitchen	0.9619047619047619	1	holbrook-missp	0	0
-kitchin	kitchen	0.9428571428571428	1	holbrook-missp	2	0
-kitching	kitchen	0.9214285714285715	2	holbrook-missp	2	-1
-new	knew	0.9166666666666666	1	holbrook-missp	3	-1
-now	knew	0.7222222222222222	2	holbrook-missp	-1	-1
-nowe	knew	0.7222222222222222	3	holbrook-missp	-1	-1
-kiffe	knife	0.88	2	holbrook-missp	0	1
-kniffe	knife	0.9666666666666667	1	holbrook-missp	0	0
-knitt	knit	0.96	1	holbrook-missp	0	0
-nock	knock	0.9333333333333332	1	holbrook-missp	2	0
-knock	knocked	0.9428571428571428	2	holbrook-missp	4	-1
-knokt	knocked	0.8533333333333333	3	holbrook-missp	5	-1
-know	knocked	0.8083333333333333	4	holbrook-missp	-1	-1
-nock	knocked	0.8571428571428571	3	holbrook-missp	-1	-1
-no	know	0.8333333333333334	2	holbrook-missp	-1	-1
-now	know	0.9166666666666666	1	holbrook-missp	2	-1
-on	know	0.5833333333333334	3	holbrook-missp	-1	-1
-knowes	knows	0.9666666666666667	1	holbrook-missp	2	0
-ladys	lady	0.96	1	holbrook-missp	1	0
-ladh	laid	0.8666666666666667	2	holbrook-missp	-1	-1
-laide	laid	0.96	1	holbrook-missp	0	0
-lack	lake	0.8666666666666667	2	holbrook-missp	-1	-1
-lam	lamb	0.9166666666666666	1	holbrook-missp	2	-1
-laded	landed	0.9555555555555556	1	holbrook-missp	7	-1
-larg	large	0.96	1	holbrook-missp	0	0
-latley	lately	0.9611111111111111	2	holbrook-missp	0	0
-lated	later	0.92	1	holbrook-missp	11	6
-latter	later	0.9611111111111111	1	holbrook-missp	2	-1
-lauging	laughing	0.975	1	holbrook-missp	0	0
-lordery	laundry	0.7428571428571429	4	holbrook-missp	-1	-1
-ladh	lay	0.7222222222222222	2	holbrook-missp	-1	-1
-laid	lay	0.7222222222222222	2	holbrook-missp	-1	-1
-la-by	layby	0.8933333333333333	1	holbrook-missp	-1	-1
-led	lead	0.9166666666666666	1	holbrook-missp	1	-1
-leeding	lead	0.7809523809523811	4	holbrook-missp	-1	-1
-lead	leading	0.9142857142857143	3	holbrook-missp	-1	-1
-leav	leave	0.96	1	holbrook-missp	0	0
-lefnr	leave	0.6	3	holbrook-missp	-1	-1
-leve	leave	0.9466666666666665	1	holbrook-missp	3	3
-life	leave	0.6333333333333333	3	holbrook-missp	-1	-1
-leavs	leaves	0.9666666666666667	1	holbrook-missp	0	0
-lift	left	0.8500000000000001	1	holbrook-missp	9	-1
-lege	leg	0.9166666666666666	1	holbrook-missp	2	3
-lets	let's	0.9533333333333333	1	holbrook-missp	1	-1
-teller	letter	0.8222222222222223	3	holbrook-missp	-1	-1
-liy	lie	0.7777777777777777	1	holbrook-missp	4	5
-life_boat	lifeboat	0.9777777777777777	1	holbrook-missp	0	0
-ligthing	lightning	0.9157407407407407	2	holbrook-missp	-1	-1
-lichr	like	0.6333333333333333	3	holbrook-missp	-1	-1
-lik	like	0.9166666666666666	1	holbrook-missp	1	0
-look	like	0.6666666666666666	3	holbrook-missp	-1	-1
-lick	liked	0.8266666666666667	3	holbrook-missp	-1	-1
-like	likes	0.96	1	holbrook-missp	4	-1
-listern	listen	0.9714285714285714	1	holbrook-missp	0	0
-lisinid	listened	0.8458333333333333	3	holbrook-missp	1	-1
-lsning	listening	0.8500000000000001	3	holbrook-missp	10	-1
-litel	little	0.9144444444444445	2	holbrook-missp	5	-1
-litte	little	0.9666666666666667	1	holbrook-missp	1	0
-lifd	lived	0.8266666666666667	2	holbrook-missp	-1	-1
-live	lived	0.96	1	holbrook-missp	2	-1
-lod	load	0.9166666666666666	1	holbrook-missp	0	1
-loades	loads	0.9666666666666667	1	holbrook-missp	3	1
-lock	locked	0.9333333333333333	2	holbrook-missp	-1	-1
-lockEd	locked	0.9333333333333333	1	holbrook-missp	2	0
-loker	locker	0.9555555555555556	1	holbrook-missp	0	1
-lonlest	loneliest	0.9148148148148147	2	holbrook-missp	1	-1
-look	looked	0.9333333333333333	2	holbrook-missp	-1	-1
-look	looking	0.9142857142857143	3	holbrook-missp	-1	-1
-look	looks	0.96	1	holbrook-missp	1	-1
-lorry's	lorries	0.8857142857142858	2	holbrook-missp	4	-1
-lord	lorry	0.8483333333333334	2	holbrook-missp	-1	-1
-lory	lorry	0.9533333333333333	1	holbrook-missp	0	0
-loos	lose	0.8666666666666667	2	holbrook-missp	-1	-1
-los	lose	0.9166666666666666	1	holbrook-missp	1	6
-love	loved	0.96	1	holbrook-missp	3	-1
-lovyley	lovely	0.9277777777777778	2	holbrook-missp	0	0
-laying	lying	0.9500000000000001	1	holbrook-missp	5	-1
-mayd	made	0.8666666666666667	2	holbrook-missp	-1	-1
-mane	main	0.8666666666666667	2	holbrook-missp	-1	-1
-mack	make	0.8666666666666667	2	holbrook-missp	-1	-1
-macke_up	make-up	0.8952380952380953	2	holbrook-missp	-1	-1
-mack	makes	0.8266666666666667	3	holbrook-missp	-1	-1
-mae	man	0.7777777777777777	1	holbrook-missp	18	15
-mand	man	0.9166666666666666	1	holbrook-missp	2	3
-manh	man	0.9166666666666666	1	holbrook-missp	0	0
-may	man	0.7777777777777777	1	holbrook-missp	13	-1
-man	man's	0.8666666666666667	2	holbrook-missp	-1	-1
-mans	man's	0.9533333333333333	1	holbrook-missp	2	-1
-maneger	manager	0.8944444444444445	1	holbrook-missp	3	2
-manggles	mangels	0.9464285714285714	2	holbrook-missp	-1	-1
-many_fold	manifold	0.9189814814814814	2	holbrook-missp	0	0
-meay	many	0.8500000000000001	2	holbrook-missp	-1	-1
-meny	many	0.8500000000000001	1	holbrook-missp	4	4
-marg	marge	0.96	1	holbrook-missp	0	0
-marrede	married	0.9428571428571428	2	holbrook-missp	1	-1
-marreid	married	0.9714285714285714	2	holbrook-missp	0	1
-marrid	married	0.9714285714285714	1	holbrook-missp	0	0
-marryid	married	0.9428571428571428	2	holbrook-missp	2	1
-marshladn	marshland	0.9777777777777777	2	holbrook-missp	0	0
-marsk	mask	0.9466666666666665	1	holbrook-missp	3	3
-marsks	masks	0.9555555555555556	1	holbrook-missp	2	0
-mater	matter	0.9611111111111111	1	holbrook-missp	4	-1
-we	me	0.6666666666666666	1	holbrook-missp	21	-1
-meadoy	meadow	0.9333333333333333	1	holbrook-missp	0	0
-meddow	meadow	0.9111111111111112	1	holbrook-missp	0	0
-medow	meadow	0.9555555555555556	1	holbrook-missp	2	0
-mean't	meant	0.9666666666666667	1	holbrook-missp	0	0
-me	meet	0.8333333333333334	2	holbrook-missp	-1	-1
-man	men	0.7777777777777777	1	holbrook-missp	12	-1
-metet	metals	0.79	3	holbrook-missp	-1	-1
-midal	middle	0.8755555555555556	2	holbrook-missp	4	-1
-middal	middle	0.9333333333333333	2	holbrook-missp	0	-1
-midsummer's	midsummer	0.9636363636363636	2	holbrook-missp	3	-1
-migth	might	0.9533333333333333	2	holbrook-missp	0	0
-mite	might	0.6333333333333333	3	holbrook-missp	-1	-1
-my	mine	0.5833333333333334	3	holbrook-missp	-1	-1
-mine	minutes	0.9	3	holbrook-missp	-1	-1
-minetes	minutes	0.8944444444444445	1	holbrook-missp	7	0
-morning	miring	0.8042857142857143	2	holbrook-missp	-1	-1
-miss_fireing	misfiring	0.9416666666666667	3	holbrook-missp	0	-1
-miss	missed	0.9333333333333333	2	holbrook-missp	-1	-1
-mist	missed	0.825	3	holbrook-missp	-1	-1
-modal	model	0.9066666666666667	1	holbrook-missp	3	-1
-molad	model	0.6	3	holbrook-missp	-1	-1
-malod	modelled	0.6833333333333332	5	holbrook-missp	-1	-1
-missiour	monsieur	0.6833333333333332	3	holbrook-missp	-1	-1
-month	month's	0.9428571428571428	2	holbrook-missp	5	-1
-monsth	months	0.9611111111111111	2	holbrook-missp	1	-1
-month	months	0.9666666666666667	1	holbrook-missp	1	-1
-mouth	months	0.8577777777777779	2	holbrook-missp	-1	-1
-moor	more	0.8666666666666667	2	holbrook-missp	-1	-1
-moning	morning	0.9619047619047619	1	holbrook-missp	2	2
-morring	morning	0.8944444444444445	1	holbrook-missp	5	2
-morther	mother	0.9619047619047619	1	holbrook-missp	0	0
-mothers	mother	0.9714285714285714	1	holbrook-missp	2	-1
-mouthr	mother	0.9111111111111112	2	holbrook-missp	4	-1
-motor-cruisr	motor-cruiser	0.9846153846153847	1	holbrook-missp	-1	-1
-moter_bike	motorbike	0.9274074074074075	2	holbrook-missp	0	0
-motor_bike	motorbike	0.98	1	holbrook-missp	0	0
-moues	mouse	0.9533333333333333	2	holbrook-missp	3	-1
-mush	much	0.8666666666666667	1	holbrook-missp	10	-1
-mums	mum's	0.9533333333333333	1	holbrook-missp	1	-1
-murber	murder	0.9222222222222223	1	holbrook-missp	0	0
-murbur	murdered	0.8055555555555556	4	holbrook-missp	-1	-1
-musirls	muscles	0.8666666666666668	3	holbrook-missp	-1	-1
-may	my	0.611111111111111	1	holbrook-missp	40	-1
-my_self	myself	0.9619047619047619	1	holbrook-missp	0	0
-my_shelf	myself	0.9333333333333333	2	holbrook-missp	0	0
-mistory	mystery	0.8285714285714287	2	holbrook-missp	13	-1
-nana	nanny	0.8483333333333334	2	holbrook-missp	-1	-1
-nere	near	0.8666666666666667	2	holbrook-missp	-1	-1
-nerer	nearer	0.9555555555555556	1	holbrook-missp	0	0
-nearst	nearest	0.9714285714285714	1	holbrook-missp	2	0
-kneeling	nearly	0.625	6	holbrook-missp	-1	-1
-neally	nearly	0.9222222222222223	1	holbrook-missp	1	0
-nealy	nearly	0.9611111111111111	1	holbrook-missp	0	0
-nely	nearly	0.9111111111111111	2	holbrook-missp	-1	-1
-nerly	nearly	0.9555555555555556	1	holbrook-missp	0	0
-niely	nearly	0.8400000000000001	3	holbrook-missp	5	-1
-nede	need	0.9333333333333333	2	holbrook-missp	0	0
-nedent	needn't	0.9174603174603175	3	holbrook-missp	0	-1
-needent	needn't	0.9428571428571428	2	holbrook-missp	2	-1
-nabour	neighbour	0.8166666666666667	4	holbrook-missp	-1	-1
-nerve	nerves	0.9666666666666667	1	holbrook-missp	2	-1
-nerves	nervous	0.9095238095238095	2	holbrook-missp	6	-1
-knver	never	0.8666666666666667	2	holbrook-missp	2	2
-nether	never	0.8577777777777779	2	holbrook-missp	13	-1
-neve	never	0.96	1	holbrook-missp	0	0
-never_the_less	nevertheless	0.9714285714285714	2	holbrook-missp	0	0
-nest	next	0.8666666666666667	1	holbrook-missp	9	-1
-tonight	night	0.9047619047619048	2	holbrook-missp	5	-1
-night	nights	0.9666666666666667	1	holbrook-missp	1	-1
-nigth	nights	0.9144444444444445	2	holbrook-missp	-1	-1
-ninty	ninety	0.9611111111111111	1	holbrook-missp	0	0
-niped	nipped	0.9611111111111111	1	holbrook-missp	2	0
-know	no	0.8333333333333334	2	holbrook-missp	-1	-1
-now	no	0.8888888888888888	1	holbrook-missp	5	-1
-on	no	0.0	2	holbrook-missp	22	-1
-know_on	no one	0.746031746031746	4	holbrook-missp	-1	-1
-know_one	no one	0.8194444444444445	3	holbrook-missp	-1	-1
-not_one	no one	0.8793650793650793	2	holbrook-missp	-1	-1
-now_one	no one	0.8793650793650793	2	holbrook-missp	-1	-1
-nose	noise	0.9466666666666665	1	holbrook-missp	3	-1
-nore	nor	0.9166666666666666	1	holbrook-missp	3	1
-no	not	0.8888888888888888	1	holbrook-missp	7	-1
-nots	notes	0.9533333333333333	1	holbrook-missp	0	0
-nousant	nuisance	0.8017857142857143	4	holbrook-missp	3	-1
-nurse's	nurses	0.9714285714285714	1	holbrook-missp	2	-1
-O_clock	o'clock	0.8095238095238096	2	holbrook-missp	-1	-1
-o,_clock	o'clock	0.8821428571428571	2	holbrook-missp	0	-1
-o_clock	o'clock	0.9142857142857143	1	holbrook-missp	0	-1
-oclock	o'clock	0.9571428571428572	1	holbrook-missp	0	-1
-off	of	0.8888888888888888	1	holbrook-missp	6	-1
-on	of	0.6666666666666666	1	holbrook-missp	-1	-1
-of	off	0.8888888888888888	1	holbrook-missp	1	-1
-ow	oh	0.6666666666666666	1	holbrook-missp	6	-1
-lod	old	0.5555555555555555	2	holbrook-missp	34	27
-ol	old	0.8888888888888888	1	holbrook-missp	1	0
-olddis	oldest	0.8444444444444443	3	holbrook-missp	-1	-1
-hn	on	0.6666666666666666	1	holbrook-missp	19	12
-hon	on	0.0	1	holbrook-missp	39	-1
-of	on	0.6666666666666666	1	holbrook-missp	19	-1
-one	on	0.8888888888888888	1	holbrook-missp	12	-1
-ones	once	0.8666666666666667	2	holbrook-missp	-1	-1
-own	once	0.7222222222222222	3	holbrook-missp	-1	-1
-wons	once	0.6666666666666666	3	holbrook-missp	-1	-1
-on	one	0.8888888888888888	1	holbrook-missp	1	-1
-wones	ones	0.9333333333333332	1	holbrook-missp	3	1
-ony	only	0.9166666666666666	1	holbrook-missp	0	4
-oped	opened	0.9222222222222222	2	holbrook-missp	-1	-1
-open	opened	0.9333333333333333	2	holbrook-missp	-1	-1
-opend	opened	0.9666666666666667	1	holbrook-missp	0	0
-opon	opened	0.8	3	holbrook-missp	-1	-1
-ot	or	0.6666666666666666	1	holbrook-missp	3	18
-orcher	orchard	0.9095238095238095	2	holbrook-missp	1	-1
-ordenrey	ordinary	0.8833333333333334	3	holbrook-missp	1	-1
-ophoned	orphaned	0.8821428571428571	2	holbrook-missp	3	-1
-orphaed	orphaned	0.975	1	holbrook-missp	0	0
-other	others	0.9666666666666667	1	holbrook-missp	1	-1
-other_wise	otherwise	0.98	1	holbrook-missp	0	0
-hour	our	0.9166666666666666	1	holbrook-missp	4	-1
-ous	our	0.7777777777777777	1	holbrook-missp	13	8
-out	our	0.7777777777777777	1	holbrook-missp	10	-1
-and_selve	ourselves	0.7037037037037037	5	holbrook-missp	-1	-1
-hot	out	0.5555555555555555	2	holbrook-missp	-1	-1
-ou	out	0.8888888888888888	1	holbrook-missp	1	1
-ouht	out	0.9166666666666666	1	holbrook-missp	1	1
-owt	out	0.7777777777777777	1	holbrook-missp	3	2
-outdrak	outbreak	0.9083333333333333	2	holbrook-missp	3	-1
-out_fit	outfit	0.9666666666666667	1	holbrook-missp	0	0
-out_fits	outfits	0.9708333333333333	1	holbrook-missp	0	0
-out_side	outside	0.9708333333333333	1	holbrook-missp	0	0
-out_sild	outside	0.9083333333333333	3	holbrook-missp	1	-1
-hover	over	0.9333333333333332	1	holbrook-missp	5	-1
-ove	over	0.9166666666666666	1	holbrook-missp	0	0
-overy	over	0.96	1	holbrook-missp	1	1
-payed	paid	0.8266666666666667	2	holbrook-missp	17	-1
-panted	painted	0.9619047619047619	1	holbrook-missp	5	-1
-per	pair	0.7222222222222222	2	holbrook-missp	-1	-1
-paralised	paralysed	0.9555555555555556	1	holbrook-missp	-1	-1
-parents	parent's	0.975	1	holbrook-missp	1	-1
-prarents	parents	0.9196428571428571	1	holbrook-missp	0	0
-prerents	parents	0.8821428571428571	2	holbrook-missp	4	-1
-pars	parts	0.9533333333333333	1	holbrook-missp	6	-1
-partey	party	0.9666666666666667	1	holbrook-missp	0	0
-pass	past	0.8833333333333334	1	holbrook-missp	7	-1
-parth_way	pathway	0.9407407407407408	2	holbrook-missp	1	1
-pathment	pavement	0.8222222222222222	2	holbrook-missp	2	5
-paid	pay	0.7222222222222222	2	holbrook-missp	-1	-1
-pirls	pearls	0.8400000000000001	2	holbrook-missp	8	-1
-peope	peep	0.8266666666666667	2	holbrook-missp	12	-1
-peped	peeped	0.9022222222222223	1	holbrook-missp	4	2
-peolpe	people	0.9611111111111111	2	holbrook-missp	0	0
-pople	people	0.9500000000000001	1	holbrook-missp	1	1
-prasp	perhaps	0.8114285714285714	4	holbrook-missp	-1	-1
-peason	person	0.9111111111111112	1	holbrook-missp	5	0
-peter	peter's	0.9428571428571428	2	holbrook-missp	7	-1
-peters	peter's	0.9714285714285714	1	holbrook-missp	1	-1
-petal	petrol	0.8755555555555556	2	holbrook-missp	10	-1
-phone	phoned	0.9666666666666667	1	holbrook-missp	1	-1
-phto	photo	0.88	1	holbrook-missp	0	0
-pick	picked	0.9333333333333333	2	holbrook-missp	-1	-1
-picted	picked	0.9222222222222223	1	holbrook-missp	3	0
-piked	picked	0.9555555555555556	1	holbrook-missp	2	-1
-pick_poketin	pickpocketing	0.9525641025641025	3	holbrook-missp	-1	-1
-pictuou	picture	0.8857142857142858	2	holbrook-missp	1	0
-picture	pictures	0.975	1	holbrook-missp	2	-1
-pictyres	pictures	0.95	1	holbrook-missp	0	0
-pitures	pictures	0.9666666666666667	1	holbrook-missp	0	0
-pese	piece	0.8049999999999999	2	holbrook-missp	-1	-1
-pice	piece	0.88	1	holbrook-missp	8	8
-pigs	pigs'	0.96	1	holbrook-missp	-1	-1
-play	plan	0.8833333333333334	1	holbrook-missp	9	-1
-payer	play	0.8049999999999999	3	holbrook-missp	-1	-1
-playa	player	0.8933333333333334	2	holbrook-missp	4	-1
-play	playing	0.9142857142857143	3	holbrook-missp	-1	-1
-pleace	please	0.9333333333333333	1	holbrook-missp	1	1
-pleas	please	0.9666666666666667	1	holbrook-missp	2	-1
-ploud	ploughed	0.925	3	holbrook-missp	-1	-1
-pocket	pockets	0.9714285714285714	1	holbrook-missp	1	-1
-pooting	pointing	0.8507936507936509	2	holbrook-missp	-1	-1
-poicle	police	0.9555555555555556	2	holbrook-missp	-1	0
-poilice	police	0.9174603174603175	1	holbrook-missp	2	0
-polic	police	0.9666666666666667	1	holbrook-missp	0	0
-police_man	policeman	0.98	1	holbrook-missp	0	0
-policman	policeman	0.9777777777777777	1	holbrook-missp	0	0
-polce_men	policemen	0.9481481481481482	2	holbrook-missp	0	0
-police_men	policemen	0.98	1	holbrook-missp	0	0
-policeman	policemen	0.9555555555555556	1	holbrook-missp	7	-1
-poney	pony	0.9533333333333333	1	holbrook-missp	1	1
-poped	popped	0.9611111111111111	1	holbrook-missp	2	0
-passess	possess	0.9142857142857143	1	holbrook-missp	6	4
-post_cards	postcards	0.98	1	holbrook-missp	0	0
-potates	potatoes	0.975	1	holbrook-missp	0	0
-potato	potatoes	0.95	2	holbrook-missp	2	-1
-ponds	pounds	0.9555555555555556	1	holbrook-missp	3	-1
-ponud	pounds	0.9022222222222223	3	holbrook-missp	3	-1
-pouder	powder	0.9111111111111112	1	holbrook-missp	3	3
-prayerbook	prayer-book	0.9818181818181818	1	holbrook-missp	1	-1
-pregant	pregnant	0.9464285714285714	1	holbrook-missp	0	0
-pregnet	pregnant	0.9214285714285715	2	holbrook-missp	0	0
-present	presents	0.975	1	holbrook-missp	1	-1
-pretiest	prettiest	0.9277777777777778	1	holbrook-missp	3	1
-prettest	prettiest	0.9777777777777777	1	holbrook-missp	0	0
-preety	pretty	0.9222222222222223	1	holbrook-missp	0	0
-pray	prey	0.8666666666666667	1	holbrook-missp	8	-1
-principl	principle	0.9777777777777777	1	holbrook-missp	1	1
-prisin	prison	0.9333333333333333	1	holbrook-missp	1	0
-privait	private	0.9428571428571428	2	holbrook-missp	0	0
-probally	probably	0.95	1	holbrook-missp	4	0
-proceded	proceeded	0.9527777777777777	1	holbrook-missp	2	0
-programe	programme	0.9777777777777777	1	holbrook-missp	-1	-1
-programes	programmes	0.98	1	holbrook-missp	-1	-1
-prostut	prostitute	0.9114285714285714	3	holbrook-missp	3	-1
-prouls	prowls	0.9222222222222223	1	holbrook-missp	0	0
-pull	pulled	0.9333333333333333	2	holbrook-missp	-1	-1
-puntuation	punctuation	0.9787878787878788	1	holbrook-missp	0	0
-pusbycile	push-bicycle	0.9157407407407407	5	holbrook-missp	-1	-1
-but	put	0.7777777777777777	1	holbrook-missp	28	-1
-pht	put	0.7777777777777777	1	holbrook-missp	7	4
-pot	put	0.7777777777777777	1	holbrook-missp	12	-1
-qurral	quarrel	0.9174603174603175	2	holbrook-missp	0	0
-quere	queer	0.9533333333333333	2	holbrook-missp	0	0
-question	questioned	0.96	2	holbrook-missp	6	-1
-quiert	quiet	0.9666666666666667	1	holbrook-missp	0	0
-quily	quietly	0.9333333333333333	2	holbrook-missp	1	-1
-quitely	quietly	0.9666666666666667	2	holbrook-missp	0	0
-quite	quit	0.96	1	holbrook-missp	1	-1
-quit	quite	0.96	1	holbrook-missp	1	-1
-rabbit	rabbits	0.9714285714285714	1	holbrook-missp	1	-1
-raceing	racing	0.9666666666666667	1	holbrook-missp	0	0
-radyator	radiator	0.9416666666666667	1	holbrook-missp	0	0
-run	ran	0.7777777777777777	1	holbrook-missp	10	-1
-raperly	rapidly	0.8666666666666668	2	holbrook-missp	10	5
-reding	reading	0.9619047619047619	1	holbrook-missp	3	1
-realy	ready	0.9066666666666667	1	holbrook-missp	7	7
-reddy	ready	0.8933333333333333	1	holbrook-missp	3	2
-redey	ready	0.8933333333333333	2	holbrook-missp	3	-1
-realise	realized	0.9214285714285715	2	holbrook-missp	5	-1
-realy	really	0.9666666666666667	1	holbrook-missp	0	0
-reley	really	0.8577777777777779	2	holbrook-missp	5	-1
-reper	reap	0.8266666666666667	3	holbrook-missp	-1	-1
-reconnised	recognized	0.92	2	holbrook-missp	1	0
-refection	refreshing	0.8288888888888889	5	holbrook-missp	-1	-1
-registery	registry	0.9777777777777777	1	holbrook-missp	0	1
-replid	replied	0.9714285714285714	1	holbrook-missp	0	0
-replie	reply	0.8933333333333334	2	holbrook-missp	11	-1
-retier	retire	0.9666666666666667	2	holbrook-missp	1	1
-reveirse	reverse	0.975	1	holbrook-missp	0	0
-recher	richer	0.9	1	holbrook-missp	5	0
-rigth	right	0.9533333333333333	2	holbrook-missp	0	0
-rings	ring	0.96	1	holbrook-missp	2	-1
-ripper	ripper's	0.95	2	holbrook-missp	7	-1
-rad	road	0.9166666666666666	1	holbrook-missp	3	-1
-raod	road	0.9249999999999999	2	holbrook-missp	0	0
-rod	road	0.9166666666666666	1	holbrook-missp	1	-1
-rorse	roars	0.8933333333333333	2	holbrook-missp	3	-1
-rhfn	roof	0.6666666666666666	3	holbrook-missp	-1	-1
-rought	rough	0.9666666666666667	1	holbrook-missp	0	0
-rougth	rough	0.9666666666666667	1	holbrook-missp	0	0
-rownd	round	0.8933333333333333	1	holbrook-missp	6	1
-roundabout	round about	0.9818181818181818	1	holbrook-missp	1	-1
-rouns	rounds	0.9666666666666667	1	holbrook-missp	0	0
-rowd	rowed	0.9533333333333333	1	holbrook-missp	1	1
-rumer	rumour	0.8755555555555556	2	holbrook-missp	-1	-1
-ran	run	0.7777777777777777	1	holbrook-missp	16	-1
-runaway	run away	0.9708333333333333	1	holbrook-missp	2	-1
-run	running	0.8095238095238096	4	holbrook-missp	-1	-1
-runaway	runway	0.9277777777777778	1	holbrook-missp	5	-1
-rust	rushed	0.825	3	holbrook-missp	-1	-1
-rusall	rustle	0.8444444444444443	2	holbrook-missp	1	1
-safaly	safely	0.9222222222222223	1	holbrook-missp	0	0
-sald	said	0.8666666666666667	1	holbrook-missp	5	6
-sed	said	0.7222222222222222	2	holbrook-missp	-1	-1
-sedn	said	0.6666666666666666	3	holbrook-missp	-1	-1
-seid	said	0.8500000000000001	1	holbrook-missp	2	2
-siad	said	0.9249999999999999	2	holbrook-missp	0	0
-sid	said	0.9166666666666666	1	holbrook-missp	0	3
-sidn	said	0.8500000000000001	2	holbrook-missp	-1	-1
-saled	sailed	0.9555555555555556	1	holbrook-missp	3	3
-sally	sallies	0.8742857142857143	3	holbrook-missp	-1	-1
-safe	save	0.8666666666666667	1	holbrook-missp	5	-1
-see	saw	0.5555555555555555	2	holbrook-missp	-1	-1
-soor	saw	0.5277777777777778	3	holbrook-missp	-1	-1
-sor	saw	0.5555555555555555	2	holbrook-missp	-1	-1
-sore	saw	0.5277777777777778	3	holbrook-missp	-1	-1
-sorw	saw	0.7222222222222222	2	holbrook-missp	-1	-1
-sow	saw	0.7777777777777777	1	holbrook-missp	11	-1
-said	say	0.7222222222222222	2	holbrook-missp	-1	-1
-sais	says	0.8666666666666667	1	holbrook-missp	9	8
-say	says	0.9166666666666666	1	holbrook-missp	1	-1
-seis	says	0.6666666666666666	2	holbrook-missp	-1	-1
-scards	scares	0.9333333333333333	1	holbrook-missp	5	3
-shool	school	0.9500000000000001	1	holbrook-missp	1	1
-scem	scream	0.9111111111111111	2	holbrook-missp	-1	-1
-seveen	screen	0.7999999999999999	2	holbrook-missp	-1	-1
-sculptor	sculpture	0.9305555555555555	2	holbrook-missp	6	-1
-see	sea	0.7777777777777777	1	holbrook-missp	12	-1
-seach	search	0.9611111111111111	1	holbrook-missp	2	0
-sat	seat	0.9166666666666666	1	holbrook-missp	2	-1
-sexeon	second	0.8222222222222222	3	holbrook-missp	-1	-1
-secutery	secretary	0.8856481481481482	3	holbrook-missp	6	-1
-se	see	0.8888888888888888	1	holbrook-missp	1	7
-see	seeing	0.8333333333333334	3	holbrook-missp	-1	-1
-semed	seemed	0.9022222222222223	1	holbrook-missp	6	3
-see	sees	0.9166666666666666	1	holbrook-missp	7	-1
-slevish	selfish	0.8642857142857143	3	holbrook-missp	3	-1
-seling	selling	0.9666666666666667	1	holbrook-missp	0	0
-senour	senor	0.9666666666666667	1	holbrook-missp	2	0
-ses	sex	0.7777777777777777	1	holbrook-missp	15	10
-sixty_one	sexton	0.8166666666666667	4	holbrook-missp	3	-1
-exual	sexual	0.9444444444444445	1	holbrook-missp	0	0
-sexul	sexual	0.9666666666666667	1	holbrook-missp	0	0
-she	shall	0.6888888888888888	3	holbrook-missp	-1	-1
-he	she	0.0	1	holbrook-missp	37	-1
-the	she	0.7777777777777777	1	holbrook-missp	9	-1
-shilling	shillings	0.9777777777777777	1	holbrook-missp	1	-1
-shinning	shining	0.9464285714285714	1	holbrook-missp	5	-1
-ship_wreck	shipwreck	0.98	1	holbrook-missp	0	0
-shon	shone	0.96	1	holbrook-missp	0	0
-shot	shoot	0.9533333333333333	1	holbrook-missp	3	-1
-shap	shop	0.8666666666666667	1	holbrook-missp	10	9
-shortend	shortened	0.9777777777777777	1	holbrook-missp	2	0
-sot	shot	0.9166666666666666	1	holbrook-missp	9	-1
-shod	should	0.9222222222222222	2	holbrook-missp	-1	-1
-shoold	should	0.9222222222222223	1	holbrook-missp	1	1
-shoud	should	0.9666666666666667	1	holbrook-missp	0	0
-sould	should	0.9500000000000001	1	holbrook-missp	1	1
-shout	shouted	0.9428571428571428	2	holbrook-missp	-1	-1
-shout	shouting	0.925	3	holbrook-missp	-1	-1
-shufarling	shuffling	0.9377777777777778	2	holbrook-missp	0	0
-shock	shut up	0.5619047619047619	5	holbrook-missp	-1	-1
-shiy	shy	0.9166666666666666	1	holbrook-missp	1	1
-side_car	sidecar	0.975	1	holbrook-missp	0	0
-side_care	sidecar	0.9555555555555556	2	holbrook-missp	0	0
-sine_post	signpost	0.9074074074074073	3	holbrook-missp	0	-1
-sing_post	signpost	0.937037037037037	2	holbrook-missp	0	0
-simpl	simple	0.9666666666666667	1	holbrook-missp	0	1
-sings	sing	0.96	1	holbrook-missp	5	-1
-singl	single	0.9666666666666667	1	holbrook-missp	0	1
-satren	siren	0.8400000000000001	2	holbrook-missp	14	-1
-siter	sister	0.9555555555555556	1	holbrook-missp	5	3
-sister	sisters	0.9714285714285714	1	holbrook-missp	1	-1
-siting	sitting	0.9666666666666667	1	holbrook-missp	1	-1
-scill_filly	skilfully	0.7813852813852813	4	holbrook-missp	3	-1
-slander	slammed	0.8200000000000001	3	holbrook-missp	-1	-1
-slaughthouse	slaughterhouse	0.9380952380952381	2	holbrook-missp	-1	0
-seph	sleep	0.6333333333333333	3	holbrook-missp	-1	-1
-slip	sleep	0.8266666666666667	2	holbrook-missp	-1	-1
-sleepey	sleepy	0.9714285714285714	1	holbrook-missp	0	0
-slolly	slowly	0.9222222222222223	1	holbrook-missp	1	1
-snake	snakes	0.9666666666666667	1	holbrook-missp	2	-1
-sneking	sneaking	0.9708333333333333	1	holbrook-missp	0	0
-snoty	snooty	0.9611111111111111	1	holbrook-missp	1	1
-snowe	snow	0.96	1	holbrook-missp	1	1
-soape	soap	0.96	1	holbrook-missp	1	1
-sope	soap	0.8666666666666667	2	holbrook-missp	-1	-1
-soled	sold	0.9533333333333333	1	holbrook-missp	9	-1
-shm	some	0.7222222222222222	2	holbrook-missp	-1	-1
-somes	some	0.96	1	holbrook-missp	0	0
-sum	some	0.7222222222222222	2	holbrook-missp	-1	-1
-some_on	someone	0.9428571428571428	2	holbrook-missp	0	0
-some_one	someone	0.975	1	holbrook-missp	0	0
-some_thing	something	0.98	1	holbrook-missp	0	0
-somethick	something	0.9111111111111111	2	holbrook-missp	2	0
-somethink	something	0.9555555555555556	1	holbrook-missp	2	0
-somthing	something	0.9740740740740741	1	holbrook-missp	0	0
-sothing	something	0.9407407407407408	2	holbrook-missp	5	-1
-some_thime	sometimes	0.9377777777777778	3	holbrook-missp	-1	-1
-some_time	sometimes	0.9555555555555556	2	holbrook-missp	1	-1
-some_times	sometimes	0.98	1	holbrook-missp	0	0
-sometime	sometimes	0.9777777777777777	1	holbrook-missp	3	-1
-sone_theme	sometimes	0.76	5	holbrook-missp	-1	-1
-some_were	somewhere	0.9555555555555556	2	holbrook-missp	0	0
-son	soon	0.9166666666666666	1	holbrook-missp	1	-1
-sone	soon	0.8666666666666667	2	holbrook-missp	-1	-1
-sonner	sooner	0.9111111111111112	1	holbrook-missp	1	1
-saw	sore	0.5277777777777778	3	holbrook-missp	-1	-1
-sownd	sound	0.8933333333333333	1	holbrook-missp	2	2
-suvenere	souvenir	0.8500000000000001	3	holbrook-missp	1	-1
-sow	sows	0.9166666666666666	1	holbrook-missp	5	-1
-sporn	spawn	0.7866666666666667	2	holbrook-missp	23	-1
-seking	speaking	0.9249999999999999	2	holbrook-missp	2	-1
-spicil	special	0.826031746031746	2	holbrook-missp	17	-1
-spectatoes	spectators	0.96	1	holbrook-missp	1	1
-spys	spies	0.8266666666666667	2	holbrook-missp	-1	-1
-splended	splendid	0.95	1	holbrook-missp	0	0
-spring	springs	0.9714285714285714	1	holbrook-missp	2	-1
-spund	spun	0.96	1	holbrook-missp	0	0
-spiy	spy	0.9166666666666666	1	holbrook-missp	4	4
-squar	square	0.9666666666666667	1	holbrook-missp	0	0
-squick	squeak	0.8444444444444443	2	holbrook-missp	11	-1
-stabed	stabbed	0.9714285714285714	1	holbrook-missp	2	0
-sairs	stairs	0.9500000000000001	1	holbrook-missp	0	0
-stars	stairs	0.9611111111111111	1	holbrook-missp	4	-1
-sters	stairs	0.8577777777777779	2	holbrook-missp	25	-1
-stardnd	standard	0.9375	3	holbrook-missp	0	-1
-staning	standing	0.975	1	holbrook-missp	0	0
-stearing	staring	0.9666666666666667	1	holbrook-missp	0	0
-stare	stars	0.92	1	holbrook-missp	11	-1
-starte	start	0.9666666666666667	1	holbrook-missp	3	4
-startes	started	0.9428571428571428	1	holbrook-missp	9	7
-straghted	started	0.9026455026455026	3	holbrook-missp	12	-1
-starst	starts	0.9666666666666667	2	holbrook-missp	2	1
-start	starts	0.9666666666666667	1	holbrook-missp	1	-1
-statmeant	statement	0.9305555555555555	2	holbrook-missp	2	0
-stastione	station	0.9481481481481482	2	holbrook-missp	1	2
-stad	stayed	0.9222222222222222	2	holbrook-missp	-1	-1
-stayd	stayed	0.9666666666666667	1	holbrook-missp	0	0
-stack	steak	0.8933333333333333	2	holbrook-missp	12	-1
-still	steal	0.7866666666666667	2	holbrook-missp	18	-1
-stearing	steering	0.9416666666666667	1	holbrook-missp	5	5
-stepe	step	0.96	1	holbrook-missp	1	1
-stawing	stewing	0.9238095238095239	1	holbrook-missp	12	10
-stive	stiff	0.8133333333333334	2	holbrook-missp	6	-1
-sill	still	0.94	1	holbrook-missp	5	-1
-simulated	stimulated	0.97	1	holbrook-missp	2	-1
-sticks	stinks	0.9222222222222223	1	holbrook-missp	12	-1
-stowl	stole	0.9066666666666667	2	holbrook-missp	5	-1
-stolon	stolen	0.9333333333333333	1	holbrook-missp	3	-1
-stowle	stolen	0.9222222222222223	2	holbrook-missp	2	-1
-stowlen	stolen	0.9666666666666667	1	holbrook-missp	0	0
-stop	stopped	0.9142857142857143	3	holbrook-missp	-1	-1
-stoped	stopped	0.9714285714285714	1	holbrook-missp	2	0
-story	stories	0.8742857142857143	3	holbrook-missp	-1	-1
-stormes	storms	0.9714285714285714	1	holbrook-missp	2	0
-hio	story	0.5111111111111111	4	holbrook-missp	-1	-1
-shio	story	0.6333333333333333	4	holbrook-missp	-1	-1
-sory	story	0.94	1	holbrook-missp	1	1
-stors	story	0.92	1	holbrook-missp	11	5
-staidght	straight	0.9333333333333333	2	holbrook-missp	0	0
-strate	straight	0.8916666666666667	4	holbrook-missp	-1	-1
-stright	straight	0.9708333333333333	1	holbrook-missp	0	0
-storw	straw	0.8933333333333333	2	holbrook-missp	7	-1
-strow	straw	0.9066666666666667	1	holbrook-missp	5	4
-sterret	street	0.9174603174603175	2	holbrook-missp	0	1
-strogald	struggled	0.8638888888888888	3	holbrook-missp	5	-1
-stufy	stuffy	0.9666666666666667	1	holbrook-missp	0	0
-suden	sudden	0.9611111111111111	1	holbrook-missp	0	0
-senddly	suddenly	0.8767857142857143	4	holbrook-missp	-1	-1
-suddenel	suddenly	0.95	2	holbrook-missp	0	1
-surtebull	suitable	0.8	4	holbrook-missp	1	-1
-son	sun	0.7777777777777777	1	holbrook-missp	12	-1
-sunck	sunk	0.9533333333333333	1	holbrook-missp	2	0
-sopose	suppose	0.8642857142857143	2	holbrook-missp	5	2
-surpose	suppose	0.9238095238095239	1	holbrook-missp	0	0
-shore	sure	0.8049999999999999	2	holbrook-missp	-1	-1
-swan	swans	0.96	1	holbrook-missp	2	-1
-swet	sweets	0.9222222222222222	2	holbrook-missp	-1	-1
-swaling	swirling	0.8507936507936509	2	holbrook-missp	32	-1
-switch	switched	0.95	2	holbrook-missp	3	-1
-tadpolls	tadpoles	0.95	1	holbrook-missp	2	0
-tack	take	0.8666666666666667	2	holbrook-missp	-1	-1
-thack	take	0.6333333333333333	3	holbrook-missp	-1	-1
-thak	take	0.8500000000000001	2	holbrook-missp	-1	-1
-tackon	taken	0.8577777777777779	2	holbrook-missp	12	10
-tacks	takes	0.8933333333333333	2	holbrook-missp	11	-1
-thak	takes	0.8049999999999999	3	holbrook-missp	-1	-1
-takeing	taking	0.9666666666666667	1	holbrook-missp	0	0
-thaing	taking	0.9	2	holbrook-missp	-1	-1
-tallk	talk	0.9533333333333333	1	holbrook-missp	1	1
-torck	talk	0.6333333333333333	3	holbrook-missp	-1	-1
-tork	talk	0.6666666666666666	2	holbrook-missp	-1	-1
-tork	talked	0.611111111111111	4	holbrook-missp	-1	-1
-tipped	tape	0.775	3	holbrook-missp	-1	-1
-tast	taste	0.96	1	holbrook-missp	0	0
-teacher	teachers	0.975	1	holbrook-missp	3	-1
-teset	teaches	0.6761904761904761	4	holbrook-missp	-1	-1
-teddoy	teddy boy	0.9	3	holbrook-missp	-1	-1
-tedeboy	teddy boy	0.85	3	holbrook-missp	-1	-1
-teddyboys	teddy boys	0.98	1	holbrook-missp	0	-1
-theeat	teeth	0.8400000000000001	3	holbrook-missp	-1	-1
-telephone	telephoned	0.98	1	holbrook-missp	2	-1
-telphoned	telephoned	0.9248148148148148	1	holbrook-missp	3	0
-teel	tell	0.8666666666666667	1	holbrook-missp	9	8
-tens	tense	0.96	1	holbrook-missp	1	-1
-thank	thanks	0.9666666666666667	1	holbrook-missp	1	-1
-theat	that	0.9466666666666665	1	holbrook-missp	4	2
-thats	that's	0.9666666666666667	1	holbrook-missp	0	-1
-ge	the	0.0	2	holbrook-missp	-1	-1
-he	the	0.0	1	holbrook-missp	38	-1
-th	the	0.8888888888888888	1	holbrook-missp	0	0
-thee	the	0.9166666666666666	1	holbrook-missp	6	-1
-they	the	0.9166666666666666	1	holbrook-missp	2	-1
-thoy	the	0.7222222222222222	2	holbrook-missp	-1	-1
-theer	their	0.9066666666666667	1	holbrook-missp	6	3
-there	their	0.9066666666666667	2	holbrook-missp	-1	-1
-they	their	0.8483333333333334	2	holbrook-missp	-1	-1
-thire	their	0.8933333333333333	2	holbrook-missp	11	-1
-the	them	0.9166666666666666	1	holbrook-missp	4	-1
-theme	them	0.96	1	holbrook-missp	5	-1
-then	them	0.8833333333333334	1	holbrook-missp	5	-1
-them_souve	themselves	0.8514285714285714	4	holbrook-missp	-1	-1
-they_self	themselves	0.8288888888888889	5	holbrook-missp	-1	-1
-than	then	0.8666666666666667	1	holbrook-missp	7	-1
-the	then	0.9166666666666666	1	holbrook-missp	5	-1
-them	then	0.8833333333333334	1	holbrook-missp	5	-1
-they	then	0.8833333333333334	1	holbrook-missp	8	-1
-he	there	0.7999999999999999	3	holbrook-missp	-1	-1
-thaw	there	0.6333333333333333	3	holbrook-missp	-1	-1
-the	there	0.8666666666666667	2	holbrook-missp	-1	-1
-their	there	0.9066666666666667	2	holbrook-missp	3	-1
-ther	there	0.96	1	holbrook-missp	0	1
-they	there	0.8483333333333334	2	holbrook-missp	-1	-1
-thrar	there	0.7866666666666667	3	holbrook-missp	16	-1
-thre	there	0.88	1	holbrook-missp	4	4
-therell	there'll	0.975	1	holbrook-missp	-1	-1
-there	there's	0.9428571428571428	2	holbrook-missp	5	-1
-theres	there's	0.9714285714285714	1	holbrook-missp	0	-1
-thoese	these	0.9555555555555556	1	holbrook-missp	0	0
-the	they	0.9166666666666666	1	holbrook-missp	3	-1
-there	they	0.8483333333333334	2	holbrook-missp	-1	-1
-thrar	they	0.6333333333333333	3	holbrook-missp	-1	-1
-thror	they	0.6333333333333333	3	holbrook-missp	-1	-1
-theile	they'll	0.8222222222222222	3	holbrook-missp	9	-1
-their	they'll	0.6761904761904761	4	holbrook-missp	-1	-1
-there	they're	0.9333333333333333	2	holbrook-missp	6	-1
-thif	thief	0.9533333333333333	1	holbrook-missp	0	0
-theves	thieves	0.9619047619047619	1	holbrook-missp	0	0
-think	thing	0.92	1	holbrook-missp	5	-1
-think	things	0.8933333333333334	2	holbrook-missp	-1	-1
-thinks	things	0.9333333333333333	1	holbrook-missp	6	-1
-thank	think	0.8933333333333333	1	holbrook-missp	6	-1
-thing	think	0.92	1	holbrook-missp	8	-1
-tink	think	0.94	1	holbrook-missp	1	0
-tinking	thinking	0.9625	1	holbrook-missp	3	1
-thomes	thomas	0.9333333333333333	1	holbrook-missp	-1	-1
-thort	thought	0.8533333333333333	3	holbrook-missp	15	-1
-thorugh	thought	0.9333333333333333	2	holbrook-missp	3	-1
-thot	thought	0.8083333333333333	3	holbrook-missp	-1	-1
-though	thought	0.9714285714285714	1	holbrook-missp	1	-1
-throught	thought	0.9666666666666667	1	holbrook-missp	1	1
-thee	three	0.9466666666666665	1	holbrook-missp	5	-1
-frow	threw	0.6333333333333333	3	holbrook-missp	-1	-1
-through	threw	0.6761904761904761	4	holbrook-missp	-1	-1
-throw	through	0.8742857142857143	3	holbrook-missp	-1	-1
-thruogth	through	0.9375	3	holbrook-missp	-1	0
-thorght	throw	0.7657142857142858	4	holbrook-missp	-1	-1
-tired	tied	0.9466666666666665	1	holbrook-missp	4	-1
-utill	till	0.9333333333333332	1	holbrook-missp	0	0
-thim	time	0.8500000000000001	2	holbrook-missp	-1	-1
-tim	time	0.9166666666666666	1	holbrook-missp	0	1
-tin	tinned	0.8333333333333334	3	holbrook-missp	-1	-1
-tiper	tip	0.8666666666666667	2	holbrook-missp	21	-1
-tope	tip	0.7222222222222222	2	holbrook-missp	-1	-1
-tipe	tipped	0.9222222222222222	2	holbrook-missp	-1	-1
-qu	to	0.0	2	holbrook-missp	-1	-1
-the	to	0.611111111111111	2	holbrook-missp	-1	-1
-too	to	0.8888888888888888	1	holbrook-missp	4	-1
-tow	to	0.8888888888888888	1	holbrook-missp	5	-1
-two	to	0.611111111111111	1	holbrook-missp	6	-1
-to_gether	together	0.9703703703703703	1	holbrook-missp	0	0
-to	told	0.8333333333333334	2	holbrook-missp	-1	-1
-tod	told	0.9166666666666666	1	holbrook-missp	2	2
-toled	told	0.9533333333333333	1	holbrook-missp	6	4
-to_morrow	tomorrow	0.9703703703703703	1	holbrook-missp	0	0
-tommorrow	tomorrow	0.9740740740740741	1	holbrook-missp	2	0
-tung	tongue	0.775	3	holbrook-missp	-1	-1
-to_night	tonight	0.9666666666666667	1	holbrook-missp	0	0
-to_nigth	tonight	0.9285714285714286	3	holbrook-missp	0	0
-tonigth	tonight	0.9714285714285714	2	holbrook-missp	0	0
-toner	tonner	0.9611111111111111	1	holbrook-missp	-1	-1
-to	too	0.8888888888888888	1	holbrook-missp	2	-1
-two	too	0.7777777777777777	1	holbrook-missp	4	-1
-thc	took	0.5277777777777778	3	holbrook-missp	-1	-1
-too	took	0.9166666666666666	1	holbrook-missp	1	-1
-tuck	took	0.6666666666666666	2	holbrook-missp	-1	-1
-toch	touched	0.8857142857142857	3	holbrook-missp	-1	-1
-towords	towards	0.9333333333333333	1	holbrook-missp	2	0
-towe	towel	0.96	1	holbrook-missp	2	2
-tower	towers	0.9666666666666667	1	holbrook-missp	1	-1
-trator	tractor	0.9666666666666667	1	holbrook-missp	1	1
-tamp	tramp	0.94	1	holbrook-missp	4	-1
-trmp	tramp	0.9466666666666665	1	holbrook-missp	2	0
-trmp	tramps	0.9111111111111111	2	holbrook-missp	-1	-1
-crat	trap	0.6666666666666666	2	holbrook-missp	-1	-1
-tashie	trashy	0.7999999999999999	3	holbrook-missp	12	-1
-thresher	treasure	0.8	5	holbrook-missp	-1	-1
-tresure	treasure	0.9708333333333333	1	holbrook-missp	0	0
-three	tree	0.94	1	holbrook-missp	5	-1
-treee	tree	0.96	1	holbrook-missp	0	0
-tree	trees	0.96	1	holbrook-missp	2	-1
-trid	tried	0.9533333333333333	1	holbrook-missp	1	1
-trobel	trouble	0.9277777777777778	3	holbrook-missp	0	-1
-troefle	trouble	0.8666666666666668	2	holbrook-missp	3	1
-truble	trouble	0.9619047619047619	1	holbrook-missp	0	0
-traing	trying	0.9111111111111112	1	holbrook-missp	6	5
-tring	trying	0.9555555555555556	1	holbrook-missp	1	0
-trining	trying	0.8793650793650793	2	holbrook-missp	10	-1
-try	trying	0.8333333333333334	3	holbrook-missp	-1	-1
-tern	turn	0.8500000000000001	1	holbrook-missp	11	-1
-turne	turn	0.96	1	holbrook-missp	2	2
-twentone	twenty one	0.96	2	holbrook-missp	-1	-1
-to	two	0.611111111111111	1	holbrook-missp	22	-1
-unlce	uncle	0.9466666666666665	2	holbrook-missp	1	1
-uncoshers	unconscious	0.8424242424242424	5	holbrook-missp	-1	-1
-an_cafferd	uncovered	0.6851851851851851	6	holbrook-missp	2	-1
-undergroth	undergrowth	0.9818181818181818	1	holbrook-missp	0	0
-under_nethe	underneath	0.9436363636363637	3	holbrook-missp	0	-1
-unispected	unexpected	0.8266666666666667	2	holbrook-missp	2	3
-unfitt	unfit	0.9666666666666667	1	holbrook-missp	0	0
-on_hethy	unhealthy	0.8055555555555555	4	holbrook-missp	0	-1
-uatill	until	0.8400000000000001	2	holbrook-missp	1	1
-untill	until	0.9666666666666667	1	holbrook-missp	0	0
-apen	upon	0.6666666666666666	2	holbrook-missp	-1	-1
-apone	upon	0.7833333333333333	2	holbrook-missp	15	-1
-up_stairs	upstairs	0.9703703703703703	1	holbrook-missp	0	0
-hus	us	0.0	1	holbrook-missp	46	23
-use	us	0.8888888888888888	1	holbrook-missp	9	-1
-use't	used	0.8483333333333334	2	holbrook-missp	5	-1
-ust	used	0.7222222222222222	2	holbrook-missp	-1	-1
-usfull	useful	0.9111111111111112	2	holbrook-missp	3	1
-usally	usually	0.9619047619047619	1	holbrook-missp	2	0
-veracular	vernacular	0.9766666666666667	1	holbrook-missp	0	0
-every	very	0.85	1	holbrook-missp	5	-1
-vent	vet	0.9166666666666666	1	holbrook-missp	3	-1
-vethn	vet	0.8666666666666667	2	holbrook-missp	-1	1
-vethu	vet	0.8666666666666667	2	holbrook-missp	1	1
-vetin	vet	0.8666666666666667	2	holbrook-missp	7	-1
-volonteered	volunteered	0.9575757575757576	1	holbrook-missp	0	0
-wagon	waggon	0.9611111111111111	1	holbrook-missp	-1	-1
-wat	wait	0.9166666666666666	1	holbrook-missp	0	0
-wate	wait	0.8666666666666667	2	holbrook-missp	-1	-1
-weight	wait	0.775	3	holbrook-missp	-1	-1
-wated	waited	0.9555555555555556	1	holbrook-missp	0	0
-whated	waited	0.9	2	holbrook-missp	6	-1
-waten	waiting	0.8323809523809523	3	holbrook-missp	15	-1
-wating	waiting	0.9174603174603175	1	holbrook-missp	5	3
-whating	waiting	0.8642857142857143	2	holbrook-missp	15	-1
-walk	walked	0.9333333333333333	2	holbrook-missp	-1	-1
-wark	walked	0.8	3	holbrook-missp	-1	-1
-warked	walked	0.9111111111111112	1	holbrook-missp	6	5
-wocer	walked	0.5777777777777778	4	holbrook-missp	-1	-1
-warking	walking	0.9238095238095239	1	holbrook-missp	7	6
-molh	wall	0.5	3	holbrook-missp	-1	-1
-wah	wall	0.7222222222222222	2	holbrook-missp	-1	-1
-wand	want	0.8833333333333334	1	holbrook-missp	7	-1
-wat	want	0.9166666666666666	1	holbrook-missp	5	1
-whan't	want	0.8999999999999999	2	holbrook-missp	2	-1
-whant	want	0.94	1	holbrook-missp	1	1
-whon	want	0.6666666666666666	3	holbrook-missp	-1	-1
-whont	want	0.8049999999999999	2	holbrook-missp	9	-1
-won't	want	0.8049999999999999	2	holbrook-missp	8	-1
-wont	want	0.8500000000000001	1	holbrook-missp	7	-1
-woth	want	0.6666666666666666	3	holbrook-missp	-1	-1
-whanted	wanted	0.9571428571428572	1	holbrook-missp	0	0
-whated	wanted	0.9	2	holbrook-missp	8	-1
-wonted	wanted	0.9	1	holbrook-missp	6	-1
-want	wants	0.96	1	holbrook-missp	1	-1
-wornd	warned	0.8400000000000001	2	holbrook-missp	9	-1
-we	was	0.611111111111111	2	holbrook-missp	-1	-1
-wos	was	0.7777777777777777	1	holbrook-missp	7	10
-wosh	wash	0.8500000000000001	1	holbrook-missp	1	1
-wosh	washed	0.775	3	holbrook-missp	-1	-1
-wasnt	wasn't	0.9666666666666667	1	holbrook-missp	0	-1
-wastent	wasn't	0.8477777777777777	3	holbrook-missp	5	-1
-whan't	wasn't	0.9	2	holbrook-missp	1	-1
-whdn't	wasn't	0.7999999999999999	2	holbrook-missp	5	3
-wach	watch	0.9466666666666665	1	holbrook-missp	0	0
-wacth	watch	0.9466666666666665	2	holbrook-missp	0	0
-wakh	watch	0.8266666666666667	2	holbrook-missp	-1	-1
-wash	watch	0.8266666666666667	2	holbrook-missp	-1	-1
-watcheing	watching	0.9777777777777777	1	holbrook-missp	0	0
-waterrat	water-rat	0.9777777777777777	1	holbrook-missp	1	-1
-wavey	wavy	0.9533333333333333	1	holbrook-missp	1	1
-wel	we'll	0.8666666666666667	2	holbrook-missp	5	-1
-well	we'll	0.9466666666666665	1	holbrook-missp	4	-1
-will	we'll	0.8049999999999999	2	holbrook-missp	30	-1
-were	we're	0.9466666666666665	1	holbrook-missp	2	-1
-wasel	weasel	0.8900000000000001	1	holbrook-missp	1	0
-wead	weed	0.8666666666666667	1	holbrook-missp	9	8
-weeke	week	0.96	1	holbrook-missp	0	0
-week_ends	weekends	0.9777777777777777	1	holbrook-missp	0	0
-weekend	weekends	0.975	1	holbrook-missp	3	-1
-week	weeks	0.96	1	holbrook-missp	1	-1
-weping	weeping	0.9619047619047619	1	holbrook-missp	2	0
-wade	weighed	0.5952380952380952	5	holbrook-missp	-1	-1
-waid	weighed	0.5952380952380952	4	holbrook-missp	-1	-1
-waying	weighing	0.6388888888888888	4	holbrook-missp	-1	-1
-sent	went	0.8333333333333334	1	holbrook-missp	21	-1
-wen	went	0.9166666666666666	1	holbrook-missp	6	-1
-wend	went	0.8833333333333334	1	holbrook-missp	6	-1
-wens	went	0.8833333333333334	1	holbrook-missp	14	-1
-wet	went	0.9166666666666666	1	holbrook-missp	4	-1
-weth	went	0.8666666666666667	2	holbrook-missp	-1	-1
-wetn	went	0.9333333333333333	2	holbrook-missp	2	0
-when	went	0.8500000000000001	2	holbrook-missp	-1	-1
-whenet	went	0.8999999999999999	2	holbrook-missp	3	4
-whent	went	0.94	1	holbrook-missp	2	2
-wit	went	0.7222222222222222	2	holbrook-missp	-1	-1
-wnet	went	0.9249999999999999	2	holbrook-missp	0	0
-wher	were	0.8500000000000001	2	holbrook-missp	-1	-1
-where	were	0.94	1	holbrook-missp	4	-1
-were'nt	weren't	0.9714285714285714	2	holbrook-missp	0	0
-wern't	weren't	0.9666666666666667	1	holbrook-missp	0	0
-whernt	weren't	0.8642857142857143	3	holbrook-missp	7	-1
-weat	wet	0.9166666666666666	1	holbrook-missp	4	2
-want	what	0.8500000000000001	2	holbrook-missp	-1	-1
-wat	what	0.9166666666666666	1	holbrook-missp	3	2
-wate	what	0.8500000000000001	2	holbrook-missp	-1	-1
-wath	what	0.8500000000000001	2	holbrook-missp	-1	-1
-wha't	what	0.9533333333333333	1	holbrook-missp	0	0
-whate	what	0.96	1	holbrook-missp	0	0
-whats	what	0.96	1	holbrook-missp	2	-1
-whot	what	0.8666666666666667	1	holbrook-missp	7	8
-wot	what	0.7222222222222222	2	holbrook-missp	-1	-1
-what	what's	0.9333333333333333	2	holbrook-missp	3	-1
-whats	what's	0.9666666666666667	1	holbrook-missp	1	-1
-what_ever	whatever	0.9777777777777777	1	holbrook-missp	0	0
-weel	wheel	0.94	1	holbrook-missp	0	0
-wen	when	0.9166666666666666	1	holbrook-missp	3	-1
-went	when	0.8500000000000001	2	holbrook-missp	-1	-1
-whe	when	0.9166666666666666	1	holbrook-missp	3	3
-where	when	0.8483333333333334	2	holbrook-missp	-1	-1
-were	where	0.94	1	holbrook-missp	4	-1
-were_ever	wherever	0.8529761904761904	3	holbrook-missp	2	-1
-where_ever	wherever	0.9349999999999999	2	holbrook-missp	1	1
-wich	which	0.94	1	holbrook-missp	2	2
-witch	which	0.88	2	holbrook-missp	13	-1
-wil	while	0.8666666666666667	2	holbrook-missp	-1	-1
-wiskey	whiskey	0.9571428571428572	1	holbrook-missp	0	0
-wiscell	whistle	0.7685714285714286	4	holbrook-missp	17	-1
-wisheld	whistled	0.8767857142857143	4	holbrook-missp	-1	-1
-withe	white	0.88	2	holbrook-missp	-1	-1
-how	who	0.0	2	holbrook-missp	-1	-1
-who_evers	whoever's	0.9481481481481482	2	holbrook-missp	-1	-1
-hows	whose	0.7833333333333333	3	holbrook-missp	-1	-1
-who	whose	0.8666666666666667	2	holbrook-missp	-1	-1
-we'll	will	0.8049999999999999	2	holbrook-missp	14	-1
-wippd	wiped	0.9066666666666667	1	holbrook-missp	1	0
-wich	witch	0.9466666666666665	1	holbrook-missp	0	1
-wiche	witch	0.8933333333333333	2	holbrook-missp	2	-1
-wiht	with	0.9333333333333333	2	holbrook-missp	1	1
-wis	with	0.7222222222222222	2	holbrook-missp	-1	-1
-with_out	without	0.975	1	holbrook-missp	0	0
-wok	woke	0.9166666666666666	1	holbrook-missp	1	-1
-wamon	woman	0.76	2	holbrook-missp	16	-1
-women	woman	0.9066666666666667	1	holbrook-missp	4	-1
-womon	woman	0.9066666666666667	1	holbrook-missp	0	1
-one	won	0.0	2	holbrook-missp	-1	-1
-won	won't	0.8666666666666667	2	holbrook-missp	5	-1
-wont	won't	0.9533333333333333	1	holbrook-missp	1	-1
-wund	wonder	0.775	3	holbrook-missp	-1	-1
-wunder	wonder	0.9	1	holbrook-missp	4	4
-wonder	wondered	0.95	2	holbrook-missp	-1	-1
-wondoful	wonderful	0.9305555555555555	2	holbrook-missp	0	0
-work	working	0.9142857142857143	3	holbrook-missp	-1	-1
-work_men	workmen	0.975	1	holbrook-missp	0	0
-wonrs	works	0.8933333333333333	2	holbrook-missp	-1	-1
-work	works	0.96	1	holbrook-missp	1	-1
-wors	works	0.9533333333333333	1	holbrook-missp	3	4
-worme	worm	0.96	1	holbrook-missp	1	1
-worid	worried	0.9333333333333333	2	holbrook-missp	1	-1
-worred	worried	0.9714285714285714	1	holbrook-missp	0	0
-worye	worry	0.9066666666666667	2	holbrook-missp	1	-1
-rite	write	0.9333333333333332	1	holbrook-missp	3	-1
-writeing	writing	0.975	1	holbrook-missp	0	0
-ron	wrong	0.8666666666666667	2	holbrook-missp	-1	-1
-rong	wrong	0.9333333333333332	1	holbrook-missp	0	0
-wong	wrong	0.94	1	holbrook-missp	0	0
-roat	wrote	0.7833333333333333	3	holbrook-missp	-1	-1
-yanky	yankee	0.8933333333333334	2	holbrook-missp	-1	-1
-year	years	0.96	1	holbrook-missp	2	-1
-yers	years	0.9466666666666665	1	holbrook-missp	2	0
-yess	yes	0.9166666666666666	1	holbrook-missp	2	1
-yet	yes	0.7777777777777777	1	holbrook-missp	21	-1
-yeth	yet	0.9166666666666666	1	holbrook-missp	1	0
-yew	you	0.5555555555555555	2	holbrook-missp	-1	-1
-your	you	0.9166666666666666	1	holbrook-missp	3	-1
-yow	you	0.7777777777777777	1	holbrook-missp	6	-1
-you	you'll	0.8333333333333334	3	holbrook-missp	-1	-1
-your	you'll	0.825	3	holbrook-missp	-1	-1
-your	you're	0.9222222222222222	2	holbrook-missp	2	-1
-yow	you're	0.6666666666666666	4	holbrook-missp	-1	-1
-you	you've	0.8333333333333334	3	holbrook-missp	-1	-1
-yung	young	0.94	1	holbrook-missp	0	0
-yor	your	0.9166666666666666	1	holbrook-missp	0	0
-you	your	0.9166666666666666	1	holbrook-missp	1	-1
-youre	your	0.96	1	holbrook-missp	3	0
-you	yours	0.8666666666666667	2	holbrook-missp	-1	-1
-yourns	yours	0.9666666666666667	1	holbrook-missp	0	0
-your_self	yourself	0.9777777777777777	1	holbrook-missp	0	0
-your_sleve	yourself	0.8864285714285713	4	holbrook-missp	1	-1
-yourseff	yourself	0.95	1	holbrook-missp	2	0
+non_word	real_word	jaro_winkler	levenshtein_distance	corpus	aspell_rank	aspell_n_candidates	edit_distance_rank	edit_distance_n_candidates
+Adam	Adam's	0.9333333333333333	2	holbrook-missp	4	14	-1	1
+Artair	After	0.7300000000000001	3	holbrook-missp	-1	19	-1	1
+American	America	0.975	1	holbrook-missp	3	8	-1	1
+Ane	And	0.7777777777777777	1	holbrook-missp	10	38	-1	6
+Apprentiship	Apprenticeship	0.9714285714285714	2	holbrook-missp	0	8	-1	1
+Apirl	April	0.9466666666666665	2	holbrook-missp	0	56	0	1
+audre	Audrey	0.8222222222222223	2	holbrook-missp	6	22	-1	35
+Autin	Austin	0.9555555555555556	1	holbrook-missp	2	44	0	1
+Babys	Babies	0.8755555555555556	2	holbrook-missp	12	65	-1	31
+Bankg	Bang	0.9533333333333333	1	holbrook-missp	3	19	-1	1
+Beryil	Beryl	0.9666666666666667	1	holbrook-missp	0	21	0	1
+Bicyle	Bicycle	0.9714285714285714	1	holbrook-missp	0	22	-1	9
+Bos	Boss	0.9166666666666666	1	holbrook-missp	4	45	-1	9
+Boy	Boys	0.9166666666666666	1	holbrook-missp	5	27	-1	7
+Barham	Brabham	0.9071428571428571	2	holbrook-missp	-1	23	-1	4
+barham	Brabham	0.7825396825396825	3	holbrook-missp	-1	24	-1	7
+butlins	Butlins	0.9047619047619048	1	holbrook-missp	-1	55	-1	11
+castels	Castle's	0.8134920634920636	3	holbrook-missp	-1	29	-1	5
+Chartors	Characters	0.915	3	holbrook-missp	-1	32	-1	3
+Cheere_ho	Cheerio	0.9047619047619048	3	holbrook-missp	1	11	-1	1
+Cheter	Cheetah	0.8477777777777777	3	holbrook-missp	20	28	-1	2
+Comatalevous	Comment allez-vous	0.8686026936026936	7	holbrook-missp	-1	78	-1	1
+Comentary	Commentary	0.9766666666666667	1	holbrook-missp	0	4	-1	1
+Copper	Cooper	0.9111111111111112	1	holbrook-missp	12	22	0	6
+Cynthia	Cynthia's	0.9555555555555556	2	holbrook-missp	1	4	-1	1
+Dearth	Death	0.9611111111111111	1	holbrook-missp	2	7	-1	4
+Docter	Doctor	0.9333333333333333	1	holbrook-missp	1	31	0	1
+Dog	Dog's	0.8666666666666667	2	holbrook-missp	6	35	-1	14
+Durxer	Durex	0.9144444444444445	2	holbrook-missp	1	95	-1	1
+And	End	0.7777777777777777	1	holbrook-missp	6	23	-1	6
+Edh	End	0.5555555555555555	2	holbrook-missp	-1	7	-1	1
+Hed	End	0.5555555555555555	2	holbrook-missp	-1	41	-1	12
+Evey	Every	0.9533333333333333	1	holbrook-missp	0	6	-1	1
+Facttoer	Factory	0.9214285714285715	3	holbrook-missp	3	18	-1	1
+Frameman	Farmer	0.7775000000000001	5	holbrook-missp	-1	13	-1	2
+Farther	Father	0.9619047619047619	1	holbrook-missp	3	6	0	2
+Farrari	Ferrari	0.9142857142857143	1	holbrook-missp	0	11	0	1
+Fiyer	Fire	0.8266666666666667	2	holbrook-missp	20	38	-1	69
+Fance	France	0.9500000000000001	1	holbrook-missp	1	15	0	3
+Frgmens	Frogmen's	0.9407407407407408	2	holbrook-missp	-1	9	-1	1
+Gardon	Garden	0.9333333333333333	1	holbrook-missp	2	38	-1	2
+Goef	Geoff	0.865	2	holbrook-missp	-1	5	-1	1
+Good_by	Goodbye	0.9428571428571428	2	holbrook-missp	0	9	-1	1
+Here	Her	0.9166666666666666	1	holbrook-missp	4	24	-1	8
+Im	Him	0.0	2	holbrook-missp	38	46	-1	17
+He	His	0.611111111111111	2	holbrook-missp	-1	45	-1	1
+He's	His	0.7222222222222222	2	holbrook-missp	-1	45	-1	1
+Holliday	Holiday	0.9708333333333333	1	holbrook-missp	0	20	0	1
+Hondor	Honda	0.8933333333333334	2	holbrook-missp	3	29	-1	1
+Honk_Kong	Hong Kong	0.8962962962962963	2	holbrook-missp	-1	9	-1	1
+Id	I'd	0.611111111111111	1	holbrook-missp	21	45	-1	16
+I	I'll	0.75	3	holbrook-missp	-1	34	-1	1
+Ill	I'll	0.9166666666666666	1	holbrook-missp	1	26	-1	1
+ile	I'll	0.5277777777777778	3	holbrook-missp	24	29	-1	18
+ill	I'll	0.7222222222222222	2	holbrook-missp	26	32	-1	1
+I	I'm	0.7777777777777777	2	holbrook-missp	-1	34	-1	1
+Im	I'm	0.611111111111111	1	holbrook-missp	23	46	-1	17
+Ive	I've	0.9166666666666666	1	holbrook-missp	0	23	-1	7
+I	It	0.8333333333333334	1	holbrook-missp	-1	34	-1	1
+Itlay	Italy	0.9466666666666665	2	holbrook-missp	2	16	0	1
+Jame	James	0.96	1	holbrook-missp	2	23	-1	1
+Janes	Jane's	0.9666666666666667	1	holbrook-missp	-1	63	-1	14
+Japannese	Japanese	0.9777777777777777	1	holbrook-missp	0	9	0	1
+Jeans	Jean's	0.9666666666666667	1	holbrook-missp	1	41	-1	7
+jeans	Jean's	0.8222222222222223	2	holbrook-missp	10	48	-1	1
+Jone	Joan	0.8666666666666667	2	holbrook-missp	-1	21	-1	19
+John	John's	0.9333333333333333	2	holbrook-missp	2	6	-1	1
+johns	John's	0.8222222222222223	2	holbrook-missp	7	35	-1	1
+Johnes	Jones	0.9555555555555556	1	holbrook-missp	3	23	1	2
+Joneses	Jones's	0.9428571428571428	1	holbrook-missp	-1	52	-1	5
+Joyce	Joyce's	0.9428571428571428	2	holbrook-missp	-1	26	-1	1
+Jluy	July	0.9249999999999999	2	holbrook-missp	0	43	0	1
+Kidney	Kidneys	0.9714285714285714	1	holbrook-missp	1	10	-1	2
+Led	Lead	0.9166666666666666	1	holbrook-missp	2	43	-1	18
+Lets	Let's	0.9533333333333333	1	holbrook-missp	1	48	-1	13
+Londen	London	0.9333333333333333	1	holbrook-missp	2	23	0	1
+Londod	London	0.9333333333333333	1	holbrook-missp	0	52	0	1
+Long	Lone	0.8833333333333334	1	holbrook-missp	5	22	-1	1
+Luckily	Lucky	0.9428571428571428	2	holbrook-missp	1	3	-1	1
+macwillaims	Macwilliams	0.9060606060606061	3	holbrook-missp	-1	12	-1	1
+Marrid	Married	0.9714285714285714	1	holbrook-missp	0	32	-1	1
+Marry	Mary	0.9533333333333333	1	holbrook-missp	1	26	0	8
+Mean_while	Meanwhile	0.98	1	holbrook-missp	0	3	-1	1
+Munces	Monkeys	0.7714285714285715	3	holbrook-missp	-1	48	-1	2
+Motor-bikes	Motorbike	0.9636363636363636	2	holbrook-missp	2	4	-1	1
+By	My	0.6666666666666666	1	holbrook-missp	25	37	-1	9
+Nexe	Next	0.8833333333333334	1	holbrook-missp	1	36	-1	63
+Nickals	Nicholls	0.8458333333333333	3	holbrook-missp	-1	9	-1	6
+Nos	Nose	0.9166666666666666	1	holbrook-missp	3	48	-1	8
+Noet	Note	0.9333333333333333	2	holbrook-missp	0	10	-1	3
+Ow	Oh	0.6666666666666666	1	holbrook-missp	9	48	-1	9
+Ones	Once	0.8666666666666667	2	holbrook-missp	-1	36	-1	1
+Won	One	0.0	3	holbrook-missp	-1	33	-1	12
+Out_side	Outside	0.9708333333333333	1	holbrook-missp	0	8	-1	1
+Phillhill	Phil Hill	0.8825396825396825	2	holbrook-missp	-1	6	-1	1
+Please	Pleased	0.9714285714285714	1	holbrook-missp	1	48	-1	2
+Pome	Poem	0.9333333333333333	2	holbrook-missp	2	21	-1	8
+Pollce	Police	0.9222222222222223	1	holbrook-missp	3	39	-1	9
+Paulkey	Porky	0.6761904761904761	4	holbrook-missp	-1	49	-1	3
+Prisern	Prison	0.9095238095238095	2	holbrook-missp	5	25	-1	4
+Rango	Ranger	0.8933333333333334	2	holbrook-missp	5	12	-1	3
+Roys	Roy	0.9166666666666666	1	holbrook-missp	2	30	0	5
+Royl	Royal	0.9533333333333333	1	holbrook-missp	0	6	0	2
+She	She's	0.8666666666666667	2	holbrook-missp	8	21	-1	7
+Slaughthouse	Slaughterhouse	0.9380952380952381	2	holbrook-missp	-1	9	-1	1
+Smocking	Smoking	0.9708333333333333	1	holbrook-missp	1	8	-1	2
+Show	So	0.8333333333333334	2	holbrook-missp	-1	22	-1	6
+Some_one	Someone	0.975	1	holbrook-missp	0	9	-1	1
+Suothwode	Southwold	0.8958333333333333	4	holbrook-missp	-1	15	-1	1
+Stanlay	Stanley	0.9428571428571428	1	holbrook-missp	2	28	0	1
+Stranden	Stranded	0.95	1	holbrook-missp	2	12	-1	1
+Sturt	Stuart	0.9611111111111111	1	holbrook-missp	2	18	0	1
+Swizaland	Switzerland	0.8812710437710437	3	holbrook-missp	3	5	-1	1
+Sylver	Sylvia	0.8666666666666666	2	holbrook-missp	6	9	1	7
+sylver	Sylvia	0.6666666666666666	3	holbrook-missp	8	9	-1	3
+tv	TV	0.0	2	holbrook-missp	11	47	-1	11
+Teddoy	Teddy boy	0.9	3	holbrook-missp	-1	34	-1	1
+Tedeboy	Teddy boy	0.85	3	holbrook-missp	-1	38	-1	1
+Taddyboys	Teddy boys	0.9066666666666667	2	holbrook-missp	-1	10	-1	1
+Thats	That's	0.9666666666666667	1	holbrook-missp	0	34	-1	5
+There	Their	0.9066666666666667	2	holbrook-missp	-1	17	-1	3
+They	Their	0.8483333333333334	2	holbrook-missp	-1	12	-1	5
+Their	There	0.9066666666666667	2	holbrook-missp	3	34	-1	2
+Ther	There	0.96	1	holbrook-missp	0	19	-1	5
+They	There	0.8483333333333334	2	holbrook-missp	-1	12	-1	5
+There	There's	0.9428571428571428	2	holbrook-missp	7	17	-1	3
+Thinkng	Thinking	0.975	1	holbrook-missp	0	8	-1	4
+Tobe	Toby	0.8833333333333334	1	holbrook-missp	3	14	0	3
+Toms	Tom's	0.9533333333333333	1	holbrook-missp	2	45	-1	8
+Tomy	Tommy	0.9533333333333333	1	holbrook-missp	0	12	0	5
+Toner	Tonner	0.9611111111111111	1	holbrook-missp	-1	35	-1	5
+Triumh	Triumph	0.9714285714285714	1	holbrook-missp	0	24	-1	3
+trumh	Triumph	0.7904761904761904	3	holbrook-missp	-1	24	-1	2
+Toy	Troy	0.9166666666666666	1	holbrook-missp	4	26	2	12
+Tow	Two	0.5555555555555555	2	holbrook-missp	30	34	-1	16
+watston	Watson	0.8492063492063492	2	holbrook-missp	1	6	-1	1
+Wh't	What	0.8666666666666667	1	holbrook-missp	0	12	-1	29
+What	What's	0.9333333333333333	2	holbrook-missp	3	12	-1	6
+Wiich	Which	0.88	1	holbrook-missp	4	22	-1	22
+Will	While	0.8049999999999999	2	holbrook-missp	-1	29	-1	1
+Whos_evers	Whoever's	0.9274074074074075	3	holbrook-missp	-1	28	-1	1
+Wing	Wings	0.96	1	holbrook-missp	1	30	-1	12
+Ysid	Yard	0.6666666666666666	2	holbrook-missp	22	50	-1	41
+Your	You're	0.9222222222222222	2	holbrook-missp	2	15	-1	9
+an	a	0.8333333333333334	1	holbrook-missp	5	50	-1	1
+abit	a bit	0.94	1	holbrook-missp	-1	9	-1	7
+awill	a while	0.8114285714285714	3	holbrook-missp	-1	38	-1	3
+abroard	aboard	0.9174603174603175	1	holbrook-missp	1	4	1	2
+a_Bat	about	0.6	3	holbrook-missp	7	12	-1	1
+a_bout	about	0.9500000000000001	1	holbrook-missp	0	8	0	1
+absolutly	absolutely	0.98	1	holbrook-missp	0	5	0	1
+ack	ache	0.7222222222222222	2	holbrook-missp	-1	24	-1	15
+half	after	0.48333333333333334	5	holbrook-missp	-1	12	-1	1
+afterawhile	after a while	0.9692307692307692	2	holbrook-missp	-1	8	-1	1
+a_gain	again	0.9500000000000001	1	holbrook-missp	0	22	0	1
+agan	again	0.9533333333333333	1	holbrook-missp	0	7	0	3
+agian	again	0.9466666666666665	2	holbrook-missp	0	25	0	2
+a_go	ago	0.9166666666666666	1	holbrook-missp	0	14	0	1
+hare	air	0.7222222222222222	3	holbrook-missp	-1	36	-1	1
+alife	alive	0.9066666666666667	1	holbrook-missp	1	41	2	3
+ally	alley	0.9533333333333333	1	holbrook-missp	2	16	-1	1
+alloud	allowed	0.9095238095238095	2	holbrook-missp	3	18	-1	1
+almity	almighty	0.95	2	holbrook-missp	1	6	-1	1
+a_lone	alone	0.9500000000000001	1	holbrook-missp	0	50	0	1
+a_long	along	0.9500000000000001	1	holbrook-missp	0	17	0	1
+allright	alright	0.9666666666666667	1	holbrook-missp	2	5	0	1
+arigh	alright	0.9142857142857143	2	holbrook-missp	-1	30	-1	1
+aright	alright	0.9571428571428572	1	holbrook-missp	1	16	-1	1
+arigth	alright	0.9071428571428571	3	holbrook-missp	-1	12	-1	1
+or_rit	alright	0.6428571428571429	5	holbrook-missp	-1	56	-1	2
+orrigh	alright	0.746031746031746	3	holbrook-missp	-1	30	-1	2
+orright	alright	0.8095238095238096	2	holbrook-missp	17	24	8	9
+allso	also	0.9466666666666665	1	holbrook-missp	2	83	0	1
+als	also	0.9166666666666666	1	holbrook-missp	3	50	8	22
+alter	altar	0.9066666666666667	1	holbrook-missp	9	23	-1	1
+all_ways	always	0.9333333333333333	2	holbrook-missp	1	14	1	4
+allways	always	0.9619047619047619	1	holbrook-missp	3	16	1	3
+amberless	ambulance	0.7925925925925926	6	holbrook-missp	-1	11	-1	1
+amblance	ambulance	0.9740740740740741	1	holbrook-missp	0	6	0	2
+amerless	ambulance	0.6481481481481481	6	holbrook-missp	-1	29	-1	6
+amusments	amusements	0.9577777777777777	1	holbrook-missp	0	10	0	1
+a	an	0.8333333333333334	1	holbrook-missp	7	50	-1	1
+and	an	0.8888888888888888	1	holbrook-missp	10	27	-1	1
+a	and	0.7777777777777777	2	holbrook-missp	-1	50	-1	1
+an	and	0.8888888888888888	1	holbrook-missp	2	50	-1	1
+aud	and	0.7777777777777777	1	holbrook-missp	6	25	4	13
+hand	and	0.9166666666666666	1	holbrook-missp	5	22	-1	1
+animl	animals	0.9428571428571428	2	holbrook-missp	1	31	-1	1
+a_nother	another	0.9625	1	holbrook-missp	0	2	0	1
+a_nouther	another	0.9333333333333333	2	holbrook-missp	0	11	0	1
+aner	another	0.5952380952380952	3	holbrook-missp	-1	9	-1	5
+anwerd	answered	0.9333333333333333	2	holbrook-missp	-1	6	0	13
+eney	any	0.7222222222222222	2	holbrook-missp	-1	5	-1	3
+any_on	anyone	0.9222222222222223	2	holbrook-missp	0	16	0	6
+any_one	anyone	0.9666666666666667	1	holbrook-missp	0	13	0	1
+any_own	anyone	0.8944444444444445	3	holbrook-missp	0	17	-1	1
+any_thing	anything	0.9740740740740741	1	holbrook-missp	0	4	0	1
+anythink	anything	0.95	1	holbrook-missp	2	13	0	1
+anyting	anything	0.975	1	holbrook-missp	0	22	0	1
+enthing	anything	0.8690476190476191	2	holbrook-missp	6	17	12	32
+apply	apple	0.92	1	holbrook-missp	1	32	-1	1
+apple	apples	0.9666666666666667	1	holbrook-missp	1	29	-1	1
+apprentiship	apprenticeship	0.9714285714285714	2	holbrook-missp	0	8	0	1
+and	are	0.5555555555555555	2	holbrook-missp	-1	27	-1	1
+airaear	area	0.7964285714285714	3	holbrook-missp	10	34	-1	2
+arent	aren't	0.9666666666666667	1	holbrook-missp	0	31	-1	7
+hrmehn	army	0.611111111111111	4	holbrook-missp	-1	43	-1	1
+hrmehr	army	0.611111111111111	4	holbrook-missp	-1	12	-1	1
+a_round	around	0.9571428571428572	1	holbrook-missp	0	8	0	2
+arived	arrived	0.9619047619047619	1	holbrook-missp	0	9	0	2
+ass	as	0.8888888888888888	1	holbrook-missp	12	48	-1	1
+has	as	0.0	1	holbrook-missp	46	50	-1	1
+arsed	asked	0.88	2	holbrook-missp	5	30	-1	1
+ask	asked	0.8666666666666667	2	holbrook-missp	-1	19	-1	1
+arsking	asking	0.9571428571428572	1	holbrook-missp	1	8	1	2
+ask	asks	0.9166666666666666	1	holbrook-missp	1	19	-1	1
+a_seph	asleep	0.7999999999999999	4	holbrook-missp	-1	56	-1	1
+a_sleep	asleep	0.9571428571428572	1	holbrook-missp	0	3	0	1
+a	at	0.8333333333333334	1	holbrook-missp	9	50	-1	1
+are	at	0.611111111111111	2	holbrook-missp	-1	48	-1	1
+a_tall	at all	0.9	2	holbrook-missp	-1	32	-1	4
+a_tool	at all	0.6666666666666666	4	holbrook-missp	-1	21	-1	4
+eat	ate	0.0	2	holbrook-missp	-1	44	-1	1
+et	ate	0.611111111111111	2	holbrook-missp	-1	51	-1	39
+ete	ate	0.7777777777777777	1	holbrook-missp	8	25	4	12
+atack	attack	0.9555555555555556	1	holbrook-missp	0	27	0	5
+atened	attend	0.9111111111111112	2	holbrook-missp	2	23	-1	1
+audre	audrey	0.9666666666666667	1	holbrook-missp	-1	22	-1	35
+others	author's	0.7222222222222222	4	holbrook-missp	-1	32	-1	1
+Aount	autumn	0.5888888888888889	5	holbrook-missp	-1	31	-1	3
+autunm	autumn	0.9666666666666667	2	holbrook-missp	0	16	0	1
+a_way	away	0.94	1	holbrook-missp	0	23	0	1
+alfull	awful	0.8400000000000001	2	holbrook-missp	5	27	2	4
+babyes	babies	0.9222222222222223	1	holbrook-missp	4	15	1	2
+babyis	babies	0.9222222222222223	2	holbrook-missp	4	10	-1	1
+babys	babies	0.8755555555555556	2	holbrook-missp	12	71	-1	3
+babby	baby	0.9533333333333333	1	holbrook-missp	0	42	0	5
+babys	baby	0.96	1	holbrook-missp	1	71	0	3
+bake	back	0.8666666666666667	2	holbrook-missp	-1	28	-1	1
+bakh	back	0.8666666666666667	2	holbrook-missp	-1	6	-1	4
+doc	back	0.5277777777777778	3	holbrook-missp	-1	29	-1	1
+barb	barbed	0.9333333333333333	2	holbrook-missp	-1	14	-1	1
+bear	bare	0.8500000000000001	2	holbrook-missp	-1	30	-1	1
+bran	barn	0.9249999999999999	2	holbrook-missp	5	31	-1	1
+barscket	basket	0.9333333333333333	2	holbrook-missp	0	14	0	2
+basckek	basket	0.8944444444444445	2	holbrook-missp	2	12	0	4
+baskek	basket	0.9333333333333333	1	holbrook-missp	1	10	1	2
+bath	baths	0.96	1	holbrook-missp	2	23	-1	1
+by	be	0.6666666666666666	1	holbrook-missp	5	42	-1	1
+me	be	0.6666666666666666	1	holbrook-missp	-1	50	-1	1
+we	be	0.6666666666666666	1	holbrook-missp	19	52	-1	1
+became	be coming	0.762962962962963	5	holbrook-missp	-1	4	-1	1
+pit	beat	0.5277777777777778	3	holbrook-missp	-1	50	-1	1
+beting	beating	0.9619047619047619	1	holbrook-missp	3	21	1	9
+beaufiful	beautiful	0.9305555555555555	1	holbrook-missp	0	14	0	1
+bacam	became	0.765	2	holbrook-missp	11	66	13	21
+becaues	because	0.9714285714285714	2	holbrook-missp	0	99	0	1
+becouse	because	0.9333333333333333	1	holbrook-missp	0	51	0	1
+bed_room	bedrooms	0.9416666666666667	2	holbrook-missp	1	6	-1	1
+bf	beef	0.5833333333333334	2	holbrook-missp	-1	43	-1	1
+bean	been	0.8666666666666667	1	holbrook-missp	13	31	-1	1
+bine	been	0.75	3	holbrook-missp	-1	25	-1	24
+be_for	before	0.9111111111111112	2	holbrook-missp	0	20	0	3
+befor	before	0.9666666666666667	1	holbrook-missp	0	22	0	2
+behed	behind	0.8755555555555556	2	holbrook-missp	9	18	-1	2
+behism	behind	0.8666666666666666	2	holbrook-missp	-1	7	0	8
+been	being	0.8266666666666667	2	holbrook-missp	-1	21	-1	1
+bell_ringing	bellringing	0.9833333333333333	1	holbrook-missp	-1	10	-1	1
+belong	belongs	0.9714285714285714	1	holbrook-missp	1	40	-1	1
+bend_in	bending	0.9428571428571428	2	holbrook-missp	0	36	0	1
+beets	best	0.8266666666666667	2	holbrook-missp	-1	66	-1	1
+bet	better	0.8333333333333334	3	holbrook-missp	-1	41	-1	1
+beter	better	0.9611111111111111	1	holbrook-missp	2	28	0	8
+beththe	better	0.8944444444444445	3	holbrook-missp	-1	20	-1	1
+beverly	beverley	0.975	1	holbrook-missp	-1	7	-1	10
+bewere	beware	0.8755555555555556	1	holbrook-missp	4	21	0	1
+bciyle	bicycles	0.875	4	holbrook-missp	-1	47	-1	5
+bing	big	0.9166666666666666	1	holbrook-missp	5	27	4	22
+Big_haded	big-headed	0.7783068783068784	3	holbrook-missp	-1	16	-1	1
+biger	bigger	0.9611111111111111	1	holbrook-missp	2	54	0	5
+bigest	biggest	0.9666666666666667	1	holbrook-missp	2	30	0	2
+build	billed	0.8400000000000001	3	holbrook-missp	14	36	-1	1
+brid	bird	0.9249999999999999	2	holbrook-missp	2	16	2	12
+biccuits	biscuits	0.9333333333333333	1	holbrook-missp	0	18	0	1
+biten	bitten	0.9611111111111111	1	holbrook-missp	2	36	0	4
+blow	blew	0.8666666666666667	1	holbrook-missp	14	20	-1	1
+bludy	bloody	0.8577777777777779	2	holbrook-missp	6	42	6	49
+blossm	blossom	0.9714285714285714	1	holbrook-missp	0	27	0	1
+bosting	boasting	0.9666666666666667	1	holbrook-missp	0	14	1	12
+bodys	bodies	0.8755555555555556	2	holbrook-missp	7	29	-1	4
+bod	body	0.9166666666666666	1	holbrook-missp	2	41	-1	1
+bouse	booze	0.7866666666666667	2	holbrook-missp	51	90	-1	7
+borrowd	borrowed	0.975	1	holbrook-missp	0	18	0	3
+bos	boss	0.9166666666666666	1	holbrook-missp	3	49	2	33
+botton	bottom	0.9333333333333333	1	holbrook-missp	2	33	0	3
+buy	boy	0.7777777777777777	1	holbrook-missp	10	22	-1	1
+boy	boy's	0.8666666666666667	2	holbrook-missp	6	30	-1	1
+boys	boy's	0.9533333333333333	1	holbrook-missp	1	41	-1	1
+boy_friend	boyfriend	0.9766666666666667	1	holbrook-missp	0	4	0	1
+boyfreind	boyfriend	0.9777777777777777	2	holbrook-missp	0	4	0	1
+boyfrend	boyfriend	0.9777777777777777	1	holbrook-missp	0	4	0	1
+boyfrends	boyfriend's	0.9636363636363636	2	holbrook-missp	1	4	-1	1
+boy	boys	0.9166666666666666	1	holbrook-missp	4	30	-1	1
+boy's	boys	0.9533333333333333	1	holbrook-missp	2	66	-1	1
+breaks	brakes	0.9555555555555556	2	holbrook-missp	3	56	-1	1
+brain	bran	0.9533333333333333	1	holbrook-missp	5	28	-1	1
+bravist	bravest	0.9428571428571428	1	holbrook-missp	0	22	0	1
+bred_crumes	breadcrumbs	0.9151515151515153	3	holbrook-missp	0	16	-1	1
+brack	break	0.8933333333333333	2	holbrook-missp	8	19	-1	9
+brick	break	0.7866666666666667	2	holbrook-missp	22	41	-1	1
+brecfast	breakfast	0.8856481481481482	2	holbrook-missp	0	5	2	4
+brakes	breaks	0.9555555555555556	2	holbrook-missp	4	77	-1	1
+breez	breeze	0.9666666666666667	1	holbrook-missp	0	39	1	3
+brocken	broken	0.9666666666666667	1	holbrook-missp	0	20	0	2
+borther	brother	0.9571428571428572	2	holbrook-missp	1	29	1	3
+brother	brothers	0.975	1	holbrook-missp	3	17	-1	1
+broug	brought	0.9428571428571428	2	holbrook-missp	0	37	0	45
+brough	brought	0.9714285714285714	1	holbrook-missp	0	18	0	5
+brus	brussels	0.9	4	holbrook-missp	-1	16	-1	5
+brusels	brussels	0.9464285714285714	1	holbrook-missp	-1	24	-1	9
+brusls	brussels	0.9166666666666667	2	holbrook-missp	-1	36	-1	24
+brust	brussels	0.86	4	holbrook-missp	-1	25	-1	8
+bubbals	bubbles	0.9428571428571428	2	holbrook-missp	0	58	0	5
+billd	build	0.88	2	holbrook-missp	8	51	-1	4
+billed	build	0.8400000000000001	3	holbrook-missp	-1	29	-1	1
+buld	build	0.9466666666666665	1	holbrook-missp	0	8	0	7
+billding	building	0.9249999999999999	2	holbrook-missp	6	22	-1	1
+bilt	built	0.94	1	holbrook-missp	0	18	0	16
+buit	built	0.9533333333333333	1	holbrook-missp	0	14	0	10
+bolot	bullet	0.7300000000000001	3	holbrook-missp	-1	38	-1	3
+bulet	bullet	0.9611111111111111	1	holbrook-missp	0	34	0	2
+bulete	bullet	0.9222222222222223	2	holbrook-missp	0	53	0	7
+bered	buried	0.8400000000000001	2	holbrook-missp	10	16	-1	5
+brun	burn	0.9249999999999999	2	holbrook-missp	2	9	2	6
+bihr	by	0.5833333333333334	3	holbrook-missp	-1	61	-1	1
+kiffe	cafe	0.6333333333333333	3	holbrook-missp	33	38	-1	37
+cald	called	0.9222222222222222	2	holbrook-missp	-1	15	-1	11
+call	called	0.9333333333333333	2	holbrook-missp	-1	30	-1	1
+calld	called	0.9666666666666667	1	holbrook-missp	0	45	0	4
+could	called	0.7300000000000001	3	holbrook-missp	-1	13	-1	1
+carmd	calmed	0.8577777777777779	2	holbrook-missp	10	47	-1	2
+comer	calmer	0.8400000000000001	2	holbrook-missp	29	53	-1	1
+cam	came	0.9166666666666666	1	holbrook-missp	1	50	-1	1
+come	came	0.8500000000000001	1	holbrook-missp	19	33	-1	1
+kom	came	0.5277777777777778	3	holbrook-missp	-1	14	-1	6
+kum	came	0.5277777777777778	3	holbrook-missp	-1	13	-1	12
+came	can	0.7222222222222222	2	holbrook-missp	-1	33	-1	1
+cane	can	0.9166666666666666	1	holbrook-missp	8	40	-1	1
+cant	can't	0.9533333333333333	1	holbrook-missp	3	28	-1	1
+canth	can't	0.9066666666666667	2	holbrook-missp	5	40	-1	3
+carn't	can't	0.9555555555555556	1	holbrook-missp	0	51	0	1
+carnt	can't	0.8933333333333333	2	holbrook-missp	5	51	-1	5
+candle_stick	candlestick	0.9833333333333333	1	holbrook-missp	0	3	0	1
+cain	cane	0.8666666666666667	2	holbrook-missp	-1	24	-1	14
+can_not	cannot	0.9666666666666667	1	holbrook-missp	0	17	0	1
+connot	cannot	0.9	1	holbrook-missp	8	23	1	2
+captian	captain	0.9714285714285714	2	holbrook-missp	0	6	0	2
+captman	captain	0.9428571428571428	2	holbrook-missp	2	11	0	7
+catptman	captain	0.8507936507936509	3	holbrook-missp	2	9	-1	1
+cpn	captain	0.6507936507936508	4	holbrook-missp	-1	16	-1	6
+Star	car	0.7222222222222222	2	holbrook-missp	-1	22	-1	7
+carrer	career	0.8755555555555556	1	holbrook-missp	5	21	4	8
+carefull	careful	0.975	1	holbrook-missp	3	5	1	2
+carful	careful	0.9666666666666667	1	holbrook-missp	0	22	0	3
+carfull	careful	0.9333333333333333	2	holbrook-missp	3	18	1	6
+caresll	carefully	0.9047619047619048	3	holbrook-missp	6	48	-1	3
+cared	carried	0.9333333333333333	2	holbrook-missp	12	49	-1	1
+carred	carried	0.9714285714285714	1	holbrook-missp	0	30	0	15
+carrid	carried	0.9714285714285714	1	holbrook-missp	0	48	0	1
+carring	carrying	0.975	1	holbrook-missp	0	41	0	15
+carlsat	castle	0.6626984126984127	5	holbrook-missp	-1	36	-1	2
+carsal	castle	0.8222222222222222	3	holbrook-missp	-1	34	-1	4
+carsell	castle	0.826031746031746	3	holbrook-missp	23	91	-1	8
+cartal	castle	0.8222222222222222	3	holbrook-missp	-1	31	-1	3
+cartill	castle	0.7968253968253969	3	holbrook-missp	27	55	-1	6
+cartsel	castle	0.873015873015873	3	holbrook-missp	10	21	-1	1
+catal	castle	0.8577777777777779	3	holbrook-missp	-1	45	-1	4
+catsal	castle	0.8577777777777779	3	holbrook-missp	9	31	-1	1
+cats	cat's	0.9533333333333333	1	holbrook-missp	1	51	-1	1
+cash	catch	0.8266666666666667	2	holbrook-missp	-1	27	-1	1
+chach	catch	0.88	2	holbrook-missp	2	25	-1	1
+caugh	caught	0.9666666666666667	1	holbrook-missp	0	41	0	3
+cort	caught	0.611111111111111	4	holbrook-missp	-1	36	-1	23
+cought	caught	0.9	1	holbrook-missp	5	12	3	8
+celebrate	celebrated	0.98	1	holbrook-missp	3	10	-1	1
+choin	chain	0.8933333333333333	1	holbrook-missp	6	39	3	4
+chere	chair	0.7866666666666667	3	holbrook-missp	-1	22	-1	7
+cage	changed	0.8714285714285714	3	holbrook-missp	-1	25	-1	1
+characte	character	0.9777777777777777	1	holbrook-missp	0	7	0	1
+charickter	character	0.9377777777777778	2	holbrook-missp	0	10	0	1
+change	charged	0.8944444444444445	2	holbrook-missp	-1	11	-1	1
+cheeroh	cheerio	0.9428571428571428	2	holbrook-missp	2	21	1	9
+cheter	cheetah	0.8477777777777777	3	holbrook-missp	21	30	-1	3
+chow	chew	0.8666666666666667	1	holbrook-missp	9	15	-1	1
+chidren	children	0.9708333333333333	1	holbrook-missp	0	23	0	1
+childrenes	children's	0.96	1	holbrook-missp	-1	9	-1	1
+cimbenr	chimney	0.7685714285714286	4	holbrook-missp	-1	37	-1	6
+cherped	chirped	0.9238095238095239	1	holbrook-missp	0	27	0	2
+ching	choosing	0.9	3	holbrook-missp	-1	23	-1	11
+choosen	chosen	0.9666666666666667	1	holbrook-missp	1	11	1	4
+christman	christmas	0.9555555555555556	1	holbrook-missp	-1	7	-1	1
+cinama	cinema	0.8755555555555556	1	holbrook-missp	0	15	0	1
+cinma	cinema	0.9611111111111111	1	holbrook-missp	0	24	0	1
+sercus	circus	0.7777777777777777	2	holbrook-missp	18	50	-1	1
+classis	classes	0.9428571428571428	1	holbrook-missp	5	29	2	4
+clater	clatter	0.9714285714285714	1	holbrook-missp	0	40	0	4
+clors	claws	0.7866666666666667	2	holbrook-missp	31	61	-1	6
+clearn	clean	0.9666666666666667	1	holbrook-missp	0	20	0	4
+glean	clean	0.8666666666666667	1	holbrook-missp	7	17	-1	1
+clean	cleaned	0.9428571428571428	2	holbrook-missp	-1	17	-1	1
+cleand	cleaned	0.9714285714285714	1	holbrook-missp	0	33	0	3
+clim	climb	0.96	1	holbrook-missp	0	10	1	8
+clime	climb	0.92	1	holbrook-missp	8	19	-1	1
+cimed	climbed	0.9142857142857143	2	holbrook-missp	-1	41	-1	7
+climb	climbed	0.9428571428571428	2	holbrook-missp	-1	26	-1	1
+closd	closed	0.9666666666666667	1	holbrook-missp	0	28	0	5
+clous	closed	0.8755555555555556	3	holbrook-missp	-1	71	-1	9
+cloths	clothes	0.9714285714285714	1	holbrook-missp	2	11	-1	1
+clous	clothes	0.8533333333333333	3	holbrook-missp	-1	71	-1	9
+colhes	clothes	0.9071428571428571	2	holbrook-missp	7	88	-1	1
+couldes	clouds	0.9071428571428571	3	holbrook-missp	10	43	-1	1
+coulds	clouds	0.9500000000000001	2	holbrook-missp	2	58	-1	5
+clob	club	0.8666666666666667	1	holbrook-missp	9	13	7	11
+colbe	club	0.8049999999999999	3	holbrook-missp	17	36	-1	60
+cote	coat	0.8666666666666667	2	holbrook-missp	-1	26	-1	1
+cofens	coffins	0.8944444444444445	2	holbrook-missp	8	55	-1	2
+colur	colour	0.9611111111111111	1	holbrook-missp	-1	80	0	2
+com	come	0.9166666666666666	1	holbrook-missp	3	47	-1	1
+comr	come	0.8833333333333334	1	holbrook-missp	4	14	4	11
+coum	come	0.8666666666666667	2	holbrook-missp	-1	9	-1	6
+kumh	come	0.5	3	holbrook-missp	-1	13	-1	56
+come	comes	0.96	1	holbrook-missp	2	33	-1	1
+comvatable	comfortable	0.8605303030303031	3	holbrook-missp	2	6	-1	3
+come	coming	0.825	3	holbrook-missp	-1	33	-1	1
+comeing	coming	0.9666666666666667	1	holbrook-missp	0	22	0	3
+comon	common	0.9611111111111111	1	holbrook-missp	2	35	0	3
+coperney	company	0.8238095238095238	4	holbrook-missp	20	59	-1	1
+consantrate	concentrate	0.8632996632996633	2	holbrook-missp	0	5	0	1
+cornfield	confide	0.9026455026455026	4	holbrook-missp	-1	9	-1	1
+caps	cops	0.8500000000000001	1	holbrook-missp	29	51	-1	1
+corral	coral	0.9611111111111111	1	holbrook-missp	2	17	-1	1
+corres	cores	0.9611111111111111	1	holbrook-missp	6	39	2	3
+corer	corner	0.9611111111111111	1	holbrook-missp	5	40	-1	1
+croner	corner	0.9500000000000001	2	holbrook-missp	2	13	2	6
+call	could	0.6333333333333333	3	holbrook-missp	-1	30	-1	1
+cod	could	0.6888888888888888	2	holbrook-missp	-1	50	-1	1
+couldnt	couldn't	0.975	1	holbrook-missp	0	4	-1	4
+count	couldn't	0.9125	3	holbrook-missp	-1	17	-1	1
+counsall	council	0.8678571428571429	3	holbrook-missp	6	25	-1	3
+counsel	council	0.8857142857142858	2	holbrook-missp	6	10	-1	1
+cousall	council	0.8	3	holbrook-missp	-1	17	-1	2
+coverd	covered	0.9714285714285714	1	holbrook-missp	2	24	0	4
+cow_Boys	cowboys	0.9083333333333333	2	holbrook-missp	0	17	0	1
+crept	crapped	0.6761904761904761	4	holbrook-missp	-1	39	-1	1
+crush	crash	0.8933333333333333	1	holbrook-missp	7	22	-1	1
+crowling	crawling	0.9333333333333333	1	holbrook-missp	5	20	3	7
+creek	creak	0.9066666666666667	1	holbrook-missp	7	23	-1	1
+creaps	creeps	0.9222222222222223	1	holbrook-missp	7	52	4	5
+creps	creeps	0.9611111111111111	1	holbrook-missp	1	27	1	11
+crepy	creepy	0.9611111111111111	1	holbrook-missp	0	31	0	3
+creeped	crept	0.8533333333333333	3	holbrook-missp	20	38	-1	2
+cryed	cried	0.8933333333333333	1	holbrook-missp	4	30	2	3
+crys	cries	0.8266666666666667	2	holbrook-missp	-1	16	-1	4
+crigckey	crikey	0.9416666666666667	2	holbrook-missp	0	12	0	3
+cresp	crisp	0.8933333333333333	1	holbrook-missp	7	47	4	5
+croud	crowd	0.9066666666666667	1	holbrook-missp	2	42	2	5
+corller	cruel	0.7364285714285714	4	holbrook-missp	-1	32	-1	21
+cuddly	cuddling	0.8916666666666667	3	holbrook-missp	-1	32	-1	1
+cobard	cupboard	0.875	3	holbrook-missp	-1	23	-1	1
+cerled	curled	0.9	1	holbrook-missp	1	40	1	2
+silinders	cylinders	0.8042328042328042	2	holbrook-missp	10	14	6	7
+bad	dad	0.7777777777777777	1	holbrook-missp	24	45	-1	1
+dads	dad's	0.9533333333333333	1	holbrook-missp	1	48	-1	1
+dadies	daddy's	0.8222222222222222	3	holbrook-missp	38	63	-1	4
+daffodill	daffodils	0.9555555555555556	1	holbrook-missp	1	3	1	2
+dane	dance	0.9533333333333333	1	holbrook-missp	0	37	0	20
+pncing	dancing	0.8492063492063492	2	holbrook-missp	4	25	-1	3
+dangers	dangerous	0.9555555555555556	2	holbrook-missp	5	44	-1	1
+dangerus	dangerous	0.9777777777777777	1	holbrook-missp	2	7	0	2
+dere	dared	0.8049999999999999	2	holbrook-missp	-1	15	-1	9
+darnt	daren't	0.9333333333333333	2	holbrook-missp	-1	30	-1	4
+darck	dark	0.9533333333333333	1	holbrook-missp	0	64	0	1
+dork	dark	0.8500000000000001	1	holbrook-missp	8	18	-1	1
+dauter	daughter	0.9416666666666667	2	holbrook-missp	1	13	-1	5
+day's	days'	0.9533333333333333	2	holbrook-missp	-1	67	-1	1
+dead	dear	0.8833333333333334	1	holbrook-missp	5	18	-1	1
+deat	death	0.96	1	holbrook-missp	0	24	0	21
+decider	decided	0.9428571428571428	1	holbrook-missp	3	12	-1	1
+desided	decided	0.9238095238095239	1	holbrook-missp	0	20	1	4
+dicide	decided	0.8042857142857143	2	holbrook-missp	12	16	-1	2
+dicided	decided	0.8642857142857143	1	holbrook-missp	2	8	1	2
+dicider	decided	0.7685714285714286	2	holbrook-missp	9	11	-1	3
+disided	decided	0.8285714285714287	2	holbrook-missp	3	12	-1	1
+disson	decision	0.8375000000000001	3	holbrook-missp	-1	24	-1	17
+dellitent	delicate	0.8638888888888888	5	holbrook-missp	-1	19	-1	1
+dener	den	0.8666666666666667	2	holbrook-missp	16	83	-1	6
+dence	dense	0.9066666666666667	1	holbrook-missp	0	17	0	8
+departent	department	0.98	1	holbrook-missp	0	7	0	1
+depatment	department	0.98	1	holbrook-missp	0	6	0	1
+distrod	destroyed	0.8571428571428572	3	holbrook-missp	13	22	-1	6
+ded	did	0.7777777777777777	1	holbrook-missp	10	46	16	23
+dednt	didn't	0.8400000000000001	2	holbrook-missp	1	6	-1	1
+denat	didn't	0.7300000000000001	3	holbrook-missp	-1	80	-1	1
+didden	didn't	0.8444444444444443	3	holbrook-missp	-1	26	-1	4
+dident	didn't	0.9222222222222223	2	holbrook-missp	0	24	-1	22
+dind	didn't	0.8444444444444443	3	holbrook-missp	-1	22	-1	17
+diy	die	0.7777777777777777	1	holbrook-missp	1	17	5	10
+ded	died	0.9166666666666666	1	holbrook-missp	2	46	1	23
+diad	died	0.8666666666666667	1	holbrook-missp	4	8	4	6
+disel	diesel	0.9022222222222223	1	holbrook-missp	1	89	1	2
+diffrent	different	0.9527777777777777	1	holbrook-missp	2	18	0	1
+difrent	different	0.9148148148148147	2	holbrook-missp	0	31	0	4
+differcult	difficult	0.9377777777777778	2	holbrook-missp	2	10	0	1
+driy	dirty	0.865	2	holbrook-missp	-1	3	-1	3
+disapeared	disappeared	0.9818181818181818	1	holbrook-missp	0	13	0	1
+disaperd	disappeared	0.9454545454545455	3	holbrook-missp	0	46	-1	3
+dicuverd	discovered	0.8866666666666667	3	holbrook-missp	-1	21	-1	1
+dispiaying	displaying	0.9377777777777778	1	holbrook-missp	0	14	0	1
+disposol	disposal	0.95	1	holbrook-missp	0	11	0	1
+distrebe	disturb	0.9214285714285715	3	holbrook-missp	0	10	-1	4
+dich	ditch	0.9466666666666665	1	holbrook-missp	0	9	0	6
+don	do	0.8888888888888888	1	holbrook-missp	6	50	-1	1
+done	do	0.8333333333333334	2	holbrook-missp	-1	39	-1	1
+go	do	0.6666666666666666	1	holbrook-missp	-1	50	-1	1
+to	do	0.6666666666666666	1	holbrook-missp	14	50	-1	1
+donot	do not	0.9555555555555556	1	holbrook-missp	0	52	-1	1
+dus	does	0.7222222222222222	2	holbrook-missp	-1	50	-1	22
+does'nt	doesn't	0.9714285714285714	2	holbrook-missp	0	30	0	1
+does_on	doesn't	0.8857142857142858	3	holbrook-missp	2	22	-1	1
+doesnet	doesn't	0.9428571428571428	1	holbrook-missp	2	18	-1	1
+donsent	doesn't	0.8793650793650793	3	holbrook-missp	3	13	-1	1
+dosnt	doesn't	0.9238095238095239	2	holbrook-missp	1	13	-1	1
+dowing	doing	0.9555555555555556	1	holbrook-missp	3	60	1	19
+don	don't	0.8666666666666667	2	holbrook-missp	-1	50	-1	1
+dont	don't	0.9533333333333333	1	holbrook-missp	0	25	-1	13
+want	don't	0.6333333333333333	3	holbrook-missp	-1	25	-1	1
+don	done	0.9166666666666666	1	holbrook-missp	2	50	-1	1
+dun	done	0.7222222222222222	2	holbrook-missp	-1	34	-1	1
+boor	door	0.8333333333333334	1	holbrook-missp	13	18	-1	1
+dor	door	0.9166666666666666	1	holbrook-missp	1	39	3	22
+down	door	0.6666666666666666	2	holbrook-missp	-1	17	-1	1
+doudle	double	0.9222222222222223	1	holbrook-missp	0	17	0	3
+back	douche	0.47222222222222215	5	holbrook-missp	-1	24	-1	1
+done	down	0.8666666666666667	2	holbrook-missp	-1	39	-1	1
+donw	down	0.9333333333333333	2	holbrook-missp	0	14	0	6
+dus	down	0.5277777777777778	3	holbrook-missp	-1	50	-1	22
+dau_sosys	downstairs	0.5314814814814816	7	holbrook-missp	-1	32	-1	1
+down_stairs	downstairs	0.9818181818181818	1	holbrook-missp	0	2	0	1
+drian	drain	0.9466666666666665	2	holbrook-missp	0	49	0	1
+drew	draw	0.8666666666666667	1	holbrook-missp	2	8	-1	1
+drem	dream	0.9533333333333333	1	holbrook-missp	0	10	0	6
+dreming	dreaming	0.9708333333333333	1	holbrook-missp	0	20	0	2
+drivern	driven	0.9714285714285714	1	holbrook-missp	0	13	0	3
+divers	drivers	0.9571428571428572	1	holbrook-missp	8	30	-1	1
+drive	drives	0.9666666666666667	1	holbrook-missp	4	12	-1	1
+dround	drowned	0.8944444444444445	2	holbrook-missp	2	15	-1	3
+druck	drunk	0.9066666666666667	1	holbrook-missp	2	33	2	4
+drye	dry	0.9166666666666666	1	holbrook-missp	1	7	2	5
+doum	dumb	0.8500000000000001	2	holbrook-missp	-1	7	-1	4
+pump	dump	0.8333333333333334	1	holbrook-missp	11	17	-1	1
+dieing	dying	0.8400000000000001	2	holbrook-missp	24	46	-1	8
+eyewigs	earwigs	0.8285714285714287	2	holbrook-missp	3	9	1	2
+eate	eat	0.9166666666666666	1	holbrook-missp	4	22	4	18
+elecenician	electrician	0.9272727272727274	2	holbrook-missp	-1	9	0	1
+als	else	0.7222222222222222	2	holbrook-missp	-1	50	-1	22
+eles	else	0.9333333333333333	2	holbrook-missp	1	36	1	16
+els	else	0.9166666666666666	1	holbrook-missp	1	43	4	15
+imployment	employment	0.9333333333333332	1	holbrook-missp	0	10	0	1
+emty	empty	0.9466666666666665	1	holbrook-missp	0	3	0	1
+enaged	engaged	0.9174603174603175	1	holbrook-missp	4	22	1	2
+ingaged	engaged	0.9047619047619048	1	holbrook-missp	0	12	0	1
+enagement	engagement	0.9437037037037037	1	holbrook-missp	1	7	0	1
+egreers	engines	0.7428571428571429	4	holbrook-missp	-1	14	-1	8
+injoid	enjoyed	0.746031746031746	3	holbrook-missp	15	32	-1	3
+enyays	enjoys	0.8222222222222222	2	holbrook-missp	2	45	3	8
+a_nougth	enough	0.8194444444444445	3	holbrook-missp	-1	20	-1	1
+a_nuff	enough	0.5555555555555555	5	holbrook-missp	-1	11	-1	1
+engouh	enough	0.9555555555555556	2	holbrook-missp	0	34	0	1
+nuff	enough	0.611111111111111	4	holbrook-missp	-1	15	-1	12
+enterd	entered	0.9714285714285714	1	holbrook-missp	0	16	0	3
+aquitment	equipment	0.8518518518518517	2	holbrook-missp	2	9	1	2
+a_specally	especially	0.8250000000000001	3	holbrook-missp	2	7	-1	1
+evining	evening	0.8793650793650793	1	holbrook-missp	3	16	2	3
+evning	evening	0.9619047619047619	1	holbrook-missp	0	22	0	1
+evey	every	0.9533333333333333	1	holbrook-missp	0	8	0	5
+evry	every	0.9466666666666665	1	holbrook-missp	0	40	0	2
+every_one	everyone	0.9777777777777777	1	holbrook-missp	0	2	0	1
+evry_on	everyone	0.8952380952380953	3	holbrook-missp	0	11	-1	1
+every_were	everywhere	0.96	2	holbrook-missp	0	19	0	1
+evry_were	everywhere	0.8170370370370371	3	holbrook-missp	0	17	-1	1
+exited	excited	0.9619047619047619	1	holbrook-missp	4	15	-1	1
+expore	explore	0.9666666666666667	1	holbrook-missp	4	20	0	4
+expord	explored	0.9416666666666667	2	holbrook-missp	-1	25	-1	1
+eye	eyes	0.9166666666666666	1	holbrook-missp	2	19	-1	1
+eyey	eyes	0.8833333333333334	1	holbrook-missp	2	4	2	3
+iyes	eyes	0.8333333333333334	1	holbrook-missp	4	18	6	7
+factoy	factory	0.9714285714285714	1	holbrook-missp	0	10	0	2
+fanded	fainted	0.8793650793650793	2	holbrook-missp	7	15	-1	9
+forls	falls	0.76	2	holbrook-missp	29	40	-1	11
+familys	families	0.9214285714285715	2	holbrook-missp	3	10	-1	1
+fare	far	0.9166666666666666	1	holbrook-missp	8	35	-1	1
+frm	farm	0.9166666666666666	1	holbrook-missp	1	17	1	11
+farm	farmer	0.9333333333333333	2	holbrook-missp	-1	14	-1	1
+framh	farmer	0.765	4	holbrook-missp	-1	12	-1	1
+frm	farmer	0.8333333333333334	3	holbrook-missp	-1	17	-1	11
+frmh	farmer	0.775	3	holbrook-missp	-1	4	-1	38
+farmers	farmer's	0.975	1	holbrook-missp	1	15	-1	1
+frmh	farmer's	0.7375	5	holbrook-missp	-1	4	-1	38
+fashion	fashioned	0.9555555555555556	2	holbrook-missp	4	9	-1	1
+farst	fast	0.9466666666666665	1	holbrook-missp	4	14	2	4
+farther	father	0.9619047619047619	1	holbrook-missp	3	7	-1	1
+farther's	father's	0.9037037037037037	1	holbrook-missp	5	19	0	1
+fating	fattening	0.8833333333333334	3	holbrook-missp	-1	21	-1	1
+falt	fault	0.9466666666666665	1	holbrook-missp	0	15	0	13
+feal	feel	0.8666666666666667	1	holbrook-missp	5	19	6	18
+feling	feeling	0.9619047619047619	1	holbrook-missp	2	22	2	8
+fee	feet	0.9166666666666666	1	holbrook-missp	4	33	-1	1
+fet	feet	0.9166666666666666	1	holbrook-missp	1	41	1	31
+fall	fell	0.8500000000000001	1	holbrook-missp	7	24	-1	1
+feemale	female	0.9619047619047619	1	holbrook-missp	2	31	0	1
+ferrary	ferrari	0.9428571428571428	1	holbrook-missp	-1	7	-1	3
+faw	few	0.7777777777777777	1	holbrook-missp	5	28	12	22
+fed	field	0.6888888888888888	2	holbrook-missp	-1	46	-1	1
+feild	field	0.94	2	holbrook-missp	0	56	0	1
+fild	field	0.9466666666666665	1	holbrook-missp	1	11	1	11
+figth	fight	0.9533333333333333	2	holbrook-missp	0	15	0	4
+figthing	fighting	0.9708333333333333	2	holbrook-missp	2	14	0	1
+fianl	final	0.9466666666666665	2	holbrook-missp	0	53	0	1
+find	fine	0.8833333333333334	1	holbrook-missp	8	23	-1	1
+finse	fins	0.96	1	holbrook-missp	0	79	0	4
+fiar	fire	0.8666666666666667	2	holbrook-missp	-1	8	-1	7
+fre	fire	0.9166666666666666	1	holbrook-missp	1	28	2	18
+fiyed	fired	0.8933333333333333	1	holbrook-missp	2	50	3	4
+ferman	firms	0.7300000000000001	3	holbrook-missp	-1	38	-1	1
+fast	first	0.8049999999999999	2	holbrook-missp	-1	25	-1	1
+fsh	fish	0.9166666666666666	1	holbrook-missp	0	6	0	4
+fishey	fishy	0.9666666666666667	1	holbrook-missp	1	13	1	5
+fanit	fit	0.5111111111111111	2	holbrook-missp	52	54	-1	1
+flass	flash	0.92	1	holbrook-missp	5	45	2	13
+fick	flick	0.94	1	holbrook-missp	0	20	0	14
+fies	flies	0.94	1	holbrook-missp	7	43	8	24
+flor	floor	0.9533333333333333	1	holbrook-missp	1	14	1	8
+foor	floor	0.94	1	holbrook-missp	0	12	0	11
+flower	flowers	0.9714285714285714	1	holbrook-missp	3	23	-1	1
+fie	fly	0.5555555555555555	2	holbrook-missp	-1	24	-1	1
+fellowed	followed	0.8821428571428571	1	holbrook-missp	9	12	4	5
+full	fool	0.6666666666666666	2	holbrook-missp	-1	21	-1	1
+footandmouth	foot-and-mouth	0.9714285714285714	2	holbrook-missp	-1	8	-1	1
+footanmouth	foot-and-mouth	0.9571428571428571	3	holbrook-missp	-1	11	-1	1
+foodprints	footprints	0.9533333333333333	1	holbrook-missp	2	9	0	1
+fo	for	0.8888888888888888	1	holbrook-missp	2	51	2	27
+fore	for	0.9166666666666666	1	holbrook-missp	7	30	-1	1
+four	for	0.9166666666666666	1	holbrook-missp	4	15	-1	1
+fro	for	0.5555555555555555	2	holbrook-missp	12	19	-1	1
+fur	for	0.7777777777777777	1	holbrook-missp	11	24	-1	1
+of	for	0.0	2	holbrook-missp	-1	49	-1	1
+fort	for the	0.9	3	holbrook-missp	-1	23	-1	1
+falk	fork	0.6666666666666666	2	holbrook-missp	-1	8	-1	7
+frame	form	0.8049999999999999	3	holbrook-missp	-1	27	-1	1
+forword	forward	0.9428571428571428	1	holbrook-missp	3	8	1	2
+fowd	forward	0.7809523809523811	3	holbrook-missp	-1	8	-1	6
+fed	found	0.5111111111111111	3	holbrook-missp	-1	46	-1	1
+feod	found	0.8049999999999999	3	holbrook-missp	-1	6	-1	5
+find	found	0.8049999999999999	2	holbrook-missp	-1	23	-1	1
+fond	found	0.9466666666666665	1	holbrook-missp	1	15	-1	1
+for	four	0.9166666666666666	1	holbrook-missp	1	31	-1	1
+fore	four	0.8666666666666667	2	holbrook-missp	-1	30	-1	1
+frizing	freezing	0.8507936507936509	2	holbrook-missp	12	28	-1	2
+fenird	friend	0.8400000000000001	4	holbrook-missp	-1	40	-1	6
+frend	friend	0.9555555555555556	1	holbrook-missp	2	39	0	7
+frendly	friendly	0.9666666666666667	1	holbrook-missp	0	22	0	1
+freinds	friends	0.9619047619047619	2	holbrook-missp	0	27	0	1
+frend	friends	0.9238095238095239	2	holbrook-missp	5	39	-1	7
+frends	friends	0.9619047619047619	1	holbrook-missp	2	36	0	6
+frens	friends	0.9238095238095239	2	holbrook-missp	5	76	-1	5
+frightend	frightened	0.98	1	holbrook-missp	2	7	0	4
+frigtend	frightened	0.96	2	holbrook-missp	2	12	0	6
+frog	frogs	0.96	1	holbrook-missp	1	10	-1	1
+rogs	frogs	0.9333333333333332	1	holbrook-missp	0	42	0	18
+frogsporn	frogspawn	0.9111111111111111	2	holbrook-missp	2	16	0	1
+fom	from	0.9166666666666666	1	holbrook-missp	2	26	1	18
+for	from	0.8055555555555555	2	holbrook-missp	-1	31	-1	1
+form	from	0.9249999999999999	2	holbrook-missp	4	19	-1	1
+frount	front	0.9611111111111111	1	holbrook-missp	0	17	0	2
+frunt	front	0.8933333333333333	1	holbrook-missp	2	29	2	6
+frit	fruit	0.9466666666666665	1	holbrook-missp	3	16	1	9
+fall	full	0.8500000000000001	1	holbrook-missp	10	24	-1	1
+ful	full	0.9166666666666666	1	holbrook-missp	2	16	1	12
+funerl	funeral	0.9714285714285714	1	holbrook-missp	0	38	0	1
+funrel	funeral	0.9277777777777778	2	holbrook-missp	2	8	-1	1
+funney	funny	0.9666666666666667	1	holbrook-missp	0	31	0	3
+gamekeeps	gamekeeper	0.9377777777777778	2	holbrook-missp	4	11	1	2
+ganer	gang	0.8483333333333334	2	holbrook-missp	-1	19	-1	9
+carage	garage	0.888888888888889	1	holbrook-missp	11	29	3	4
+gass	gas	0.9166666666666666	1	holbrook-missp	8	40	5	21
+gait	gate	0.8666666666666667	2	holbrook-missp	-1	10	-1	1
+cave	gave	0.8333333333333334	1	holbrook-missp	18	34	-1	1
+jay	gay	0.7777777777777777	1	holbrook-missp	9	32	-1	1
+gere	gear	0.8666666666666667	2	holbrook-missp	-1	16	-1	10
+gird	geared	0.775	3	holbrook-missp	-1	9	-1	1
+girse	gears	0.76	3	holbrook-missp	45	99	-1	1
+ge	get	0.8888888888888888	1	holbrook-missp	4	50	0	19
+gett	get	0.9166666666666666	1	holbrook-missp	0	7	0	4
+get	gets	0.9166666666666666	1	holbrook-missp	2	36	-1	1
+get	getting	0.8095238095238096	4	holbrook-missp	-1	36	-1	1
+geting	getting	0.9666666666666667	1	holbrook-missp	0	55	0	5
+gell	girl	0.6666666666666666	2	holbrook-missp	-1	26	-1	17
+girls	girl's	0.9666666666666667	1	holbrook-missp	1	35	-1	1
+girl_friend	girlfriend's	0.9484848484848484	3	holbrook-missp	2	3	-1	1
+girlfriend	girlfriends	0.9818181818181818	1	holbrook-missp	3	5	-1	1
+gerls	girls	0.88	1	holbrook-missp	7	61	2	3
+girl	girls	0.96	1	holbrook-missp	2	10	-1	1
+give	given	0.96	1	holbrook-missp	2	18	-1	1
+give	gives	0.96	1	holbrook-missp	3	18	-1	1
+do	go	0.6666666666666666	1	holbrook-missp	-1	50	-1	1
+got	go	0.8888888888888888	1	holbrook-missp	5	38	-1	1
+go	goes	0.8333333333333334	2	holbrook-missp	-1	50	-1	1
+go	going	0.7999999999999999	3	holbrook-missp	-1	50	-1	1
+gying	going	0.88	1	holbrook-missp	4	45	3	9
+go	gone	0.8333333333333334	2	holbrook-missp	-1	50	-1	1
+gon	gone	0.9166666666666666	1	holbrook-missp	0	39	2	25
+good-by	goodbye	0.9428571428571428	2	holbrook-missp	0	11	0	3
+goodby	goodbye	0.9714285714285714	1	holbrook-missp	2	13	0	3
+get	got	0.7777777777777777	1	holbrook-missp	5	36	-1	1
+gnt	got	0.7777777777777777	1	holbrook-missp	8	16	3	10
+go	got	0.8888888888888888	1	holbrook-missp	4	50	-1	1
+grab	grabbed	0.9142857142857143	3	holbrook-missp	-1	16	-1	1
+grabed	grabbed	0.9714285714285714	1	holbrook-missp	2	43	0	8
+grandpas	grandpa's	0.9777777777777777	1	holbrook-missp	3	16	-1	1
+grete	grated	0.7911111111111111	2	holbrook-missp	-1	16	-1	3
+crave	grave	0.8666666666666667	1	holbrook-missp	14	26	-1	1
+grait	great	0.8933333333333333	2	holbrook-missp	12	48	-1	7
+gnenhouen	greenhouse	0.7576190476190476	4	holbrook-missp	-1	46	-1	1
+greive	grieve	0.9555555555555556	2	holbrook-missp	0	21	0	1
+grouser	grocer	0.8944444444444445	2	holbrook-missp	10	14	-1	1
+gound	ground	0.9500000000000001	1	holbrook-missp	0	35	0	10
+grouned	ground	0.9714285714285714	1	holbrook-missp	0	19	0	6
+grows	grow	0.96	1	holbrook-missp	2	44	-1	1
+groon	grown	0.9066666666666667	1	holbrook-missp	4	14	4	6
+guard	guided	0.76	3	holbrook-missp	-1	36	-1	1
+guilt	guilty	0.9666666666666667	1	holbrook-missp	1	13	-1	1
+gon	gun	0.7777777777777777	1	holbrook-missp	13	39	19	25
+guter	gutter	0.9611111111111111	1	holbrook-missp	2	63	0	4
+hab	had	0.7777777777777777	1	holbrook-missp	12	31	12	21
+hade	had	0.9166666666666666	1	holbrook-missp	1	20	1	15
+has	had	0.7777777777777777	1	holbrook-missp	11	50	-1	1
+have	had	0.7222222222222222	2	holbrook-missp	-1	30	-1	1
+hadnt	hadn't	0.9666666666666667	1	holbrook-missp	0	17	-1	2
+hire	hair	0.8500000000000001	2	holbrook-missp	-1	22	-1	1
+hair_dreser	hairdresser	0.9636363636363636	2	holbrook-missp	0	6	0	1
+harfparst	half past	0.8814814814814814	3	holbrook-missp	-1	6	-1	1
+alloe	hallo	0.8666666666666667	2	holbrook-missp	-1	13	-1	4
+halloe	hallo	0.9666666666666667	1	holbrook-missp	-1	13	-1	2
+hemmsering	hammering	0.8691666666666668	2	holbrook-missp	0	6	0	1
+hang	handed	0.825	3	holbrook-missp	-1	29	-1	1
+hand	hands	0.96	1	holbrook-missp	2	22	-1	1
+hung	hang	0.8500000000000001	1	holbrook-missp	6	21	-1	1
+haing	hanging	0.8704761904761905	2	holbrook-missp	-1	68	-1	10
+hapend	happened	0.9416666666666667	2	holbrook-missp	4	34	0	31
+hapends	happened	0.9083333333333333	3	holbrook-missp	6	18	-1	11
+happen	happened	0.95	2	holbrook-missp	4	42	-1	1
+happend	happened	0.975	1	holbrook-missp	0	9	0	4
+happon	happened	0.8916666666666667	3	holbrook-missp	3	45	-1	1
+heap	happened	0.775	6	holbrook-missp	-1	17	-1	1
+happing	happening	0.9269841269841269	2	holbrook-missp	-1	20	-1	13
+happends	happens	0.975	1	holbrook-missp	0	11	0	2
+happly	happily	0.9714285714285714	1	holbrook-missp	0	9	0	4
+had	hard	0.9166666666666666	1	holbrook-missp	1	44	-1	1
+as	has	0.0	1	holbrook-missp	35	50	-1	1
+hase	has	0.9166666666666666	1	holbrook-missp	4	23	3	19
+hate	hates	0.96	1	holbrook-missp	3	31	-1	1
+has	have	0.7222222222222222	2	holbrook-missp	-1	50	-1	1
+hav	have	0.9166666666666666	1	holbrook-missp	0	23	0	13
+of	have	0.0	4	holbrook-missp	-1	49	-1	1
+haveto	have to	0.9714285714285714	1	holbrook-missp	0	50	-1	6
+haven's	haven't	0.9428571428571428	1	holbrook-missp	3	26	-1	1
+havn't	haven't	0.9666666666666667	1	holbrook-missp	0	16	0	3
+haveing	having	0.9666666666666667	1	holbrook-missp	0	13	0	1
+his	he	0.611111111111111	2	holbrook-missp	-1	49	-1	1
+the	he	0.0	1	holbrook-missp	20	22	-1	1
+ther	he	0.8333333333333334	2	holbrook-missp	-1	17	-1	13
+his	he's	0.7222222222222222	2	holbrook-missp	29	49	-1	1
+hed	head	0.9166666666666666	1	holbrook-missp	1	48	2	29
+hethy	healthy	0.9238095238095239	2	holbrook-missp	2	17	0	19
+heep	heap	0.8666666666666667	1	holbrook-missp	5	19	7	16
+haer	hear	0.9249999999999999	2	holbrook-missp	6	11	4	8
+her	hear	0.9166666666666666	1	holbrook-missp	1	36	-1	1
+here	hear	0.8666666666666667	2	holbrook-missp	-1	24	-1	1
+heared	heard	0.9666666666666667	1	holbrook-missp	2	39	0	16
+her	heard	0.8666666666666667	2	holbrook-missp	-1	36	-1	1
+herd	heard	0.9466666666666665	1	holbrook-missp	4	22	-1	1
+hered	heard	0.8933333333333333	2	holbrook-missp	-1	15	-1	8
+hart	heart	0.94	1	holbrook-missp	4	30	-1	1
+hertbreake	heartbreak	0.9466666666666665	2	holbrook-missp	0	13	0	2
+heart	heat	0.9533333333333333	1	holbrook-missp	7	23	-1	1
+hevey	heavy	0.8933333333333333	2	holbrook-missp	1	46	0	54
+heg	hedge	0.8666666666666667	2	holbrook-missp	-1	30	-1	21
+effer	heifer	0.8222222222222223	2	holbrook-missp	-1	25	-1	3
+hasld	held	0.8049999999999999	2	holbrook-missp	20	56	25	43
+held	help	0.8833333333333334	1	holbrook-missp	3	15	-1	1
+She	her	0.0	2	holbrook-missp	-1	21	-1	7
+he	her	0.8888888888888888	1	holbrook-missp	1	51	-1	1
+here	her	0.9166666666666666	1	holbrook-missp	6	24	-1	1
+there	her	0.8666666666666667	2	holbrook-missp	-1	15	-1	1
+hear	here	0.8666666666666667	2	holbrook-missp	-1	27	-1	1
+he_slef	herself	0.8793650793650793	3	holbrook-missp	0	16	0	1
+hidon	hidden	0.8755555555555556	2	holbrook-missp	5	59	0	26
+hm	him	0.611111111111111	1	holbrook-missp	17	50	20	27
+im	him	0.0	1	holbrook-missp	32	50	21	28
+him_self	himself	0.9708333333333333	1	holbrook-missp	0	8	0	1
+his_self	himself	0.8952380952380953	2	holbrook-missp	0	13	0	1
+he	his	0.611111111111111	2	holbrook-missp	-1	51	-1	1
+he's	his	0.7222222222222222	2	holbrook-missp	-1	50	-1	1
+is	his	0.0	1	holbrook-missp	37	50	-1	1
+hiter	hit	0.8666666666666667	2	holbrook-missp	9	22	-1	11
+holler	hole	0.9222222222222222	2	holbrook-missp	5	24	-1	1
+hime	home	0.8500000000000001	1	holbrook-missp	10	19	8	15
+hom	home	0.9166666666666666	1	holbrook-missp	0	38	1	24
+homse	home	0.9533333333333333	1	holbrook-missp	1	71	0	5
+honymoon	honeymoon	0.9740740740740741	1	holbrook-missp	0	5	0	1
+hunemoon	honeymoon	0.8958333333333333	2	holbrook-missp	0	10	0	1
+hock	hook	0.8666666666666667	1	holbrook-missp	8	25	-1	1
+hop	hope	0.9166666666666666	1	holbrook-missp	2	42	-1	1
+hop	hopped	0.8333333333333334	3	holbrook-missp	-1	42	-1	1
+horn	horns	0.96	1	holbrook-missp	2	19	-1	1
+horid	horrid	0.9611111111111111	1	holbrook-missp	0	52	0	1
+horrieyfide	horrified	0.9414141414141414	4	holbrook-missp	0	5	-1	1
+houes	house	0.9533333333333333	2	holbrook-missp	0	42	0	13
+house_boat	houseboat	0.98	1	holbrook-missp	0	7	0	1
+house_braking	housebreaking	0.9692307692307692	2	holbrook-missp	0	3	0	1
+houes	houses	0.9144444444444445	1	holbrook-missp	3	42	3	13
+housee_work	housework	0.9636363636363636	2	holbrook-missp	0	7	0	1
+hungrey	hungry	0.9714285714285714	1	holbrook-missp	0	8	0	1
+heart	hurt	0.8049999999999999	2	holbrook-missp	17	23	-1	1
+hearte	hurt	0.775	3	holbrook-missp	-1	15	-1	6
+hert	hurt	0.8500000000000001	1	holbrook-missp	14	23	11	15
+husbon	husband	0.9095238095238095	2	holbrook-missp	0	16	0	3
+hudge	hutch	0.6	3	holbrook-missp	-1	10	-1	6
+high_drollit	hydraulic	0.6574074074074074	7	holbrook-missp	1	13	-1	1
+ida	idea	0.9166666666666666	1	holbrook-missp	0	22	0	3
+inded	indian	0.79	3	holbrook-missp	-1	51	-1	7
+indiscrest	indiscreet	0.96	1	holbrook-missp	0	16	0	1
+injeck	inject	0.9333333333333333	1	holbrook-missp	0	22	0	1
+injurys	injuries	0.9214285714285715	2	holbrook-missp	4	11	-1	2
+insexs	insects	0.9095238095238095	2	holbrook-missp	1	17	-1	1
+in_side	inside	0.9619047619047619	1	holbrook-missp	0	6	0	1
+instace	instance	0.975	1	holbrook-missp	2	7	0	2
+instead	instance	0.8880952380952382	4	holbrook-missp	-1	27	-1	1
+intercors	intercourse	0.9636363636363636	2	holbrook-missp	0	8	-1	2
+intended	interned	0.9214285714285715	2	holbrook-missp	11	16	-1	1
+interdust	introduced	0.8288888888888889	5	holbrook-missp	-1	6	-1	4
+introducted	introduced	0.9818181818181818	1	holbrook-missp	0	5	0	1
+us	is	0.6666666666666666	1	holbrook-missp	4	50	-1	1
+in'sen't	isn't	0.8274999999999999	3	holbrook-missp	7	25	-1	1
+isant	isn't	0.8933333333333333	2	holbrook-missp	2	49	-1	32
+isten	isn't	0.6	3	holbrook-missp	-1	32	-1	1
+isinted	isn't it	0.6904761904761904	5	holbrook-missp	-1	21	-1	23
+hit	it	0.0	1	holbrook-missp	37	41	-1	1
+is	it	0.6666666666666666	1	holbrook-missp	-1	50	-1	1
+she	it	0.0	3	holbrook-missp	-1	23	-1	1
+it	it's	0.8333333333333334	2	holbrook-missp	-1	50	-1	1
+its	it's	0.9166666666666666	1	holbrook-missp	1	50	-1	1
+is	its	0.611111111111111	1	holbrook-missp	16	50	-1	1
+it	its	0.8888888888888888	1	holbrook-missp	1	50	-1	1
+it's	its	0.9166666666666666	1	holbrook-missp	11	50	-1	1
+jaell	jail	0.8266666666666667	2	holbrook-missp	4	32	-1	1
+gare	jar	0.7222222222222222	2	holbrook-missp	-1	31	-1	22
+joged	jogged	0.9611111111111111	1	holbrook-missp	2	54	0	3
+goin	join	0.8333333333333334	1	holbrook-missp	10	12	9	10
+joine	join	0.96	1	holbrook-missp	2	39	2	5
+juiciy	juicy	0.9666666666666667	1	holbrook-missp	1	9	1	2
+jump	jumped	0.9333333333333333	2	holbrook-missp	-1	12	-1	1
+jumth	jumped	0.79	3	holbrook-missp	-1	44	-1	12
+jungel	jungle	0.9666666666666667	2	holbrook-missp	0	28	0	1
+gust	just	0.8333333333333334	1	holbrook-missp	10	20	-1	1
+geep	keep	0.8333333333333334	1	holbrook-missp	8	15	12	13
+keep	keeps	0.96	1	holbrook-missp	1	16	-1	1
+keept	kept	0.9466666666666665	1	holbrook-missp	1	20	1	3
+kep	kept	0.9166666666666666	1	holbrook-missp	3	18	1	12
+kees	keys	0.8666666666666667	1	holbrook-missp	12	34	10	19
+kiging	kicking	0.8793650793650793	2	holbrook-missp	2	27	-1	1
+kidney	kidneys	0.9714285714285714	1	holbrook-missp	1	10	-1	1
+kid	killed	0.6666666666666666	3	holbrook-missp	-1	27	-1	1
+kild	killed	0.9222222222222222	2	holbrook-missp	-1	10	-1	9
+kill	killed	0.9333333333333333	2	holbrook-missp	-1	29	-1	1
+killd	killed	0.9666666666666667	1	holbrook-missp	0	54	0	3
+kiss	kissed	0.9333333333333333	2	holbrook-missp	-1	21	-1	1
+kichen	kitchen	0.9619047619047619	1	holbrook-missp	0	13	0	3
+kitchin	kitchen	0.9428571428571428	1	holbrook-missp	2	28	0	1
+kitching	kitchen	0.9214285714285715	2	holbrook-missp	2	32	-1	6
+new	knew	0.9166666666666666	1	holbrook-missp	3	30	-1	1
+now	knew	0.7222222222222222	2	holbrook-missp	-1	37	-1	1
+nowe	knew	0.7222222222222222	3	holbrook-missp	-1	17	-1	8
+kiffe	knife	0.88	2	holbrook-missp	0	38	1	37
+kniffe	knife	0.9666666666666667	1	holbrook-missp	0	12	0	1
+knitt	knit	0.96	1	holbrook-missp	0	29	0	2
+nock	knock	0.9333333333333332	1	holbrook-missp	2	19	0	14
+knock	knocked	0.9428571428571428	2	holbrook-missp	4	20	-1	1
+knokt	knocked	0.8533333333333333	3	holbrook-missp	5	37	-1	1
+know	knocked	0.8083333333333333	4	holbrook-missp	-1	13	-1	1
+nock	knocked	0.8571428571428571	3	holbrook-missp	-1	19	-1	14
+no	know	0.8333333333333334	2	holbrook-missp	-1	50	-1	1
+now	know	0.9166666666666666	1	holbrook-missp	2	37	-1	1
+on	know	0.5833333333333334	3	holbrook-missp	-1	50	-1	1
+knowes	knows	0.9666666666666667	1	holbrook-missp	2	26	0	1
+ladys	lady	0.96	1	holbrook-missp	1	30	0	4
+ladh	laid	0.8666666666666667	2	holbrook-missp	-1	8	-1	6
+laide	laid	0.96	1	holbrook-missp	0	50	0	3
+lack	lake	0.8666666666666667	2	holbrook-missp	-1	29	-1	1
+lam	lamb	0.9166666666666666	1	holbrook-missp	2	51	-1	1
+laded	landed	0.9555555555555556	1	holbrook-missp	7	23	-1	1
+larg	large	0.96	1	holbrook-missp	0	8	0	5
+latley	lately	0.9611111111111111	2	holbrook-missp	0	47	0	1
+lated	later	0.92	1	holbrook-missp	11	79	7	22
+latter	later	0.9611111111111111	1	holbrook-missp	2	27	-1	1
+lauging	laughing	0.975	1	holbrook-missp	0	22	0	4
+lordery	laundry	0.7428571428571429	4	holbrook-missp	-1	44	-1	19
+ladh	lay	0.7222222222222222	2	holbrook-missp	-1	8	-1	6
+laid	lay	0.7222222222222222	2	holbrook-missp	-1	19	-1	1
+la-by	layby	0.8933333333333333	1	holbrook-missp	-1	51	-1	18
+led	lead	0.9166666666666666	1	holbrook-missp	1	50	-1	1
+leeding	lead	0.7809523809523811	4	holbrook-missp	-1	34	-1	10
+lead	leading	0.9142857142857143	3	holbrook-missp	-1	30	-1	1
+leav	leave	0.96	1	holbrook-missp	0	15	0	9
+lefnr	leave	0.6	3	holbrook-missp	-1	15	-1	20
+leve	leave	0.9466666666666665	1	holbrook-missp	3	16	3	10
+life	leave	0.6333333333333333	3	holbrook-missp	-1	18	-1	1
+leavs	leaves	0.9666666666666667	1	holbrook-missp	0	34	0	9
+lift	left	0.8500000000000001	1	holbrook-missp	9	15	-1	1
+lege	leg	0.9166666666666666	1	holbrook-missp	2	12	3	7
+lets	let's	0.9533333333333333	1	holbrook-missp	1	50	-1	1
+teller	letter	0.8222222222222223	3	holbrook-missp	-1	25	-1	1
+liy	lie	0.7777777777777777	1	holbrook-missp	4	18	5	11
+life_boat	lifeboat	0.9777777777777777	1	holbrook-missp	0	10	0	1
+ligthing	lightning	0.9157407407407407	2	holbrook-missp	-1	11	-1	1
+lichr	like	0.6333333333333333	3	holbrook-missp	-1	26	-1	27
+lik	like	0.9166666666666666	1	holbrook-missp	1	18	0	13
+look	like	0.6666666666666666	3	holbrook-missp	-1	19	-1	1
+lick	liked	0.8266666666666667	3	holbrook-missp	-1	25	-1	1
+like	likes	0.96	1	holbrook-missp	4	28	-1	1
+listern	listen	0.9714285714285714	1	holbrook-missp	0	18	0	2
+lisinid	listened	0.8458333333333333	3	holbrook-missp	1	52	-1	1
+lsning	listening	0.8500000000000001	3	holbrook-missp	10	31	-1	1
+litel	little	0.9144444444444445	2	holbrook-missp	5	21	-1	4
+litte	little	0.9666666666666667	1	holbrook-missp	1	15	0	6
+lifd	lived	0.8266666666666667	2	holbrook-missp	-1	6	-1	4
+live	lived	0.96	1	holbrook-missp	2	30	-1	1
+lod	load	0.9166666666666666	1	holbrook-missp	0	46	3	28
+loades	loads	0.9666666666666667	1	holbrook-missp	3	26	1	7
+lock	locked	0.9333333333333333	2	holbrook-missp	-1	26	-1	1
+lockEd	locked	0.9333333333333333	1	holbrook-missp	2	27	0	1
+loker	locker	0.9555555555555556	1	holbrook-missp	0	21	1	9
+lonlest	loneliest	0.9148148148148147	2	holbrook-missp	1	6	-1	1
+look	looked	0.9333333333333333	2	holbrook-missp	-1	19	-1	1
+look	looking	0.9142857142857143	3	holbrook-missp	-1	19	-1	1
+look	looks	0.96	1	holbrook-missp	1	19	-1	1
+lorry's	lorries	0.8857142857142858	2	holbrook-missp	4	16	-1	1
+lord	lorry	0.8483333333333334	2	holbrook-missp	-1	20	-1	1
+lory	lorry	0.9533333333333333	1	holbrook-missp	0	16	0	8
+loos	lose	0.8666666666666667	2	holbrook-missp	-1	50	-1	1
+los	lose	0.9166666666666666	1	holbrook-missp	1	49	6	24
+love	loved	0.96	1	holbrook-missp	3	29	-1	1
+lovyley	lovely	0.9277777777777778	2	holbrook-missp	0	19	0	2
+laying	lying	0.9500000000000001	1	holbrook-missp	5	30	-1	1
+mayd	made	0.8666666666666667	2	holbrook-missp	-1	13	-1	4
+mane	main	0.8666666666666667	2	holbrook-missp	-1	41	-1	1
+mack	make	0.8666666666666667	2	holbrook-missp	-1	30	-1	18
+macke_up	make-up	0.8952380952380953	2	holbrook-missp	-1	12	-1	1
+mack	makes	0.8266666666666667	3	holbrook-missp	-1	30	-1	18
+mae	man	0.7777777777777777	1	holbrook-missp	18	43	9	23
+mand	man	0.9166666666666666	1	holbrook-missp	2	27	1	16
+manh	man	0.9166666666666666	1	holbrook-missp	0	15	0	7
+may	man	0.7777777777777777	1	holbrook-missp	13	50	-1	1
+man	man's	0.8666666666666667	2	holbrook-missp	-1	50	-1	1
+mans	man's	0.9533333333333333	1	holbrook-missp	2	50	-1	1
+maneger	manager	0.8944444444444445	1	holbrook-missp	3	8	2	3
+manggles	mangels	0.9464285714285714	2	holbrook-missp	-1	36	-1	1
+many_fold	manifold	0.9189814814814814	2	holbrook-missp	0	8	0	1
+meay	many	0.8500000000000001	2	holbrook-missp	-1	12	-1	9
+meny	many	0.8500000000000001	1	holbrook-missp	4	7	4	6
+marg	marge	0.96	1	holbrook-missp	0	19	0	8
+marrede	married	0.9428571428571428	2	holbrook-missp	1	57	-1	1
+marreid	married	0.9714285714285714	2	holbrook-missp	0	2	0	2
+marrid	married	0.9714285714285714	1	holbrook-missp	0	33	0	2
+marryid	married	0.9428571428571428	2	holbrook-missp	2	7	0	4
+marshladn	marshland	0.9777777777777777	2	holbrook-missp	0	8	0	1
+marsk	mask	0.9466666666666665	1	holbrook-missp	3	45	3	5
+marsks	masks	0.9555555555555556	1	holbrook-missp	2	43	0	2
+mater	matter	0.9611111111111111	1	holbrook-missp	4	42	-1	1
+we	me	0.6666666666666666	1	holbrook-missp	21	52	-1	1
+meadoy	meadow	0.9333333333333333	1	holbrook-missp	0	33	0	1
+meddow	meadow	0.9111111111111112	1	holbrook-missp	0	39	0	1
+medow	meadow	0.9555555555555556	1	holbrook-missp	2	32	0	2
+mean't	meant	0.9666666666666667	1	holbrook-missp	0	49	0	2
+me	meet	0.8333333333333334	2	holbrook-missp	-1	50	-1	1
+man	men	0.7777777777777777	1	holbrook-missp	12	50	-1	1
+metet	metals	0.79	3	holbrook-missp	-1	35	-1	6
+midal	middle	0.8755555555555556	2	holbrook-missp	4	15	-1	3
+middal	middle	0.9333333333333333	2	holbrook-missp	0	18	-1	1
+midsummer's	midsummer	0.9636363636363636	2	holbrook-missp	3	4	-1	1
+migth	might	0.9533333333333333	2	holbrook-missp	0	24	0	2
+mite	might	0.6333333333333333	3	holbrook-missp	-1	26	-1	1
+my	mine	0.5833333333333334	3	holbrook-missp	-1	52	-1	1
+mine	minutes	0.9	3	holbrook-missp	-1	39	-1	1
+minetes	minutes	0.8944444444444445	1	holbrook-missp	7	30	0	1
+morning	miring	0.8042857142857143	2	holbrook-missp	-1	12	-1	1
+miss_fireing	misfiring	0.9416666666666667	3	holbrook-missp	0	9	-1	1
+miss	missed	0.9333333333333333	2	holbrook-missp	-1	34	-1	1
+mist	missed	0.825	3	holbrook-missp	-1	30	-1	1
+modal	model	0.9066666666666667	1	holbrook-missp	3	13	-1	1
+molad	model	0.6	3	holbrook-missp	-1	65	-1	2
+malod	modelled	0.6833333333333332	5	holbrook-missp	-1	52	-1	49
+missiour	monsieur	0.6833333333333332	3	holbrook-missp	-1	31	-1	3
+month	month's	0.9428571428571428	2	holbrook-missp	5	22	-1	1
+monsth	months	0.9611111111111111	2	holbrook-missp	1	22	-1	1
+month	months	0.9666666666666667	1	holbrook-missp	1	22	-1	1
+mouth	months	0.8577777777777779	2	holbrook-missp	-1	13	-1	1
+moor	more	0.8666666666666667	2	holbrook-missp	-1	22	-1	1
+moning	morning	0.9619047619047619	1	holbrook-missp	2	17	1	13
+morring	morning	0.8944444444444445	1	holbrook-missp	5	19	2	3
+morther	mother	0.9619047619047619	1	holbrook-missp	0	22	0	2
+mothers	mother	0.9714285714285714	1	holbrook-missp	2	27	-1	1
+mouthr	mother	0.9111111111111112	2	holbrook-missp	4	13	-1	3
+motor-cruisr	motor-cruiser	0.9846153846153847	1	holbrook-missp	-1	8	-1	1
+moter_bike	motorbike	0.9274074074074075	2	holbrook-missp	0	4	0	1
+motor_bike	motorbike	0.98	1	holbrook-missp	0	4	0	1
+moues	mouse	0.9533333333333333	2	holbrook-missp	3	52	-1	1
+mush	much	0.8666666666666667	1	holbrook-missp	10	26	-1	1
+mums	mum's	0.9533333333333333	1	holbrook-missp	1	31	-1	1
+murber	murder	0.9222222222222223	1	holbrook-missp	0	99	0	1
+murbur	murdered	0.8055555555555556	4	holbrook-missp	-1	77	-1	1
+musirls	muscles	0.8666666666666668	3	holbrook-missp	-1	12	-1	5
+may	my	0.611111111111111	1	holbrook-missp	40	50	-1	1
+my_self	myself	0.9619047619047619	1	holbrook-missp	0	20	0	1
+my_shelf	myself	0.9333333333333333	2	holbrook-missp	0	14	0	1
+mistory	mystery	0.8285714285714287	2	holbrook-missp	13	17	-1	1
+nana	nanny	0.8483333333333334	2	holbrook-missp	-1	14	-1	1
+nere	near	0.8666666666666667	2	holbrook-missp	-1	13	-1	8
+nerer	nearer	0.9555555555555556	1	holbrook-missp	0	49	0	4
+nearst	nearest	0.9714285714285714	1	holbrook-missp	2	13	0	2
+kneeling	nearly	0.625	6	holbrook-missp	-1	9	-1	1
+neally	nearly	0.9222222222222223	1	holbrook-missp	1	23	1	3
+nealy	nearly	0.9611111111111111	1	holbrook-missp	0	9	1	4
+nely	nearly	0.9111111111111111	2	holbrook-missp	-1	4	-1	2
+nerly	nearly	0.9555555555555556	1	holbrook-missp	0	9	0	4
+niely	nearly	0.8400000000000001	3	holbrook-missp	5	23	-1	1
+nede	need	0.9333333333333333	2	holbrook-missp	0	8	0	5
+nedent	needn't	0.9174603174603175	3	holbrook-missp	0	18	-1	16
+needent	needn't	0.9428571428571428	2	holbrook-missp	2	18	-1	5
+nabour	neighbour	0.8166666666666667	4	holbrook-missp	-1	42	-1	1
+nerve	nerves	0.9666666666666667	1	holbrook-missp	2	25	-1	1
+nerves	nervous	0.9095238095238095	2	holbrook-missp	6	31	-1	1
+knver	never	0.8666666666666667	2	holbrook-missp	2	57	2	41
+nether	never	0.8577777777777779	2	holbrook-missp	13	29	-1	1
+neve	never	0.96	1	holbrook-missp	0	10	0	6
+never_the_less	nevertheless	0.9714285714285714	2	holbrook-missp	0	4	0	1
+nest	next	0.8666666666666667	1	holbrook-missp	9	28	-1	1
+tonight	night	0.9047619047619048	2	holbrook-missp	5	8	-1	1
+night	nights	0.9666666666666667	1	holbrook-missp	1	34	-1	1
+nigth	nights	0.9144444444444445	2	holbrook-missp	-1	20	-1	3
+ninty	ninety	0.9611111111111111	1	holbrook-missp	0	42	0	6
+niped	nipped	0.9611111111111111	1	holbrook-missp	2	42	0	6
+know	no	0.8333333333333334	2	holbrook-missp	-1	13	-1	1
+now	no	0.8888888888888888	1	holbrook-missp	5	37	-1	1
+on	no	0.0	2	holbrook-missp	22	50	-1	1
+know_on	no one	0.746031746031746	4	holbrook-missp	-1	10	-1	1
+know_one	no one	0.8194444444444445	3	holbrook-missp	-1	19	-1	1
+not_one	no one	0.8793650793650793	2	holbrook-missp	-1	52	-1	2
+now_one	no one	0.8793650793650793	2	holbrook-missp	-1	36	-1	1
+nose	noise	0.9466666666666665	1	holbrook-missp	3	29	-1	1
+nore	nor	0.9166666666666666	1	holbrook-missp	3	30	2	20
+no	not	0.8888888888888888	1	holbrook-missp	7	50	-1	1
+nots	notes	0.9533333333333333	1	holbrook-missp	0	50	0	24
+nousant	nuisance	0.8017857142857143	4	holbrook-missp	3	36	-1	1
+nurse's	nurses	0.9714285714285714	1	holbrook-missp	2	19	-1	1
+O_clock	o'clock	0.8095238095238096	2	holbrook-missp	-1	7	-1	1
+o,_clock	o'clock	0.8821428571428571	2	holbrook-missp	0	7	-1	1
+o_clock	o'clock	0.9142857142857143	1	holbrook-missp	0	7	-1	2
+oclock	o'clock	0.9571428571428572	1	holbrook-missp	0	7	-1	1
+off	of	0.8888888888888888	1	holbrook-missp	6	11	-1	1
+on	of	0.6666666666666666	1	holbrook-missp	-1	50	-1	1
+of	off	0.8888888888888888	1	holbrook-missp	1	49	-1	1
+ow	oh	0.6666666666666666	1	holbrook-missp	6	52	-1	1
+lod	old	0.5555555555555555	2	holbrook-missp	34	46	27	28
+ol	old	0.8888888888888888	1	holbrook-missp	1	50	1	30
+olddis	oldest	0.8444444444444443	3	holbrook-missp	-1	10	-1	4
+hn	on	0.6666666666666666	1	holbrook-missp	19	50	1	18
+hon	on	0.0	1	holbrook-missp	39	41	-1	1
+of	on	0.6666666666666666	1	holbrook-missp	19	49	-1	1
+one	on	0.8888888888888888	1	holbrook-missp	12	29	-1	1
+ones	once	0.8666666666666667	2	holbrook-missp	-1	36	-1	1
+own	once	0.7222222222222222	3	holbrook-missp	-1	14	-1	1
+wons	once	0.6666666666666666	3	holbrook-missp	-1	46	-1	20
+on	one	0.8888888888888888	1	holbrook-missp	1	50	-1	1
+wones	ones	0.9333333333333332	1	holbrook-missp	3	45	1	11
+ony	only	0.9166666666666666	1	holbrook-missp	0	15	5	9
+oped	opened	0.9222222222222222	2	holbrook-missp	-1	19	-1	1
+open	opened	0.9333333333333333	2	holbrook-missp	-1	17	-1	1
+opend	opened	0.9666666666666667	1	holbrook-missp	0	18	0	7
+opon	opened	0.8	3	holbrook-missp	-1	76	-1	2
+ot	or	0.6666666666666666	1	holbrook-missp	3	50	23	45
+orcher	orchard	0.9095238095238095	2	holbrook-missp	1	31	-1	2
+ordenrey	ordinary	0.8833333333333334	3	holbrook-missp	1	12	-1	2
+ophoned	orphaned	0.8821428571428571	2	holbrook-missp	3	11	-1	1
+orphaed	orphaned	0.975	1	holbrook-missp	0	14	0	1
+other	others	0.9666666666666667	1	holbrook-missp	1	28	-1	1
+other_wise	otherwise	0.98	1	holbrook-missp	0	5	0	1
+hour	our	0.9166666666666666	1	holbrook-missp	4	13	-1	1
+ous	our	0.7777777777777777	1	holbrook-missp	13	51	15	19
+out	our	0.7777777777777777	1	holbrook-missp	10	29	-1	1
+and_selve	ourselves	0.7037037037037037	5	holbrook-missp	-1	7	-1	1
+hot	out	0.5555555555555555	2	holbrook-missp	-1	45	-1	1
+ou	out	0.8888888888888888	1	holbrook-missp	1	50	0	21
+ouht	out	0.9166666666666666	1	holbrook-missp	1	3	1	3
+owt	out	0.7777777777777777	1	holbrook-missp	3	16	6	12
+outdrak	outbreak	0.9083333333333333	2	holbrook-missp	3	7	-1	1
+out_fit	outfit	0.9666666666666667	1	holbrook-missp	0	6	0	1
+out_fits	outfits	0.9708333333333333	1	holbrook-missp	0	7	0	1
+out_side	outside	0.9708333333333333	1	holbrook-missp	0	8	0	1
+out_sild	outside	0.9083333333333333	3	holbrook-missp	1	11	-1	1
+hover	over	0.9333333333333332	1	holbrook-missp	5	22	-1	1
+ove	over	0.9166666666666666	1	holbrook-missp	0	26	6	18
+overy	over	0.96	1	holbrook-missp	1	10	1	7
+payed	paid	0.8266666666666667	2	holbrook-missp	17	23	-1	1
+panted	painted	0.9619047619047619	1	holbrook-missp	5	18	-1	1
+per	pair	0.7222222222222222	2	holbrook-missp	-1	37	-1	1
+paralised	paralysed	0.9555555555555556	1	holbrook-missp	-1	16	-1	5
+parents	parent's	0.975	1	holbrook-missp	1	37	-1	1
+prarents	parents	0.9196428571428571	1	holbrook-missp	0	9	0	1
+prerents	parents	0.8821428571428571	2	holbrook-missp	4	6	-1	2
+pars	parts	0.9533333333333333	1	holbrook-missp	6	51	-1	1
+partey	party	0.9666666666666667	1	holbrook-missp	0	46	0	4
+pass	past	0.8833333333333334	1	holbrook-missp	7	46	-1	1
+parth_way	pathway	0.9407407407407408	2	holbrook-missp	1	6	1	2
+pathment	pavement	0.8222222222222222	2	holbrook-missp	2	5	5	6
+paid	pay	0.7222222222222222	2	holbrook-missp	-1	13	-1	1
+pirls	pearls	0.8400000000000001	2	holbrook-missp	8	35	-1	3
+peope	peep	0.8266666666666667	2	holbrook-missp	12	38	-1	2
+peped	peeped	0.9022222222222223	1	holbrook-missp	4	10	2	4
+peolpe	people	0.9611111111111111	2	holbrook-missp	0	55	0	1
+pople	people	0.9500000000000001	1	holbrook-missp	1	42	1	3
+prasp	perhaps	0.8114285714285714	4	holbrook-missp	-1	29	-1	2
+peason	person	0.9111111111111112	1	holbrook-missp	5	22	0	3
+peter	peter's	0.9428571428571428	2	holbrook-missp	7	32	-1	1
+peters	peter's	0.9714285714285714	1	holbrook-missp	1	33	-1	1
+petal	petrol	0.8755555555555556	2	holbrook-missp	10	39	-1	1
+phone	phoned	0.9666666666666667	1	holbrook-missp	1	23	-1	1
+phto	photo	0.88	1	holbrook-missp	0	52	0	1
+pick	picked	0.9333333333333333	2	holbrook-missp	-1	33	-1	1
+picted	picked	0.9222222222222223	1	holbrook-missp	3	34	0	2
+piked	picked	0.9555555555555556	1	holbrook-missp	2	32	-1	1
+pick_poketin	pickpocketing	0.9525641025641025	3	holbrook-missp	-1	3	-1	1
+pictuou	picture	0.8857142857142858	2	holbrook-missp	1	13	0	1
+picture	pictures	0.975	1	holbrook-missp	2	5	-1	1
+pictyres	pictures	0.95	1	holbrook-missp	0	16	0	1
+pitures	pictures	0.9666666666666667	1	holbrook-missp	0	89	0	1
+pese	piece	0.8049999999999999	2	holbrook-missp	-1	10	-1	6
+pice	piece	0.88	1	holbrook-missp	8	29	8	21
+pigs	pigs'	0.96	1	holbrook-missp	-1	41	-1	1
+play	plan	0.8833333333333334	1	holbrook-missp	9	16	-1	1
+payer	play	0.8049999999999999	3	holbrook-missp	-1	35	-1	1
+playa	player	0.8933333333333334	2	holbrook-missp	4	28	-1	3
+play	playing	0.9142857142857143	3	holbrook-missp	-1	16	-1	1
+pleace	please	0.9333333333333333	1	holbrook-missp	1	27	1	3
+pleas	please	0.9666666666666667	1	holbrook-missp	2	83	-1	1
+ploud	ploughed	0.925	3	holbrook-missp	-1	38	-1	5
+pocket	pockets	0.9714285714285714	1	holbrook-missp	1	16	-1	1
+pooting	pointing	0.8507936507936509	2	holbrook-missp	-1	23	-1	15
+poicle	police	0.9555555555555556	2	holbrook-missp	-1	42	0	15
+poilice	police	0.9174603174603175	1	holbrook-missp	2	36	0	1
+polic	police	0.9666666666666667	1	holbrook-missp	0	36	1	4
+police_man	policeman	0.98	1	holbrook-missp	0	4	0	1
+policman	policeman	0.9777777777777777	1	holbrook-missp	0	5	0	1
+polce_men	policemen	0.9481481481481482	2	holbrook-missp	0	8	0	1
+police_men	policemen	0.98	1	holbrook-missp	0	2	0	1
+policeman	policemen	0.9555555555555556	1	holbrook-missp	7	8	-1	1
+poney	pony	0.9533333333333333	1	holbrook-missp	1	17	1	8
+poped	popped	0.9611111111111111	1	holbrook-missp	2	26	0	17
+passess	possess	0.9142857142857143	1	holbrook-missp	6	16	4	5
+post_cards	postcards	0.98	1	holbrook-missp	0	8	0	1
+potates	potatoes	0.975	1	holbrook-missp	0	42	0	3
+potato	potatoes	0.95	2	holbrook-missp	2	49	-1	1
+ponds	pounds	0.9555555555555556	1	holbrook-missp	3	26	-1	1
+ponud	pounds	0.9022222222222223	3	holbrook-missp	3	49	-1	2
+pouder	powder	0.9111111111111112	1	holbrook-missp	3	24	2	5
+prayerbook	prayer-book	0.9818181818181818	1	holbrook-missp	1	15	-1	1
+pregant	pregnant	0.9464285714285714	1	holbrook-missp	0	10	0	1
+pregnet	pregnant	0.9214285714285715	2	holbrook-missp	0	16	0	9
+present	presents	0.975	1	holbrook-missp	1	15	-1	1
+pretiest	prettiest	0.9277777777777778	1	holbrook-missp	3	14	1	2
+prettest	prettiest	0.9777777777777777	1	holbrook-missp	0	10	0	2
+preety	pretty	0.9222222222222223	1	holbrook-missp	0	79	0	1
+pray	prey	0.8666666666666667	1	holbrook-missp	8	20	-1	1
+principl	principle	0.9777777777777777	1	holbrook-missp	1	10	0	2
+prisin	prison	0.9333333333333333	1	holbrook-missp	1	25	0	1
+privait	private	0.9428571428571428	2	holbrook-missp	0	22	0	4
+probally	probably	0.95	1	holbrook-missp	4	14	0	1
+proceded	proceeded	0.9527777777777777	1	holbrook-missp	2	9	0	3
+programe	programme	0.9777777777777777	1	holbrook-missp	-1	6	-1	2
+programes	programmes	0.98	1	holbrook-missp	-1	16	-1	1
+prostut	prostitute	0.9114285714285714	3	holbrook-missp	3	32	-1	1
+prouls	prowls	0.9222222222222223	1	holbrook-missp	0	98	0	1
+pull	pulled	0.9333333333333333	2	holbrook-missp	-1	20	-1	1
+puntuation	punctuation	0.9787878787878788	1	holbrook-missp	0	16	0	1
+pusbycile	push-bicycle	0.9157407407407407	5	holbrook-missp	-1	7	-1	1
+but	put	0.7777777777777777	1	holbrook-missp	28	38	-1	1
+pht	put	0.7777777777777777	1	holbrook-missp	7	22	5	12
+pot	put	0.7777777777777777	1	holbrook-missp	12	50	-1	1
+qurral	quarrel	0.9174603174603175	2	holbrook-missp	0	27	0	8
+quere	queer	0.9533333333333333	2	holbrook-missp	0	15	0	4
+question	questioned	0.96	2	holbrook-missp	6	8	-1	1
+quiert	quiet	0.9666666666666667	1	holbrook-missp	0	28	0	2
+quily	quietly	0.9333333333333333	2	holbrook-missp	1	54	-1	2
+quitely	quietly	0.9666666666666667	2	holbrook-missp	0	24	0	1
+quite	quit	0.96	1	holbrook-missp	1	22	-1	1
+quit	quite	0.96	1	holbrook-missp	1	15	-1	1
+rabbit	rabbits	0.9714285714285714	1	holbrook-missp	1	15	-1	1
+raceing	racing	0.9666666666666667	1	holbrook-missp	0	30	0	2
+radyator	radiator	0.9416666666666667	1	holbrook-missp	0	8	0	1
+run	ran	0.7777777777777777	1	holbrook-missp	10	33	-1	1
+raperly	rapidly	0.8666666666666668	2	holbrook-missp	10	28	5	10
+reding	reading	0.9619047619047619	1	holbrook-missp	3	14	1	5
+realy	ready	0.9066666666666667	1	holbrook-missp	7	17	7	10
+reddy	ready	0.8933333333333333	1	holbrook-missp	3	17	2	5
+redey	ready	0.8933333333333333	2	holbrook-missp	3	30	-1	2
+realise	realized	0.9214285714285715	2	holbrook-missp	5	25	-1	3
+realy	really	0.9666666666666667	1	holbrook-missp	0	17	1	10
+reley	really	0.8577777777777779	2	holbrook-missp	5	13	-1	2
+reper	reap	0.8266666666666667	3	holbrook-missp	-1	23	-1	7
+reconnised	recognized	0.92	2	holbrook-missp	1	9	1	2
+refection	refreshing	0.8288888888888889	5	holbrook-missp	-1	10	-1	1
+registery	registry	0.9777777777777777	1	holbrook-missp	0	7	0	3
+replid	replied	0.9714285714285714	1	holbrook-missp	0	17	0	2
+replie	reply	0.8933333333333334	2	holbrook-missp	11	20	-1	2
+retier	retire	0.9666666666666667	2	holbrook-missp	1	61	0	5
+reveirse	reverse	0.975	1	holbrook-missp	0	23	0	1
+recher	richer	0.9	1	holbrook-missp	5	53	0	2
+rigth	right	0.9533333333333333	2	holbrook-missp	0	30	0	1
+rings	ring	0.96	1	holbrook-missp	2	62	-1	1
+ripper	ripper's	0.95	2	holbrook-missp	7	25	-1	1
+rad	road	0.9166666666666666	1	holbrook-missp	3	50	-1	1
+raod	road	0.9249999999999999	2	holbrook-missp	0	8	0	6
+rod	road	0.9166666666666666	1	holbrook-missp	1	40	-1	1
+rorse	roars	0.8933333333333333	2	holbrook-missp	3	82	-1	5
+rhfn	roof	0.6666666666666666	3	holbrook-missp	-1	31	-1	29
+rought	rough	0.9666666666666667	1	holbrook-missp	0	21	0	10
+rougth	rough	0.9666666666666667	1	holbrook-missp	0	24	0	1
+rownd	round	0.8933333333333333	1	holbrook-missp	6	34	1	2
+roundabout	round about	0.9818181818181818	1	holbrook-missp	1	6	-1	1
+rouns	rounds	0.9666666666666667	1	holbrook-missp	0	25	0	7
+rowd	rowed	0.9533333333333333	1	holbrook-missp	1	11	1	8
+rumer	rumour	0.8755555555555556	2	holbrook-missp	-1	40	-1	4
+ran	run	0.7777777777777777	1	holbrook-missp	16	50	-1	1
+runaway	run away	0.9708333333333333	1	holbrook-missp	2	8	-1	1
+run	running	0.8095238095238096	4	holbrook-missp	-1	33	-1	1
+runaway	runway	0.9277777777777778	1	holbrook-missp	5	8	-1	1
+rust	rushed	0.825	3	holbrook-missp	-1	26	-1	1
+rusall	rustle	0.8444444444444443	2	holbrook-missp	1	13	1	5
+safaly	safely	0.9222222222222223	1	holbrook-missp	0	42	0	1
+sald	said	0.8666666666666667	1	holbrook-missp	5	14	5	9
+sed	said	0.7222222222222222	2	holbrook-missp	-1	50	-1	27
+sedn	said	0.6666666666666666	3	holbrook-missp	-1	8	-1	5
+seid	said	0.8500000000000001	1	holbrook-missp	2	7	4	5
+siad	said	0.9249999999999999	2	holbrook-missp	0	6	0	4
+sid	said	0.9166666666666666	1	holbrook-missp	0	36	1	24
+sidn	said	0.8500000000000001	2	holbrook-missp	-1	6	-1	3
+saled	sailed	0.9555555555555556	1	holbrook-missp	3	32	3	18
+sally	sallies	0.8742857142857143	3	holbrook-missp	-1	27	-1	1
+safe	save	0.8666666666666667	1	holbrook-missp	5	14	-1	1
+see	saw	0.5555555555555555	2	holbrook-missp	-1	41	-1	1
+soor	saw	0.5277777777777778	3	holbrook-missp	-1	12	-1	9
+sor	saw	0.5555555555555555	2	holbrook-missp	-1	35	-1	22
+sore	saw	0.5277777777777778	3	holbrook-missp	-1	32	-1	1
+sorw	saw	0.7222222222222222	2	holbrook-missp	-1	4	-1	3
+sow	saw	0.7777777777777777	1	holbrook-missp	11	48	-1	1
+said	say	0.7222222222222222	2	holbrook-missp	-1	14	-1	1
+sais	says	0.8666666666666667	1	holbrook-missp	9	33	9	14
+say	says	0.9166666666666666	1	holbrook-missp	1	51	-1	1
+seis	says	0.6666666666666666	2	holbrook-missp	-1	23	-1	10
+scards	scares	0.9333333333333333	1	holbrook-missp	5	37	3	9
+shool	school	0.9500000000000001	1	holbrook-missp	1	26	1	8
+scem	scream	0.9111111111111111	2	holbrook-missp	-1	4	-1	4
+seveen	screen	0.7999999999999999	2	holbrook-missp	-1	11	-1	1
+sculptor	sculpture	0.9305555555555555	2	holbrook-missp	6	8	-1	1
+see	sea	0.7777777777777777	1	holbrook-missp	12	41	-1	1
+seach	search	0.9611111111111111	1	holbrook-missp	2	53	0	7
+sat	seat	0.9166666666666666	1	holbrook-missp	2	50	-1	1
+sexeon	second	0.8222222222222222	3	holbrook-missp	-1	10	-1	1
+secutery	secretary	0.8856481481481482	3	holbrook-missp	6	25	-1	3
+se	see	0.8888888888888888	1	holbrook-missp	1	50	1	25
+see	seeing	0.8333333333333334	3	holbrook-missp	-1	41	-1	1
+semed	seemed	0.9022222222222223	1	holbrook-missp	6	23	3	6
+see	sees	0.9166666666666666	1	holbrook-missp	7	41	-1	1
+slevish	selfish	0.8642857142857143	3	holbrook-missp	3	12	-1	1
+seling	selling	0.9666666666666667	1	holbrook-missp	0	14	0	7
+senour	senor	0.9666666666666667	1	holbrook-missp	2	20	0	1
+ses	sex	0.7777777777777777	1	holbrook-missp	15	49	18	23
+sixty_one	sexton	0.8166666666666667	4	holbrook-missp	3	9	-1	1
+exual	sexual	0.9444444444444445	1	holbrook-missp	0	18	0	2
+sexul	sexual	0.9666666666666667	1	holbrook-missp	0	22	0	1
+she	shall	0.6888888888888888	3	holbrook-missp	-1	23	-1	1
+he	she	0.0	1	holbrook-missp	37	51	-1	1
+the	she	0.7777777777777777	1	holbrook-missp	9	22	-1	1
+shilling	shillings	0.9777777777777777	1	holbrook-missp	1	9	-1	1
+shinning	shining	0.9464285714285714	1	holbrook-missp	5	9	-1	1
+ship_wreck	shipwreck	0.98	1	holbrook-missp	0	5	0	1
+shon	shone	0.96	1	holbrook-missp	0	17	0	13
+shot	shoot	0.9533333333333333	1	holbrook-missp	3	24	-1	1
+shap	shop	0.8666666666666667	1	holbrook-missp	10	19	9	16
+shortend	shortened	0.9777777777777777	1	holbrook-missp	2	8	0	4
+sot	shot	0.9166666666666666	1	holbrook-missp	9	50	-1	1
+shod	should	0.9222222222222222	2	holbrook-missp	-1	12	-1	1
+shoold	should	0.9222222222222223	1	holbrook-missp	1	15	1	2
+shoud	should	0.9666666666666667	1	holbrook-missp	0	34	0	4
+sould	should	0.9500000000000001	1	holbrook-missp	1	34	1	8
+shout	shouted	0.9428571428571428	2	holbrook-missp	-1	17	-1	1
+shout	shouting	0.925	3	holbrook-missp	-1	17	-1	1
+shufarling	shuffling	0.9377777777777778	2	holbrook-missp	0	24	0	1
+shock	shut up	0.5619047619047619	5	holbrook-missp	-1	17	-1	1
+shiy	shy	0.9166666666666666	1	holbrook-missp	1	8	1	8
+side_car	sidecar	0.975	1	holbrook-missp	0	5	0	1
+side_care	sidecar	0.9555555555555556	2	holbrook-missp	0	13	0	2
+sine_post	signpost	0.9074074074074073	3	holbrook-missp	0	27	-1	1
+sing_post	signpost	0.937037037037037	2	holbrook-missp	0	23	0	1
+simpl	simple	0.9666666666666667	1	holbrook-missp	0	10	0	2
+sings	sing	0.96	1	holbrook-missp	5	61	-1	1
+singl	single	0.9666666666666667	1	holbrook-missp	0	30	0	5
+satren	siren	0.8400000000000001	2	holbrook-missp	14	31	-1	1
+siter	sister	0.9555555555555556	1	holbrook-missp	5	30	3	12
+sister	sisters	0.9714285714285714	1	holbrook-missp	1	40	-1	1
+siting	sitting	0.9666666666666667	1	holbrook-missp	1	23	-1	1
+scill_filly	skilfully	0.7813852813852813	4	holbrook-missp	3	8	-1	1
+slander	slammed	0.8200000000000001	3	holbrook-missp	-1	19	-1	1
+slaughthouse	slaughterhouse	0.9380952380952381	2	holbrook-missp	-1	9	0	1
+seph	sleep	0.6333333333333333	3	holbrook-missp	-1	71	-1	93
+slip	sleep	0.8266666666666667	2	holbrook-missp	-1	16	-1	1
+sleepey	sleepy	0.9714285714285714	1	holbrook-missp	0	10	0	2
+slolly	slowly	0.9222222222222223	1	holbrook-missp	1	12	1	2
+snake	snakes	0.9666666666666667	1	holbrook-missp	2	31	-1	1
+sneking	sneaking	0.9708333333333333	1	holbrook-missp	0	10	0	3
+snoty	snooty	0.9611111111111111	1	holbrook-missp	1	13	1	6
+snowe	snow	0.96	1	holbrook-missp	1	11	1	5
+soape	soap	0.96	1	holbrook-missp	1	49	1	5
+sope	soap	0.8666666666666667	2	holbrook-missp	-1	21	-1	16
+soled	sold	0.9533333333333333	1	holbrook-missp	9	25	-1	1
+shm	some	0.7222222222222222	2	holbrook-missp	-1	14	-1	9
+somes	some	0.96	1	holbrook-missp	0	80	0	8
+sum	some	0.7222222222222222	2	holbrook-missp	-1	29	-1	1
+some_on	someone	0.9428571428571428	2	holbrook-missp	0	20	0	2
+some_one	someone	0.975	1	holbrook-missp	0	9	0	1
+some_thing	something	0.98	1	holbrook-missp	0	6	0	1
+somethick	something	0.9111111111111111	2	holbrook-missp	2	20	0	1
+somethink	something	0.9555555555555556	1	holbrook-missp	2	11	0	1
+somthing	something	0.9740740740740741	1	holbrook-missp	0	8	0	2
+sothing	something	0.9407407407407408	2	holbrook-missp	5	22	-1	2
+some_thime	sometimes	0.9377777777777778	3	holbrook-missp	-1	5	-1	1
+some_time	sometimes	0.9555555555555556	2	holbrook-missp	1	3	-1	1
+some_times	sometimes	0.98	1	holbrook-missp	0	3	0	1
+sometime	sometimes	0.9777777777777777	1	holbrook-missp	3	5	-1	1
+sone_theme	sometimes	0.76	5	holbrook-missp	-1	26	-1	1
+some_were	somewhere	0.9555555555555556	2	holbrook-missp	0	6	0	1
+son	soon	0.9166666666666666	1	holbrook-missp	1	50	-1	1
+sone	soon	0.8666666666666667	2	holbrook-missp	-1	27	-1	22
+sonner	sooner	0.9111111111111112	1	holbrook-missp	1	69	1	3
+saw	sore	0.5277777777777778	3	holbrook-missp	-1	36	-1	1
+sownd	sound	0.8933333333333333	1	holbrook-missp	2	44	2	3
+suvenere	souvenir	0.8500000000000001	3	holbrook-missp	1	18	-1	1
+sow	sows	0.9166666666666666	1	holbrook-missp	5	48	-1	1
+sporn	spawn	0.7866666666666667	2	holbrook-missp	23	31	-1	7
+seking	speaking	0.9249999999999999	2	holbrook-missp	2	45	-1	5
+spicil	special	0.826031746031746	2	holbrook-missp	17	35	-1	1
+spectatoes	spectators	0.96	1	holbrook-missp	1	3	1	2
+spys	spies	0.8266666666666667	2	holbrook-missp	-1	11	-1	4
+splended	splendid	0.95	1	holbrook-missp	0	4	0	1
+spring	springs	0.9714285714285714	1	holbrook-missp	2	20	-1	1
+spund	spun	0.96	1	holbrook-missp	0	25	0	5
+spiy	spy	0.9166666666666666	1	holbrook-missp	4	11	4	11
+squar	square	0.9666666666666667	1	holbrook-missp	0	34	0	5
+squick	squeak	0.8444444444444443	2	holbrook-missp	11	22	-1	1
+stabed	stabbed	0.9714285714285714	1	holbrook-missp	2	45	1	10
+sairs	stairs	0.9500000000000001	1	holbrook-missp	0	66	0	10
+stars	stairs	0.9611111111111111	1	holbrook-missp	4	54	-1	1
+sters	stairs	0.8577777777777779	2	holbrook-missp	25	52	-1	12
+stardnd	standard	0.9375	3	holbrook-missp	0	16	-1	8
+staning	standing	0.975	1	holbrook-missp	0	25	0	10
+stearing	staring	0.9666666666666667	1	holbrook-missp	0	27	0	10
+stare	stars	0.92	1	holbrook-missp	11	33	-1	1
+starte	start	0.9666666666666667	1	holbrook-missp	3	14	3	8
+startes	started	0.9428571428571428	1	holbrook-missp	9	23	6	8
+straghted	started	0.9026455026455026	3	holbrook-missp	12	22	-1	3
+starst	starts	0.9666666666666667	2	holbrook-missp	2	27	2	3
+start	starts	0.9666666666666667	1	holbrook-missp	1	23	-1	1
+statmeant	statement	0.9305555555555555	2	holbrook-missp	2	13	0	1
+stastione	station	0.9481481481481482	2	holbrook-missp	1	12	2	4
+stad	stayed	0.9222222222222222	2	holbrook-missp	-1	20	-1	14
+stayd	stayed	0.9666666666666667	1	holbrook-missp	0	41	0	5
+stack	steak	0.8933333333333333	2	holbrook-missp	12	25	-1	1
+still	steal	0.7866666666666667	2	holbrook-missp	18	24	-1	1
+stearing	steering	0.9416666666666667	1	holbrook-missp	5	27	5	10
+stepe	step	0.96	1	holbrook-missp	1	9	1	4
+stawing	stewing	0.9238095238095239	1	holbrook-missp	12	21	10	11
+stive	stiff	0.8133333333333334	2	holbrook-missp	6	10	-1	5
+sill	still	0.94	1	holbrook-missp	5	33	-1	1
+simulated	stimulated	0.97	1	holbrook-missp	2	5	-1	1
+sticks	stinks	0.9222222222222223	1	holbrook-missp	12	30	-1	1
+stowl	stole	0.9066666666666667	2	holbrook-missp	5	30	-1	4
+stolon	stolen	0.9333333333333333	1	holbrook-missp	3	17	-1	1
+stowle	stolen	0.9222222222222223	2	holbrook-missp	2	37	-1	1
+stowlen	stolen	0.9666666666666667	1	holbrook-missp	0	20	0	1
+stop	stopped	0.9142857142857143	3	holbrook-missp	-1	18	-1	1
+stoped	stopped	0.9714285714285714	1	holbrook-missp	2	36	0	9
+story	stories	0.8742857142857143	3	holbrook-missp	-1	35	-1	1
+stormes	storms	0.9714285714285714	1	holbrook-missp	2	47	0	4
+hio	story	0.5111111111111111	4	holbrook-missp	-1	17	-1	9
+shio	story	0.6333333333333333	4	holbrook-missp	-1	7	-1	6
+sory	story	0.94	1	holbrook-missp	1	13	1	8
+stors	story	0.92	1	holbrook-missp	11	43	4	12
+staidght	straight	0.9333333333333333	2	holbrook-missp	0	13	0	2
+strate	straight	0.8916666666666667	4	holbrook-missp	-1	42	-1	4
+stright	straight	0.9708333333333333	1	holbrook-missp	0	18	0	1
+storw	straw	0.8933333333333333	2	holbrook-missp	7	77	-1	5
+strow	straw	0.9066666666666667	1	holbrook-missp	5	34	4	5
+sterret	street	0.9174603174603175	2	holbrook-missp	0	15	1	13
+strogald	struggled	0.8638888888888888	3	holbrook-missp	5	10	-1	1
+stufy	stuffy	0.9666666666666667	1	holbrook-missp	0	32	0	3
+suden	sudden	0.9611111111111111	1	holbrook-missp	0	44	0	1
+senddly	suddenly	0.8767857142857143	4	holbrook-missp	-1	35	-1	1
+suddenel	suddenly	0.95	2	holbrook-missp	0	7	1	3
+surtebull	suitable	0.8	4	holbrook-missp	1	27	-1	1
+son	sun	0.7777777777777777	1	holbrook-missp	12	50	-1	1
+sunck	sunk	0.9533333333333333	1	holbrook-missp	2	31	0	2
+sopose	suppose	0.8642857142857143	2	holbrook-missp	5	37	2	23
+surpose	suppose	0.9238095238095239	1	holbrook-missp	0	12	0	2
+shore	sure	0.8049999999999999	2	holbrook-missp	-1	25	-1	1
+swan	swans	0.96	1	holbrook-missp	2	23	-1	1
+swet	sweets	0.9222222222222222	2	holbrook-missp	-1	13	-1	9
+swaling	swirling	0.8507936507936509	2	holbrook-missp	32	39	-1	5
+switch	switched	0.95	2	holbrook-missp	3	13	-1	1
+tadpolls	tadpoles	0.95	1	holbrook-missp	2	25	0	1
+tack	take	0.8666666666666667	2	holbrook-missp	-1	24	-1	1
+thack	take	0.6333333333333333	3	holbrook-missp	-1	16	-1	8
+thak	take	0.8500000000000001	2	holbrook-missp	-1	8	-1	5
+tackon	taken	0.8577777777777779	2	holbrook-missp	12	31	10	20
+tacks	takes	0.8933333333333333	2	holbrook-missp	11	59	-1	1
+thak	takes	0.8049999999999999	3	holbrook-missp	-1	8	-1	5
+takeing	taking	0.9666666666666667	1	holbrook-missp	0	18	0	1
+thaing	taking	0.9	2	holbrook-missp	-1	20	-1	2
+tallk	talk	0.9533333333333333	1	holbrook-missp	1	23	1	3
+torck	talk	0.6333333333333333	3	holbrook-missp	-1	62	-1	1
+tork	talk	0.6666666666666666	2	holbrook-missp	-1	18	-1	12
+tork	talked	0.611111111111111	4	holbrook-missp	-1	18	-1	12
+tipped	tape	0.775	3	holbrook-missp	-1	20	-1	1
+tast	taste	0.96	1	holbrook-missp	0	26	1	20
+teacher	teachers	0.975	1	holbrook-missp	3	11	-1	1
+teset	teaches	0.6761904761904761	4	holbrook-missp	-1	42	-1	4
+teddoy	teddy boy	0.9	3	holbrook-missp	-1	40	-1	1
+tedeboy	teddy boy	0.85	3	holbrook-missp	-1	44	-1	1
+teddyboys	teddy boys	0.98	1	holbrook-missp	0	33	-1	1
+theeat	teeth	0.8400000000000001	3	holbrook-missp	-1	15	-1	2
+telephone	telephoned	0.98	1	holbrook-missp	2	6	-1	1
+telphoned	telephoned	0.9248148148148148	1	holbrook-missp	3	10	0	1
+teel	tell	0.8666666666666667	1	holbrook-missp	9	20	8	15
+tens	tense	0.96	1	holbrook-missp	1	49	-1	1
+thank	thanks	0.9666666666666667	1	holbrook-missp	1	13	-1	1
+theat	that	0.9466666666666665	1	holbrook-missp	4	38	2	9
+thats	that's	0.9666666666666667	1	holbrook-missp	0	35	-1	9
+ge	the	0.0	2	holbrook-missp	-1	50	-1	19
+he	the	0.0	1	holbrook-missp	38	51	-1	1
+th	the	0.8888888888888888	1	holbrook-missp	0	49	1	19
+thee	the	0.9166666666666666	1	holbrook-missp	6	18	-1	1
+they	the	0.9166666666666666	1	holbrook-missp	2	13	-1	1
+thoy	the	0.7222222222222222	2	holbrook-missp	-1	9	-1	7
+theer	their	0.9066666666666667	1	holbrook-missp	6	27	3	6
+there	their	0.9066666666666667	2	holbrook-missp	-1	15	-1	1
+they	their	0.8483333333333334	2	holbrook-missp	-1	13	-1	1
+thire	their	0.8933333333333333	2	holbrook-missp	11	25	-1	6
+the	them	0.9166666666666666	1	holbrook-missp	4	22	-1	1
+theme	them	0.96	1	holbrook-missp	5	14	-1	1
+then	them	0.8833333333333334	1	holbrook-missp	5	15	-1	1
+them_souve	themselves	0.8514285714285714	4	holbrook-missp	-1	15	-1	1
+they_self	themselves	0.8288888888888889	5	holbrook-missp	-1	5	-1	1
+than	then	0.8666666666666667	1	holbrook-missp	7	19	-1	1
+the	then	0.9166666666666666	1	holbrook-missp	5	22	-1	1
+them	then	0.8833333333333334	1	holbrook-missp	5	13	-1	1
+they	then	0.8833333333333334	1	holbrook-missp	8	13	-1	1
+he	there	0.7999999999999999	3	holbrook-missp	-1	51	-1	1
+thaw	there	0.6333333333333333	3	holbrook-missp	-1	12	-1	1
+the	there	0.8666666666666667	2	holbrook-missp	-1	22	-1	1
+their	there	0.9066666666666667	2	holbrook-missp	3	34	-1	1
+ther	there	0.96	1	holbrook-missp	0	17	0	13
+they	there	0.8483333333333334	2	holbrook-missp	-1	13	-1	1
+thrar	there	0.7866666666666667	3	holbrook-missp	16	35	-1	28
+thre	there	0.88	1	holbrook-missp	4	10	4	9
+therell	there'll	0.975	1	holbrook-missp	-1	30	-1	11
+there	there's	0.9428571428571428	2	holbrook-missp	5	15	-1	1
+theres	there's	0.9714285714285714	1	holbrook-missp	0	22	-1	7
+thoese	these	0.9555555555555556	1	holbrook-missp	0	18	0	2
+the	they	0.9166666666666666	1	holbrook-missp	3	22	-1	1
+there	they	0.8483333333333334	2	holbrook-missp	-1	15	-1	1
+thrar	they	0.6333333333333333	3	holbrook-missp	-1	35	-1	28
+thror	they	0.6333333333333333	3	holbrook-missp	-1	24	-1	3
+theile	they'll	0.8222222222222222	3	holbrook-missp	9	17	-1	19
+their	they'll	0.6761904761904761	4	holbrook-missp	-1	34	-1	1
+there	they're	0.9333333333333333	2	holbrook-missp	6	15	-1	1
+thif	thief	0.9533333333333333	1	holbrook-missp	0	4	0	3
+theves	thieves	0.9619047619047619	1	holbrook-missp	0	69	0	4
+think	thing	0.92	1	holbrook-missp	5	12	-1	1
+think	things	0.8933333333333334	2	holbrook-missp	-1	12	-1	1
+thinks	things	0.9333333333333333	1	holbrook-missp	6	16	-1	1
+thank	think	0.8933333333333333	1	holbrook-missp	6	13	-1	1
+thing	think	0.92	1	holbrook-missp	8	15	-1	1
+tink	think	0.94	1	holbrook-missp	1	26	1	23
+tinking	thinking	0.9625	1	holbrook-missp	3	32	1	17
+thomes	thomas	0.9333333333333333	1	holbrook-missp	-1	16	-1	4
+thort	thought	0.8533333333333333	3	holbrook-missp	15	50	-1	3
+thorugh	thought	0.9333333333333333	2	holbrook-missp	3	6	-1	3
+thot	thought	0.8083333333333333	3	holbrook-missp	-1	10	-1	8
+though	thought	0.9714285714285714	1	holbrook-missp	1	18	-1	1
+throught	thought	0.9666666666666667	1	holbrook-missp	1	7	1	2
+thee	three	0.9466666666666665	1	holbrook-missp	5	18	-1	1
+frow	threw	0.6333333333333333	3	holbrook-missp	-1	14	-1	11
+through	threw	0.6761904761904761	4	holbrook-missp	-1	8	-1	1
+throw	through	0.8742857142857143	3	holbrook-missp	-1	9	-1	1
+thruogth	through	0.9375	3	holbrook-missp	-1	3	0	1
+thorght	throw	0.7657142857142858	4	holbrook-missp	-1	24	-1	1
+tired	tied	0.9466666666666665	1	holbrook-missp	4	32	-1	1
+utill	till	0.9333333333333332	1	holbrook-missp	0	30	0	2
+thim	time	0.8500000000000001	2	holbrook-missp	-1	8	-1	7
+tim	time	0.9166666666666666	1	holbrook-missp	0	30	0	17
+tin	tinned	0.8333333333333334	3	holbrook-missp	-1	44	-1	1
+tiper	tip	0.8666666666666667	2	holbrook-missp	21	59	-1	10
+tope	tip	0.7222222222222222	2	holbrook-missp	-1	26	-1	23
+tipe	tipped	0.9222222222222222	2	holbrook-missp	-1	17	-1	15
+qu	to	0.0	2	holbrook-missp	-1	26	-1	9
+the	to	0.611111111111111	2	holbrook-missp	-1	22	-1	1
+too	to	0.8888888888888888	1	holbrook-missp	4	32	-1	1
+tow	to	0.8888888888888888	1	holbrook-missp	5	35	-1	1
+two	to	0.611111111111111	1	holbrook-missp	6	13	-1	1
+to_gether	together	0.9703703703703703	1	holbrook-missp	0	9	0	1
+to	told	0.8333333333333334	2	holbrook-missp	-1	50	-1	1
+tod	told	0.9166666666666666	1	holbrook-missp	2	40	0	26
+toled	told	0.9533333333333333	1	holbrook-missp	6	25	4	16
+to_morrow	tomorrow	0.9703703703703703	1	holbrook-missp	0	5	0	1
+tommorrow	tomorrow	0.9740740740740741	1	holbrook-missp	2	7	0	1
+tung	tongue	0.775	3	holbrook-missp	-1	22	-1	16
+to_night	tonight	0.9666666666666667	1	holbrook-missp	0	6	0	1
+to_nigth	tonight	0.9285714285714286	3	holbrook-missp	0	24	0	1
+tonigth	tonight	0.9714285714285714	2	holbrook-missp	0	24	0	1
+toner	tonner	0.9611111111111111	1	holbrook-missp	-1	38	-1	1
+to	too	0.8888888888888888	1	holbrook-missp	2	50	-1	1
+two	too	0.7777777777777777	1	holbrook-missp	4	13	-1	1
+thc	took	0.5277777777777778	3	holbrook-missp	-1	10	-1	4
+too	took	0.9166666666666666	1	holbrook-missp	1	32	-1	1
+tuck	took	0.6666666666666666	2	holbrook-missp	-1	21	-1	1
+toch	touched	0.8857142857142857	3	holbrook-missp	-1	9	-1	5
+towords	towards	0.9333333333333333	1	holbrook-missp	2	53	0	1
+towe	towel	0.96	1	holbrook-missp	2	21	2	14
+tower	towers	0.9666666666666667	1	holbrook-missp	1	34	-1	1
+trator	tractor	0.9666666666666667	1	holbrook-missp	1	42	0	3
+tamp	tramp	0.94	1	holbrook-missp	4	21	-1	1
+trmp	tramp	0.9466666666666665	1	holbrook-missp	2	10	0	7
+trmp	tramps	0.9111111111111111	2	holbrook-missp	-1	10	-1	7
+crat	trap	0.6666666666666666	2	holbrook-missp	-1	22	-1	18
+tashie	trashy	0.7999999999999999	3	holbrook-missp	12	37	-1	11
+thresher	treasure	0.8	5	holbrook-missp	-1	14	-1	1
+tresure	treasure	0.9708333333333333	1	holbrook-missp	0	8	0	1
+three	tree	0.94	1	holbrook-missp	5	10	-1	1
+treee	tree	0.96	1	holbrook-missp	0	73	0	3
+tree	trees	0.96	1	holbrook-missp	2	15	-1	1
+trid	tried	0.9533333333333333	1	holbrook-missp	1	13	1	11
+trobel	trouble	0.9277777777777778	3	holbrook-missp	0	10	-1	1
+troefle	trouble	0.8666666666666668	2	holbrook-missp	3	20	1	4
+truble	trouble	0.9619047619047619	1	holbrook-missp	0	19	0	3
+traing	trying	0.9111111111111112	1	holbrook-missp	6	19	5	7
+tring	trying	0.9555555555555556	1	holbrook-missp	1	24	0	12
+trining	trying	0.8793650793650793	2	holbrook-missp	10	41	-1	2
+try	trying	0.8333333333333334	3	holbrook-missp	-1	19	-1	1
+tern	turn	0.8500000000000001	1	holbrook-missp	11	20	-1	1
+turne	turn	0.96	1	holbrook-missp	2	23	2	5
+twentone	twenty one	0.96	2	holbrook-missp	-1	13	-1	1
+to	two	0.611111111111111	1	holbrook-missp	22	50	-1	1
+unlce	uncle	0.9466666666666665	2	holbrook-missp	1	16	1	2
+uncoshers	unconscious	0.8424242424242424	5	holbrook-missp	-1	19	-1	2
+an_cafferd	uncovered	0.6851851851851851	6	holbrook-missp	2	28	-1	1
+undergroth	undergrowth	0.9818181818181818	1	holbrook-missp	0	12	0	1
+under_nethe	underneath	0.9436363636363637	3	holbrook-missp	0	3	-1	1
+unispected	unexpected	0.8266666666666667	2	holbrook-missp	2	4	3	4
+unfitt	unfit	0.9666666666666667	1	holbrook-missp	0	18	0	2
+on_hethy	unhealthy	0.8055555555555555	4	holbrook-missp	0	15	-1	1
+uatill	until	0.8400000000000001	2	holbrook-missp	1	31	1	6
+untill	until	0.9666666666666667	1	holbrook-missp	0	46	0	1
+apen	upon	0.6666666666666666	2	holbrook-missp	-1	13	-1	8
+apone	upon	0.7833333333333333	2	holbrook-missp	15	31	-1	3
+up_stairs	upstairs	0.9703703703703703	1	holbrook-missp	0	14	0	1
+hus	us	0.0	1	holbrook-missp	46	50	23	24
+use	us	0.8888888888888888	1	holbrook-missp	9	29	-1	1
+use't	used	0.8483333333333334	2	holbrook-missp	5	40	-1	1
+ust	used	0.7222222222222222	2	holbrook-missp	-1	34	-1	14
+usfull	useful	0.9111111111111112	2	holbrook-missp	3	11	1	7
+usally	usually	0.9619047619047619	1	holbrook-missp	2	11	0	2
+veracular	vernacular	0.9766666666666667	1	holbrook-missp	0	7	0	1
+every	very	0.85	1	holbrook-missp	5	16	-1	1
+vent	vet	0.9166666666666666	1	holbrook-missp	3	20	-1	1
+vethn	vet	0.8666666666666667	2	holbrook-missp	-1	27	1	8
+vethu	vet	0.8666666666666667	2	holbrook-missp	1	41	1	5
+vetin	vet	0.8666666666666667	2	holbrook-missp	7	18	-1	1
+volonteered	volunteered	0.9575757575757576	1	holbrook-missp	0	16	0	1
+wagon	waggon	0.9611111111111111	1	holbrook-missp	-1	20	-1	1
+wat	wait	0.9166666666666666	1	holbrook-missp	0	49	2	34
+wate	wait	0.8666666666666667	2	holbrook-missp	-1	32	-1	21
+weight	wait	0.775	3	holbrook-missp	-1	12	-1	1
+wated	waited	0.9555555555555556	1	holbrook-missp	0	53	1	20
+whated	waited	0.9	2	holbrook-missp	6	48	-1	3
+waten	waiting	0.8323809523809523	3	holbrook-missp	15	57	-1	5
+wating	waiting	0.9174603174603175	1	holbrook-missp	5	41	3	20
+whating	waiting	0.8642857142857143	2	holbrook-missp	15	44	-1	3
+walk	walked	0.9333333333333333	2	holbrook-missp	-1	13	-1	1
+wark	walked	0.8	3	holbrook-missp	-1	26	-1	20
+warked	walked	0.9111111111111112	1	holbrook-missp	6	45	5	14
+wocer	walked	0.5777777777777778	4	holbrook-missp	-1	27	-1	1
+warking	walking	0.9238095238095239	1	holbrook-missp	7	44	6	14
+molh	wall	0.5	3	holbrook-missp	-1	7	-1	6
+wah	wall	0.7222222222222222	2	holbrook-missp	-1	18	-1	14
+wand	want	0.8833333333333334	1	holbrook-missp	7	25	-1	1
+wat	want	0.9166666666666666	1	holbrook-missp	5	49	6	34
+whan't	want	0.8999999999999999	2	holbrook-missp	2	51	-1	1
+whant	want	0.94	1	holbrook-missp	1	51	1	3
+whon	want	0.6666666666666666	3	holbrook-missp	-1	12	-1	7
+whont	want	0.8049999999999999	2	holbrook-missp	9	34	-1	1
+won't	want	0.8049999999999999	2	holbrook-missp	8	21	-1	1
+wont	want	0.8500000000000001	1	holbrook-missp	7	16	-1	1
+woth	want	0.6666666666666666	3	holbrook-missp	-1	10	-1	8
+whanted	wanted	0.9571428571428572	1	holbrook-missp	0	27	0	2
+whated	wanted	0.9	2	holbrook-missp	8	48	-1	3
+wonted	wanted	0.9	1	holbrook-missp	6	35	-1	1
+want	wants	0.96	1	holbrook-missp	1	25	-1	1
+wornd	warned	0.8400000000000001	2	holbrook-missp	9	31	-1	4
+we	was	0.611111111111111	2	holbrook-missp	-1	52	-1	1
+wos	was	0.7777777777777777	1	holbrook-missp	7	50	8	21
+wosh	wash	0.8500000000000001	1	holbrook-missp	1	13	1	11
+wosh	washed	0.775	3	holbrook-missp	-1	13	-1	11
+wasnt	wasn't	0.9666666666666667	1	holbrook-missp	0	14	-1	2
+wastent	wasn't	0.8477777777777777	3	holbrook-missp	5	22	-1	17
+whan't	wasn't	0.9	2	holbrook-missp	1	51	-1	1
+whdn't	wasn't	0.7999999999999999	2	holbrook-missp	5	31	3	6
+wach	watch	0.9466666666666665	1	holbrook-missp	0	10	0	4
+wacth	watch	0.9466666666666665	2	holbrook-missp	0	20	0	1
+wakh	watch	0.8266666666666667	2	holbrook-missp	-1	28	-1	2
+wash	watch	0.8266666666666667	2	holbrook-missp	-1	25	-1	1
+watcheing	watching	0.9777777777777777	1	holbrook-missp	0	25	0	1
+waterrat	water-rat	0.9777777777777777	1	holbrook-missp	1	17	-1	2
+wavey	wavy	0.9533333333333333	1	holbrook-missp	1	17	1	5
+wel	we'll	0.8666666666666667	2	holbrook-missp	5	21	-1	14
+well	we'll	0.9466666666666665	1	holbrook-missp	4	33	-1	1
+will	we'll	0.8049999999999999	2	holbrook-missp	30	38	-1	1
+were	we're	0.9466666666666665	1	holbrook-missp	2	17	-1	1
+wasel	weasel	0.8900000000000001	1	holbrook-missp	1	35	0	2
+wead	weed	0.8666666666666667	1	holbrook-missp	9	22	7	16
+weeke	week	0.96	1	holbrook-missp	0	51	0	2
+week_ends	weekends	0.9777777777777777	1	holbrook-missp	0	6	0	1
+weekend	weekends	0.975	1	holbrook-missp	3	11	-1	1
+week	weeks	0.96	1	holbrook-missp	1	19	-1	1
+weping	weeping	0.9619047619047619	1	holbrook-missp	2	41	0	3
+wade	weighed	0.5952380952380952	5	holbrook-missp	-1	27	-1	1
+waid	weighed	0.5952380952380952	4	holbrook-missp	-1	16	-1	14
+waying	weighing	0.6388888888888888	4	holbrook-missp	-1	57	-1	13
+sent	went	0.8333333333333334	1	holbrook-missp	21	25	-1	1
+wen	went	0.9166666666666666	1	holbrook-missp	6	44	-1	1
+wend	went	0.8833333333333334	1	holbrook-missp	6	25	-1	1
+wens	went	0.8833333333333334	1	holbrook-missp	14	50	-1	1
+wet	went	0.9166666666666666	1	holbrook-missp	4	36	-1	1
+weth	went	0.8666666666666667	2	holbrook-missp	-1	7	-1	3
+wetn	went	0.9333333333333333	2	holbrook-missp	2	9	0	6
+when	went	0.8500000000000001	2	holbrook-missp	-1	14	-1	1
+whenet	went	0.8999999999999999	2	holbrook-missp	3	32	4	20
+whent	went	0.94	1	holbrook-missp	2	23	2	5
+wit	went	0.7222222222222222	2	holbrook-missp	-1	37	-1	1
+wnet	went	0.9249999999999999	2	holbrook-missp	0	4	0	4
+wher	were	0.8500000000000001	2	holbrook-missp	-1	9	-1	9
+where	were	0.94	1	holbrook-missp	4	15	-1	1
+were'nt	weren't	0.9714285714285714	2	holbrook-missp	0	26	0	1
+wern't	weren't	0.9666666666666667	1	holbrook-missp	0	46	0	1
+whernt	weren't	0.8642857142857143	3	holbrook-missp	7	29	-1	11
+weat	wet	0.9166666666666666	1	holbrook-missp	4	25	3	22
+want	what	0.8500000000000001	2	holbrook-missp	-1	25	-1	1
+wat	what	0.9166666666666666	1	holbrook-missp	3	49	7	34
+wate	what	0.8500000000000001	2	holbrook-missp	-1	32	-1	21
+wath	what	0.8500000000000001	2	holbrook-missp	-1	15	-1	12
+wha't	what	0.9533333333333333	1	holbrook-missp	0	29	0	1
+whate	what	0.96	1	holbrook-missp	0	24	0	5
+whats	what	0.96	1	holbrook-missp	2	42	-1	1
+whot	what	0.8666666666666667	1	holbrook-missp	7	14	7	10
+wot	what	0.7222222222222222	2	holbrook-missp	-1	32	-1	1
+what	what's	0.9333333333333333	2	holbrook-missp	3	12	-1	1
+whats	what's	0.9666666666666667	1	holbrook-missp	1	42	-1	1
+what_ever	whatever	0.9777777777777777	1	holbrook-missp	0	14	0	1
+weel	wheel	0.94	1	holbrook-missp	0	19	0	16
+wen	when	0.9166666666666666	1	holbrook-missp	3	44	-1	1
+went	when	0.8500000000000001	2	holbrook-missp	-1	26	-1	1
+whe	when	0.9166666666666666	1	holbrook-missp	3	16	4	13
+where	when	0.8483333333333334	2	holbrook-missp	-1	15	-1	1
+were	where	0.94	1	holbrook-missp	4	17	-1	1
+were_ever	wherever	0.8529761904761904	3	holbrook-missp	2	23	-1	1
+where_ever	wherever	0.9349999999999999	2	holbrook-missp	1	8	1	2
+wich	which	0.94	1	holbrook-missp	2	9	2	7
+witch	which	0.88	2	holbrook-missp	13	33	-1	1
+wil	while	0.8666666666666667	2	holbrook-missp	-1	21	-1	15
+wiskey	whiskey	0.9571428571428572	1	holbrook-missp	0	46	0	1
+wiscell	whistle	0.7685714285714286	4	holbrook-missp	17	61	-1	2
+wisheld	whistled	0.8767857142857143	4	holbrook-missp	-1	11	-1	1
+withe	white	0.88	2	holbrook-missp	-1	12	-1	1
+how	who	0.0	2	holbrook-missp	-1	41	-1	1
+who_evers	whoever's	0.9481481481481482	2	holbrook-missp	-1	63	-1	2
+hows	whose	0.7833333333333333	3	holbrook-missp	-1	50	-1	1
+who	whose	0.8666666666666667	2	holbrook-missp	-1	16	-1	1
+we'll	will	0.8049999999999999	2	holbrook-missp	14	49	-1	1
+wippd	wiped	0.9066666666666667	1	holbrook-missp	1	87	0	1
+wich	witch	0.9466666666666665	1	holbrook-missp	0	9	1	7
+wiche	witch	0.8933333333333333	2	holbrook-missp	2	43	-1	3
+wiht	with	0.9333333333333333	2	holbrook-missp	1	7	1	6
+wis	with	0.7222222222222222	2	holbrook-missp	-1	46	-1	19
+with_out	without	0.975	1	holbrook-missp	0	13	0	1
+wok	woke	0.9166666666666666	1	holbrook-missp	1	15	-1	1
+wamon	woman	0.76	2	holbrook-missp	16	29	-1	1
+women	woman	0.9066666666666667	1	holbrook-missp	4	27	-1	1
+womon	woman	0.9066666666666667	1	holbrook-missp	0	2	1	2
+one	won	0.0	2	holbrook-missp	-1	29	-1	1
+won	won't	0.8666666666666667	2	holbrook-missp	5	36	-1	1
+wont	won't	0.9533333333333333	1	holbrook-missp	1	16	-1	1
+wund	wonder	0.775	3	holbrook-missp	-1	5	-1	5
+wunder	wonder	0.9	1	holbrook-missp	4	9	4	6
+wonder	wondered	0.95	2	holbrook-missp	-1	12	-1	1
+wondoful	wonderful	0.9305555555555555	2	holbrook-missp	0	8	0	1
+work	working	0.9142857142857143	3	holbrook-missp	-1	17	-1	1
+work_men	workmen	0.975	1	holbrook-missp	0	3	0	1
+wonrs	works	0.8933333333333333	2	holbrook-missp	-1	37	-1	1
+work	works	0.96	1	holbrook-missp	1	17	-1	1
+wors	works	0.9533333333333333	1	holbrook-missp	3	30	4	19
+worme	worm	0.96	1	holbrook-missp	1	19	1	6
+worid	worried	0.9333333333333333	2	holbrook-missp	1	40	-1	2
+worred	worried	0.9714285714285714	1	holbrook-missp	0	23	0	5
+worye	worry	0.9066666666666667	2	holbrook-missp	1	21	-1	2
+rite	write	0.9333333333333332	1	holbrook-missp	3	28	-1	1
+writeing	writing	0.975	1	holbrook-missp	0	18	0	2
+ron	wrong	0.8666666666666667	2	holbrook-missp	-1	39	-1	22
+rong	wrong	0.9333333333333332	1	holbrook-missp	0	20	1	12
+wong	wrong	0.94	1	holbrook-missp	0	22	0	13
+roat	wrote	0.7833333333333333	3	holbrook-missp	-1	19	-1	16
+yanky	yankee	0.8933333333333334	2	holbrook-missp	-1	30	-1	5
+year	years	0.96	1	holbrook-missp	2	22	-1	1
+yers	years	0.9466666666666665	1	holbrook-missp	2	25	0	10
+yess	yes	0.9166666666666666	1	holbrook-missp	2	20	1	10
+yet	yes	0.7777777777777777	1	holbrook-missp	21	25	-1	1
+yeth	yet	0.9166666666666666	1	holbrook-missp	1	6	0	3
+yew	you	0.5555555555555555	2	holbrook-missp	-1	21	-1	1
+your	you	0.9166666666666666	1	holbrook-missp	3	15	-1	1
+yow	you	0.7777777777777777	1	holbrook-missp	6	24	-1	1
+you	you'll	0.8333333333333334	3	holbrook-missp	-1	12	-1	1
+your	you'll	0.825	3	holbrook-missp	-1	15	-1	1
+your	you're	0.9222222222222222	2	holbrook-missp	2	15	-1	1
+yow	you're	0.6666666666666666	4	holbrook-missp	-1	24	-1	1
+you	you've	0.8333333333333334	3	holbrook-missp	-1	12	-1	1
+yung	young	0.94	1	holbrook-missp	0	15	0	9
+yor	your	0.9166666666666666	1	holbrook-missp	0	17	0	15
+you	your	0.9166666666666666	1	holbrook-missp	1	12	-1	1
+youre	your	0.96	1	holbrook-missp	3	13	0	3
+you	yours	0.8666666666666667	2	holbrook-missp	-1	12	-1	1
+yourns	yours	0.9666666666666667	1	holbrook-missp	0	41	0	2
+your_self	yourself	0.9777777777777777	1	holbrook-missp	0	6	0	1
+your_sleve	yourself	0.8864285714285713	4	holbrook-missp	1	13	-1	1
+yourseff	yourself	0.95	1	holbrook-missp	2	11	0	1
