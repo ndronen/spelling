@@ -1,3 +1,4 @@
+requests
 h5py
 alignment
 jellyfish
