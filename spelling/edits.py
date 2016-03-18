@@ -306,6 +306,9 @@ class EditDatabase(object):
         assert not isinstance(errors, basestring)
         assert len(real_words) == len(errors)
 
+        self.real_words = real_words
+        self.errors = errors
+
         finder = EditFinder()
 
         self.index = collections.defaultdict(
