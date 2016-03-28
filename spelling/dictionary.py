@@ -19,6 +19,7 @@ import spelling.preprocess
 
 from sklearn.neighbors import NearestNeighbors, LSHForest
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.utils import check_random_state
 
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
@@ -59,6 +60,16 @@ class HashBucketRetriever(dict):
         return self.phone_to_word[self.hasher(word)]
 
 
+class RandomRetriever(dict):
+    def __init__(self, vocabulary, n_candidates, random_state=17):
+        self.vocabulary = list(vocabulary)
+        self.n_candidates = n_candidates
+        self.random_state = check_random_state(random_state)
+
+    def __getitem__(self, word):
+        return self.random_state.choice(self.vocabulary,
+                size=self.n_candidates, replace=False)
+
 class EditDistanceRetriever(dict):
     def __init__(self, vocabulary, alphabet=string.ascii_lowercase, stop_retrieving_when_found=True):
         self.vocabulary = set(vocabulary)
@@ -96,6 +107,7 @@ class NearestNeighborsRetriever(dict):
     def __init__(self, vocabulary, estimator, ngram_range=(1,1)):
         self.__dict__.update(locals())
         del self.self
+        assert isinstance(vocabulary, (list, tuple))
         self.vocabulary = np.array(vocabulary)
 
         if ngram_range[0] == 1 and ngram_range[1] == 1:
@@ -118,7 +130,17 @@ class NearestNeighborsRetriever(dict):
             wordx, _ = spelling.preprocess.build_char_matrix([word])
 
         idx = self.estimator.kneighbors(wordx, n_neighbors=n_candidates, return_distance=False)
-        candidates = self.vocabulary[idx[0]]
+        try:
+            return self.vocabulary[idx[0]]
+        except IndexError as e:
+            print(e)
+            print(self.vocabulary.shape)
+            print(type(idx))
+            print(idx.shape)
+            print(idx[0])
+            print(idx[0].shape)
+            raise e
+
         return candidates
 
     def __getitem__(self, word):
@@ -191,8 +213,11 @@ class CachingRetriever(dict):
 # Classes for sorting candidates.
 ###########################################################################
 
+class Sorter(object):
+    def sort(self, word, candidates):
+        raise NotImplementedError()
 
-class DistanceSorter(object):
+class DistanceSorter(Sorter):
     def __init__(self, distance, reverse=None):
         if callable(distance):
             self.distance = distance
@@ -221,12 +246,12 @@ class DistanceSorter(object):
                 raise ValueError("'reverse' parameter is required when passing your own distance function")
         
     def sort(self, word, candidates):
-        return sorted(candidates,
+        return sorted(set(candidates),
             key=lambda c: self.distance(c, word),
             reverse=self.reverse)
 
 
-class LanguageModelSorter(object):
+class LanguageModelSorter(Sorter):
     def __init__(self, words, probs):
         self.model = collections.defaultdict(int)
         for i, word in enumerate(words):
@@ -235,7 +260,7 @@ class LanguageModelSorter(object):
     def sort(self, word, candidates):
     	return sorted(candidates, key=self.model.get, reverse=True)
 
-class NonSortingSorter(object):
+class NonSortingSorter(Sorter):
     def sort(self, word, candidates):
         return list(candidates)
 
@@ -248,6 +273,13 @@ class SortingRetriever(dict):
         candidates = self.retriever[word]
         return self.sorter.sort(word, candidates)
 
+class TopKRetriever(dict):
+    def __init__(self, retriever, k):
+        self.retriever = retriever
+        self.k = k
+
+    def __getitem__(self, word):
+        return self.retriever[word][:self.k]
 
 ###########################################################################
 # Dictionary implementations.
@@ -378,7 +410,7 @@ class ModularDictionaryBuilder(DictionaryBuilder):
         elif retriever_type == 'neighbor':
             self.retrievers.append(NearestNeighborsRetriever(**kwargs))
         else:
-            raise ValueError('unknown retriever type %s; use "editdistance", "hashbucket", "aspell", or "neighbor"')
+            raise ValueError('unknown retriever type "%s"; use "editdistance", "hashbucket", "aspell", or "neighbor"' % retriever_type)
 
     def add_filter(self, f):
         self.filters.append(f)
@@ -430,6 +462,14 @@ def build_aspell_with_jaro_winkler_sorter():
     builder = ModularDictionaryBuilder()
     builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
     builder.add_retriever('aspell')
+    builder.with_sorter('distance', distance='jaro_winkler')
+    return builder.build()
+
+def build_aspell_and_edit_distance_retriever_with_jaro_winkler_sorter():
+    builder = ModularDictionaryBuilder()
+    builder.with_vocabulary('aspell', data_path=ASPELL_DATA_PATH)
+    builder.add_retriever('aspell')
+    builder.add_retriever('editdistance')
     builder.with_sorter('distance', distance='jaro_winkler')
     return builder.build()
 
