@@ -21,7 +21,7 @@ import spelling.mitton
 from spelling.utils import build_progressbar
 
 def load_data(path, dictionary='Aspell'):
-    dfs = cPickle.load(open(path))
+    dfs = pickle.load(open(path, 'rb'), encoding='latin1')
     return dfs[dictionary]
 
 def remove_non_aspell_vocabulary_dicts(dfs):
@@ -50,7 +50,7 @@ def add_features_from_vectorizer(df, vectorizer, column, feature_name_prefix=Non
     if feature_name_prefix is None:
         feature_name_prefix = column + '_'
     count_features = np.array(vectorizer.transform(df[column]).todense())
-    rindex = [(v,k) for k,v in vectorizer.vocabulary_.iteritems()]
+    rindex = [(v,k) for k,v in vectorizer.vocabulary_.items()]
     sorted_rindex = sorted(rindex,
             key=operator.itemgetter(0))
     feature_names = [feature_name_prefix+t[1] for t in sorted_rindex]
@@ -79,6 +79,7 @@ def split_train(df_train, train_size, random_state=17):
     if verbose:
         print('train_errors %d valid_errors %d' %
             (len(train_errors), len(valid_errors)))
+    # Remove from training the errors that are in validation.
     df_valid = df_train[df_train.error.isin(valid_errors)].copy()
     df_train = df_train[df_train.error.isin(train_errors)].copy()
     return df_train, df_valid
@@ -172,7 +173,7 @@ def run_cv_one_dataset(train_size=0.9, k=1, seed=17, n_jobs=5, suggestions_from=
             class_weight='balanced')
 
     for dfs_path in dfs_paths:
-        dfs = cPickle.load(open(dfs_path))
+        dfs = pickle.load(open(dfs_path, 'rb'), encoding='latin1')
         remove_non_aspell_vocabulary_dicts(dfs)
         df = dfs[suggestions_from]
         print(dfs_path)
@@ -208,7 +209,7 @@ def prepare_leave_out_one_datasets(suggestions_from='Aspell', dfs_paths=['data/a
         if verbose:
             print('loading ' + dfs_path)
 
-        dfs_tmp = cPickle.load(open(dfs_path))
+        dfs_tmp = pickle.load(open(dfs_path, 'rb'), encoding='latin1')
         remove_non_aspell_vocabulary_dicts(dfs_tmp)
         dfs[dataset_name] = dfs_tmp
 
