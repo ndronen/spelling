@@ -201,19 +201,28 @@ class CharacterLanguageModel(object):
     def get_log_probs(self, output):
         log_probs = []
         for log_prob in self.get_fields(output, "logprob=", 3):
-            log_probs.append(float(log_prob))
+            try:
+                log_probs.append(float(log_prob))
+            except ValueError:
+                log_probs.append(0.0)
         return log_probs[:-1]
 
     def get_ppls(self, output):
         ppls = []
         for ppl in self.get_fields(output, "ppl=", 5):
-            ppls.append(float(ppl))
+            try:
+                ppls.append(float(ppl))
+            except ValueError:
+                ppls.append(0.0)
         return ppls[:-1]
 
     def get_ppl1s(self, output):
         ppl1s = []
         for ppl1 in self.get_fields(output, "ppl1=", 7):
-            ppl1s.append(float(ppl1))
+            try:
+                ppl1s.append(float(ppl1))
+            except ValueError:
+                ppl1s.append(0.0)
         return ppl1s[:-1]
 
     def get_scores(self, output):
