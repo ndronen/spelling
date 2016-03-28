@@ -17,7 +17,7 @@ class LanguageModelClassifier(object):
     def predict_proba(self, X, y=None):
         proba = np.zeros((len(X), len(self.estimators)))
         for i,estimator in enumerate(self.estimators):
-            proba[:, i] = estimator.predict(X)['log_probs']
+            proba[:, i] = estimator.predict_proba(X)
         return np.exp(proba)
 
     def predict(self, X, y=None, return_proba=False):
@@ -32,7 +32,7 @@ class CharacterLanguageModel(object):
     """
     Defaults to Witten-Bell discounting for character language models.
     """
-    def __init__(self, discount, order=None, model_path=None, keep_model=True, debug=False):
+    def __init__(self, discount, order=None, model_path=None, keep_model=True, debug=False, encoding='utf8'):
         if discount != 'witten-bell':
             if order is None:
                 raise ValueError('"order" is required with %s discounting' % discount)
@@ -105,7 +105,7 @@ class CharacterLanguageModel(object):
             # we're given a test set.
             self.Xtrain = X
         else:
-            with NamedTemporaryFile(delete=not self.debug) as f:
+            with NamedTemporaryFile(delete=not self.debug, mode='w+') as f:
                 train_path = f.name
                 if isinstance(X, str):
                     train_path = X
@@ -131,14 +131,14 @@ class CharacterLanguageModel(object):
 
             with NamedTemporaryFile(delete=not self.keep_model) as model_file:
                 self.model_path = model_file.name
-                with NamedTemporaryFile(delete=not self.debug) as train_file:
+                with NamedTemporaryFile(delete=not self.debug, mode='w+') as train_file:
                     train_path = train_file.name
                     if isinstance(self.Xtrain, str):
                         train_path = self.Xtrain
                     else:
                         # Write self.Xtrain to train_path
                         self.write_data(train_file, self.Xtrain)
-                    with NamedTemporaryFile(delete=not self.debug) as test_file:
+                    with NamedTemporaryFile(delete=not self.debug, mode='w+') as test_file:
                         test_path = test_file.name
                         if isinstance(X, str):
                             test_path = X
@@ -165,7 +165,7 @@ class CharacterLanguageModel(object):
                         if self.debug:
                             print(predict_output)
         else:
-            with NamedTemporaryFile(delete=not self.debug) as test_file:
+            with NamedTemporaryFile(delete=not self.debug, mode='w+') as test_file:
                 test_path = test_file.name
                 if isinstance(X, str):
                     test_path = X
@@ -184,8 +184,11 @@ class CharacterLanguageModel(object):
 
         return self.get_scores(predict_output)
 
+    def predict_proba(self, X):
+        return np.exp(self.predict(X)['log_probs'])
+        
     def get_fields(self, output, score, column):
-        for line in output.split('\n'):
+        for line in output.decode(self.encoding).split('\n'):
             fields = line.split(' ')
             if score in fields:
                 yield fields[column]
@@ -193,19 +196,19 @@ class CharacterLanguageModel(object):
     def get_log_probs(self, output):
         log_probs = []
         for log_prob in self.get_fields(output, "logprob=", 3):
-            log_probs.append(log_prob)
+            log_probs.append(float(log_prob))
         return log_probs[:-1]
 
     def get_ppls(self, output):
         ppls = []
         for ppl in self.get_fields(output, "ppl=", 5):
-            ppls.append(ppl)
+            ppls.append(float(ppl))
         return ppls[:-1]
 
     def get_ppl1s(self, output):
         ppl1s = []
         for ppl1 in self.get_fields(output, "ppl1=", 7):
-            ppl1s.append(ppl1)
+            ppl1s.append(float(ppl1))
         return ppl1s[:-1]
 
     def get_scores(self, output):
@@ -234,7 +237,7 @@ class CharacterLanguageModel(object):
             try:
                 output = subprocess.check_output(generate_cmd,
                     stderr=subprocess.STDOUT)
-                words = output.split('\n')
+                words = output.decode(self.encoding).split('\n')
                 words = [w.replace(' ', '') for w in words]
                 words = [w for w in words if len(w) > 0]
                 return words
