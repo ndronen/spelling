@@ -101,7 +101,10 @@ def build_char_matrix(words, width=25, nonce_interval=0, return_mask=True):
             except IndexError:
                 pass
 
-    return char_matrix, mask
+    if return_mask:
+        return char_matrix, mask
+    else:
+        return char_matrix
 
 def build_char_matrix_split(pairs):
     raise NotImplementedError()
