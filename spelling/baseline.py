@@ -18,7 +18,7 @@ class LanguageModelClassifier(object):
         proba = np.zeros((len(X), len(self.estimators)))
         for i,estimator in enumerate(self.estimators):
             proba[:, i] = estimator.predict_proba(X)
-        return np.exp(proba)
+        return proba
 
     def predict(self, X, y=None, return_proba=False):
         proba = self.predict_proba(X, y)
@@ -116,11 +116,10 @@ class CharacterLanguageModel(object):
                 try:
                     output = subprocess.check_output(fit_cmd,
                             stderr=subprocess.STDOUT)
-                    if self.debug:
-                        print(output)
                 except subprocess.CalledProcessError as cp:
+                    lines = cp.output.decode(self.encoding).split('\n')
                     raise RuntimeError("command %s failed: %s",
-                            (' '.join(fit_cmd), str(cp.output)))
+                        (' '.join(fit_cmd), '\n'.join(lines)))
 
     def predict(self, X, y=None):
         self.check_X(X, "predict")
@@ -151,8 +150,13 @@ class CharacterLanguageModel(object):
                         if self.debug:
                             print('FIT')
                             print(fit_cmd)
-                        fit_output = subprocess.check_output(fit_cmd,
-                                stderr=subprocess.STDOUT)
+                        try:
+                            fit_output = subprocess.check_output(fit_cmd,
+                                    stderr=subprocess.STDOUT)
+                        except subprocess.CalledProcessError as cp:
+                            lines = cp.output.decode(self.encoding).split('\n')
+                            raise RuntimeError("command %s failed: %s",
+                                (' '.join(fit_cmd), '\n'.join(lines)))
                         if self.debug:
                             print(fit_output)
                         predict_cmd = self.build_predict_cmd(
@@ -160,10 +164,13 @@ class CharacterLanguageModel(object):
                         if self.debug:
                             print('PREDICT')
                             print(predict_cmd)
-                        predict_output = subprocess.check_output(predict_cmd,
+                        try:
+                            predict_output = subprocess.check_output(predict_cmd,
                                     stderr=subprocess.STDOUT)
-                        if self.debug:
-                            print(predict_output)
+                        except subprocess.CalledProcessError as cp:
+                            lines = cp.output.decode(self.encoding).split('\n')
+                            raise RuntimeError("command %s failed: %s",
+                                (' '.join(fit_cmd), '\n'.join(lines)))
         else:
             with NamedTemporaryFile(delete=not self.debug, mode='w+') as test_file:
                 test_path = test_file.name
@@ -179,8 +186,6 @@ class CharacterLanguageModel(object):
                     print(predict_cmd)
                 predict_output = subprocess.check_output(predict_cmd,
                         stderr=subprocess.STDOUT)
-                if self.debug:
-                    print(predict_output)
 
         return self.get_scores(predict_output)
 
