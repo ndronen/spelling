@@ -14,10 +14,20 @@ class LanguageModelClassifier(object):
     def __init__(self, estimators):
         self.estimators = estimators
 
-    def predict_proba(self, X, y=None):
+    def predict_proba(self, X, y=None, key='log_probs', normalize=True):
         proba = np.zeros((len(X), len(self.estimators)))
         for i,estimator in enumerate(self.estimators):
-            proba[:, i] = estimator.predict_proba(X)
+            proba[:, i] = estimator.predict_proba(X, key=key)
+        if normalize:
+            # Make each row sum to 1.
+            proba = proba / proba.sum(axis=1, keepdims=True)
+            if key != 'log_probs':
+                proba = 1 - proba
+                if normalize and len(self.estimators) != 2:
+                    # Subtracting from 1 only keeps the sum to 1
+                    # if there are 2 estimators.
+                    proba = proba / proba.sum(axis=1, keepdims=True)
+
         return proba
 
     def predict(self, X, y=None, return_proba=False):
@@ -189,8 +199,12 @@ class CharacterLanguageModel(object):
 
         return self.get_scores(predict_output)
 
-    def predict_proba(self, X):
-        return np.exp(self.predict(X)['log_probs'])
+    def predict_proba(self, X, key='log_probs'):
+        pred = self.predict(X)[key]
+        if key == 'log_probs':
+            return np.exp(pred)
+        elif key.startswith('ppl'):
+            return pred
         
     def get_fields(self, output, score, column):
         for line in output.decode(self.encoding).split('\n'):
