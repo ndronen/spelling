@@ -60,7 +60,7 @@ def build_progressbar(items):
     return progressbar.ProgressBar(term_width=40,
         widgets=[' ', progressbar.Percentage(),
         ' ', progressbar.ETA()],
-        maxval=len(items)).start()
+        max_value=len(items)).start()
 
 def build_probs_dict(probs_data_path=PROBS_DATA_PATH):
     df = pd.read_csv(probs_data_path, sep='\t', encoding='utf8')
@@ -113,11 +113,11 @@ def build_dataset(pairs, dictionary, probs=None, verbose=False):
         row['error_is_real_word'] = dictionary.check(error)
 
         # Add unary and binary features for error and the correct word.
-        for k,v in compute_unary_features(error).iteritems():
+        for k,v in compute_unary_features(error).items():
             k = 'error_' + k
             row[k] = v
 
-        for k,v in compute_binary_features(correct_word, error).iteritems():
+        for k,v in compute_binary_features(correct_word, error).items():
             k = 'correct_word_' + k
             row[k] = v
 
@@ -155,11 +155,11 @@ def build_dataset(pairs, dictionary, probs=None, verbose=False):
 
             i += 1
 
-            for k,v in compute_unary_features(suggestion).iteritems():
+            for k,v in compute_unary_features(suggestion).items():
                 k = 'suggestion_' + k
                 row[k] = v
 
-            for k,v in compute_binary_features(suggestion, error).iteritems():
+            for k,v in compute_binary_features(suggestion, error).items():
                 k = 'suggestion_' + k
                 row[k] = v
 
@@ -179,8 +179,9 @@ def build_dataset(pairs, dictionary, probs=None, verbose=False):
 
 CONSTRUCTORS = [
         #spelldict.build_norvig,
-        spelldict.build_aspell,
-        spelldict.build_aspell_with_jaro_winkler_sorter,
+        #spelldict.build_aspell,
+        #spelldict.build_aspell_with_jaro_winkler_sorter,
+        spelldict.build_aspell_and_edit_distance_retriever_with_jaro_winkler_sorter,
         #spelldict.build_norvig_without_language_model,
         #spelldict.build_norvig_with_aspell_vocab_without_language_model,
         #spelldict.build_norvig_with_aspell_vocab_with_language_model_sorter,
@@ -319,8 +320,10 @@ def evaluate_ranks(dfs, ranks=[1, 2, 3, 4, 5, 10, 25, 50], ignore_case=False, co
             # right at that rank.  The number correct at this rank
             # is cumulative.
             n_correct = len(df[(df.suggestion_index < rank) & (df.suggestion == df.correct_word)])
-            print(dict_name)
-            accuracies[dict_name].append(n_correct/n)
+            try:
+                accuracies[dict_name].append(n_correct/n)
+            except ZeroDivisionError:
+                accuracies[dict_name].append(0)
 
     evaluation = collections.defaultdict(list)
 
