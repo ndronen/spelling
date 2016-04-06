@@ -207,7 +207,7 @@ class CachingRetriever(dict):
             try:
                 words = pickle.load(open(cache_file, 'rb'))
             except (EOFError,IOError) as load_exception:
-                words = retriever[word]
+                words = self.retriever[word]
 
                 print('Caught an opening cache file %s.  Will remove %s' % (
                     cache_file, cache_file))
