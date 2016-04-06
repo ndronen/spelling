@@ -21,6 +21,8 @@ from sklearn.neighbors import NearestNeighbors, LSHForest
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.utils import check_random_state
 
+from .utils import build_progressbar as build_pbar
+
 NORVIG_DATA_PATH='data/big.txt.gz'
 ASPELL_DATA_PATH='data/aspell-dict.csv.gz'
 
@@ -183,6 +185,19 @@ class CachingRetriever(dict):
         except FileExistsError:
             pass
 
+    def load_cache(self, verbose=False):
+        cache_files = os.listdir(self.cache_dir)
+        pbar = None
+        if verbose:
+            pbar = build_pbar(cache_files)
+        for i,cache_file in enumerate(cache_files):
+            if verbose:
+                pbar.update(i+1)
+            word = os.path.basename(cache_file)
+            self[word]
+        if verbose:
+            pbar.finish()
+
     def __getitem__(self, word):
         if word in self.cache:
             return self.cache[word]
@@ -280,6 +295,14 @@ class TopKRetriever(dict):
 
     def __getitem__(self, word):
         return self.retriever[word][:self.k]
+
+class BottomKRetriever(dict):
+    def __init__(self, retriever, k):
+        self.retriever = retriever
+        self.k = k
+
+    def __getitem__(self, word):
+        return self.retriever[word][-self.k:]
 
 ###########################################################################
 # Dictionary implementations.
