@@ -223,6 +223,14 @@ class CachingRetriever(dict):
 
         return self.cache[word]
 
+class FilteringRetriever(dict):
+    def __init__(self, retriever, fltr):
+        self.__dict__.update(locals())
+        del self.self
+
+    def __getitem__(self, word):
+        words = self.retriever[word]
+        return filter(self.fltr, words)
 
 ###########################################################################
 # Classes for sorting candidates.
