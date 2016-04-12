@@ -6,43 +6,17 @@ import argparse
 import json
 import requests
 import xmltodict
-import numpy as np
+import pandas as pd
+import spelling.service as service
 
 def main(args):
     text = args.text.read().strip()
-    body = {
-            'sent-split': False, 'sent-start': False,
-            'sent-end': False, 'case-sensitive': True,
-            'text': text
-            }
     url = args.host + args.url
-    response = requests.post(url, data=json.dumps(body))
-
-    def print_http_error(response):
-        print("HTTP error %d %s %s" % (
-            response.status_code,
-            response.reason,
-            response.text), file=sys.stderr)
-
-    def print_service_error(response):
-        print("Service error %s" % (
-            response.text), file=sys.stderr)
-
-    if int(response.status_code) != 200:
-        print_http_error(response)
-    else:
-        response_dict = xmltodict.parse(response.text)
-        spellcheck = response_dict['pktServiceResponse']['spellCheck']
-        print("\t".join([
-            "Context", "NonWord", "Suggestion", "NgramRatio"]))
-        for word,values in spellcheck['content']['wordList'].items():
-            original_word = values['originalWord']
-            for replacement in values['replacement']:
-                print("\t".join([
-                    text,
-                    original_word,
-                    replacement['#text'],
-                    replacement['@ngram-ratio']]))
+    print("text", text)
+    print("url", url)
+    corrections = service.correct(url, text)
+    df = pd.DataFrame(corrections)
+    df.to_csv(args.csv_output, sep='\t', encoding='utf8', index=False)
 
 def build_parser():
     parser = argparse.ArgumentParser(
@@ -55,6 +29,8 @@ def build_parser():
             help="The path component of the URL of the spelling service")
     aa("--host", type=str, 
             help="The host of the spelling service")
+    aa("--csv-output", type=argparse.FileType("w"), default=sys.stdout,
+            help="The file to which to write CSV output (or stdout)")
 
     args = parser.parse_args()
 
