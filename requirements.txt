@@ -16,3 +16,4 @@ pyxDamerauLevenshtein
 scikit-learn 
 scipy
 tqdm
+pycodestyle
