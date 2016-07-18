@@ -30,15 +30,6 @@ class TestNormalize(unittest.TestCase):
         for text, num in hyphens.items():
             self.assertEqual(num, normalize.text2int(text))
 
-    def test_group_numeric_tokens(self):
-        text = u'It might be ten, sixty-two, twenty five, or one hundred twenty-seven MPH.'
-        doc = self.nlp(text)
-        groups = normalize.group_numeric_tokens(doc)
-        print(groups)
-        #self.assertEqual(2, len(groups))
-        #self.assertEqual(2, len(groups[0]))
-        #self.assertEqual(4, len(groups[1]))
-
     def test_is_hyphenated_compound(self):
         text = u'It might be forty-2, ten, sixty-two, twenty - five, or one hundred twenty-seven MPH.'
         doc = self.nlp(text)
@@ -52,11 +43,20 @@ class TestNormalize(unittest.TestCase):
                 )
 
         for i,tokens,expected in expectations:
-            try:
-                self.assertEqual(expected, normalize.is_hyphenated_compound(doc, i))
-            except AssertionError as e:
-                print(i, tokens, expected, e)
-                raise e
+            self.assertEqual(expected, normalize.is_hyphenated_compound(doc, i))
+
+    def test_group_number_word_tokens(self):
+        text = u'There are one hundred and thirty-two elves.'
+        doc = self.nlp(text)
+        expected = [['There'], ['are'], ['one', 'hundred', 'and', 'thirty', '-', 'two'], ['elves'], ['.']]
+        actual = normalize.group_number_word_tokens(doc)
+        self.assertEqual(len(expected), len(actual))
+
+    def test_words2digits(self):
+        text = u'There are one hundred and thirty-two elves.'
+        expected = u'There are 132 elves.'
+        actual = normalize.words2digits(text)
+        self.assertEqual(expected, actual)
 
 if __name__ == '__main__':
     unittest.main()
