@@ -92,7 +92,7 @@ class TestToken(unittest.TestCase):
                     'is_alpha': False, 
                     'is_ascii': True,
                     'is_digit': False,
-                    'like_num': True,
+                    'like_num': False,
                     'like_email': False,
                     'like_url': False
                     },
@@ -125,7 +125,7 @@ class TestToken(unittest.TestCase):
                     'is_alpha': True, 
                     'is_ascii': True,
                     'is_digit': False,
-                    'like_num': False,
+                    'like_num': True,
                     'like_email': False,
                     'like_url': False
                     },
@@ -158,9 +158,14 @@ class TestToken(unittest.TestCase):
             for func, expected in expectations[i].items():
                 try:
                     actual = getattr(token, func)
+                    #print(token, func, expected, actual)
                     self.assertEqual(expected, actual)
                 except NotImplementedError:
                     print('%s is not implemented' % func)
+
+    def test_like_email(self):
+        token = Token('user@example.com ', 0, 0, 15, 16)
+        self.assertTrue(token.like_email)
 
 if __name__ == '__main__':
     unittest.main()

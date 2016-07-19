@@ -2,7 +2,8 @@ import re
 import nltk.tokenize
 from nltk.tokenize.punkt import PunktSentenceTokenizer
 from nltk.tokenize.punkt import PunktParameters
-
+    
+# TODO: handle URLs.
 class SentenceSegmenter(object):
     def __init__(self, add_space_after_punctuation=True, abbrev_types=None):
         self.add_space_after_punctuation = add_space_after_punctuation
@@ -29,6 +30,7 @@ class SentenceSegmenter(object):
 
         return self.splitter.tokenize(text)
 
+# TODO: handle URLs.
 class Tokenizer(object):
     def __init__(self):
         self.tokenizer = nltk.tokenize.TreebankWordTokenizer()
@@ -80,6 +82,16 @@ class Token(object):
         self.end_with_ws = end_with_ws
         self.text = doc[self.start:self.end]
         self.text_with_ws = doc[self.start:self.end_with_ws]
+        self.nums = set([
+                'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+                'hundred', 'thousand', 'million', 'billion', 'trillion', 'quadrillion',
+                'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion',
+                'decillion', 'undecillion', 'duodecillion', 'tredecillion', 
+                'quatttuor', 'quatttuor-decillion', 'quindecillion', 'sexdecillion',
+                'septen', 'septen-decillion', 'octodecillion', 'novemdecillion',
+                'vigintillion', 'centillion'
+                ])
+        self.like_email_ = re.compile(r"([a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+)").match
 
     @property
     def is_alpha(self):
@@ -95,14 +107,17 @@ class Token(object):
 
     @property
     def like_num(self):
-        raise NotImplementedError()
+        if self.text.isdecimal():
+            return True
+        return self.text.lower() in self.nums
 
     @property
     def like_email(self):
-        raise NotImplementedError()
+        return self.like_email_(self.text) is not None
 
     @property
     def like_url(self):
+        # TODO
         raise NotImplementedError()
 
     @property
