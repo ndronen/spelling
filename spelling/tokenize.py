@@ -72,15 +72,14 @@ class Tokenizer(object):
         return tuple(spans)
 
 class Token(object):
-    def __init__(self, text, i, start, end, end_with_ws):
-        self.__dict__.update(locals())
+    def __init__(self, doc, i, start, end, end_with_ws):
         self.i = i 
         self.idx = start
         self.start = start
         self.end = end
         self.end_with_ws = end_with_ws
-        self.text = text[self.start:self.end]
-        self.text_with_ws = text[self.start:self.end_with_ws]
+        self.text = doc[self.start:self.end]
+        self.text_with_ws = doc[self.start:self.end_with_ws]
 
     @property
     def is_alpha(self):
@@ -88,11 +87,7 @@ class Token(object):
 
     @property
     def is_ascii(self):
-        return self.text.isascii()
-
-    @property
-    def is_bracket(self):
-        return self.text in ['[', ']']
+        return not any(ord(c) >= 128 for c in self.text)
 
     @property
     def is_digit(self):
@@ -112,7 +107,7 @@ class Token(object):
 
     @property
     def whitespace(self):
-        raise NotImplementedError()
+        return self.text_with_ws[len(self.text):]
 
     def __str__(self):
         return self.text
