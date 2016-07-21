@@ -209,6 +209,7 @@ class Token(object):
         self.text_with_ws = doc[self.start:self.end_with_ws]
         self.nums = set([
                 'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+                'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety',
                 'hundred', 'thousand', 'million', 'billion', 'trillion', 'quadrillion',
                 'quintillion', 'sextillion', 'septillion', 'octillion', 'nonillion',
                 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 
@@ -271,8 +272,5 @@ class Token(object):
     def whitespace(self):
         return self.text_with_ws[len(self.text):]
 
-    def __str__(self):
-        return self.text
-
     def __repr__(self):
-        return str([self.text, self.start, self.end])
+        return self.text
