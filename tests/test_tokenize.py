@@ -13,6 +13,8 @@ class TestSentenceSegmenter(unittest.TestCase):
 
 class TestTokenizer(unittest.TestCase):
     def setUp(self):
+        self.text = u'is THAT what you mean, Capt. Donovan?for a moment i was confused.'
+        self.tokenizer = Tokenizer()
         self.expected_spans = (
                 (0, 2, 3),
                 (3, 7, 8),
@@ -32,16 +34,63 @@ class TestTokenizer(unittest.TestCase):
                 (64, 65, 65)
                 )
 
+    def test_next_space(self):
+        i = self.tokenizer.next_space(self.text)
+        self.assertEqual(2, i)
+
+    def test_next_non_space(self):
+        start = 2
+        start += self.tokenizer.next_non_space(self.text[start:])
+        self.assertEqual(3, start)
+
+    def test_find_new_position(self):
+        text = u'A url http://www.example.com was used here.'
+
+        tokens = self.tokenizer.tokenizer.tokenize(text)
+        # ['A', 'url', 'http', ':', '//www.example.com', 'was', 'used', 'here', '.']
+        self.assertTrue(tokens is not None)
+        self.assertTrue(len(tokens) == 9)
+        self.assertTrue(tokens[2] == 'http')
+
+        # Set position to the index of 'http' in the token list.
+        i = 2
+        # Set character index to the 'w' of 'was'
+        end_with_ws = text.index('was')
+
+        new_i = self.tokenizer.find_new_position(text[end_with_ws:], tokens, i)
+        self.assertEqual(tokens.index('was'), new_i)
+
+    def test_handle_simple_token(self):
+        tokens = self.tokenizer.tokenizer.tokenize(self.text)
+        i, end, end_with_ws = self.tokenizer.handle_simple_token(
+                self.text, tokens, i=0, start=0)
+        self.assertEqual(1, i)
+        self.assertEqual(2, end)
+        self.assertEqual(3, end_with_ws)
+
+    def test_handle_url_token(self):
+        url = u'http://www.example.com'
+        text = u'A url %s was used here.' % url
+
+        tokens = self.tokenizer.tokenizer.tokenize(text)
+        # ['A', 'url', 'http', ':', '//www.example.com', 'was', 'used', 'here', '.']
+        self.assertTrue(tokens is not None)
+        self.assertTrue(len(tokens) == 9)
+        self.assertTrue(tokens[2] == 'http')
+
+        i, end, end_with_ws = self.tokenizer.handle_url_token(
+                text, tokens, i=2, start=6)
+
+        self.assertEqual(tokens.index('was'), i)
+        self.assertEqual(text.index(url) + len(url), end)
+        self.assertEqual(text.index(url) + len(url) + 1, end_with_ws)
+
     def test_build_spans(self):
-        text = u'is THAT what you mean, Capt. Donovan?for a moment i was confused.'
-        tokenizer = Tokenizer()
-        actual = tokenizer.build_spans(text)
+        actual = self.tokenizer.build_spans(self.text)
         self.assertEqual(self.expected_spans, actual)
 
     def test_call(self):
-        text = u'is THAT what you mean, Capt. Donovan?for a moment i was confused.'
-        tokenizer = Tokenizer()
-        tokens = tokenizer(text)
+        tokens = self.tokenizer(self.text)
         self.assertEqual(len(self.expected_spans), len(tokens))
         self.assertEqual('is', tokens[0].text)
         self.assertEqual('is ', tokens[0].text_with_ws)
@@ -166,6 +215,10 @@ class TestToken(unittest.TestCase):
     def test_like_email(self):
         token = Token('user@example.com ', 0, 0, 15, 16)
         self.assertTrue(token.like_email)
+
+    def test_like_url(self):
+        token = Token('http://www.example.com ', 0, 0, 22, 23)
+        self.assertTrue(token.like_url)
 
 if __name__ == '__main__':
     unittest.main()
