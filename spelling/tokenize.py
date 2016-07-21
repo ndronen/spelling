@@ -74,15 +74,9 @@ class Tokenizer(object):
         i : int
             The index in `token` of the initial, old position.
         """
-        #print('find_new_position i=%d text=%s' % (i, text))
         new_i = i
         first_token_in_text = self.tokenizer.tokenize(text)[0]
-        while new_i < len(tokens):
-            #print('%d new "%s" first "%s"' % (new_i, tokens[new_i], first_token_in_text))
-            # TODO: this should throw an exception if it can't find a 
-            # matching token.
-            if tokens[new_i] == first_token_in_text:
-                break
+        while tokens[new_i] != first_token_in_text:
             new_i += 1
         return new_i
 
