@@ -80,11 +80,16 @@ class TestNormalize(unittest.TestCase):
         self.assertEqual(True, actual)
 
     def test_convert_integer_words_to_integers(self):
-        text = u'There are one hundred and thirty-two elves.'
-        expected = u'There are 132 elves.'
+        expectations = (
+                (u'There are one hundred and thirty-two elves.', u'There are 132 elves.'),
+                (u'There are one hundred and thirty two elves.', u'There are 132 elves.'),
+                (u'Five million five thousand one hundred and sixty-two.', u'5005162.'),
+                (u'Five million five thousand one hundred sixty-two.', u'5005162.'),
+                )
         transformer = normalize.ConvertIntegerWordsToIntegers(self.tokenizer)
-        actual = transformer.transform([text])
-        self.assertEqual(expected, actual[0])
+        actual = transformer.transform([e[0] for e in expectations])
+        for i,act in enumerate(actual):
+            self.assertEqual(expectations[i][1], act)
 
 if __name__ == '__main__':
     unittest.main()

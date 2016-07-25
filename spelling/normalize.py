@@ -27,7 +27,7 @@ def build_integer_words():
 
     return integer_words
 
-def convert_integer_words_to_integers(textnum, integer_words={}):
+def convert_integer_words_to_integers(text, integer_words={}):
     if not integer_words:
         integer_words = build_integer_words()
 
@@ -36,10 +36,11 @@ def convert_integer_words_to_integers(textnum, integer_words={}):
             'eighth': 8, 'ninth': 9, 'twelfth': 12
             }
     ordinal_endings = [('ieth', 'y'), ('th', '')]
-    textnum = textnum.replace('-', ' ')
+    text = text.replace('-', ' ')
     current = result = 0
 
-    for word in textnum.split():
+    for word in text.split():
+        word = word.lower()
         if word in ordinal_words:
             scale, increment = (1, ordinal_words[word])
         else:
