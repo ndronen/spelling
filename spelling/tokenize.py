@@ -175,9 +175,11 @@ class Tokenizer(object):
             return self.handle_simple_token(text, tokens, i, start)
 
     def build_spans(self, text):
+        i = idx = start = end = end_with_ws = 0
+        if text[0].isspace():
+            start = end = end_with_ws = self.next_non_space(text)
         tokens = self.tokenizer.tokenize(text)
         spans = []
-        i = idx = start = end = end_with_ws = 0
         while i < len(tokens):
             i, end, end_with_ws = self.handle_token(text, tokens, i, start)
             spans.append((start, end, end_with_ws))

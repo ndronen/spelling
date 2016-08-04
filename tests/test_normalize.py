@@ -7,11 +7,6 @@ import spacy
 class TestNormalize(unittest.TestCase):
     def setUp(self):
         self.tokenizer = Tokenizer()
-        """
-        This test should pass using the spacy tokenizer, too.
-        self.tokenizer = spacy.load('en',
-            parser=False, tagger=False, entity=False, matcher=False, serializer=False)
-        """
 
     def test_convert_integer_words_to_integers_function(self):
         digits = {
@@ -40,7 +35,6 @@ class TestNormalize(unittest.TestCase):
     def test_is_hyphenated_compound(self):
         text = u'It might be forty-2, ten, sixty-two, twenty - five, or one hundred twenty-seven MPH.'
         tokens = self.tokenizer(text)
-
         if isinstance(self.tokenizer, Tokenizer):
             expectations = (
                     (0, "It might", False),
@@ -62,16 +56,26 @@ class TestNormalize(unittest.TestCase):
             self.assertEqual(expected, normalize.is_hyphenated_compound(tokens, i))
 
     def test_group_integer_word_tokens(self):
-        text = u'There are one hundred and thirty-two elves.'
-        tokens = self.tokenizer(text)
         if isinstance(self.tokenizer, Tokenizer):
-            expected = [['There'], ['are'], ['one', 'hundred', 'and', 'thirty-two'], ['elves'], ['.']]
+            expectations = (
+                (
+                        u'There are one hundred and thirty-two elves.',
+                        [['There'], ['are'], ['one', 'hundred', 'and', 'thirty-two'], ['elves'], ['.']]),
+                (
+                        u'in my opain it will take about suger and salt put together.so that will be about 2 minits.',
+                        [['in'], ['my'], ['opain'], ['it'], ['will'], ['take'], ['about'], ['suger'], ['and'], ['salt'], ['put'], ['together.so'], ['that'], ['will'], ['be'], ['about'], ['2'], ['minits'], ['.']])
+                )
         else:
-            expected = [['There'], ['are'], ['one', 'hundred', 'and', 'thirty', '-', 'two'], ['elves'], ['.']]
-        actual = normalize.group_integer_word_tokens(tokens)
-        self.assertEqual(len(expected), len(actual))
-        for i,group in enumerate(actual):
-            self.assertEqual(len(expected[i]), len(actual[i]))
+            expectations = (
+                    (text, [['There'], ['are'], ['one', 'hundred', 'and', 'thirty', '-', 'two'], ['elves'], ['.']]),
+                    )
+
+        for text,expected in expectations:
+            tokens = self.tokenizer(text)
+            actual = normalize.group_integer_word_tokens(tokens)
+            self.assertEqual(len(expected), len(actual))
+            for i,group in enumerate(actual):
+                self.assertEqual(len(expected[i]), len(actual[i]))
 
     def test_is_integer_word_conjunction(self):
         text = u'one hundred and thirty-two'
@@ -87,9 +91,23 @@ class TestNormalize(unittest.TestCase):
                 (u'Five million five thousand one hundred sixty-two.', u'5005162.'),
                 )
         transformer = normalize.ConvertIntegerWordsToIntegers(self.tokenizer)
-        actual = transformer.transform([e[0] for e in expectations])
+        actual = transformer.transform((e[0] for e in expectations))
         for i,act in enumerate(actual):
             self.assertEqual(expectations[i][1], act)
+
+    def test_convert_integers_to_range_labels(self):
+        expectations = (
+            (10, 15, u'This has a digit, 12, that is within range.', u'This has a digit, INSIDERANGE, that is within range.'),
+            (10, 15, u'This has a digit, 9, that is outside the range.', u'This has a digit, OUTSIDERANGE, that is outside the range.'),
+            (16, 32, u' 23 , because there is a huge drop between  40  and  60  treatments, and that number is around the middle of those two.', u' INSIDERANGE , because there is a huge drop between  OUTSIDRANGE  and  OUTSIDERANGE  treatments, and that number is around the middle of those two.')
+            )
+        for i, (min_range, max_range, text, expected) in enumerate(expectations):
+            print(text)
+            transformer = normalize.ConvertIntegersToRangeLabels(Tokenizer(),
+                    min_range=min_range, max_range=max_range)
+            actual = transformer.transform([text])[0]
+            print(actual)
+            self.assertEqual(expected, actual)
 
 if __name__ == '__main__':
     unittest.main()

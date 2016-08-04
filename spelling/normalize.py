@@ -199,7 +199,7 @@ def group_integer_word_tokens(tokens):
                 groups[-1].append(token)
                 prev_numeric = i
             else:
-                groups.append([])
+                groups.append([token])
         elif token.text.lower() == 'and':
             # Group "... one hundred and twenty ... " into
             # [[...], ['one', 'hundred', 'and', 'twenty'], [...]].
@@ -207,7 +207,7 @@ def group_integer_word_tokens(tokens):
                 groups[-1].append(token)
                 prev_numeric = i
             else:
-                groups.append([])
+                groups.append([token])
         else:
             # The token is either numeric or just a word.  If it's just
             # a word, we will append a new group.  If it is numeric, we
@@ -234,7 +234,7 @@ class ConvertIntegerWordsToIntegers(skbase.BaseEstimator,skbase.TransformerMixin
         """
         Parameters
         ----------
-        tokenizer : a callable tokenzer object 
+        tokenizer : a callable tokenizer object 
             This can be an instance of spacy.en.English or a Tokenizer.
             Both implementations return an iterable over tokens.
         """
@@ -250,12 +250,15 @@ class ConvertIntegerWordsToIntegers(skbase.BaseEstimator,skbase.TransformerMixin
             groups = group_integer_word_tokens(tokens)
             strings = []
             i = 0
+            #print('text', text)
+            #print('groups', groups)
             for group in groups:
+                #print('group', group)
                 if len(group) == 1:
                     token = group[0]
                     if is_integer_word(tokens, i):
                         ws = token.text_with_ws[len(token.text):]
-                        strings.append(convert_integer_words_to_integers(token.text) + ws)
+                        strings.append(str(convert_integer_words_to_integers(token.text)) + ws)
                     else:
                         strings.append(token.text_with_ws)
                     i += 1
@@ -268,5 +271,48 @@ class ConvertIntegerWordsToIntegers(skbase.BaseEstimator,skbase.TransformerMixin
                     integer = convert_integer_words_to_integers(strings[-1])
                     strings[-1] = str(integer) + last_ws
                     i += len(group)
+            xformed.append(''.join(strings))
+        return xformed
+
+class ConvertIntegersToRangeLabels(skbase.BaseEstimator,skbase.TransformerMixin):
+    def __init__(self, tokenizer, min_range, max_range):
+        """
+        Replace integer tokens matching r'\W\d+\W' with either `INSIDERANGE`
+        or `OUTSIDERANGE`, depending on whether the token x satisfies
+        the inequality `min_range <= x <= max_range`.
+
+        Parameters
+        ----------
+        tokenizer : a callable tokenizer object 
+            This can be an instance of spacy.en.English or a Tokenizer.
+            Both implementations return an iterable over tokens.
+        min_range : int
+            The minimum value of the range.
+        max_range : int
+            The maximum value of the range.
+        """
+        self.tokenizer = tokenizer
+        self.min_range = min_range
+        self.max_range = max_range
+
+    def fit(self, X, y=None, **fit_params):
+        return self
+
+    def transform(self, X):
+        xformed = []
+        for text in X:
+            tokens = self.tokenizer(text)
+            strings = []
+            print('text', text)
+            for i,token in enumerate(tokens):
+                if token.is_digit:
+                    print(token.text + ' is digit')
+                    if self.min_range <= float(token.text) <= self.max_range:
+                        strings.append('INSIDERANGE' + token.whitespace)
+                    else:
+                        strings.append('OUTSIDERANGE' + token.whitespace)
+                else:
+                    print(token.text + ' is not digit')
+                    strings.append(token.text_with_ws)
             xformed.append(''.join(strings))
         return xformed
