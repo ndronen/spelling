@@ -179,6 +179,14 @@ class Tokenizer(object):
         if text[0].isspace():
             start = end = end_with_ws = self.next_non_space(text)
         tokens = self.tokenizer.tokenize(text)
+
+        for j, t in enumerate(tokens):
+            if t == '``':
+                t = '"'
+            elif t == "''":
+                t = '"'
+            tokens[j] = t
+
         spans = []
         while i < len(tokens):
             i, end, end_with_ws = self.handle_token(text, tokens, i, start)

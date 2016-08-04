@@ -97,6 +97,12 @@ class TestTokenizer(unittest.TestCase):
         self.assertEqual('confused', tokens[-2].text)
         self.assertEqual('confused', tokens[-2].text_with_ws)
 
+    def test_inputs_that_break_tokenizer(self):
+        texts = [u'well neva was seeing how many crickets the lizard would eat and she can see how many crickets to feed her lizard by boiling at the graph perhaps shes boiling on a trip, she could look at the graph and see"i need to put 60 crickets because i\'m boiling on a twelve day trip".']
+        tokenizer = Tokenizer()
+        for text in texts:
+            tokenizer(text)
+
 @unittest.skip('')
 class TestToken(unittest.TestCase):
     def test_text_with_ws(self):
@@ -220,6 +226,7 @@ class TestToken(unittest.TestCase):
     def test_like_url(self):
         token = Token('http://www.example.com ', 0, 0, 22, 23)
         self.assertTrue(token.like_url)
+
 
 if __name__ == '__main__':
     unittest.main()
