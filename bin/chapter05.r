@@ -4,8 +4,12 @@ library(gtools)
 library(Hmisc)
 library(gridExtra)
 
+make_figure_directory <- function(chapter) {
+  dir.create(paste0("figures/", chapter),
+             recursive=TRUE, showWarnings=FALSE)
+}
+
 plot_analysis <- function() {
-  dir.create("figures/chapter05", recursive=TRUE, showWarnings=FALSE)
 
   files <- dir("data", pattern="*-analysis.csv")
   files <- paste0("data/", files)
@@ -33,6 +37,7 @@ plot_analysis <- function() {
   
   # The distributions of word lengths and of edit distances from the
   # non-word to the true correction.
+  make_figure_directory("chapter05")
 
   pdf("figures/chapter05/freq-dist-length-distance.pdf")
   dist_length <- histogram(~Length | Corpus,
@@ -68,20 +73,54 @@ plot_density_of_logprob_by_length <- function() {
   library(ggplot2)
   library(stringr)
 
-  dir.create("figures/chapter06/", recursive=TRUE, showWarnings=FALSE)
-  
   df <- read.csv('data/aspell-dict.csv.gz', sep='\t')
+  cat('df ', nrow(df), '\n')
+  non_possessive <- is.na(str_match(df$word, "'"))
+  df <- subset(df, non_possessive)
+  cat('df ', nrow(df), '\n')
   df$Length <- str_length(df$word)
-  lengths <- c(2,3,4,5,7,9,11,13,15,17,19)
+  lengths <- c(2,3,4,5,6,7,8,9,10)
   df <- subset(df, Length %in% lengths)
   df$Length <- as.factor(df$Length)
   df$logprob <- log(df$google_ngram_prob)
   m <- ggplot(df, aes(x=logprob, color=Length))
   m <- m + geom_density()
-  m <- m + xlim(-60, 0)
+  m <- m + xlim(-45, 0)
   m <- m + labs(x="Log probability", y="Density")
+  make_figure_directory("chapter06")
   ggsave("figures/chapter06/logprob-density-by-length.pdf", m)
+  dev.off()
 }
 
-plot_density_of_logprob_by_length()
+plot_corpora_histograms <- function() {
+  corpora <- c("Aspell", "Birbeck", "Holbrook", "Wikipedia")
+
+  df <- NULL
+
+  for (corpus in corpora) {
+    tmp <- read.csv(paste0("data/", corpus, "-chapter05.csv"), sep="\t")
+    tmp$Corpus <- corpus
+    df <- rbind(df, tmp)
+  }
+
+  plen <- ggplot(df, aes(x=len, fill=Corpus))
+  plen <- plen + geom_histogram(aes(y=0.5*..density..), binwidth=0.5, position="dodge")
+  plen <- plen + labs(x="Non-word length", y="Density")
+  plen <- plen + coord_cartesian(xlim=c(0,15))
+
+  plev <- ggplot(subset(df, df$levenshtein > 0),
+    aes(x=levenshtein, fill=Corpus))
+  plev <- plev + geom_histogram(aes(y=0.5*..density..), binwidth=0.5, position="dodge")
+  plev <- plev + labs(x="Levenshtein distance between non-word and correction", y="Density")
+  plev <- plev + coord_cartesian(xlim=c(0,10))
+
+  make_figure_directory("chapter05")
+  pdf("figures/chapter05/corpora-histograms.pdf")
+  grid.arrange(plen, plev, ncol=1)
+  dev.off()
+}
+
+graphics.off()
+plot_corpora_histograms()
 plot_analysis()
+plot_density_of_logprob_by_length()

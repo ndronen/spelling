@@ -402,14 +402,14 @@ class ModularDictionaryBuilder(DictionaryBuilder):
             train_file = gzip.open(data_path)
             train_file = codecs.EncodedFile(train_file, 'utf8')
 
-            text = train_file.read()
+            text = str(train_file.read())
             words = re.findall('[a-z]+', text.lower())
 
             model = collections.defaultdict(lambda: 1)
             for w in words:
                 model[w] += 1
 
-            for k,v in model.iteritems():
+            for k,v in model.items():
                 self.vocabulary.append(k)
                 self.probs.append(v)
         elif vocab_type == 'aspell':
